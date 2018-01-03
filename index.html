@@ -3,20 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="js/lib/three.min.js"></script>
+    <script src="js/lib/three-test.js"></script>
+    <!--<script src="js/lib/three.min.js"></script>-->
     <script src="globe.js"></script>
+    <style>
+
+        html, body, #globalArea {
+            height: 100%;
+            width: 100%;
+        }
+
+    </style>
 </head>
 <body>
+
+    <script id="globeVertexShader" type="x-shader/x-vertex">
+            varying vec3 vNormal;
+            varying vec2 vUv;
+            void main() {
+                gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0);
+                vNormal = normalize( normalMatrix * normal );
+                vUv = uv;
+            }
+    </script>
+    <script id="globeFragmentShader" type="x-shader/x-fragment">
+            uniform sampler2D mapIndex;
+            uniform sampler2D lookup;
+            uniform sampler2D outline;
+            uniform float outlineLevel;
+            varying vec3 vNormal;
+            varying vec2 vUv;
+            void main() {
+                vec4 mapColor = texture2D( mapIndex, vUv );
+                float indexedColor = mapColor.x;
+                vec2 lookupUV = vec2( indexedColor, 0. );
+                vec4 lookupColor = texture2D( lookup, lookupUV );
+                float mask = lookupColor.x + (1.-outlineLevel) * indexedColor;
+                mask = clamp(mask,0.,1.);
+                float outlineColor = texture2D( outline, vUv ).x * outlineLevel;
+                float diffuse = mask + outlineColor;
+                gl_FragColor = vec4( vec3(diffuse), 1.  );
+                // gl_FragColor = vec4( lookupColor );
+                // gl_FragColor = vec4(texture2D( lookup, vUv ).xyz,1.);
+            }
+    </script>
+
 <div id="globalArea"></div>
 
 <script>
-
     var container = document.getElementById("globalArea");
-
     var globe = new Globe(container);
     globe.addData();
     globe.init();
-
 </script>
 
 </body>

@@ -10,7 +10,6 @@ Globe = function(container) {
     };
 
     this.init = function() {
-
     };
 
     function onClick() {

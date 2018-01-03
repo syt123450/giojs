@@ -3,6 +3,9 @@
  */
 Globe = function(container) {
 
+    var mapIndexedImage;
+    var mapOutlineImage;
+
     this.container = container;
 
     this.addData = function() {
@@ -10,7 +13,15 @@ Globe = function(container) {
     };
 
     this.init = function() {
-
+        mapIndexedImage = new Image();
+        mapIndexedImage.src = 'assets/map_indexed.png';
+        mapIndexedImage.onload = function() {
+            mapOutlineImage = new Image();
+            mapOutlineImage.src = 'assets/map_outline.png';
+            mapOutlineImage.onload = function(){
+                initScene();
+            };
+        };
     };
 
     function onClick() {

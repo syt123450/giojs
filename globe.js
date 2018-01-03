@@ -22,7 +22,12 @@ Globe = function(container) {
                 initScene();
             };
         };
+        document.addEventListener('onclick', onClick, false);
     };
+
+    function initScene() {
+
+    }
 
     function onClick() {
         clickCountry();

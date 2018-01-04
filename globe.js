@@ -500,6 +500,8 @@ Globe = function (container) {
 
         console.log(pickColorIndex);
 
+        highlightCountry(pickColorIndex);
+
         // clickCountry();
     }
 
@@ -513,10 +515,6 @@ Globe = function (container) {
         initMarker();
     }
 
-    // function highlightCountry() {
-    //
-    // }
-
     function generateLines() {
 
     }
@@ -529,64 +527,18 @@ Globe = function (container) {
 
     }
 
-    // function highlightCountry( countries ){
-    //     var countryCodes = [];
-    //     for( var i in countries ){
-    //         var code = findCode(countries[i]);
-    //         countryCodes.push(code);
-    //     }
-    //
-    //     var ctx = lookupCanvas.getContext('2d');
-    //     ctx.clearRect(0,0,256,1);
-    //
-    //     //	color index 0 is the ocean, leave it something neutral
-    //
-    //     //	this fixes a bug where the fill for ocean was being applied during pick
-    //     //	all non-countries were being pointed to 10 - bolivia
-    //     //	the fact that it didn't select was because bolivia shows up as an invalid country due to country name mismatch
-    //     //	...
-    //     var pickMask = countries.length == 0 ? 0 : 1;
-    //     var oceanFill = 10 * pickMask;
-    //     ctx.fillStyle = 'rgb(' + oceanFill + ',' + oceanFill + ',' + oceanFill +')';
-    //     ctx.fillRect( 0, 0, 1, 1 );
-    //
-    //     // for( var i = 0; i<255; i++ ){
-    //     // 	var fillCSS = 'rgb(' + i + ',' + 0 + ',' + i + ')';
-    //     // 	ctx.fillStyle = fillCSS;
-    //     // 	ctx.fillRect( i, 0, 1, 1 );
-    //     // }
-    //
-    //     var selectedCountryCode = selectedCountry.countryCode;
-    //
-    //     for( var i in countryCodes ){
-    //         var countryCode = countryCodes[i];
-    //         var colorIndex = countryColorMap[ countryCode ];
-    //
-    //         var mapColor = countryData[countries[i]].mapColor;
-    //         // var fillCSS = '#ff0000';
-    //         var fillCSS = '#333333';
-    //         if( countryCode === selectedCountryCode )
-    //             fillCSS = '#eeeeee'
-    //         // if( mapColor !== undefined ){
-    //         // 	var k = map( mapColor, 0, 200000000, 0, 255 );
-    //         // 	k = Math.floor( constrain( k, 0, 255 ) );
-    //         // 	fillCSS = 'rgb(' + k + ',' + k + ',' + k + ')';
-    //         // }
-    //         ctx.fillStyle = fillCSS;
-    //         ctx.fillRect( colorIndex, 0, 1, 1 );
-    //     }
-    //
-    //     lookupTexture.needsUpdate = true;
-    // }
-    //
-    // function findCode(countryName){
-    //     countryName = countryName.toUpperCase();
-    //     for( var i in countryLookup ){
-    //         if( countryLookup[i] === countryName )
-    //             return i;
-    //     }
-    //     return 'not found';
-    // }
+    function highlightCountry(code) {
+
+        var ctx = lookupCanvas.getContext('2d');
+        ctx.clearRect(0, 0, 256, 1);
+
+        var fillCSS = '#eeeeee';
+
+        ctx.fillStyle = fillCSS;
+        ctx.fillRect(code, 0, 1, 1);
+
+        lookupTexture.needsUpdate = true;
+    }
 
     function getPickColor() {
         var affectedCountries = undefined;

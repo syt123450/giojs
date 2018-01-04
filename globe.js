@@ -27,6 +27,18 @@ Globe = function(container) {
 	var timeBins;
 	var latlonData;
 	var selectableCountries = [];
+
+	var light1, light2;
+
+	var rotating;
+
+
+	var lookupCanvas;
+	var lookupTexture;
+
+    var mapUniforms;
+
+    var sphere;
 	
     this.addData = function() {
 
@@ -102,6 +114,7 @@ Globe = function(container) {
 		    'outline': { type: 't', value: 2, texture: outlinedMapTexture },
 		    'outlineLevel': {type: 'f', value: 1 },
 	    };
+
 	    mapUniforms = uniforms;
 	
 	    var shaderMaterial = new THREE.ShaderMaterial( {
@@ -146,8 +159,11 @@ Globe = function(container) {
 	    camera.position.y = 0;
 	    camera.lookAt(scene.width/2, scene.height/2);
 	    scene.add( camera );
-	
-	    // var windowResize = THREEx.WindowResize(renderer, camera)
+
+        document.addEventListener( 'mousemove', onDocumentMouseMove, true );
+        document.addEventListener( 'mousedown', onDocumentMouseDown, true );
+        document.addEventListener( 'mouseup', onDocumentMouseUp, false );
+        document.addEventListener( 'click', onClick, true );
     
     }
 
@@ -176,6 +192,12 @@ Globe = function(container) {
         pressY = mouseY;
         rotateTargetX = undefined;
         rotateTargetX = undefined;
+    }
+
+    function onDocumentMouseUp( event ){
+        // d3Graphs.zoomBtnMouseup();
+        dragging = false;
+        histogramPressed = false;
     }
 
     function animate () {
@@ -305,11 +327,11 @@ Globe = function(container) {
 
     function getPickColor(){
         var affectedCountries = undefined;
-        if( visualizationMesh.children[0] !== undefined )
-            affectedCountries = visualizationMesh.children[0].affectedCountries;
-
-        highlightCountry([]);
-        rotating.remove(visualizationMesh);
+        // if( visualizationMesh.children[0] !== undefined )
+        //     affectedCountries = visualizationMesh.children[0].affectedCountries;
+        //
+        // highlightCountry([]);
+        // rotating.remove(visualizationMesh);
         mapUniforms['outlineLevel'].value = 0;
         lookupTexture.needsUpdate = true;
 
@@ -343,11 +365,11 @@ Globe = function(container) {
         gl.preserveDrawingBuffer = false;
 
         mapUniforms['outlineLevel'].value = 1;
-        rotating.add(visualizationMesh);
+        // rotating.add(visualizationMesh);
 
 
         if( affectedCountries !== undefined ){
-            highlightCountry(affectedCountries);
+            // highlightCountry(affectedCountries);
         }
         return buf[0];
     }

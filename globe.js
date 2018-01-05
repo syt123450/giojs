@@ -345,8 +345,56 @@ Globe = function (container) {
 
     var visualizationMesh;
 
-    function buildDataVizGeometries() {
+    var inputData = [
+        {},
+        {}
+    ];
 
+    var countryData = [];
+
+    function buildDataVizGeometries( linearData ){
+
+        var loadLayer = document.getElementById('loading');
+
+        for( var i in linearData ){
+            var yearBin = linearData[i].data;
+
+            var year = linearData[i].t;
+
+            var count = 0;
+            console.log('Building data for ...' + year);
+            for( var s in yearBin ){
+                var set = yearBin[s];
+
+                var exporterName = set.e.toUpperCase();
+                var importerName = set.i.toUpperCase();
+
+                exporter = countryData[exporterName];
+                importer = countryData[importerName];
+
+                //	we couldn't find the country, it wasn't in our list...
+                if( exporter === undefined || importer === undefined )
+                    continue;
+
+                //	visualize this event
+                set.lineGeometry = makeConnectionLineGeometry( exporter, importer, set.v, set.wc );
+
+                // if( s % 1000 == 0 )
+                // 	console.log( 'calculating ' + s + ' of ' + yearBin.length + ' in year ' + year);
+            }
+
+            //	use this break to only visualize one year (1992)
+            // break;
+
+            //	how to make this work?
+            // loadLayer.innerHTML = 'loading data for ' + year + '...';
+            // console.log(loadLayer.innerHTML);
+        }
+
+        console.log("*****");
+        console.log(linearData);
+
+        loadLayer.style.display = 'none';
     }
 
     var globeRadius = 1000;

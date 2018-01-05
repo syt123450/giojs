@@ -148,6 +148,7 @@ Globe = function (container) {
         scene.add(camera);
 
         rotateToTargetCountry();
+        highlightCountry(96);
 
         document.addEventListener('mousemove', onDocumentMouseMove, true);
         document.addEventListener('mousedown', onDocumentMouseDown, true);
@@ -341,6 +342,10 @@ Globe = function (container) {
 
         var ctx = lookupCanvas.getContext('2d');
         ctx.clearRect(0, 0, 256, 1);
+
+        var oceanFill = 10;
+        ctx.fillStyle = 'rgb(' + oceanFill + ',' + oceanFill + ',' + oceanFill +')';
+        ctx.fillRect( 0, 0, 1, 1 );
 
         var fillCSS = '#eeeeee';
 

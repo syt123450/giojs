@@ -24,7 +24,6 @@ Globe = function (container) {
 
     this.addData = function (data) {
         inputData = JSON.parse(JSON.stringify(data));
-        buildDataVizGeometries();
     };
 
     this.init = function () {
@@ -42,6 +41,8 @@ Globe = function (container) {
     };
 
     function initScene() {
+
+        buildDataVizGeometries();
 
         //	-----------------------------------------------------------------------------
         //	Let's make a scene
@@ -145,6 +146,8 @@ Globe = function (container) {
         camera.position.y = 0;
         camera.lookAt(scene.width / 2, scene.height / 2);
         scene.add(camera);
+
+        rotateToTargetCountry();
 
         document.addEventListener('mousemove', onDocumentMouseMove, true);
         document.addEventListener('mousedown', onDocumentMouseDown, true);
@@ -304,6 +307,10 @@ Globe = function (container) {
         console.log(pickColorIndex);
 
         highlightCountry(pickColorIndex);
+
+        selectedCountry = countryData[reversedCountryColorMap[pickColorIndex]];
+
+        rotateToTargetCountry();
 
         // clickCountry();
     }
@@ -580,6 +587,28 @@ Globe = function (container) {
         };
 
         return splineOutline;
+    }
+
+    function rotateToTargetCountry() {
+        rotateTargetX = selectedCountry.lat * Math.PI/180;
+        var targetY0 = -(selectedCountry.lon - 9) * Math.PI / 180;
+        var piCounter = 0;
+        while(true) {
+            var targetY0Neg = targetY0 - Math.PI * 2 * piCounter;
+            var targetY0Pos = targetY0 + Math.PI * 2 * piCounter;
+            if(Math.abs(targetY0Neg - rotating.rotation.y) < Math.PI) {
+                rotateTargetY = targetY0Neg;
+                break;
+            } else if(Math.abs(targetY0Pos - rotating.rotation.y) < Math.PI) {
+                rotateTargetY = targetY0Pos;
+                break;
+            }
+            piCounter++;
+            rotateTargetY = wrap(targetY0, -Math.PI, Math.PI);
+        }
+
+        rotateVX *= 0.6;
+        rotateVY *= 0.6;
     }
 
     function constrain(v, min, max) {
@@ -1097,6 +1126,8 @@ Globe = function (container) {
         ZM: {colorCode: 60, name: 'ZAMBIA', lat: -15, lon: 30},
         ZW: {colorCode: 135, name: 'ZIMBABWE', lat: -20, lon: 30}
     };
+
+    var selectedCountry = countryData["CN"];
 
     createCountryCenter();
 };

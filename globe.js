@@ -781,6 +781,14 @@ Globe = function (container) {
     }
     
 
+    function wrap(value, min, rangeSize) {
+        rangeSize-=min;
+        while (value < min) {
+            value += rangeSize;
+        }
+        return value % rangeSize;
+    }
+
     function constrain(v, min, max) {
         if (v < min)
             v = min;

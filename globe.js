@@ -156,7 +156,6 @@ Globe = function (container) {
         rotateToTargetCountry();
         highlightCountry(96);
 
-
         document.addEventListener('mousemove', onDocumentMouseMove, true);
         document.addEventListener('mousedown', onDocumentMouseDown, true);
         document.addEventListener('mouseup', onDocumentMouseUp, false);
@@ -483,7 +482,6 @@ Globe = function (container) {
         var linesGeo = new THREE.Geometry();
         var lineColors = [];
 
-<<<<<<< HEAD
     var inputData = [
         {i: "AD", e: "AE", v: 1000},
         {i: "AE", e: "AF", v: 1000}
@@ -551,8 +549,7 @@ Globe = function (container) {
                 var point = points[rIndex];
                 var particle = point.clone();
                 particle.moveIndex = rIndex;
-<<<<<<< HEAD
-<<<<<<< HEAD
+
                 particle.nextIndex = rIndex + 1;
                 if (particle.nextIndex >= points.length)
                     particle.nextIndex = 0;
@@ -595,8 +592,7 @@ Globe = function (container) {
 
 
         var attributes = {
-<<<<<<< HEAD
-<<<<<<< HEAD
+
             size: {type: 'f', value: []},
             customColor: {type: 'c', value: []}
         };
@@ -771,7 +767,6 @@ Globe = function (container) {
         rotateVX *= 0.6;
         rotateVY *= 0.6;
     }
-<<<<<<< HEAD
     function wrap(value, min, rangeSize) {
         rangeSize-=min;
         while (value < min) {
@@ -1306,8 +1301,7 @@ Globe = function (container) {
         ZW: {colorCode: 135, name: 'ZIMBABWE', lat: -20, lon: 30}
     };
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+
     var selectedCountry = countryData["CN"];
 
     createCountryCenter();

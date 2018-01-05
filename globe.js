@@ -24,6 +24,8 @@ Globe = function (container) {
 
     this.addData = function (data) {
         inputData = JSON.parse(JSON.stringify(data));
+
+        buildDataVizGeometries();
     };
 
     this.init = function () {
@@ -44,6 +46,7 @@ Globe = function (container) {
         
         createCountryCenter();
         buildDataVizGeometries();
+
 
         //	-----------------------------------------------------------------------------
         //	Let's make a scene
@@ -403,7 +406,7 @@ Globe = function (container) {
         {e: "CN", i: "US", v: 1000},
         {e: "CN", i: "RU", v: 3000000}
     ];
-
+    
     function buildDataVizGeometries() {
 
         for (var s in inputData) {
@@ -522,9 +525,7 @@ Globe = function (container) {
             }
 
             THREE.GeometryUtils.merge(linesGeo, set.lineGeometry);
-
-<<<<<<< HEAD
-
+            
             var particleColor = lastColor.clone();
             var points = set.lineGeometry.vertices;
             var particleCount = Math.floor(set.v / 8000 / set.lineGeometry.vertices.length) + 1;
@@ -1292,6 +1293,7 @@ Globe = function (container) {
         ZW: {colorCode: 135, name: 'ZIMBABWE', lat: -20, lon: 30}
     };
 
+<<<<<<< HEAD
     var selectedCountry = countryData["CN"];
 
     createCountryCenter();
@@ -2033,4 +2035,5 @@ Globe = function (container) {
         ZM: {colorCode: 60, name: 'ZAMBIA', lat: -15, lon: 30},
         ZW: {colorCode: 135, name: 'ZIMBABWE', lat: -20, lon: 30}
     }
+    createCountryCenter();
 };

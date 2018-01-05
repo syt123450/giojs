@@ -396,7 +396,12 @@ Globe = function (container) {
 
     var visualizationMesh;
 
-<<<<<<< HEAD
+
+    var inputData = [
+        {e: "CN", i: "US", v: 100000},
+        {i: "CN", e: "RU", v: 100000}
+    ];
+
     function buildDataVizGeometries() {
 
         for (var s in inputData) {
@@ -469,7 +474,7 @@ Globe = function (container) {
 
         var linesGeo = new THREE.Geometry();
         var lineColors = [];
-=======
+
     var inputData = [
         {i: "AD", e: "AE", v: 1000},
         {i: "AE", e: "AF", v: 1000}
@@ -512,6 +517,7 @@ Globe = function (container) {
 
             THREE.GeometryUtils.merge(linesGeo, set.lineGeometry);
 
+
             var particleColor = lastColor.clone();
             var points = set.lineGeometry.vertices;
             var particleCount = Math.floor(set.v / 8000 / set.lineGeometry.vertices.length) + 1;
@@ -534,7 +540,7 @@ Globe = function (container) {
                 particle.size = particleSize;
                 particleColors.push(particleColor);
             }
-
+            
         }
 
         linesGeo.colors = lineColors;
@@ -611,8 +617,7 @@ Globe = function (container) {
 
                 var currentPoint = path[particle.moveIndex];
                 var nextPoint = path[particle.nextIndex];
-
-=======
+                
         var start = exporter.center;
         var end = importer.center;
 
@@ -651,14 +656,6 @@ Globe = function (container) {
             curveGeometry.vertices.push(points[i]);
         }
         curveGeometry.size = size;
-// >>>>>>> 366ea2f... add create lines point and center of countries
-//
-//                 particle.copy(currentPoint);
-//                 particle.lerpSelf(nextPoint, particle.lerpN);
-//             }
-//             this.geometry.verticesNeedUpdate = true;
-//         };
-
         return splineOutline;
     }
 
@@ -708,7 +705,7 @@ Globe = function (container) {
 
             var lon = country.lon - 90;
             var lat = country.lat;
-            
+
             var phi = Math.PI / 2 - lat * Math.PI / 180 - Math.PI * 0.01;
             var theta = 2 * Math.PI - lon * Math.PI / 180 + Math.PI * 0.06;
 
@@ -721,7 +718,7 @@ Globe = function (container) {
         }
     }
 
-<<<<<<< HEAD
+
     var reversedCountryColorMap = {
         '1': 'PE',
         '2': 'BF',
@@ -1443,7 +1440,6 @@ Globe = function (container) {
     };
 
     // 1. Sorted by country/region name abbreviation in ascending order
-<<<<<<< HEAD
 	// 2. 'colorCode' in fullCountryCode but not in reversedCountryColorMap is set to -1
 	// 3. Some countries/regions do not have latitude/longitude information
 	var fullCountryData = {
@@ -1697,7 +1693,6 @@ Globe = function (container) {
 		ZM: { colorCode: 60, name: 'ZAMBIA', lat: -15, lon: 30 },
 		ZW: { colorCode: 135, name: 'ZIMBABWE', lat: -20, lon: 30 }
 	}
-=======
     // 2. 'colorCode' in fullCountryCode but not in reversedCountryColorMap is set to -1
     // 3. Some countries/regions do not have latitude/longitude information
     var countryData = {

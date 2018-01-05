@@ -48,6 +48,8 @@ Globe = function (container) {
         buildDataVizGeometries();
 
 
+        buildDataVizGeometries();
+
         //	-----------------------------------------------------------------------------
         //	Let's make a scene
         scene = new THREE.Scene();
@@ -153,6 +155,7 @@ Globe = function (container) {
 
         rotateToTargetCountry();
         highlightCountry(96);
+
 
         document.addEventListener('mousemove', onDocumentMouseMove, true);
         document.addEventListener('mousedown', onDocumentMouseDown, true);
@@ -768,6 +771,7 @@ Globe = function (container) {
         rotateVX *= 0.6;
         rotateVY *= 0.6;
     }
+<<<<<<< HEAD
     function wrap(value, min, rangeSize) {
         rangeSize-=min;
         while (value < min) {
@@ -776,6 +780,7 @@ Globe = function (container) {
         return value % rangeSize;
     }
     
+
     function constrain(v, min, max) {
         if (v < min)
             v = min;
@@ -1293,6 +1298,7 @@ Globe = function (container) {
         ZW: {colorCode: 135, name: 'ZIMBABWE', lat: -20, lon: 30}
     };
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     var selectedCountry = countryData["CN"];
 
@@ -2035,5 +2041,7 @@ Globe = function (container) {
         ZM: {colorCode: 60, name: 'ZAMBIA', lat: -15, lon: 30},
         ZW: {colorCode: 135, name: 'ZIMBABWE', lat: -20, lon: 30}
     }
+    var selectedCountry = countryData["CN"];
+
     createCountryCenter();
 };

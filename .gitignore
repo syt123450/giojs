@@ -17,6 +17,7 @@ target/
 
 ### NetBeans ###
 nbproject/private/
+node_modules/
 build/
 nbbuild/
 dist/

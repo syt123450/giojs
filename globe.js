@@ -238,6 +238,14 @@ Globe = function (container) {
         renderer.render(scene, camera);
 
         requestAnimationFrame(animate);
+
+        THREE.SceneUtils.traverseHierarchy( rotating,
+            function(mesh) {
+                if (mesh.update !== undefined) {
+                    mesh.update();
+                }
+            }
+        );
     }
 
     function onClick() {
@@ -351,8 +359,8 @@ Globe = function (container) {
     var visualizationMesh;
 
     var inputData = [
-        {e: "CN", i: "US", v: 100000},
-        {i: "CN", e: "RU", v: 100000}
+        {e: "CN", i: "US", v: 1000},
+        {e: "CN", i: "RU", v: 3000000}
     ];
 
     function buildDataVizGeometries() {
@@ -428,6 +436,9 @@ Globe = function (container) {
         var linesGeo = new THREE.Geometry();
         var lineColors = [];
 
+        var particlesGeo = new THREE.Geometry();
+        var particleColors = [];
+
         for (var i in inputData) {
             var set = inputData[i];
 
@@ -440,6 +451,30 @@ Globe = function (container) {
             }
 
             THREE.GeometryUtils.merge(linesGeo, set.lineGeometry);
+
+            var particleColor = lastColor.clone();
+            var points = set.lineGeometry.vertices;
+            var particleCount = Math.floor(set.v / 8000 / set.lineGeometry.vertices.length) + 1;
+            particleCount = constrain(particleCount,1,100);
+            var particleSize = set.lineGeometry.size;
+            for( var s=0; s<particleCount; s++ ){
+
+                var desiredIndex = s / particleCount * points.length;
+                var rIndex = constrain(Math.floor(desiredIndex),0,points.length-1);
+
+                var point = points[rIndex];
+                var particle = point.clone();
+                particle.moveIndex = rIndex;
+                particle.nextIndex = rIndex+1;
+                if(particle.nextIndex >= points.length )
+                    particle.nextIndex = 0;
+                particle.lerpN = 0;
+                particle.path = points;
+                particlesGeo.vertices.push( particle );
+                particle.size = particleSize;
+                particleColors.push( particleColor );
+            }
+
         }
 
         linesGeo.colors = lineColors;
@@ -457,6 +492,72 @@ Globe = function (container) {
         );
 
         splineOutline.renderDepth = false;
+
+
+        var attributes = {
+            size: {	type: 'f', value: [] },
+            customColor: { type: 'c', value: [] }
+        };
+
+        var uniforms = {
+            amplitude: { type: "f", value: 1.0 },
+            color:     { type: "c", value: new THREE.Color( 0xffffff ) },
+            texture:   { type: "t", value: 0, texture: THREE.ImageUtils.loadTexture( "assets/particleA.png" ) },
+        };
+
+        var shaderMaterial = new THREE.ShaderMaterial( {
+
+            uniforms: 		uniforms,
+            attributes:     attributes,
+            vertexShader:   document.getElementById( 'vertexshader' ).textContent,
+            fragmentShader: document.getElementById( 'fragmentshader' ).textContent,
+
+            blending: 		THREE.AdditiveBlending,
+            depthTest: 		true,
+            depthWrite: 	false,
+            transparent:	true
+        });
+
+        particlesGeo.colors = particleColors;
+        var pSystem = new THREE.ParticleSystem( particlesGeo, shaderMaterial );
+        pSystem.dynamic = true;
+        splineOutline.add( pSystem );
+
+        var vertices = pSystem.geometry.vertices;
+        var values_size = attributes.size.value;
+        var values_color = attributes.customColor.value;
+
+        for( var v = 0; v < vertices.length; v++ ) {
+            values_size[ v ] = pSystem.geometry.vertices[v].size;
+            values_color[ v ] = particleColors[v];
+        }
+
+        pSystem.update = function(){
+
+            for( var i in this.geometry.vertices ){
+                var particle = this.geometry.vertices[i];
+                var path = particle.path;
+
+                particle.lerpN += 0.05;
+                if(particle.lerpN > 1){
+                    particle.lerpN = 0;
+                    particle.moveIndex = particle.nextIndex;
+                    particle.nextIndex++;
+                    if( particle.nextIndex >= path.length ){
+                        particle.moveIndex = 0;
+                        particle.nextIndex = 1;
+                    }
+                }
+
+                var currentPoint = path[particle.moveIndex];
+                var nextPoint = path[particle.nextIndex];
+
+
+                particle.copy( currentPoint );
+                particle.lerpSelf( nextPoint, particle.lerpN );
+            }
+            this.geometry.verticesNeedUpdate = true;
+        };
 
         return splineOutline;
     }

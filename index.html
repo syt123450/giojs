@@ -11,13 +11,55 @@
         html, body, #globalArea {
             height: 100%;
             width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        canvas {
+            background-color: black;
         }
 
     </style>
 </head>
 <body>
 
-    <script id="globeVertexShader" type="x-shader/x-vertex">
+<script type="x-shader/x-vertex" id="vertexshader">
+			uniform float amplitude;
+			attribute float size;
+			attribute vec3 customColor;
+
+			varying vec3 vColor;
+
+			void main() {
+
+				vColor = customColor;
+
+				vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );
+
+				gl_PointSize = size;
+
+				gl_Position = projectionMatrix * mvPosition;
+
+			}
+
+</script>
+
+<script type="x-shader/x-fragment" id="fragmentshader">
+			uniform vec3 color;
+			uniform sampler2D texture;
+
+			varying vec3 vColor;
+
+			void main() {
+
+				gl_FragColor = vec4( color * vColor, 1.0 );
+				gl_FragColor = gl_FragColor * texture2D( texture, gl_PointCoord );
+
+			}
+
+</script>
+
+<script id="globeVertexShader" type="x-shader/x-vertex">
             varying vec3 vNormal;
             varying vec2 vUv;
             void main() {
@@ -25,8 +67,9 @@
                 vNormal = normalize( normalMatrix * normal );
                 vUv = uv;
             }
-    </script>
-    <script id="globeFragmentShader" type="x-shader/x-fragment">
+
+</script>
+<script id="globeFragmentShader" type="x-shader/x-fragment">
             uniform sampler2D mapIndex;
             uniform sampler2D lookup;
             uniform sampler2D outline;
@@ -46,7 +89,8 @@
                 // gl_FragColor = vec4( lookupColor );
                 // gl_FragColor = vec4(texture2D( lookup, vUv ).xyz,1.);
             }
-    </script>
+
+</script>
 
 <div id="globalArea"></div>
 

@@ -3,244 +3,10 @@
  */
 Globe = function (container) {
 
-    var countryColorMap = {
-        'PE': 1,
-        'BF': 2,
-        'FR': 3,
-        'LY': 4,
-        'BY': 5,
-        'PK': 6,
-        'ID': 7,
-        'YE': 8,
-        'MG': 9,
-        'BO': 10,
-        'CI': 11,
-        'DZ': 12,
-        'CH': 13,
-        'CM': 14,
-        'MK': 15,
-        'BW': 16,
-        'UA': 17,
-        'KE': 18,
-        'TW': 19,
-        'JO': 20,
-        'MX': 21,
-        'AE': 22,
-        'BZ': 23,
-        'BR': 24,
-        'SL': 25,
-        'ML': 26,
-        'CD': 27,
-        'IT': 28,
-        'SO': 29,
-        'AF': 30,
-        'BD': 31,
-        'DO': 32,
-        'GW': 33,
-        'GH': 34,
-        'AT': 35,
-        'SE': 36,
-        'TR': 37,
-        'UG': 38,
-        'MZ': 39,
-        'JP': 40,
-        'NZ': 41,
-        'CU': 42,
-        'VE': 43,
-        'PT': 44,
-        'CO': 45,
-        'MR': 46,
-        'AO': 47,
-        'DE': 48,
-        'SD': 49,
-        'TH': 50,
-        'AU': 51,
-        'PG': 52,
-        'IQ': 53,
-        'HR': 54,
-        'GL': 55,
-        'NE': 56,
-        'DK': 57,
-        'LV': 58,
-        'RO': 59,
-        'ZM': 60,
-        'IR': 61,
-        'MM': 62,
-        'ET': 63,
-        'GT': 64,
-        'SR': 65,
-        'EH': 66,
-        'CZ': 67,
-        'TD': 68,
-        'AL': 69,
-        'FI': 70,
-        'SY': 71,
-        'KG': 72,
-        'SB': 73,
-        'OM': 74,
-        'PA': 75,
-        'AR': 76,
-        'GB': 77,
-        'CR': 78,
-        'PY': 79,
-        'GN': 80,
-        'IE': 81,
-        'NG': 82,
-        'TN': 83,
-        'PL': 84,
-        'NA': 85,
-        'ZA': 86,
-        'EG': 87,
-        'TZ': 88,
-        'GE': 89,
-        'SA': 90,
-        'VN': 91,
-        'RU': 92,
-        'HT': 93,
-        'BA': 94,
-        'IN': 95,
-        'CN': 96,
-        'CA': 97,
-        'SV': 98,
-        'GY': 99,
-        'BE': 100,
-        'GQ': 101,
-        'LS': 102,
-        'BG': 103,
-        'BI': 104,
-        'DJ': 105,
-        'AZ': 106,
-        'MY': 107,
-        'PH': 108,
-        'UY': 109,
-        'CG': 110,
-        'RS': 111,
-        'ME': 112,
-        'EE': 113,
-        'RW': 114,
-        'AM': 115,
-        'SN': 116,
-        'TG': 117,
-        'ES': 118,
-        'GA': 119,
-        'HU': 120,
-        'MW': 121,
-        'TJ': 122,
-        'KH': 123,
-        'KR': 124,
-        'HN': 125,
-        'IS': 126,
-        'NI': 127,
-        'CL': 128,
-        'MA': 129,
-        'LR': 130,
-        'NL': 131,
-        'CF': 132,
-        'SK': 133,
-        'LT': 134,
-        'ZW': 135,
-        'LK': 136,
-        'IL': 137,
-        'LA': 138,
-        'KP': 139,
-        'GR': 140,
-        'TM': 141,
-        'EC': 142,
-        'BJ': 143,
-        'SI': 144,
-        'NO': 145,
-        'MD': 146,
-        'LB': 147,
-        'NP': 148,
-        'ER': 149,
-        'US': 150,
-        'KZ': 151,
-        'AQ': 152,
-        'SZ': 153,
-        'UZ': 154,
-        'MN': 155,
-        'BT': 156,
-        'NC': 157,
-        'FJ': 158,
-        'KW': 159,
-        'TL': 160,
-        'BS': 161,
-        'VU': 162,
-        'FK': 163,
-        'GM': 164,
-        'QA': 165,
-        'JM': 166,
-        'CY': 167,
-        'PR': 168,
-        'PS': 169,
-        'BN': 170,
-        'TT': 171,
-        'CV': 172,
-        'PF': 173,
-        'WS': 174,
-        'LU': 175,
-        'KM': 176,
-        'MU': 177,
-        'FO': 178,
-        'ST': 179,
-        'AN': 180,
-        'DM': 181,
-        'TO': 182,
-        'KI': 183,
-        'FM': 184,
-        'BH': 185,
-        'AD': 186,
-        'MP': 187,
-        'PW': 188,
-        'SC': 189,
-        'AG': 190,
-        'BB': 191,
-        'TC': 192,
-        'VC': 193,
-        'LC': 194,
-        'YT': 195,
-        'VI': 196,
-        'GD': 197,
-        'MT': 198,
-        'MV': 199,
-        'KY': 200,
-        'KN': 201,
-        'MS': 202,
-        'BL': 203,
-        'NU': 204,
-        'PM': 205,
-        'CK': 206,
-        'WF': 207,
-        'AS': 208,
-        'MH': 209,
-        'AW': 210,
-        'LI': 211,
-        'VG': 212,
-        'SH': 213,
-        'JE': 214,
-        'AI': 215,
-        'MF_1_': 216,
-        'GG': 217,
-        'SM': 218,
-        'BM': 219,
-        'TV': 220,
-        'NR': 221,
-        'GI': 222,
-        'PN': 223,
-        'MC': 224,
-        'VA': 225,
-        'IM': 226,
-        'GU': 227,
-        'SG': 228
-    };
-
     var mapIndexedImage;
     var mapOutlineImage;
 
-    var camera, scene, renderer, controls;
-    var timeBins;
-    var latlonData;
-    var selectableCountries = [];
+    var camera, scene, renderer;
 
     var light1, light2;
 
@@ -270,7 +36,6 @@ Globe = function (container) {
                 animate();
             };
         };
-        // document.addEventListener('onclick', onClick, false);
     };
 
     function initScene() {
@@ -541,12 +306,7 @@ Globe = function (container) {
     }
 
     function getPickColor() {
-        var affectedCountries = undefined;
-        // if( visualizationMesh.children[0] !== undefined )
-        //     affectedCountries = visualizationMesh.children[0].affectedCountries;
-        //
-        // highlightCountry([]);
-        // rotating.remove(visualizationMesh);
+
         mapUniforms['outlineLevel'].value = 0;
         lookupTexture.needsUpdate = true;
 
@@ -579,12 +339,120 @@ Globe = function (container) {
         gl.preserveDrawingBuffer = false;
 
         mapUniforms['outlineLevel'].value = 1;
-        // rotating.add(visualizationMesh);
 
-
-        if (affectedCountries !== undefined) {
-            // highlightCountry(affectedCountries);
-        }
         return buf[0];
+    }
+
+    var visualizationMesh;
+
+    function buildDataVizGeometries() {
+
+    }
+
+    var globeRadius = 1000;
+    var vec3_origin = new THREE.Vector3(0,0,0);
+
+    function makeConnectionLineGeometry( exporter, importer, value, type ){
+        if( exporter.countryName == undefined || importer.countryName == undefined )
+            return undefined;
+
+        // console.log("making connection between " + exporter.countryName + " and " + importer.countryName + " with code " + type );
+
+        var distanceBetweenCountryCenter = exporter.center.clone().subSelf(importer.center).length();
+
+        //	how high we want to shoot the curve upwards
+        var anchorHeight = globeRadius + distanceBetweenCountryCenter * 0.7;
+
+        //	start of the line
+        var start = exporter.center;
+
+        //	end of the line
+        var end = importer.center;
+
+        //	midpoint for the curve
+        var mid = start.clone().lerpSelf(end,0.5);
+        var midLength = mid.length();
+        mid.normalize();
+        mid.multiplyScalar( midLength + distanceBetweenCountryCenter * 0.7 );
+
+        //	the normal from start to end
+        var normal = (new THREE.Vector3()).sub(start,end);
+        normal.normalize();
+
+        /*
+         The curve looks like this:
+
+         midStartAnchor---- mid ----- midEndAnchor
+         /											  \
+         /											   \
+         /												\
+         start/anchor 										 end/anchor
+
+         splineCurveA							splineCurveB
+         */
+
+        var distanceHalf = distanceBetweenCountryCenter * 0.5;
+
+        var startAnchor = start;
+        var midStartAnchor = mid.clone().addSelf( normal.clone().multiplyScalar( distanceHalf ) );
+        var midEndAnchor = mid.clone().addSelf( normal.clone().multiplyScalar( -distanceHalf ) );
+        var endAnchor = end;
+
+        //	now make a bezier curve out of the above like so in the diagram
+        var splineCurveA = new THREE.CubicBezierCurve3( start, startAnchor, midStartAnchor, mid);
+        // splineCurveA.updateArcLengths();
+
+        var splineCurveB = new THREE.CubicBezierCurve3( mid, midEndAnchor, endAnchor, end);
+        // splineCurveB.updateArcLengths();
+
+        //	how many vertices do we want on this guy? this is for *each* side
+        var vertexCountDesired = Math.floor( /*splineCurveA.getLength()*/ distanceBetweenCountryCenter * 0.02 + 6 ) * 2;
+
+        //	collect the vertices
+        //两个国建之间的距离越短获取点的数量越少
+        var points = splineCurveA.getPoints( vertexCountDesired );
+
+        //	remove the very last point since it will be duplicated on the next half of the curve
+        points = points.splice(0,points.length-1);
+
+        points = points.concat( splineCurveB.getPoints( vertexCountDesired ) );
+
+        //	add one final point to the center of the earth
+        //	we need this for drawing multiple arcs, but piled into one geometry buffer
+        //不是很理解最后加上这个点的作用？
+        points.push( vec3_origin );
+
+        var val = value * 0.0003;
+
+        var size = (10 + Math.sqrt(val));
+        size = constrain(size,0.1, 60);
+
+        //	create a line geometry out of these
+        var curveGeometry = createLineGeometry( points );
+
+        curveGeometry.size = size;
+
+        return curveGeometry;
+    }
+
+    function getVisualizedMesh() {
+
+    }
+
+    function createLineGeometry( points ) {
+        var geometry = new THREE.Geometry();
+        for( var i = 0; i < points.length; i ++ ) {
+            geometry.vertices.push( points[i] );
+        }
+        return geometry;
+    }
+
+    function constrain(v, min, max){
+        if( v < min )
+            v = min;
+        else
+        if( v > max )
+            v = max;
+        return v;
     }
 };

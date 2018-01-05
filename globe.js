@@ -108,11 +108,6 @@ Globe = function (container) {
             // sizeAttenuation: true,
         });
 
-
-        //	-----------------------------------------------------------------------------
-        //	Create the backing (sphere)
-
-        // backMat.ambient = new THREE.Color(255,255,255);
         sphere = new THREE.Mesh(new THREE.SphereGeometry(100, 40, 40), shaderMaterial);
         // sphere.receiveShadow = true;
         // sphere.castShadow = true;
@@ -122,6 +117,13 @@ Globe = function (container) {
         sphere.rotation.z = Math.PI;
         sphere.id = "base";
         rotating.add(sphere);
+
+        //create visualization mesh, add it to rotating object
+        visualizationMesh = new THREE.Object3D();
+        rotating.add(visualizationMesh);
+
+        var lines = getVisualizedMesh();
+        visualizationMesh.add(lines);
 
         //	-----------------------------------------------------------------------------
         //	Setup our renderer
@@ -349,8 +351,8 @@ Globe = function (container) {
     var visualizationMesh;
 
     var inputData = [
-        {i: "AD", e: "AE", v: 1000},
-        {i: "AE", e: "AF", v: 1000}
+        {e: "CN", i: "US", v: 100000},
+        {i: "CN", e: "RU", v: 100000}
     ];
 
     function buildDataVizGeometries() {
@@ -418,8 +420,45 @@ Globe = function (container) {
         return curveGeometry;
     }
 
+    var exportColor = 0xdd380c;
+    var importColor = 0x154492;
+
     function getVisualizedMesh() {
 
+        var linesGeo = new THREE.Geometry();
+        var lineColors = [];
+
+        for (var i in inputData) {
+            var set = inputData[i];
+
+            var lineColor = new THREE.Color(exportColor);
+
+            var lastColor;
+            for (s in set.lineGeometry.vertices) {
+                lineColors.push(lineColor);
+                lastColor = lineColor;
+            }
+
+            THREE.GeometryUtils.merge(linesGeo, set.lineGeometry);
+        }
+
+        linesGeo.colors = lineColors;
+
+        var splineOutline = new THREE.Line(linesGeo, new THREE.LineBasicMaterial(
+            {
+                color: 0xffffff,
+                opacity: 1.0,
+                blending: THREE.AdditiveBlending,
+                transparent: true,
+                depthWrite: false,
+                vertexColors: true,
+                linewidth: 1
+            })
+        );
+
+        splineOutline.renderDepth = false;
+
+        return splineOutline;
     }
 
     function constrain(v, min, max) {
@@ -440,7 +479,7 @@ Globe = function (container) {
             var lon = country.lon - 90;
             var lat = country.lat;
 
-            var phi = Math.PI/2 - lat * Math.PI / 180 - Math.PI * 0.01;
+            var phi = Math.PI / 2 - lat * Math.PI / 180 - Math.PI * 0.01;
             var theta = 2 * Math.PI - lon * Math.PI / 180 + Math.PI * 0.06;
 
             var center = new THREE.Vector3();

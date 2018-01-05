@@ -271,6 +271,8 @@ Globe = function (container) {
 
         THREE.SceneUtils.traverseHierarchy(rotating,
             function (mesh) {
+        THREE.SceneUtils.traverseHierarchy( rotating,
+            function(mesh) {
                 if (mesh.update !== undefined) {
                     mesh.update();
                 }
@@ -398,8 +400,8 @@ Globe = function (container) {
 
 
     var inputData = [
-        {e: "CN", i: "US", v: 100000},
-        {i: "CN", e: "RU", v: 100000}
+        {e: "CN", i: "US", v: 1000},
+        {e: "CN", i: "RU", v: 3000000}
     ];
 
     function buildDataVizGeometries() {
@@ -475,6 +477,7 @@ Globe = function (container) {
         var linesGeo = new THREE.Geometry();
         var lineColors = [];
 
+<<<<<<< HEAD
     var inputData = [
         {i: "AD", e: "AE", v: 1000},
         {i: "AE", e: "AF", v: 1000}
@@ -504,6 +507,9 @@ Globe = function (container) {
         var particlesGeo = new THREE.Geometry();
         var particleColors = [];
         
+        var particlesGeo = new THREE.Geometry();
+        var particleColors = [];
+
         for (var i in inputData) {
             var set = inputData[i];
 
@@ -517,6 +523,7 @@ Globe = function (container) {
 
             THREE.GeometryUtils.merge(linesGeo, set.lineGeometry);
 
+<<<<<<< HEAD
 
             var particleColor = lastColor.clone();
             var points = set.lineGeometry.vertices;
@@ -527,10 +534,20 @@ Globe = function (container) {
 
                 var desiredIndex = s / particleCount * points.length;
                 var rIndex = constrain(Math.floor(desiredIndex), 0, points.length - 1);
+            var particleColor = lastColor.clone();
+            var points = set.lineGeometry.vertices;
+            var particleCount = Math.floor(set.v / 8000 / set.lineGeometry.vertices.length) + 1;
+            particleCount = constrain(particleCount,1,100);
+            var particleSize = set.lineGeometry.size;
+            for( var s=0; s<particleCount; s++ ){
+
+                var desiredIndex = s / particleCount * points.length;
+                var rIndex = constrain(Math.floor(desiredIndex),0,points.length-1);
 
                 var point = points[rIndex];
                 var particle = point.clone();
                 particle.moveIndex = rIndex;
+<<<<<<< HEAD
                 particle.nextIndex = rIndex + 1;
                 if (particle.nextIndex >= points.length)
                     particle.nextIndex = 0;
@@ -541,6 +558,16 @@ Globe = function (container) {
                 particleColors.push(particleColor);
             }
             
+                particle.nextIndex = rIndex+1;
+                if(particle.nextIndex >= points.length )
+                    particle.nextIndex = 0;
+                particle.lerpN = 0;
+                particle.path = points;
+                particlesGeo.vertices.push( particle );
+                particle.size = particleSize;
+                particleColors.push( particleColor );
+            }
+
         }
 
         linesGeo.colors = lineColors;
@@ -561,6 +588,7 @@ Globe = function (container) {
 
 
         var attributes = {
+<<<<<<< HEAD
             size: {type: 'f', value: []},
             customColor: {type: 'c', value: []}
         };
@@ -588,11 +616,40 @@ Globe = function (container) {
         var pSystem = new THREE.ParticleSystem(particlesGeo, shaderMaterial);
         pSystem.dynamic = true;
         splineOutline.add(pSystem);
+            size: {	type: 'f', value: [] },
+            customColor: { type: 'c', value: [] }
+        };
+
+        var uniforms = {
+            amplitude: { type: "f", value: 1.0 },
+            color:     { type: "c", value: new THREE.Color( 0xffffff ) },
+            texture:   { type: "t", value: 0, texture: THREE.ImageUtils.loadTexture( "assets/particleA.png" ) },
+        };
+
+        var shaderMaterial = new THREE.ShaderMaterial( {
+
+            uniforms: 		uniforms,
+            attributes:     attributes,
+            vertexShader:   document.getElementById( 'vertexshader' ).textContent,
+            fragmentShader: document.getElementById( 'fragmentshader' ).textContent,
+
+            blending: 		THREE.AdditiveBlending,
+            depthTest: 		true,
+            depthWrite: 	false,
+            transparent:	true
+        });
+
+        particlesGeo.colors = particleColors;
+        var pSystem = new THREE.ParticleSystem( particlesGeo, shaderMaterial );
+        pSystem.dynamic = true;
+        splineOutline.add( pSystem );
+>>>>>>> bc66f01... add running particle to lines
 
         var vertices = pSystem.geometry.vertices;
         var values_size = attributes.size.value;
         var values_color = attributes.customColor.value;
 
+<<<<<<< HEAD
         for (var v = 0; v < vertices.length; v++) {
             values_size[v] = pSystem.geometry.vertices[v].size;
             values_color[v] = particleColors[v];
@@ -601,6 +658,14 @@ Globe = function (container) {
         pSystem.update = function () {
 
             for (var i in this.geometry.vertices) {
+        for( var v = 0; v < vertices.length; v++ ) {
+            values_size[ v ] = pSystem.geometry.vertices[v].size;
+            values_color[ v ] = particleColors[v];
+        }
+
+        pSystem.update = function(){
+
+            for( var i in this.geometry.vertices ){
                 var particle = this.geometry.vertices[i];
                 var path = particle.path;
 
@@ -610,6 +675,11 @@ Globe = function (container) {
                     particle.moveIndex = particle.nextIndex;
                     particle.nextIndex++;
                     if (particle.nextIndex >= path.length) {
+                if(particle.lerpN > 1){
+                    particle.lerpN = 0;
+                    particle.moveIndex = particle.nextIndex;
+                    particle.nextIndex++;
+                    if( particle.nextIndex >= path.length ){
                         particle.moveIndex = 0;
                         particle.nextIndex = 1;
                     }
@@ -656,6 +726,14 @@ Globe = function (container) {
             curveGeometry.vertices.push(points[i]);
         }
         curveGeometry.size = size;
+
+
+                particle.copy( currentPoint );
+                particle.lerpSelf( nextPoint, particle.lerpN );
+            }
+            this.geometry.verticesNeedUpdate = true;
+        };
+
         return splineOutline;
     }
 

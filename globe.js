@@ -127,7 +127,9 @@ Globe = function (container) {
 
         //	-----------------------------------------------------------------------------
         //	Setup our renderer
-        renderer = new THREE.WebGLRenderer({antialias: false});
+        var sceneArea = document.createElement("canvas");
+        sceneArea.style.backgroundColor = "#000000";
+        renderer = new THREE.WebGLRenderer({canvas: sceneArea, antialias: false});
         renderer.setSize(window.innerWidth, window.innerHeight);
         renderer.autoClear = false;
 

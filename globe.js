@@ -735,6 +735,9 @@ Globe = function (container) {
 	    '228': 'SG'
     };
 	
+    // 1. Sorted by country/region name abbreviation in ascending order
+	// 2. 'colorCode' in fullCountryCode but not in reversedCountryColorMap is set to -1
+	// 3. Some countries/regions do not have latitude/longitude information
 	var fullCountryData = {
 		AD: { colorCode: 186, name: 'ANDORRA', lat: 42.5, lon: 1.6 },
 		AE: { colorCode: 22, name: 'UNITED ARAB EMIRATES', lat: 24, lon: 54 },

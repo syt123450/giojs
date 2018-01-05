@@ -20,8 +20,11 @@ Globe = function (container) {
 
     var sphere;
 
-    this.addData = function () {
+    var inputData;
 
+    this.addData = function (data) {
+        inputData = JSON.parse(JSON.stringify(data));
+        buildDataVizGeometries();
     };
 
     this.init = function () {
@@ -39,9 +42,6 @@ Globe = function (container) {
     };
 
     function initScene() {
-
-        createCountryCenter();
-        buildDataVizGeometries();
 
         //	-----------------------------------------------------------------------------
         //	Let's make a scene
@@ -382,11 +382,6 @@ Globe = function (container) {
     }
 
     var visualizationMesh;
-
-    var inputData = [
-        {e: "CN", i: "US", v: 1000},
-        {e: "CN", i: "RU", v: 3000000}
-    ];
 
     function buildDataVizGeometries() {
 
@@ -1101,6 +1096,7 @@ Globe = function (container) {
         ZA: {colorCode: 86, name: 'SOUTH AFRICA', lat: -29, lon: 24},
         ZM: {colorCode: 60, name: 'ZAMBIA', lat: -15, lon: 30},
         ZW: {colorCode: 135, name: 'ZIMBABWE', lat: -20, lon: 30}
-    }
+    };
 
+    createCountryCenter();
 };

@@ -91,9 +91,15 @@
 <div id="globalArea"></div>
 
 <script>
+
+    var inputData = [
+        {e: "CN", i: "US", v: 1000},
+        {e: "CN", i: "RU", v: 3000000}
+    ];
+
     var container = document.getElementById("globalArea");
     var globe = new Globe(container);
-    globe.addData();
+    globe.addData(inputData);
     globe.init();
 </script>
 

@@ -3,7 +3,7 @@
  */
 
 var Scene = function() {
-
+    this.scene = new THREE.Scene();
 };
 
 export {Scene}

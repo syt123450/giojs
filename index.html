@@ -6,6 +6,10 @@
     <script src="js/lib/three-test.js"></script>
     <!--<script src="js/lib/three.min.js"></script>-->
     <script src="globe.js"></script>
+    <script src="../assets/dependence/three-test.js"></script>
+    <!--<script src="../assets/dependence/three.min.js"></script>-->
+    <script src="../src/globe.js"></script>
+    <!--<script src="../build/IOGlobe.min.js"></script>-->
     <style>
 
         html, body, #globalArea {
@@ -13,18 +17,13 @@
             width: 100%;
             margin: 0;
             padding: 0;
-/*<<<<<<< HEAD*/
-/*=======*/
+
         }
 
-/*<<<<<<< HEAD*/
         canvas {
             background-color: black;
-/*>>>>>>> bc66f01... add running particle to lines*/
         }
 
-/*=======*/
-/*>>>>>>> ee367d5... change background color to black*/
     </style>
 </head>
 <body>
@@ -111,6 +110,7 @@
     var globe = new Globe(container);
     globe.addData(inputData);
     globe.init();
+
 </script>
 
 </body>

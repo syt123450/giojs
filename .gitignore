@@ -17,9 +17,12 @@ target/
 
 ### NetBeans ###
 nbproject/private/
+<<<<<<< HEAD
 node_modules/
 build/
 nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+
+package-lock.json

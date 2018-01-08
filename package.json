@@ -1,0 +1,28 @@
+{
+  "name": "ioglobe",
+  "version": "1.0.0",
+  "description": "",
+  "directories": {
+    "doc": "docs",
+    "example": "examples",
+    "test": "tests"
+  },
+  "dependencies": {
+    "rollup": "^0.53.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "rollup": "rollup -c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/syt123450/IOGlobe.git"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/syt123450/IOGlobe/issues"
+  },
+  "homepage": "https://github.com/syt123450/IOGlobe#readme"
+}

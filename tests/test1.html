@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../assets/dependence/three-test.js"></script>
+    <!--<script src="../assets/dependence/three.min.js"></script>-->
+    <script src="../src/globe.js"></script>
+    <style>
+
+        html, body, #globalArea {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+<script type="x-shader/x-vertex" id="vertexshader">
+			uniform float amplitude;
+			attribute float size;
+			attribute vec3 customColor;
+
+			varying vec3 vColor;
+
+			void main() {
+
+				vColor = customColor;
+
+				vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );
+
+				gl_PointSize = size;
+
+				gl_Position = projectionMatrix * mvPosition;
+
+			}
+
+</script>
+
+<script type="x-shader/x-fragment" id="fragmentshader">
+			uniform vec3 color;
+			uniform sampler2D texture;
+
+			varying vec3 vColor;
+
+			void main() {
+
+				gl_FragColor = vec4( color * vColor, 1.0 );
+				gl_FragColor = gl_FragColor * texture2D( texture, gl_PointCoord );
+
+			}
+
+</script>
+
+<script id="globeVertexShader" type="x-shader/x-vertex">
+            varying vec3 vNormal;
+            varying vec2 vUv;
+            void main() {
+                gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0);
+                vNormal = normalize( normalMatrix * normal );
+                vUv = uv;
+            }
+
+</script>
+<script id="globeFragmentShader" type="x-shader/x-fragment">
+            uniform sampler2D mapIndex;
+            uniform sampler2D lookup;
+            uniform sampler2D outline;
+            uniform float outlineLevel;
+            varying vec3 vNormal;
+            varying vec2 vUv;
+            void main() {
+                vec4 mapColor = texture2D( mapIndex, vUv );
+                float indexedColor = mapColor.x;
+                vec2 lookupUV = vec2( indexedColor, 0. );
+                vec4 lookupColor = texture2D( lookup, lookupUV );
+                float mask = lookupColor.x + (1.-outlineLevel) * indexedColor;
+                mask = clamp(mask,0.,1.);
+                float outlineColor = texture2D( outline, vUv ).x * outlineLevel;
+                float diffuse = mask + outlineColor;
+                gl_FragColor = vec4( vec3(diffuse), 1.  );
+                // gl_FragColor = vec4( lookupColor );
+                // gl_FragColor = vec4(texture2D( lookup, vUv ).xyz,1.);
+            }
+
+</script>
+
+<div id="globalArea"></div>
+
+<script>
+
+    var inputData = [
+        {e: "CN", i: "US", v: 1000},
+        {e: "CN", i: "RU", v: 3000000}
+    ];
+
+    var container = document.getElementById("globalArea");
+    var globe = new Globe(container);
+    globe.addData(inputData);
+    globe.init();
+
+</script>
+
+</body>
+</html>

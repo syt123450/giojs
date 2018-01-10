@@ -12,6 +12,18 @@ var VisSystem = (function () {
 
     function getVisualizedMesh(inputData) {
 
+        var geometries = createGeometries(inputData);
+
+        var splineOutline = createSplineOutline(geometries.linesGeo);
+        var pSystem = createParticleSystem(geometries.particlesGeo);
+
+        splineOutline.add(pSystem);
+
+        return splineOutline;
+    }
+
+    function createGeometries(inputData) {
+
         var linesGeo = new THREE.Geometry();
         var lineColors = [];
 
@@ -57,6 +69,15 @@ var VisSystem = (function () {
         }
 
         linesGeo.colors = lineColors;
+        particlesGeo.colors = particleColors;
+
+        return {
+            linesGeo: linesGeo,
+            particlesGeo: particlesGeo
+        }
+    }
+
+    function createSplineOutline(linesGeo) {
 
         var splineOutline = new THREE.Line(linesGeo, new THREE.LineBasicMaterial(
             {
@@ -71,6 +92,11 @@ var VisSystem = (function () {
         );
 
         splineOutline.renderDepth = false;
+
+        return splineOutline;
+    }
+
+    function createParticleSystem(particlesGeo) {
 
         var movingSpriteShader = new MovingSpriteShader();
 
@@ -87,10 +113,8 @@ var VisSystem = (function () {
             transparent: true
         });
 
-        particlesGeo.colors = particleColors;
         var pSystem = new THREE.ParticleSystem(particlesGeo, shaderMaterial);
         pSystem.dynamic = true;
-        splineOutline.add(pSystem);
 
         var vertices = pSystem.geometry.vertices;
         var values_size = movingSpriteShader.attributes.size.value;
@@ -98,7 +122,7 @@ var VisSystem = (function () {
 
         for (var v = 0; v < vertices.length; v++) {
             values_size[v] = pSystem.geometry.vertices[v].size;
-            values_color[v] = particleColors[v];
+            values_color[v] = particlesGeo.colors[v];
         }
 
         pSystem.update = function () {
@@ -128,7 +152,7 @@ var VisSystem = (function () {
             this.geometry.verticesNeedUpdate = true;
         };
 
-        return splineOutline;
+        return pSystem;
     }
 
     return {

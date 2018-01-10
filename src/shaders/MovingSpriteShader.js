@@ -2,7 +2,12 @@
  * Created by ss on 2018/1/7.
  */
 
+import {ParticleABase64} from "../data/ParticleA.js";
+
 function MovingSpriteShader() {
+
+    var particleImg = new Image();
+    particleImg.src = ParticleABase64;
 
     return {
 
@@ -14,7 +19,7 @@ function MovingSpriteShader() {
         uniforms: {
             amplitude: {type: "f", value: 1.0},
             color: {type: "c", value: new THREE.Color(0xffffff)},
-            texture: {type: "t", value: 0, texture: THREE.ImageUtils.loadTexture("../assets/images/particleA.png")},
+            texture: {type: "t", value: 0, texture: THREE.ImageUtils.loadTexture(particleImg.src)},
         },
 
         vertexShader: [

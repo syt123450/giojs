@@ -2,11 +2,20 @@
  * Created by ss on 2018/1/7.
  */
 
+import {MapIndexBase64} from "../data/MapIndex.js";
+import {MapOutlineBase64} from "../data/MapOutline.js";
+
 function EarthSurfaceShader() {
 
     var uniforms = {};
 
-    uniforms.mapIndex = {type: 't', value: 0, texture: THREE.ImageUtils.loadTexture("../assets/images/map_indexed.png")};
+    var mapIndexedImage = new Image();
+    mapIndexedImage.src = MapIndexBase64;
+
+    var mapOutlineBase64 = new Image();
+    mapOutlineBase64.src = MapOutlineBase64;
+
+    uniforms.mapIndex = {type: 't', value: 0, texture: THREE.ImageUtils.loadTexture(mapIndexedImage.src)};
     uniforms.mapIndex.texture.needsUpdate = true;
     uniforms.mapIndex.texture.magFilter = THREE.NearestFilter;
     uniforms.mapIndex.texture.minFilter = THREE.NearestFilter;
@@ -22,11 +31,10 @@ function EarthSurfaceShader() {
 
     uniforms.lookup = {type: 't', value: 1, texture: lookupTexture};
 
-    uniforms.outline = {type: 't', value: 2, texture: THREE.ImageUtils.loadTexture("../assets/images/map_outline.png")};
+    uniforms.outline = {type: 't', value: 2, texture: THREE.ImageUtils.loadTexture(mapOutlineBase64.src)};
     uniforms.outline.texture.needsUpdate = true;
 
     uniforms.outlineLevel = {type: 'f', value: 1};
-
 
     return {
 

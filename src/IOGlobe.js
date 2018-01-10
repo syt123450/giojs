@@ -111,6 +111,7 @@ function Scene(container) {
     }
 
     return {
+
         addData: function(data) {
             JSONLoader.loadData(inputData, data);
         },

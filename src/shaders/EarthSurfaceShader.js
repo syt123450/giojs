@@ -4,8 +4,12 @@
 
 function EarthSurfaceShader() {
 
-    var isIndexedImageLoaded = false;
-    var isOutlineImageLoaded = false;
+    var uniforms = {};
+
+    uniforms.mapIndex = {type: 't', value: 0, texture: THREE.ImageUtils.loadTexture("../assets/images/map_indexed.png")};
+    uniforms.mapIndex.texture.needsUpdate = true;
+    uniforms.mapIndex.texture.magFilter = THREE.NearestFilter;
+    uniforms.mapIndex.texture.minFilter = THREE.NearestFilter;
 
     var lookupCanvas = document.createElement('canvas');
     lookupCanvas.width = 256;
@@ -16,40 +20,17 @@ function EarthSurfaceShader() {
     lookupTexture.minFilter = THREE.NearestFilter;
     lookupTexture.needsUpdate = true;
 
-    var indexedImage = new Image();
-    indexedImage.src = '../assets/images/map_indexed.png';
-    indexedImage.onload = function() {
-        isIndexedImageLoaded = true;
-    };
+    uniforms.lookup = {type: 't', value: 1, texture: lookupTexture};
 
-    while (!isIndexedImageLoaded);
+    uniforms.outline = {type: 't', value: 2, texture: THREE.ImageUtils.loadTexture("../assets/images/map_outline.png")};
+    uniforms.outline.texture.needsUpdate = true;
 
-    var indexedMapTexture = new THREE.Texture(indexedImage);
-    indexedMapTexture.needsUpdate = true;
-    indexedMapTexture.magFilter = THREE.NearestFilter;
-    indexedMapTexture.minFilter = THREE.NearestFilter;
+    uniforms.outlineLevel = {type: 'f', value: 1};
 
-    var outlineImage = new Image();
-    outlineImage.src = '../assets/images/map_outline.png';
-    outlineImage.onload = function() {
-        isOutlineImageLoaded = true;
-    };
-
-    while (!isOutlineImageLoaded);
-
-    var outlinedMapTexture = new THREE.Texture(outlineImage);
-    outlinedMapTexture.needsUpdate = true;
 
     return {
 
-        uniforms: {
-
-            'mapIndex': {type: 't', value: 0, texture: indexedMapTexture},
-            'lookup': {type: 't', value: 1, texture: lookupTexture},
-            'outline': {type: 't', value: 2, texture: outlinedMapTexture},
-            'outlineLevel': {type: 'f', value: 1}
-
-        },
+        uniforms: uniforms,
 
         vertexShader: [
 
@@ -87,6 +68,9 @@ function EarthSurfaceShader() {
 
         ].join( "\n" ),
 
+        lookupCanvas: lookupCanvas,
+
+        lookupTexture: lookupTexture
     }
 }
 

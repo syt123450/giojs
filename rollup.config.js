@@ -5,7 +5,7 @@ export default {
     input: 'src/IOGlobe.js',
     output: {
         format: 'iife',
-        file: 'build/IOGlobe.min.js',
+        file: 'build/IOGlobe.js',
         name: "IOGlobe"
     }
 };

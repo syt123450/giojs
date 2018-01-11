@@ -7,13 +7,15 @@
     "example": "examples",
     "test": "tests"
   },
-  "dependencies": {
-    "rollup": "^0.53.3"
+  "dependencies": {},
+  "devDependencies": {
+    "rollup": "^0.53.3",
+    "uglify-js": "^2.4.11"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "rollup": "rollup -c"
+    "build-beautify": "rollup -c",
+    "build-uglify": "rollup -c && uglifyjs build/IOGlobe.js -cm --preamble \"// https://github.com/syt123450/IOGlobe/blob/master/LICENSE\" --output build/IOGlobe.min.js"
   },
   "repository": {
     "type": "git",

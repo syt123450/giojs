@@ -1,6 +1,6 @@
 import {Utils} from "../utils/Utils";
 
-function RotationHandler(scene) {
+function RotationHandler(controller) {
 
     var rotateX = 0, rotateY = 0;
     var rotateVX = 0, rotateVY = 0;
@@ -42,13 +42,13 @@ function RotationHandler(scene) {
             rotateVX *= -0.95;
         }
 
-        scene.rotating.rotation.x = rotateX;
-        scene.rotating.rotation.y = rotateY;
+        controller.rotating.rotation.x = rotateX;
+        controller.rotating.rotation.y = rotateY;
     }
 
     function rotateToTargetCountry() {
 
-        var selectedCountry = scene.selectedCountry;
+        var selectedCountry = controller.selectedCountry;
 
         rotateTargetX = selectedCountry.lat * Math.PI/180;
         var targetY0 = -(selectedCountry.lon - 9) * Math.PI / 180;
@@ -56,10 +56,10 @@ function RotationHandler(scene) {
         while(true) {
             var targetY0Neg = targetY0 - Math.PI * 2 * piCounter;
             var targetY0Pos = targetY0 + Math.PI * 2 * piCounter;
-            if(Math.abs(targetY0Neg - scene.rotating.rotation.y) < Math.PI) {
+            if(Math.abs(targetY0Neg - controller.rotating.rotation.y) < Math.PI) {
                 rotateTargetY = targetY0Neg;
                 break;
-            } else if(Math.abs(targetY0Pos - scene.rotating.rotation.y) < Math.PI) {
+            } else if(Math.abs(targetY0Pos - controller.rotating.rotation.y) < Math.PI) {
                 rotateTargetY = targetY0Pos;
                 break;
             }

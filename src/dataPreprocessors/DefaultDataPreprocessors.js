@@ -6,9 +6,9 @@ import {CountryData} from "../countryInfo/CountryData.js";
 
 var DefaultDataPreprocessors = (function () {
 
-    function process(scene) {
+    function process(controller) {
 
-        var inputData = scene.inputData;
+        var inputData = controller.inputData;
 
         for (var i in inputData) {
             var dataSet = inputData[i];
@@ -16,11 +16,11 @@ var DefaultDataPreprocessors = (function () {
             var importCountryCode = CountryData[dataSet.i].colorCode;
             var exportCountryCode = CountryData[dataSet.e].colorCode;
 
-            if (scene.mentionedCountryCodes.indexOf(importCountryCode) == -1) {
-                scene.mentionedCountryCodes.push(importCountryCode);
+            if (controller.mentionedCountryCodes.indexOf(importCountryCode) == -1) {
+                controller.mentionedCountryCodes.push(importCountryCode);
             }
-            if (scene.mentionedCountryCodes.indexOf(exportCountryCode) == -1) {
-                scene.mentionedCountryCodes.push(exportCountryCode);
+            if (controller.mentionedCountryCodes.indexOf(exportCountryCode) == -1) {
+                controller.mentionedCountryCodes.push(exportCountryCode);
             }
         }
     }

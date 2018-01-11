@@ -5,7 +5,7 @@
 import {CountryData} from "../countryInfo/CountryData.js";
 import {CountryColorMap} from "../countryInfo/CountryColorMap";
 
-function SceneEventManager(scene, handlers) {
+function SceneEventManager(controller, handlers) {
 
     var mouseX = 0, mouseY = 0, pmouseX = 0, pmouseY = 0;
     var pressX = 0, pressY = 0;
@@ -76,18 +76,18 @@ function SceneEventManager(scene, handlers) {
 
             surfaceHandler.highlightCountry(pickColorIndex);
 
-            scene.selectedCountry = CountryData[CountryColorMap[pickColorIndex]];
+            controller.selectedCountry = CountryData[CountryColorMap[pickColorIndex]];
 
             rotationHandler.rotateToTargetCountry();
 
         }
     }
 
-    scene.renderer.domElement.addEventListener('mousemove', onDocumentMouseMove, true);
-    scene.renderer.domElement.addEventListener('mousedown', onDocumentMouseDown, true);
-    scene.renderer.domElement.addEventListener('mouseup', onDocumentMouseUp, false);
-    scene.renderer.domElement.addEventListener('click', onClick, true);
-    scene.renderer.domElement.addEventListener('mousewheel', onMouseWheel, false);
+    controller.renderer.domElement.addEventListener('mousemove', onDocumentMouseMove, true);
+    controller.renderer.domElement.addEventListener('mousedown', onDocumentMouseDown, true);
+    controller.renderer.domElement.addEventListener('mouseup', onDocumentMouseUp, false);
+    controller.renderer.domElement.addEventListener('click', onClick, true);
+    controller.renderer.domElement.addEventListener('mousewheel', onMouseWheel, false);
 }
 
 export {SceneEventManager}

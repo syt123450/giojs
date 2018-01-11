@@ -5,9 +5,9 @@
 var JSONLoader = (function () {
 
     return {
-        loadData: function(scene, data) {
+        loadData: function(controller, data) {
 
-            scene.inputData = JSON.parse(JSON.stringify(data));
+            controller.inputData = JSON.parse(JSON.stringify(data));
         }
     }
 }());

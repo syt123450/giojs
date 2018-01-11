@@ -55,10 +55,10 @@ var LineGeometry = (function () {
 
     return {
 
-        buildDataVizGeometries: function (scene) {
+        buildDataVizGeometries: function (controller) {
 
-            for (var s in scene.inputData) {
-                var set = scene.inputData[s];
+            for (var s in controller.inputData) {
+                var set = controller.inputData[s];
 
                 var exporterName = set.e.toUpperCase();
                 var importerName = set.i.toUpperCase();

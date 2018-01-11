@@ -2,35 +2,35 @@
  * Created by ss on 2018/1/9.
  */
 
-function SurfaceHandler(scene) {
+function SurfaceHandler(controller) {
 
     function getPickColor(mouseX, mouseY) {
 
-        var ctx = scene.earthSurfaceShader.lookupCanvas.getContext('2d');
+        var ctx = controller.earthSurfaceShader.lookupCanvas.getContext('2d');
         ctx.clearRect(0, 0, 256, 1);
 
         var oceanFill = 0;
         ctx.fillStyle = 'rgb(' + oceanFill + ',' + oceanFill + ',' + oceanFill +')';
         ctx.fillRect( 0, 0, 1, 1 );
 
-        scene.earthSurfaceShader.uniforms['outlineLevel'].value = 0;
-        scene.earthSurfaceShader.uniforms['flag'].value = 0;
+        controller.earthSurfaceShader.uniforms['outlineLevel'].value = 0;
+        controller.earthSurfaceShader.uniforms['flag'].value = 0;
 
-        scene.earthSurfaceShader.lookupTexture.needsUpdate = true;
+        controller.earthSurfaceShader.lookupTexture.needsUpdate = true;
 
-        scene.renderer.autoClear = false;
-        scene.renderer.autoClearColor = false;
-        scene.renderer.autoClearDepth = false;
-        scene.renderer.autoClearStencil = false;
+        controller.renderer.autoClear = false;
+        controller.renderer.autoClearColor = false;
+        controller.renderer.autoClearDepth = false;
+        controller.renderer.autoClearStencil = false;
 
-        scene.renderer.clear();
-        scene.renderer.render(scene.scene, scene.camera);
+        controller.renderer.clear();
+        controller.renderer.render(controller.scene, controller.camera);
 
-        var gl = scene.renderer.context;
+        var gl = controller.renderer.context;
         gl.preserveDrawingBuffer = true;
 
-        var mx = ( mouseX + scene.renderer.context.canvas.width / 2 );
-        var my = ( -mouseY + scene.renderer.context.canvas.height / 2 );
+        var mx = ( mouseX + controller.renderer.context.canvas.width / 2 );
+        var my = ( -mouseY + controller.renderer.context.canvas.height / 2 );
         mx = Math.floor(mx);
         my = Math.floor(my);
 
@@ -39,21 +39,21 @@ function SurfaceHandler(scene) {
         gl.readPixels(mx, my, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, buf);
         // console.log(buf);
 
-        scene.renderer.autoClear = true;
-        scene.renderer.autoClearColor = true;
-        scene.renderer.autoClearDepth = true;
-        scene.renderer.autoClearStencil = true;
+        controller.renderer.autoClear = true;
+        controller.renderer.autoClearColor = true;
+        controller.renderer.autoClearDepth = true;
+        controller.renderer.autoClearStencil = true;
 
         gl.preserveDrawingBuffer = false;
 
-        scene.earthSurfaceShader.uniforms['outlineLevel'].value = 1;
-        scene.earthSurfaceShader.uniforms['flag'].value = 1;
+        controller.earthSurfaceShader.uniforms['outlineLevel'].value = 1;
+        controller.earthSurfaceShader.uniforms['flag'].value = 1;
 
         return buf[0];
     }
 
     function highlightCountry(code) {
-        var ctx = scene.earthSurfaceShader.lookupCanvas.getContext('2d');
+        var ctx = controller.earthSurfaceShader.lookupCanvas.getContext('2d');
         ctx.clearRect(0, 0, 256, 1);
 
         var oceanFill = 10;
@@ -65,16 +65,17 @@ function SurfaceHandler(scene) {
         ctx.fillStyle = fillCSS;
         ctx.fillRect(code, 0, 1, 1);
 
-        scene.earthSurfaceShader.lookupTexture.needsUpdate = true;
+        controller.earthSurfaceShader.lookupTexture.needsUpdate = true;
     }
 
     function setSurfaceColor(color) {
-        scene.earthSurfaceShader.setShaderColor(color);
+
+        controller.earthSurfaceShader.setShaderColor(color);
     }
 
     function setSelectedColor(color) {
-        console.log("set highlight color in surface handler.");
-        scene.earthSurfaceShader.setHighlightColor(color);
+
+        controller.earthSurfaceShader.setHighlightColor(color);
     }
 
     return {

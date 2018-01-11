@@ -1,10 +1,10 @@
 import {Utils} from "../utils/Utils";
 
-function WheelHandler(scene) {
+function WheelHandler(controller) {
 
     function handleMWheel( delta ) {
-        scene.camera.scale.z += delta * 0.1;
-        scene.camera.scale.z = Utils.constrain( scene.camera.scale.z, 0.7, 5.0 );
+        controller.camera.scale.z += delta * 0.1;
+        controller.camera.scale.z = Utils.constrain( controller.camera.scale.z, 0.7, 5.0 );
     }
 
     return {

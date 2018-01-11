@@ -1,5 +1,9 @@
 var Utils = (function(){
 
+    function isString(str){
+        return (typeof str=='string')&& str.constructor==String;
+    }
+
     return {
 
         wrap: function wrap(value, min, rangeSize) {
@@ -16,6 +20,10 @@ var Utils = (function(){
             else if (v > max)
                 v = max;
             return v;
+        },
+
+        formatColor: function(color) {
+            return color;
         }
     }
 

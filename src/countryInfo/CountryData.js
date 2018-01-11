@@ -2,7 +2,7 @@
  * Created by ss on 2018/1/7.
  */
 
-function CountryData() {
+var CountryData = (function () {
 
     var basicCountryData = {
         AD: {colorCode: 186, name: 'ANDORRA', lat: 42.5, lon: 1.6},
@@ -281,6 +281,7 @@ function CountryData() {
     createCountryCenter();
 
     return basicCountryData;
-}
+
+}());
 
 export {CountryData}

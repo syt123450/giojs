@@ -16,29 +16,36 @@ import {Renderer} from "./objects/Renderer";
 import {WheelHandler} from "./handler/WheelHandler";
 import {Sphere} from "./objects/Sphere";
 import {LineGeometry} from "./objects/LineGeometry";
+import {DefaultDataPreprocessors} from "./dataPreprocessors/DefaultDataPreprocessors.js";
 
 function Scene(container) {
-
-    var reversedCountryColorMap = new CountryColorMap();
-
-    var countryData = new CountryData();
-
-    var selectedCountry = countryData["CN"];
-
-    var lights = new Lights();
-    var camera = new Camera();
-    var scene = new THREE.Scene();
-    var renderer = new Renderer();
-    var rotating = new THREE.Object3D();
-    var sphere = new Sphere();
-
-    var inputData = [];
 
     var rotationHandler = new RotationHandler(this);
     var surfaceHandler = new SurfaceHandler(this);
     var wheelHandler = new WheelHandler(this);
 
     var visualizationMesh;
+
+    this.renderer = new Renderer();
+    this.camera = new Camera();
+    this.lights = new Lights();
+    this.scene = new THREE.Scene();
+    this.rotating = new THREE.Object3D();
+    this.sphere = new Sphere();
+    this.earthSurfaceShader = this.sphere.earthSurfaceShader;
+    this.inputData = null;
+
+    this.mentionedCountryCodes = [];
+
+    this.selectedCountry = CountryData["CN"];
+
+    var sceneEventManager = new SceneEventManager(this, {
+        surfaceHandler: surfaceHandler,
+        rotationHandler: rotationHandler,
+        wheelHandler: wheelHandler
+    });
+
+    var controller = this;
 
     function init () {
 
@@ -48,60 +55,44 @@ function Scene(container) {
 
     function initScene() {
 
-        LineGeometry.buildDataVizGeometries(inputData, countryData);
+        DefaultDataPreprocessors.process(controller);
 
-        for (var i in lights) {
-            scene.add(lights[i]);
+        console.log(controller);
+
+        LineGeometry.buildDataVizGeometries(controller);
+
+        for (var i in controller.lights) {
+            controller.scene.add(controller.lights[i]);
         }
 
-        scene.add(rotating);
+        controller.scene.add(controller.rotating);
 
-        rotating.add(sphere);
+        controller.rotating.add(controller.sphere);
 
         visualizationMesh = new THREE.Object3D();
-        rotating.add(visualizationMesh);
+        controller.rotating.add(visualizationMesh);
 
-        var lines = VisSystem.getVisualizedMesh(inputData);
+        var lines = VisSystem.getVisualizedMesh(controller);
         visualizationMesh.add(lines);
 
-        container.appendChild(renderer.domElement);
+        container.appendChild(controller.renderer.domElement);
 
-        scene.add(camera);
+        controller.scene.add(controller.camera);
 
         rotationHandler.rotateToTargetCountry();
-        surfaceHandler.highlightCountry(96);
+        surfaceHandler.highlightCountry(controller.selectedCountry["colorCode"]);
     }
-
-    this.renderer = renderer;
-    this.camera = camera;
-    this.scene = scene;
-    this.rotating = rotating;
-    this.earthSurfaceShader = sphere.earthSurfaceShader;
-
-    this.setSelectedCountry = function(pickColorIndex) {
-        selectedCountry = countryData[reversedCountryColorMap[pickColorIndex]]
-    };
-
-    this.getSelectedCountry = function() {
-        return selectedCountry;
-    };
-
-    var sceneEventManager = new SceneEventManager(this, {
-        surfaceHandler: surfaceHandler,
-        rotationHandler: rotationHandler,
-        wheelHandler: wheelHandler
-    });
 
     function animate() {
 
         rotationHandler.update();
 
-        renderer.clear();
-        renderer.render(scene, camera);
+        controller.renderer.clear();
+        controller.renderer.render(controller.scene, controller.camera);
 
         requestAnimationFrame(animate);
 
-        THREE.SceneUtils.traverseHierarchy(rotating,
+        THREE.SceneUtils.traverseHierarchy(controller.rotating,
             function (mesh) {
                 if (mesh.update !== undefined) {
                     mesh.update();
@@ -110,13 +101,25 @@ function Scene(container) {
         );
     }
 
+    function loadData(data) {
+        JSONLoader.loadData(controller, data);
+    }
+
     return {
 
-        addData: function(data) {
-            JSONLoader.loadData(inputData, data);
+        addData: loadData,
+
+        init: init,
+
+        setSurfaceColor: surfaceHandler.setSurfaceColor,
+
+        getScene: function() {
+            return controller.scene;
         },
 
-        init: init
+        setInitCountry: function(ISOAbbr) {
+            controller.selectedCountry = CountryData[ISOAbbr];
+        }
     }
 }
 

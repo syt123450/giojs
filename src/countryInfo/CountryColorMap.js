@@ -2,7 +2,7 @@
  * Created by ss on 2018/1/7.
  */
 
-function CountryColorMap() {
+var CountryColorMap = (function () {
 
     return {
         '1': 'PE',
@@ -234,6 +234,6 @@ function CountryColorMap() {
         '227': 'GU',
         '228': 'SG'
     };
-}
+}());
 
 export {CountryColorMap}

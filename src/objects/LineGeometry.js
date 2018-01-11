@@ -1,4 +1,5 @@
 import {Utils} from "../utils/Utils";
+import {CountryData} from "../countryInfo/CountryData.js";
 
 var LineGeometry = (function () {
 
@@ -54,16 +55,16 @@ var LineGeometry = (function () {
 
     return {
 
-        buildDataVizGeometries: function (inputData, countryData) {
+        buildDataVizGeometries: function (scene) {
 
-            for (var s in inputData) {
-                var set = inputData[s];
+            for (var s in scene.inputData) {
+                var set = scene.inputData[s];
 
                 var exporterName = set.e.toUpperCase();
                 var importerName = set.i.toUpperCase();
 
-                var exporter = countryData[exporterName];
-                var importer = countryData[importerName];
+                var exporter = CountryData[exporterName];
+                var importer = CountryData[importerName];
 
                 set.lineGeometry = makeConnectionLineGeometry(exporter, importer, set.v);
             }

@@ -5,14 +5,9 @@
 var JSONLoader = (function () {
 
     return {
-        loadData: function(target, data) {
+        loadData: function(scene, data) {
 
-            var loadingData = JSON.parse(JSON.stringify(data));
-
-            for (var i in loadingData) {
-                target.push(loadingData[i]);
-            }
-            console.log(target);
+            scene.inputData = JSON.parse(JSON.stringify(data));
         }
     }
 }());

@@ -10,9 +10,9 @@ var VisSystem = (function () {
     var exportColor = 0xdd380c;
     var importColor = 0x154492;
 
-    function getVisualizedMesh(inputData) {
+    function getVisualizedMesh(scene) {
 
-        var geometries = createGeometries(inputData);
+        var geometries = createGeometries(scene.inputData);
 
         var splineOutline = createSplineOutline(geometries.linesGeo);
         var pSystem = createParticleSystem(geometries.particlesGeo);

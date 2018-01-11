@@ -48,7 +48,7 @@ function RotationHandler(scene) {
 
     function rotateToTargetCountry() {
 
-        var selectedCountry = scene.getSelectedCountry();
+        var selectedCountry = scene.selectedCountry;
 
         rotateTargetX = selectedCountry.lat * Math.PI/180;
         var targetY0 = -(selectedCountry.lon - 9) * Math.PI / 180;

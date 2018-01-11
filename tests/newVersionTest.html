@@ -77,7 +77,7 @@
 
             void main() {
                 vec4 mapColor = texture2D( mapIndex, vUv );
-
+                float indexedColor = mapColor.x;
                 vec2 lookupUV = vec2( indexedColor, 0. );
                 vec4 lookupColor = texture2D( lookup, lookupUV );
                 float mask = lookupColor.x + (1.-outlineLevel) * indexedColor;

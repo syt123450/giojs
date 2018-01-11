@@ -4,8 +4,12 @@
 
 import {MapIndexBase64} from "../data/MapIndex.js";
 import {MapOutlineBase64} from "../data/MapOutline.js";
+import {Utils} from "../utils/Utils";
 
 function EarthSurfaceShader() {
+
+    var helperColor = new THREE.Color();
+    var surfaceColor = new THREE.Vector3(1, 1, 1);
 
     var uniforms = {};
 
@@ -36,6 +40,20 @@ function EarthSurfaceShader() {
 
     uniforms.outlineLevel = {type: 'f', value: 1};
 
+    uniforms.color = { type: 'v3', value: surfaceColor };
+    uniforms.flag = { type: 'f', value: 1 };
+
+    function setShaderColor(color) {
+
+        color = Utils.formatColor(color);
+
+        helperColor.setHex(color);
+
+        surfaceColor.x = helperColor.r;
+        surfaceColor.y = helperColor.g;
+        surfaceColor.z = helperColor.b;
+    }
+
     return {
 
         uniforms: uniforms,
@@ -62,6 +80,9 @@ function EarthSurfaceShader() {
             "varying vec3 vNormal;",
             "varying vec2 vUv;",
 
+            "uniform vec3 color;",
+            "uniform float flag;",
+
             "void main() {",
                 "vec4 mapColor = texture2D( mapIndex, vUv );",
                 "float indexedColor = mapColor.x;",
@@ -71,14 +92,23 @@ function EarthSurfaceShader() {
                 "mask = clamp(mask,0.,1.);",
                 "float outlineColor = texture2D( outline, vUv ).x * outlineLevel;",
                 "float diffuse = mask + outlineColor;",
-                "gl_FragColor = vec4( vec3(diffuse), 1.  );",
+
+                "vec3 earthColor = vec3(0.0, 0.0, 0.0);",
+                "earthColor.x = flag * color.x * diffuse + (1.0 - flag) * diffuse;",
+                "earthColor.y = flag * color.y * diffuse + (1.0 - flag) * diffuse;",
+                "earthColor.z = flag * color.z * diffuse + (1.0 - flag) * diffuse;",
+
+                "gl_FragColor = vec4( earthColor, 1.  );",
+
             "}"
 
         ].join( "\n" ),
 
         lookupCanvas: lookupCanvas,
 
-        lookupTexture: lookupTexture
+        lookupTexture: lookupTexture,
+
+        setShaderColor: setShaderColor
     }
 }
 

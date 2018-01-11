@@ -14,6 +14,8 @@ function SurfaceHandler(scene) {
         ctx.fillRect( 0, 0, 1, 1 );
 
         scene.earthSurfaceShader.uniforms['outlineLevel'].value = 0;
+        scene.earthSurfaceShader.uniforms['flag'].value = 0;
+
         scene.earthSurfaceShader.lookupTexture.needsUpdate = true;
 
         scene.renderer.autoClear = false;
@@ -45,6 +47,7 @@ function SurfaceHandler(scene) {
         gl.preserveDrawingBuffer = false;
 
         scene.earthSurfaceShader.uniforms['outlineLevel'].value = 1;
+        scene.earthSurfaceShader.uniforms['flag'].value = 1;
 
         return buf[0];
     }
@@ -65,11 +68,17 @@ function SurfaceHandler(scene) {
         scene.earthSurfaceShader.lookupTexture.needsUpdate = true;
     }
 
+    function setSurfaceColor(color) {
+        scene.earthSurfaceShader.setShaderColor(color);
+    }
+
     return {
 
         getPickColor: getPickColor,
 
-        highlightCountry: highlightCountry
+        highlightCountry: highlightCountry,
+
+        setSurfaceColor: setSurfaceColor
     }
 }
 

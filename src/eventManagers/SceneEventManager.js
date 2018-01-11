@@ -2,6 +2,9 @@
  * Created by ss on 2018/1/7.
  */
 
+import {CountryData} from "../countryInfo/CountryData.js";
+import {CountryColorMap} from "../countryInfo/CountryColorMap";
+
 function SceneEventManager(scene, handlers) {
 
     var mouseX = 0, mouseY = 0, pmouseX = 0, pmouseY = 0;
@@ -73,7 +76,7 @@ function SceneEventManager(scene, handlers) {
 
             surfaceHandler.highlightCountry(pickColorIndex);
 
-            scene.setSelectedCountry(pickColorIndex);
+            scene.selectedCountry = CountryData[CountryColorMap[pickColorIndex]];
 
             rotationHandler.rotateToTargetCountry();
 

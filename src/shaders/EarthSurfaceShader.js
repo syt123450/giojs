@@ -8,40 +8,52 @@ import {Utils} from "../utils/Utils";
 
 function EarthSurfaceShader() {
 
+    var selectedColorDifferent = false;
     var helperColor = new THREE.Color();
     var surfaceColor = new THREE.Vector3(1, 1, 1);
+    var selectedColor = new THREE.Vector3(1, 1, 1);
 
-    var uniforms = {};
+    var lookupCanvas, lookupTexture;
+    var uniforms = createUniforms();
 
-    var mapIndexedImage = new Image();
-    mapIndexedImage.src = MapIndexBase64;
+    function createUniforms() {
 
-    var mapOutlineBase64 = new Image();
-    mapOutlineBase64.src = MapOutlineBase64;
+        var uniforms = {};
 
-    uniforms.mapIndex = {type: 't', value: 0, texture: THREE.ImageUtils.loadTexture(mapIndexedImage.src)};
-    uniforms.mapIndex.texture.needsUpdate = true;
-    uniforms.mapIndex.texture.magFilter = THREE.NearestFilter;
-    uniforms.mapIndex.texture.minFilter = THREE.NearestFilter;
+        var mapIndexedImage = new Image();
+        mapIndexedImage.src = MapIndexBase64;
 
-    var lookupCanvas = document.createElement('canvas');
-    lookupCanvas.width = 256;
-    lookupCanvas.height = 1;
+        var mapOutlineBase64 = new Image();
+        mapOutlineBase64.src = MapOutlineBase64;
 
-    var lookupTexture = new THREE.Texture(lookupCanvas);
-    lookupTexture.magFilter = THREE.NearestFilter;
-    lookupTexture.minFilter = THREE.NearestFilter;
-    lookupTexture.needsUpdate = true;
+        uniforms.mapIndex = {type: 't', value: 0, texture: THREE.ImageUtils.loadTexture(mapIndexedImage.src)};
+        uniforms.mapIndex.texture.needsUpdate = true;
+        uniforms.mapIndex.texture.magFilter = THREE.NearestFilter;
+        uniforms.mapIndex.texture.minFilter = THREE.NearestFilter;
 
-    uniforms.lookup = {type: 't', value: 1, texture: lookupTexture};
+        lookupCanvas = document.createElement('canvas');
+        lookupCanvas.width = 256;
+        lookupCanvas.height = 1;
 
-    uniforms.outline = {type: 't', value: 2, texture: THREE.ImageUtils.loadTexture(mapOutlineBase64.src)};
-    uniforms.outline.texture.needsUpdate = true;
+        lookupTexture = new THREE.Texture(lookupCanvas);
+        lookupTexture.magFilter = THREE.NearestFilter;
+        lookupTexture.minFilter = THREE.NearestFilter;
+        lookupTexture.needsUpdate = true;
 
-    uniforms.outlineLevel = {type: 'f', value: 1};
+        uniforms.lookup = {type: 't', value: 1, texture: lookupTexture};
 
-    uniforms.color = { type: 'v3', value: surfaceColor };
-    uniforms.flag = { type: 'f', value: 1 };
+        uniforms.outline = {type: 't', value: 2, texture: THREE.ImageUtils.loadTexture(mapOutlineBase64.src)};
+        uniforms.outline.texture.needsUpdate = true;
+
+        uniforms.outlineLevel = {type: 'f', value: 1};
+
+        uniforms.surfaceColor = { type: 'v3', value: surfaceColor };
+        uniforms.flag = { type: 'f', value: 1 };
+
+        uniforms.selectedColor = { type: 'v3', value: selectedColor };
+
+        return uniforms;
+    }
 
     function setShaderColor(color) {
 
@@ -52,6 +64,27 @@ function EarthSurfaceShader() {
         surfaceColor.x = helperColor.r;
         surfaceColor.y = helperColor.g;
         surfaceColor.z = helperColor.b;
+
+        if (!selectedColorDifferent) {
+            selectedColor.x = helperColor.r;
+            selectedColor.y = helperColor.g;
+            selectedColor.z = helperColor.b;
+        }
+    }
+
+    function setHighlightColor(color) {
+
+        console.log("set surface.");
+
+        color = Utils.formatColor(color);
+
+        selectedColorDifferent = true;
+
+        helperColor.setHex(color);
+
+        selectedColor.x = helperColor.r;
+        selectedColor.y = helperColor.g;
+        selectedColor.z = helperColor.b;
     }
 
     return {
@@ -80,8 +113,9 @@ function EarthSurfaceShader() {
             "varying vec3 vNormal;",
             "varying vec2 vUv;",
 
-            "uniform vec3 color;",
+            "uniform vec3 surfaceColor;",
             "uniform float flag;",
+            "uniform vec3 selectedColor;",
 
             "void main() {",
                 "vec4 mapColor = texture2D( mapIndex, vUv );",
@@ -94,9 +128,13 @@ function EarthSurfaceShader() {
                 "float diffuse = mask + outlineColor;",
 
                 "vec3 earthColor = vec3(0.0, 0.0, 0.0);",
-                "earthColor.x = flag * color.x * diffuse + (1.0 - flag) * diffuse;",
-                "earthColor.y = flag * color.y * diffuse + (1.0 - flag) * diffuse;",
-                "earthColor.z = flag * color.z * diffuse + (1.0 - flag) * diffuse;",
+                "earthColor.x = flag * surfaceColor.x * diffuse + (1.0 - flag) * diffuse;",
+                "earthColor.y = flag * surfaceColor.y * diffuse + (1.0 - flag) * diffuse;",
+                "earthColor.z = flag * surfaceColor.z * diffuse + (1.0 - flag) * diffuse;",
+
+                "if (lookupColor.x > 0.9) {",
+                    "earthColor = selectedColor * diffuse;",
+                "}",
 
                 "gl_FragColor = vec4( earthColor, 1.  );",
 
@@ -108,7 +146,9 @@ function EarthSurfaceShader() {
 
         lookupTexture: lookupTexture,
 
-        setShaderColor: setShaderColor
+        setShaderColor: setShaderColor,
+
+        setHighlightColor: setHighlightColor
     }
 }
 

@@ -18,7 +18,7 @@ import {Sphere} from "./objects/Sphere";
 import {LineGeometry} from "./objects/LineGeometry";
 import {DefaultDataPreprocessors} from "./dataPreprocessors/DefaultDataPreprocessors.js";
 
-function Scene(container) {
+function Controller(container) {
 
     var rotationHandler = new RotationHandler(this);
     var surfaceHandler = new SurfaceHandler(this);
@@ -56,8 +56,6 @@ function Scene(container) {
     function initScene() {
 
         DefaultDataPreprocessors.process(controller);
-
-        console.log(controller);
 
         LineGeometry.buildDataVizGeometries(controller);
 
@@ -113,6 +111,8 @@ function Scene(container) {
 
         setSurfaceColor: surfaceHandler.setSurfaceColor,
 
+        setSelectedColor: surfaceHandler.setSelectedColor,
+
         getScene: function() {
             return controller.scene;
         },
@@ -123,4 +123,4 @@ function Scene(container) {
     }
 }
 
-export {Scene}
+export {Controller}

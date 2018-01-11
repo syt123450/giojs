@@ -72,13 +72,20 @@ function SurfaceHandler(scene) {
         scene.earthSurfaceShader.setShaderColor(color);
     }
 
+    function setSelectedColor(color) {
+        console.log("set highlight color in surface handler.");
+        scene.earthSurfaceShader.setHighlightColor(color);
+    }
+
     return {
 
         getPickColor: getPickColor,
 
         highlightCountry: highlightCountry,
 
-        setSurfaceColor: setSurfaceColor
+        setSurfaceColor: setSurfaceColor,
+
+        setSelectedColor: setSelectedColor
     }
 }
 

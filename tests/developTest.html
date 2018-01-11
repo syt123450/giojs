@@ -29,10 +29,12 @@
 
     var container = document.getElementById("globalArea");
 
-    var scene = new IOGlobe.Scene(container);
+    var scene = new IOGlobe.Controller(container);
     scene.addData(inputData);
-//    scene.setSurfaceColor(0x00FF00);
-    scene.setSurfaceColor(0xFF0000);
+    scene.setSurfaceColor(0x00FF00);
+    scene.setSelectedColor(0xFF0000);
+//    scene.setInitCountry("US");
+//    scene.setSurfaceColor(0xFF0000);
     scene.init();
 
 </script>

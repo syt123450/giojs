@@ -72,8 +72,9 @@
             uniform float outlineLevel;
             varying vec3 vNormal;
             varying vec2 vUv;
-            uniform vec3 color;
+            uniform vec3 surfaceColor;
             uniform float flag;
+            uniform vec3 selectedColor;
 
             void main() {
                 vec4 mapColor = texture2D( mapIndex, vUv );
@@ -87,9 +88,13 @@
                 // gl_FragColor = vec4( vec3(diffuse), 1.  );
 
                 vec3 earthColor = vec3(0.0, 0.0, 0.0);
-                earthColor.x = flag * color.x * diffuse + (1.0 - flag) * diffuse;
-                earthColor.y = flag * color.y * diffuse + (1.0 - flag) * diffuse;
-                earthColor.z = flag * color.z * diffuse + (1.0 - flag) * diffuse;
+                earthColor.x = flag * surfaceColor.x * diffuse + (1.0 - flag) * diffuse;
+                earthColor.y = flag * surfaceColor.y * diffuse + (1.0 - flag) * diffuse;
+                earthColor.z = flag * surfaceColor.z * diffuse + (1.0 - flag) * diffuse;
+
+                if (lookupColor.x > 0.9) {
+                    earthColor = selectedColor * diffuse;
+                }
 
                 gl_FragColor = vec4( earthColor, 1.  );
 

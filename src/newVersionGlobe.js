@@ -99,7 +99,8 @@ Globe = function (container) {
             'lookup': {type: 't', value: 1, texture: lookupTexture},
             'outline': {type: 't', value: 2, texture: outlinedMapTexture},
             'outlineLevel': {type: 'f', value: 1},
-	        'color': { type: 'v3', value: new THREE.Vector3(0.0, 1.0, 1.0) },
+	        'surfaceColor': { type: 'v3', value: new THREE.Vector3(0.0, 1.0, 1.0) },
+            'selectedColor': { type: 'v3', value: new THREE.Vector3(1.0, 0.0, 0.0) },
 	        'flag': { type: 'f', value: 1 }
         };
 

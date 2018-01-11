@@ -99,6 +99,8 @@ Globe = function (container) {
             'lookup': {type: 't', value: 1, texture: lookupTexture},
             'outline': {type: 't', value: 2, texture: outlinedMapTexture},
             'outlineLevel': {type: 'f', value: 1},
+	        'color': { type: 'v3', value: new THREE.Vector3(0.0, 1.0, 1.0) },
+	        'flag': { type: 'f', value: 1 }
         };
 
         mapUniforms = uniforms;
@@ -371,6 +373,7 @@ Globe = function (container) {
         ctx.fillRect( 0, 0, 1, 1 );
 
         mapUniforms['outlineLevel'].value = 0;
+	    mapUniforms['flag'].value = 0;
         lookupTexture.needsUpdate = true;
 
         renderer.autoClear = false;
@@ -402,7 +405,7 @@ Globe = function (container) {
         gl.preserveDrawingBuffer = false;
 
         mapUniforms['outlineLevel'].value = 1;
-
+	    mapUniforms['flag'].value = 1;
         return buf[0];
     }
 

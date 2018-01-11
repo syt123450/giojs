@@ -72,16 +72,27 @@
             uniform float outlineLevel;
             varying vec3 vNormal;
             varying vec2 vUv;
+            uniform vec3 color;
+            uniform float flag;
+
             void main() {
                 vec4 mapColor = texture2D( mapIndex, vUv );
-                float indexedColor = mapColor.x;
+
                 vec2 lookupUV = vec2( indexedColor, 0. );
                 vec4 lookupColor = texture2D( lookup, lookupUV );
                 float mask = lookupColor.x + (1.-outlineLevel) * indexedColor;
                 mask = clamp(mask,0.,1.);
                 float outlineColor = texture2D( outline, vUv ).x * outlineLevel;
                 float diffuse = mask + outlineColor;
-                gl_FragColor = vec4( vec3(diffuse), 1.  );
+                // gl_FragColor = vec4( vec3(diffuse), 1.  );
+
+                vec3 earthColor = vec3(0.0, 0.0, 0.0);
+                earthColor.x = flag * color.x * diffuse + (1.0 - flag) * diffuse;
+                earthColor.y = flag * color.y * diffuse + (1.0 - flag) * diffuse;
+                earthColor.z = flag * color.z * diffuse + (1.0 - flag) * diffuse;
+
+                gl_FragColor = vec4( earthColor, 1.  );
+
                 // gl_FragColor = vec4( lookupColor );
                 // gl_FragColor = vec4(texture2D( lookup, vUv ).xyz,1.);
             }

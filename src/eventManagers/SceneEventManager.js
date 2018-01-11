@@ -3,7 +3,7 @@
  */
 
 import {CountryData} from "../countryInfo/CountryData.js";
-import {CountryColorMap} from "../countryInfo/CountryColorMap";
+import {CountryColorMap} from "../countryInfo/CountryColorMap.js";
 
 function SceneEventManager(controller, handlers) {
 
@@ -13,6 +13,7 @@ function SceneEventManager(controller, handlers) {
     var surfaceHandler = handlers.surfaceHandler;
     var rotationHandler = handlers.rotationHandler;
     var wheelHandler = handlers.wheelHandler;
+    var visSystemHandler = handlers.visSystemHandler;
 
     function onDocumentMouseMove(event) {
 
@@ -75,12 +76,10 @@ function SceneEventManager(controller, handlers) {
         if (pickColorIndex != 0 &&
             (controller.disableUnrelated && controller.mentionedCountryCodes.indexOf(pickColorIndex) != -1 || !controller.disableUnrelated)) {
 
-            surfaceHandler.highlightCountry(pickColorIndex);
-
             controller.selectedCountry = CountryData[CountryColorMap[pickColorIndex]];
-
+            visSystemHandler.updateSystem();
+            surfaceHandler.highlightCountry(pickColorIndex);
             rotationHandler.rotateToTargetCountry();
-
         }
     }
 

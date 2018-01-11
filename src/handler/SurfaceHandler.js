@@ -62,10 +62,22 @@ function SurfaceHandler(controller) {
         ctx.fillStyle = 'rgb(' + oceanFill + ',' + oceanFill + ',' + oceanFill +')';
         ctx.fillRect( 0, 0, 1, 1 );
 
-        var relatedFill = 100;
+        if (controller.isLightenMentioned) {
+            var mentionedFill = 50;
+            ctx.fillStyle = 'rgb(' + mentionedFill + ',' + mentionedFill + ',' + mentionedFill +')';
+            console.log(controller.mentionedCountryCodes);
+            for (var i in controller.mentionedCountryCodes) {
+                console.log("fill " + controller.mentionedCountryCodes[i]);
+                ctx.fillRect( controller.mentionedCountryCodes[i], 0, 1, 1 );
+            }
+        }
+
+        var relatedFill = 150;
         ctx.fillStyle = 'rgb(' + relatedFill + ',' + relatedFill + ',' + relatedFill +')';
-        for (var i in controller.mentionedCountryCodes) {
-            ctx.fillRect( controller.mentionedCountryCodes[i], 0, 1, 1 );
+        console.log(controller.relatedCountries);
+        for (var i in controller.relatedCountries) {
+            console.log("fill " + controller.relatedCountries[i].colorCode);
+            ctx.fillRect( controller.relatedCountries[i].colorCode, 0, 1, 1 );
         }
 
         var fillCSS = '#ffffff';

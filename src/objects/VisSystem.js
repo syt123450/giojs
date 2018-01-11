@@ -4,6 +4,8 @@
 
 import {Utils} from "../utils/Utils";
 import {MovingSpriteShader} from "../shaders/MovingSpriteShader";
+import {CountryData} from "../countryInfo/CountryData.js";
+import {CountryColorMap} from "../countryInfo/CountryColorMap.js";
 
 var VisSystem = (function () {
 
@@ -12,7 +14,7 @@ var VisSystem = (function () {
 
     function getVisualizedMesh(controller) {
 
-        var geometries = createGeometries(controller.inputData);
+        var geometries = createGeometries(controller);
 
         var splineOutline = createSplineOutline(geometries.linesGeo);
         var pSystem = createParticleSystem(geometries.particlesGeo);
@@ -22,7 +24,11 @@ var VisSystem = (function () {
         return splineOutline;
     }
 
-    function createGeometries(inputData) {
+    function createGeometries(controller) {
+
+        var inputData = controller.inputData;
+        controller.relatedCountries = [];
+        var selectedCountry = controller.selectedCountry;
 
         var linesGeo = new THREE.Geometry();
         var lineColors = [];
@@ -31,41 +37,51 @@ var VisSystem = (function () {
         var particleColors = [];
 
         for (var i in inputData) {
+
             var set = inputData[i];
 
-            var lineColor = new THREE.Color(exportColor);
+            if (set.i === CountryColorMap[selectedCountry.colorCode] ||
+                set.e === CountryColorMap[selectedCountry.colorCode]) {
 
-            var lastColor;
-            for (s in set.lineGeometry.vertices) {
-                lineColors.push(lineColor);
-                lastColor = lineColor;
+                if (set.e === CountryColorMap[selectedCountry.colorCode]) {
+                    controller.relatedCountries.push(CountryData[set.i]);
+                } else {
+                    controller.relatedCountries.push(CountryData[set.e]);
+                }
+
+                var lineColor = new THREE.Color(exportColor);
+
+                var lastColor;
+                for (s in set.lineGeometry.vertices) {
+                    lineColors.push(lineColor);
+                    lastColor = lineColor;
+                }
+
+                THREE.GeometryUtils.merge(linesGeo, set.lineGeometry);
+
+                var particleColor = lastColor.clone();
+                var points = set.lineGeometry.vertices;
+                var particleCount = Math.floor(set.v / 8000 / set.lineGeometry.vertices.length) + 1;
+                particleCount = Utils.constrain(particleCount, 1, 100);
+                var particleSize = set.lineGeometry.size;
+                for (var s = 0; s < particleCount; s++) {
+
+                    var desiredIndex = s / particleCount * points.length;
+                    var rIndex = Utils.constrain(Math.floor(desiredIndex), 0, points.length - 1);
+
+                    var point = points[rIndex];
+                    var particle = point.clone();
+                    particle.moveIndex = rIndex;
+                    particle.nextIndex = rIndex + 1;
+                    if (particle.nextIndex >= points.length)
+                        particle.nextIndex = 0;
+                    particle.lerpN = 0;
+                    particle.path = points;
+                    particlesGeo.vertices.push(particle);
+                    particle.size = particleSize;
+                    particleColors.push(particleColor);
+                }
             }
-
-            THREE.GeometryUtils.merge(linesGeo, set.lineGeometry);
-
-            var particleColor = lastColor.clone();
-            var points = set.lineGeometry.vertices;
-            var particleCount = Math.floor(set.v / 8000 / set.lineGeometry.vertices.length) + 1;
-            particleCount = Utils.constrain(particleCount, 1, 100);
-            var particleSize = set.lineGeometry.size;
-            for (var s = 0; s < particleCount; s++) {
-
-                var desiredIndex = s / particleCount * points.length;
-                var rIndex = Utils.constrain(Math.floor(desiredIndex), 0, points.length - 1);
-
-                var point = points[rIndex];
-                var particle = point.clone();
-                particle.moveIndex = rIndex;
-                particle.nextIndex = rIndex + 1;
-                if (particle.nextIndex >= points.length)
-                    particle.nextIndex = 0;
-                particle.lerpN = 0;
-                particle.path = points;
-                particlesGeo.vertices.push(particle);
-                particle.size = particleSize;
-                particleColors.push(particleColor);
-            }
-
         }
 
         linesGeo.colors = lineColors;

@@ -2,7 +2,6 @@
  * Created by ss on 2018/1/7.
  */
 
-import {CountryColorMap} from "./countryInfo/CountryColorMap";
 import {CountryData} from "./countryInfo/CountryData.js";
 import {JSONLoader} from "./dataLoaders/JSONLoader.js";
 import {Marker} from "./markers/Marker.js";
@@ -17,15 +16,16 @@ import {WheelHandler} from "./handler/WheelHandler";
 import {Sphere} from "./objects/Sphere";
 import {LineGeometry} from "./objects/LineGeometry";
 import {DefaultDataPreprocessors} from "./dataPreprocessors/DefaultDataPreprocessors.js";
+import {VisSystemHandler} from "./handler/VisSystemHandler.js";
 
 function Controller(container) {
 
     var rotationHandler = new RotationHandler(this);
     var surfaceHandler = new SurfaceHandler(this);
     var wheelHandler = new WheelHandler(this);
+    var visSystemHandler = new VisSystemHandler(this);
 
-    var visualizationMesh;
-
+    this.visualizationMesh = null;
     this.renderer = new Renderer();
     this.camera = new Camera();
     this.lights = new Lights();
@@ -35,6 +35,7 @@ function Controller(container) {
     this.earthSurfaceShader = this.sphere.earthSurfaceShader;
     this.inputData = null;
     this.disableUnrelated = false;
+    this.isLightenMentioned = false;
 
     this.mentionedCountryCodes = [];
     this.relatedCountries = [];
@@ -44,7 +45,8 @@ function Controller(container) {
     var sceneEventManager = new SceneEventManager(this, {
         surfaceHandler: surfaceHandler,
         rotationHandler: rotationHandler,
-        wheelHandler: wheelHandler
+        wheelHandler: wheelHandler,
+        visSystemHandler: visSystemHandler
     });
 
     var controller = this;
@@ -69,16 +71,11 @@ function Controller(container) {
 
         controller.rotating.add(controller.sphere);
 
-        visualizationMesh = new THREE.Object3D();
-        controller.rotating.add(visualizationMesh);
-
-        var lines = VisSystem.getVisualizedMesh(controller);
-        visualizationMesh.add(lines);
-
         container.appendChild(controller.renderer.domElement);
 
         controller.scene.add(controller.camera);
 
+        visSystemHandler.updateSystem();
         rotationHandler.rotateToTargetCountry();
         surfaceHandler.highlightCountry(controller.selectedCountry["colorCode"]);
     }
@@ -125,6 +122,10 @@ function Controller(container) {
 
         disableUnrelated: function(flag) {
             controller.disableUnrelated = flag;
+        },
+
+        lightenMentioned: function(flag) {
+            controller.isLightenMentioned = flag;
         }
     }
 }

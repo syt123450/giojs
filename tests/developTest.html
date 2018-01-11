@@ -29,13 +29,14 @@
 
     var container = document.getElementById("globalArea");
 
-    var scene = new IOGlobe.Controller(container);
-    scene.addData(inputData);
-    scene.setSurfaceColor(0x00FF00);
-    scene.setSelectedColor(0xFF0000);
-//    scene.setInitCountry("US");
-//    scene.setSurfaceColor(0xFF0000);
-    scene.init();
+    var controller = new IOGlobe.Controller(container);
+    controller.addData(inputData);
+    controller.setSurfaceColor(0x00FF00);
+    controller.setSelectedColor(0xFF0000);
+//    controller.setInitCountry("US");
+//    controller.setSurfaceColor(0xFF0000);
+//    controller.disableUnrelated(true);
+    controller.init();
 
 </script>
 

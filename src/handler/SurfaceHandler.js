@@ -49,6 +49,8 @@ function SurfaceHandler(controller) {
         controller.earthSurfaceShader.uniforms['outlineLevel'].value = 1;
         controller.earthSurfaceShader.uniforms['flag'].value = 1;
 
+        highlightCountry(controller.selectedCountry.colorCode);
+
         return buf[0];
     }
 
@@ -60,7 +62,13 @@ function SurfaceHandler(controller) {
         ctx.fillStyle = 'rgb(' + oceanFill + ',' + oceanFill + ',' + oceanFill +')';
         ctx.fillRect( 0, 0, 1, 1 );
 
-        var fillCSS = '#eeeeee';
+        var relatedFill = 100;
+        ctx.fillStyle = 'rgb(' + relatedFill + ',' + relatedFill + ',' + relatedFill +')';
+        for (var i in controller.mentionedCountryCodes) {
+            ctx.fillRect( controller.mentionedCountryCodes[i], 0, 1, 1 );
+        }
+
+        var fillCSS = '#ffffff';
 
         ctx.fillStyle = fillCSS;
         ctx.fillRect(code, 0, 1, 1);

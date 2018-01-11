@@ -72,7 +72,8 @@ function SceneEventManager(controller, handlers) {
 
         console.log(pickColorIndex);
 
-        if (pickColorIndex != 0) {
+        if (pickColorIndex != 0 &&
+            (controller.disableUnrelated && controller.mentionedCountryCodes.indexOf(pickColorIndex) != -1 || !controller.disableUnrelated)) {
 
             surfaceHandler.highlightCountry(pickColorIndex);
 

@@ -34,8 +34,10 @@ function Controller(container) {
     this.sphere = new Sphere();
     this.earthSurfaceShader = this.sphere.earthSurfaceShader;
     this.inputData = null;
+    this.disableUnrelated = false;
 
     this.mentionedCountryCodes = [];
+    this.relatedCountries = [];
 
     this.selectedCountry = CountryData["CN"];
 
@@ -119,6 +121,10 @@ function Controller(container) {
 
         setInitCountry: function(ISOAbbr) {
             controller.selectedCountry = CountryData[ISOAbbr];
+        },
+
+        disableUnrelated: function(flag) {
+            controller.disableUnrelated = flag;
         }
     }
 }

@@ -15,7 +15,15 @@ function VisSystemHandler(controller) {
     }
 
     return {
-        updateSystem: updateSystem
+        updateSystem: updateSystem,
+
+        setExportColor: function(color) {
+            VisSystem.setExportColor(color);
+        },
+
+        setImportColor: function(color) {
+            VisSystem.setImportColor(color);
+        }
     }
 }
 

@@ -5,7 +5,6 @@
 import {CountryData} from "./countryInfo/CountryData.js";
 import {JSONLoader} from "./dataLoaders/JSONLoader.js";
 import {Marker} from "./markers/Marker.js";
-import {VisSystem} from "./objects/VisSystem.js";
 import {SceneEventManager} from "./eventManagers/SceneEventManager.js";
 import {SurfaceHandler} from "./handler/SurfaceHandler";
 import {RotationHandler} from "./handler/RotationHandler";
@@ -36,6 +35,8 @@ function Controller(container) {
     this.inputData = null;
     this.disableUnrelated = false;
     this.isLightenMentioned = false;
+
+    this.visSystemHandler = visSystemHandler;
 
     this.mentionedCountryCodes = [];
     this.relatedCountries = [];
@@ -126,6 +127,15 @@ function Controller(container) {
 
         lightenMentioned: function(flag) {
             controller.isLightenMentioned = flag;
+        },
+
+        setExportColor: function(color) {
+            console.log(controller.visSystemHandler);
+            controller.visSystemHandler.setExportColor(color);
+        },
+
+        setImportColor: function(color) {
+            controller.visSystemHandler.setImportColor(color);
         }
     }
 }

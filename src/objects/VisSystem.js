@@ -43,13 +43,15 @@ var VisSystem = (function () {
             if (set.i === CountryColorMap[selectedCountry.colorCode] ||
                 set.e === CountryColorMap[selectedCountry.colorCode]) {
 
+                var lineColor;
+
                 if (set.e === CountryColorMap[selectedCountry.colorCode]) {
                     controller.relatedCountries.push(CountryData[set.i]);
+                    lineColor = new THREE.Color(exportColor);
                 } else {
                     controller.relatedCountries.push(CountryData[set.e]);
+                    lineColor = new THREE.Color(importColor);
                 }
-
-                var lineColor = new THREE.Color(exportColor);
 
                 var lastColor;
                 for (s in set.lineGeometry.vertices) {
@@ -172,7 +174,15 @@ var VisSystem = (function () {
     }
 
     return {
-        getVisualizedMesh: getVisualizedMesh
+        getVisualizedMesh: getVisualizedMesh,
+
+        setExportColor: function(color) {
+            exportColor = color;
+        },
+
+        setImportColor: function(color) {
+            importColor = color;
+        }
     }
 
 }());

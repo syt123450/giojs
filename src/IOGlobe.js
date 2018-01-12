@@ -59,7 +59,7 @@ function Controller(container) {
     function initScene() {
 
         if (controller.isStatsEnabled) {
-            controller.stats = ObjectUtils.createStats();
+            controller.stats = ObjectUtils.createStats(container);
         }
 
         DefaultDataPreprocessors.process(controller);

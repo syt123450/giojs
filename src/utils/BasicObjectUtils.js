@@ -50,11 +50,12 @@ var ObjectUtils = (function() {
         return renderer;
     }
 
-    function createStats() {
+    function createStats(container) {
 
         var stats = new Stats();
         stats.showPanel( 1 );
-        document.body.appendChild( stats.dom );
+        stats.dom.style.position = "absolute";
+        container.appendChild( stats.dom );
 
         return stats;
     }
@@ -69,6 +70,7 @@ var ObjectUtils = (function() {
 
         createStats: createStats
     }
+
 }());
 
 export {ObjectUtils}

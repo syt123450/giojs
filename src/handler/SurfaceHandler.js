@@ -2,6 +2,8 @@
  * Created by ss on 2018/1/9.
  */
 
+import {Utils} from "../utils/Utils.js";
+
 function SurfaceHandler(controller) {
 
     var oceanColor = 10;
@@ -99,6 +101,18 @@ function SurfaceHandler(controller) {
         controller.earthSurfaceShader.setHighlightColor(color);
     }
 
+    function adjustOceanBrightness(brightness) {
+
+    }
+
+    function adjustMentionedBrightness(brightness) {
+
+    }
+
+    function adjustRelatedBrightness(brightness) {
+
+    }
+
     return {
 
         getPickColor: getPickColor,
@@ -107,7 +121,13 @@ function SurfaceHandler(controller) {
 
         setSurfaceColor: setSurfaceColor,
 
-        setSelectedColor: setSelectedColor
+        setSelectedColor: setSelectedColor,
+
+        adjustOceanBrightness: adjustOceanBrightness,
+
+        adjustMentionedBrightness: adjustMentionedBrightness,
+
+        adjustRelatedBrightness: adjustRelatedBrightness
     }
 }
 

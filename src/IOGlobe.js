@@ -8,9 +8,6 @@ import {Marker} from "./markers/Marker.js";
 import {SceneEventManager} from "./eventManagers/SceneEventManager.js";
 import {SurfaceHandler} from "./handler/SurfaceHandler";
 import {RotationHandler} from "./handler/RotationHandler";
-import {Lights} from "./objects/Lights";
-import {Camera} from "./objects/Camera";
-import {Renderer} from "./objects/Renderer";
 import {WheelHandler} from "./handler/WheelHandler";
 import {Sphere} from "./objects/Sphere";
 import {LineGeometry} from "./objects/LineGeometry";
@@ -18,6 +15,7 @@ import {DefaultDataPreprocessors} from "./dataPreprocessors/DefaultDataPreproces
 import {VisSystemHandler} from "./handler/VisSystemHandler.js";
 import {SwitchCountryHandler} from "./handler/SwitchCountryHandler";
 import {ResizeHandler} from "./handler/ResizeHandler";
+import {ObjectUtils} from "./utils/BasicObjectUtils.js";
 
 function Controller(container) {
 
@@ -30,9 +28,10 @@ function Controller(container) {
     this.resizeHandler = new ResizeHandler(this);
 
     this.visualizationMesh = null;
-    this.renderer = new Renderer(container);
-    this.camera = new Camera(container);
-    this.lights = new Lights();
+    this.renderer = ObjectUtils.createRenderer(container);
+    this.camera = ObjectUtils.createCamera(container);
+    this.lights = ObjectUtils.createLights();
+
     this.scene = new THREE.Scene();
     this.rotating = new THREE.Object3D();
     this.sphere = new Sphere();
@@ -46,15 +45,22 @@ function Controller(container) {
 
     this.selectedCountry = CountryData["CN"];
 
+    this.stats = null;
+    this.isStatsEnabled = false;
+
     var controller = this;
 
-    function init () {
+    function init() {
 
         initScene();
         animate();
     }
 
     function initScene() {
+
+        if (controller.isStatsEnabled) {
+            controller.stats = ObjectUtils.createStats();
+        }
 
         DefaultDataPreprocessors.process(controller);
 
@@ -81,12 +87,14 @@ function Controller(container) {
 
     function animate() {
 
+        if (controller.isStatsEnabled) {
+            controller.stats.update();
+        }
+
         controller.rotationHandler.update();
 
         controller.renderer.clear();
         controller.renderer.render(controller.scene, controller.camera);
-
-        requestAnimationFrame(animate);
 
         THREE.SceneUtils.traverseHierarchy(controller.rotating,
             function (mesh) {
@@ -95,56 +103,80 @@ function Controller(container) {
                 }
             }
         );
-    }
 
-    function loadData(data) {
-        JSONLoader.loadData(controller, data);
+        requestAnimationFrame(animate);
     }
 
     return {
 
-        addData: loadData,
-
         init: init,
+
+        addData: function (data) {
+            JSONLoader.loadData(controller, data);
+        },
 
         setSurfaceColor: controller.surfaceHandler.setSurfaceColor,
 
         setSelectedColor: controller.surfaceHandler.setSelectedColor,
 
-        getScene: function() {
+        getScene: function () {
             return controller.scene;
         },
 
-        setInitCountry: function(ISOAbbr) {
+        setInitCountry: function (ISOAbbr) {
             controller.selectedCountry = CountryData[ISOAbbr];
         },
 
-        disableUnrelated: function(flag) {
+        disableUnrelated: function (flag) {
             controller.disableUnrelated = flag;
         },
 
-        lightenMentioned: function(flag) {
+        lightenMentioned: function (flag) {
             controller.isLightenMentioned = flag;
         },
 
-        setExportColor: function(color) {
+        setExportColor: function (color) {
             controller.visSystemHandler.setExportColor(color);
         },
 
-        setImportColor: function(color) {
+        setImportColor: function (color) {
             controller.visSystemHandler.setImportColor(color);
         },
 
-        getSelectedCountry: function() {
+        getSelectedCountry: function () {
             return controller.selectedCountry;
         },
 
-        getRelatedCountries: function() {
+        getRelatedCountries: function () {
             return controller.relatedCountries;
         },
 
-        onCountryPicked: function(callBack) {
+        onCountryPicked: function (callBack) {
             controller.switchCountryHandler.setCountryPickCallBack(callBack);
+        },
+
+        enableStats: function() {
+            controller.isStatsEnabled = true;
+        },
+
+        disableStats: function() {
+            controller.isStatsEnabled = false;
+        },
+
+        getStatsObject: function() {
+            return controller.stats;
+        },
+
+        adjustRelatedBrightness: function (brightness) {
+
+        },
+
+        adjustOceanBrightness: function (brightness) {
+
+        },
+
+        adjustMentionedBrightness: function (brightness) {
+
         }
     }
 }

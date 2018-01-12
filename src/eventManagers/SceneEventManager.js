@@ -9,8 +9,6 @@ var SceneEventManager = (function () {
 
     var controller;
 
-    var resizeObserver;
-
     function onDocumentMouseMove(event) {
 
         pmouseX = mouseX;

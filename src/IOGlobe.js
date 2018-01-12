@@ -17,6 +17,7 @@ import {LineGeometry} from "./objects/LineGeometry";
 import {DefaultDataPreprocessors} from "./dataPreprocessors/DefaultDataPreprocessors.js";
 import {VisSystemHandler} from "./handler/VisSystemHandler.js";
 import {SwitchCountryHandler} from "./handler/SwitchCountryHandler";
+import {ResizeHandler} from "./handler/ResizeHandler";
 
 function Controller(container) {
 
@@ -26,10 +27,11 @@ function Controller(container) {
     this.wheelHandler = new WheelHandler(this);
     this.visSystemHandler = new VisSystemHandler(this);
     this.switchCountryHandler = new SwitchCountryHandler(this);
+    this.resizeHandler = new ResizeHandler(this);
 
     this.visualizationMesh = null;
     this.renderer = new Renderer(container);
-    this.camera = new Camera();
+    this.camera = new Camera(container);
     this.lights = new Lights();
     this.scene = new THREE.Scene();
     this.rotating = new THREE.Object3D();

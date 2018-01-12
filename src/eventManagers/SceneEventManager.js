@@ -9,6 +9,8 @@ var SceneEventManager = (function () {
 
     var controller;
 
+    var resizeObserver;
+
     function onDocumentMouseMove(event) {
 
         pmouseX = mouseX;
@@ -57,6 +59,10 @@ var SceneEventManager = (function () {
         event.returnValue = false;
     }
 
+    function onResize(event) {
+        controller.resizeHandler.resizeScene();
+    }
+
     function onClick() {
 
         //	make the rest not work if the event was actually a drag style click
@@ -83,6 +89,7 @@ var SceneEventManager = (function () {
         controller.renderer.domElement.addEventListener('mouseup', onDocumentMouseUp, false);
         controller.renderer.domElement.addEventListener('click', onClick, true);
         controller.renderer.domElement.addEventListener('mousewheel', onMouseWheel, false);
+        window.addEventListener('resize', onResize, false);
     }
 
     return {

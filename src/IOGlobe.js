@@ -16,13 +16,15 @@ import {Sphere} from "./objects/Sphere";
 import {LineGeometry} from "./objects/LineGeometry";
 import {DefaultDataPreprocessors} from "./dataPreprocessors/DefaultDataPreprocessors.js";
 import {VisSystemHandler} from "./handler/VisSystemHandler.js";
+import {SwitchCountryHandler} from "./handler/SwitchCountryHandler";
 
 function Controller(container) {
 
-    var rotationHandler = new RotationHandler(this);
-    var surfaceHandler = new SurfaceHandler(this);
-    var wheelHandler = new WheelHandler(this);
-    var visSystemHandler = new VisSystemHandler(this);
+    this.rotationHandler = new RotationHandler(this);
+    this.surfaceHandler = new SurfaceHandler(this);
+    this.wheelHandler = new WheelHandler(this);
+    this.visSystemHandler = new VisSystemHandler(this);
+    this.switchCountryHandler = new SwitchCountryHandler(this);
 
     this.visualizationMesh = null;
     this.renderer = new Renderer();
@@ -36,19 +38,10 @@ function Controller(container) {
     this.disableUnrelated = false;
     this.isLightenMentioned = false;
 
-    this.visSystemHandler = visSystemHandler;
-
     this.mentionedCountryCodes = [];
     this.relatedCountries = [];
 
     this.selectedCountry = CountryData["CN"];
-
-    var sceneEventManager = new SceneEventManager(this, {
-        surfaceHandler: surfaceHandler,
-        rotationHandler: rotationHandler,
-        wheelHandler: wheelHandler,
-        visSystemHandler: visSystemHandler
-    });
 
     var controller = this;
 
@@ -76,14 +69,16 @@ function Controller(container) {
 
         controller.scene.add(controller.camera);
 
-        visSystemHandler.updateSystem();
-        rotationHandler.rotateToTargetCountry();
-        surfaceHandler.highlightCountry(controller.selectedCountry["colorCode"]);
+        SceneEventManager.bindEvent(controller);
+
+        controller.visSystemHandler.updateSystem();
+        controller.rotationHandler.rotateToTargetCountry();
+        controller.surfaceHandler.highlightCountry(controller.selectedCountry["colorCode"]);
     }
 
     function animate() {
 
-        rotationHandler.update();
+        controller.rotationHandler.update();
 
         controller.renderer.clear();
         controller.renderer.render(controller.scene, controller.camera);
@@ -109,9 +104,9 @@ function Controller(container) {
 
         init: init,
 
-        setSurfaceColor: surfaceHandler.setSurfaceColor,
+        setSurfaceColor: controller.surfaceHandler.setSurfaceColor,
 
-        setSelectedColor: surfaceHandler.setSelectedColor,
+        setSelectedColor: controller.surfaceHandler.setSelectedColor,
 
         getScene: function() {
             return controller.scene;
@@ -130,12 +125,23 @@ function Controller(container) {
         },
 
         setExportColor: function(color) {
-            console.log(controller.visSystemHandler);
             controller.visSystemHandler.setExportColor(color);
         },
 
         setImportColor: function(color) {
             controller.visSystemHandler.setImportColor(color);
+        },
+
+        getSelectedCountry: function() {
+            return controller.selectedCountry;
+        },
+
+        getRelatedCountries: function() {
+            return controller.relatedCountries;
+        },
+
+        onCountryPicked: function(callBack) {
+            controller.switchCountryHandler.setCountryPickCallBack(callBack);
         }
     }
 }

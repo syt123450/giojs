@@ -28,6 +28,7 @@ var DefaultDataPreprocessors = (function () {
     return {
         process: process
     }
+
 }());
 
 export {DefaultDataPreprocessors}

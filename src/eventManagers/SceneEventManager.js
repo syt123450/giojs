@@ -2,18 +2,12 @@
  * Created by ss on 2018/1/7.
  */
 
-import {CountryData} from "../countryInfo/CountryData.js";
-import {CountryColorMap} from "../countryInfo/CountryColorMap.js";
-
-function SceneEventManager(controller, handlers) {
+var SceneEventManager = (function () {
 
     var mouseX = 0, mouseY = 0, pmouseX = 0, pmouseY = 0;
     var pressX = 0, pressY = 0;
 
-    var surfaceHandler = handlers.surfaceHandler;
-    var rotationHandler = handlers.rotationHandler;
-    var wheelHandler = handlers.wheelHandler;
-    var visSystemHandler = handlers.visSystemHandler;
+    var controller;
 
     function onDocumentMouseMove(event) {
 
@@ -23,10 +17,10 @@ function SceneEventManager(controller, handlers) {
         mouseX = event.clientX - window.innerWidth * 0.5;
         mouseY = event.clientY - window.innerHeight * 0.5;
 
-        if (rotationHandler.isDragging()) {
+        if (controller.rotationHandler.isDragging()) {
 
-            rotationHandler.addRotateVY((mouseX - pmouseX) / 2 * Math.PI / 180 * 0.3);
-            rotationHandler.addRotateVX((mouseY - pmouseY) / 2 * Math.PI / 180 * 0.3);
+            controller.rotationHandler.addRotateVY((mouseX - pmouseX) / 2 * Math.PI / 180 * 0.3);
+            controller.rotationHandler.addRotateVX((mouseY - pmouseY) / 2 * Math.PI / 180 * 0.3);
         }
     }
 
@@ -35,15 +29,15 @@ function SceneEventManager(controller, handlers) {
             return;
         }
 
-        rotationHandler.setDragging(true);
+        controller.rotationHandler.setDragging(true);
         pressX = mouseX;
         pressY = mouseY;
-        rotationHandler.clearRotateTargetX();
+        controller.rotationHandler.clearRotateTargetX();
     }
 
     function onDocumentMouseUp(event) {
 
-        rotationHandler.setDragging(false);
+        controller.rotationHandler.setDragging(false);
     }
 
     function onMouseWheel(event) {
@@ -58,7 +52,7 @@ function SceneEventManager(controller, handlers) {
         }
 
         if (delta)
-            wheelHandler.handleMWheel(delta);
+            controller.wheelHandler.handleMWheel(delta);
 
         event.returnValue = false;
     }
@@ -69,26 +63,32 @@ function SceneEventManager(controller, handlers) {
         if (Math.abs(pressX - mouseX) > 3 || Math.abs(pressY - mouseY) > 3)
             return;
 
-        var pickColorIndex = surfaceHandler.getPickColor(mouseX, mouseY);
+        var pickColorIndex = controller.surfaceHandler.getPickColor(mouseX, mouseY);
 
         console.log(pickColorIndex);
 
         if (pickColorIndex != 0 &&
             (controller.disableUnrelated && controller.mentionedCountryCodes.indexOf(pickColorIndex) != -1 || !controller.disableUnrelated)) {
 
-            controller.selectedCountry = CountryData[CountryColorMap[pickColorIndex]];
-            visSystemHandler.updateSystem();
-            surfaceHandler.highlightCountry(pickColorIndex);
-            rotationHandler.rotateToTargetCountry();
+            controller.switchCountryHandler.executeSwitch(pickColorIndex)
         }
     }
 
-    controller.renderer.domElement.addEventListener('mousemove', onDocumentMouseMove, true);
-    controller.renderer.domElement.addEventListener('mousedown', onDocumentMouseDown, true);
-    controller.renderer.domElement.addEventListener('mouseup', onDocumentMouseUp, false);
-    controller.renderer.domElement.addEventListener('click', onClick, true);
-    controller.renderer.domElement.addEventListener('mousewheel', onMouseWheel, false);
-}
+    function bindEvent(controllerPara) {
+
+        controller = controllerPara;
+
+        controller.renderer.domElement.addEventListener('mousemove', onDocumentMouseMove, true);
+        controller.renderer.domElement.addEventListener('mousedown', onDocumentMouseDown, true);
+        controller.renderer.domElement.addEventListener('mouseup', onDocumentMouseUp, false);
+        controller.renderer.domElement.addEventListener('click', onClick, true);
+        controller.renderer.domElement.addEventListener('mousewheel', onMouseWheel, false);
+    }
+
+    return {
+        bindEvent: bindEvent
+    }
+
+}());
 
 export {SceneEventManager}
-

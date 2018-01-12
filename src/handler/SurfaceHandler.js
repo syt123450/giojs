@@ -4,6 +4,11 @@
 
 function SurfaceHandler(controller) {
 
+    var oceanColor = 10;
+    var mentionColor = 50;
+    var relatedColor = 150;
+    var highlightColor = 255;
+
     function getPickColor(mouseX, mouseY) {
 
         var ctx = controller.earthSurfaceShader.lookupCanvas.getContext('2d');
@@ -58,34 +63,30 @@ function SurfaceHandler(controller) {
         var ctx = controller.earthSurfaceShader.lookupCanvas.getContext('2d');
         ctx.clearRect(0, 0, 256, 1);
 
-        var oceanFill = 10;
-        ctx.fillStyle = 'rgb(' + oceanFill + ',' + oceanFill + ',' + oceanFill +')';
+        ctx.fillStyle = generateFillStyle(oceanColor);
         ctx.fillRect( 0, 0, 1, 1 );
 
         if (controller.isLightenMentioned) {
-            var mentionedFill = 50;
-            ctx.fillStyle = 'rgb(' + mentionedFill + ',' + mentionedFill + ',' + mentionedFill +')';
-            console.log(controller.mentionedCountryCodes);
+            ctx.fillStyle = generateFillStyle(mentionColor);
             for (var i in controller.mentionedCountryCodes) {
-                console.log("fill " + controller.mentionedCountryCodes[i]);
                 ctx.fillRect( controller.mentionedCountryCodes[i], 0, 1, 1 );
             }
         }
 
-        var relatedFill = 150;
-        ctx.fillStyle = 'rgb(' + relatedFill + ',' + relatedFill + ',' + relatedFill +')';
-        console.log(controller.relatedCountries);
+        ctx.fillStyle = generateFillStyle(relatedColor);
         for (var i in controller.relatedCountries) {
-            console.log("fill " + controller.relatedCountries[i].colorCode);
+
             ctx.fillRect( controller.relatedCountries[i].colorCode, 0, 1, 1 );
         }
 
-        var fillCSS = '#ffffff';
-
-        ctx.fillStyle = fillCSS;
+        ctx.fillStyle = generateFillStyle(highlightColor);
         ctx.fillRect(code, 0, 1, 1);
 
         controller.earthSurfaceShader.lookupTexture.needsUpdate = true;
+    }
+
+    function generateFillStyle(color) {
+        return 'rgb(' + color + ',' + color + ',' + color +')';
     }
 
     function setSurfaceColor(color) {

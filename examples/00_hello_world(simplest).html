@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+
+        html, body, #globalArea {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+
+    <script src="js/three.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+
+    <script src="../build/IOGlobe.js"></script>
+
+</head>
+<body>
+
+<div id="globalArea"></div>
+
+<script>
+
+    var container = document.getElementById("globalArea");
+    var controller = new IOGlobe.Controller(container);
+
+    $.ajax({
+        url: 'mockData/countryData.json',
+        type: 'GET',
+        contentType: "application/json; charset=utf-8",
+        async: true,
+        dataType: 'json',
+        success: function (inputData) {
+            controller.addData(inputData);
+            controller.init();
+        }
+    });
+
+</script>
+
+</body>
+</html>

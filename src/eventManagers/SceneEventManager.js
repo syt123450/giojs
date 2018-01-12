@@ -14,8 +14,8 @@ var SceneEventManager = (function () {
         pmouseX = mouseX;
         pmouseY = mouseY;
 
-        mouseX = event.clientX - window.innerWidth * 0.5;
-        mouseY = event.clientY - window.innerHeight * 0.5;
+        mouseX = event.clientX - controller.container.clientWidth * 0.5;
+        mouseY = event.clientY - controller.container.clientHeight * 0.5;
 
         if (controller.rotationHandler.isDragging()) {
 

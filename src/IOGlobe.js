@@ -20,6 +20,7 @@ import {SwitchCountryHandler} from "./handler/SwitchCountryHandler";
 
 function Controller(container) {
 
+    this.container = container;
     this.rotationHandler = new RotationHandler(this);
     this.surfaceHandler = new SurfaceHandler(this);
     this.wheelHandler = new WheelHandler(this);
@@ -27,7 +28,7 @@ function Controller(container) {
     this.switchCountryHandler = new SwitchCountryHandler(this);
 
     this.visualizationMesh = null;
-    this.renderer = new Renderer();
+    this.renderer = new Renderer(container);
     this.camera = new Camera();
     this.lights = new Lights();
     this.scene = new THREE.Scene();

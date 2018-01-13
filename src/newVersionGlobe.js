@@ -84,24 +84,31 @@ Globe = function (container) {
         lookupTexture.needsUpdate = true;
 
         var indexedMapTexture = new THREE.Texture(mapIndexedImage);
+        console.log('indexed map text====',indexedMapTexture);
         //THREE.ImageUtils.loadTexture( 'images/map_indexed.png' );
         indexedMapTexture.needsUpdate = true;
         indexedMapTexture.magFilter = THREE.NearestFilter;
         indexedMapTexture.minFilter = THREE.NearestFilter;
 
         var outlinedMapTexture = new THREE.Texture(mapOutlineImage);
-        outlinedMapTexture.needsUpdate = true;
+	    // console.log('outlined map text====',outlinedMapTexture);
+	    outlinedMapTexture.needsUpdate = true;
         // outlinedMapTexture.magFilter = THREE.NearestFilter;
         // outlinedMapTexture.minFilter = THREE.NearestFilter;
-
+        
+	    // #Issue: uniform example
+        // https://github.com/mrdoob/three.js/wiki/Uniforms-types
         var uniforms = {
-            'mapIndex': {type: 't', value: 0, texture: indexedMapTexture},
-            'lookup': {type: 't', value: 1, texture: lookupTexture},
-            'outline': {type: 't', value: 2, texture: outlinedMapTexture},
+            // 'mapIndex': {type: 't', value: 0, texture: indexedMapTexture},
+            // 'lookup': {type: 't', value: 1, texture: lookupTexture},
+            // 'outline': {type: 't', value: 2, texture: outlinedMapTexture},
+	        'mapIndex': {type: 't', value: indexedMapTexture},
+	        'lookup': {type: 't', value: lookupTexture},
+	        'outline': {type: 't', value: outlinedMapTexture},
             'outlineLevel': {type: 'f', value: 1},
-	        'surfaceColor': { type: 'v3', value: new THREE.Vector3(0.0, 1.0, 1.0) },
-            'selectedColor': { type: 'v3', value: new THREE.Vector3(1.0, 0.0, 0.0) },
-	        'flag': { type: 'f', value: 1 }
+	        // 'surfaceColor': { type: 'v3', value: new THREE.Vector3(0.0, 1.0, 1.0) },
+	        // 'selectedColor': { type: 'v3', value: new THREE.Vector3(1.0, 0.0, 0.0) },
+	        // 'flag': { type: 'f', value: 1 }
         };
 
         mapUniforms = uniforms;
@@ -114,24 +121,25 @@ Globe = function (container) {
             fragmentShader: document.getElementById('globeFragmentShader').textContent,
             // sizeAttenuation: true,
         });
-
-        sphere = new THREE.Mesh(new THREE.SphereGeometry(100, 40, 40), shaderMaterial);
+	    console.log('shadermaterial===', shaderMaterial);
+	    sphere = new THREE.Mesh(new THREE.SphereGeometry(100, 40, 40), shaderMaterial);
         // sphere.receiveShadow = true;
         // sphere.castShadow = true;
-        sphere.doubleSided = false;
+        // sphere.doubleSided = false;
         sphere.rotation.x = Math.PI;
         sphere.rotation.y = -Math.PI / 2;
         sphere.rotation.z = Math.PI;
         sphere.id = "base";
         rotating.add(sphere);
-
         //create visualization mesh, add it to rotating object
         visualizationMesh = new THREE.Object3D();
         rotating.add(visualizationMesh);
 
         var lines = getVisualizedMesh();
         visualizationMesh.add(lines);
-
+        console.log('rotating====', rotating);
+        
+        // scene.add(sphere);
         //	-----------------------------------------------------------------------------
         //	Setup our renderer
         var sceneArea = document.createElement("canvas");
@@ -149,10 +157,14 @@ Globe = function (container) {
         //	Setup our camera
         camera = new THREE.PerspectiveCamera(12, window.innerWidth / window.innerHeight, 1, 20000);
         camera.position.z = 1400;
-        camera.position.y = 0;
-        camera.lookAt(scene.width / 2, scene.height / 2);
-        scene.add(camera);
-
+	    camera.position.y = 0;
+	    
+	    // #Issue: comment out lookAt()
+	    // camera.lookAt(scene.width / 2, scene.height / 2);
+	    scene.add(camera);
+     
+	    // camera.position.z = 1000;
+	    
         rotateToTargetCountry();
         highlightCountry(96);
 
@@ -273,14 +285,22 @@ Globe = function (container) {
         renderer.render(scene, camera);
 
         requestAnimationFrame(animate);
-
-        THREE.SceneUtils.traverseHierarchy(rotating,
+        // #Issue: THREE.SceneUtils.traverseHierarchy is not a function -> object3D.traverse()
+        // THREE.SceneUtils.traverseHierarchy(rotating,
+	    //     function (mesh) {
+	    //         if (mesh.update !== undefined) {
+	    //             mesh.update();
+	    //         }
+	    //     }
+	    // );
+	    rotating.traverse(
             function (mesh) {
+	            // console.log('mesh====', mesh);
                 if (mesh.update !== undefined) {
-                    mesh.update();
-                }
+		            mesh.update();
+	            }
             }
-        );
+	    );
     }
 
     function onClick() {
@@ -374,7 +394,7 @@ Globe = function (container) {
         ctx.fillRect( 0, 0, 1, 1 );
 
         mapUniforms['outlineLevel'].value = 0;
-	    mapUniforms['flag'].value = 0;
+	    // mapUniforms['flag'].value = 0;
         lookupTexture.needsUpdate = true;
 
         renderer.autoClear = false;
@@ -406,7 +426,7 @@ Globe = function (container) {
         gl.preserveDrawingBuffer = false;
 
         mapUniforms['outlineLevel'].value = 1;
-	    mapUniforms['flag'].value = 1;
+	    // mapUniforms['flag'].value = 1;
         return buf[0];
     }
 
@@ -433,26 +453,35 @@ Globe = function (container) {
 
         console.log("making connection between " + exporter.name + " and " + importer.name);
 
-        var distanceBetweenCountryCenter = exporter.center.clone().subSelf(importer.center).length();
+        // #Issue subSelf() -> subVectors(a, b)
+        var exporterCenter = exporter.center.clone();
+	    // var distanceBetweenCountryCenter = exporter.center.clone().sub(exporterCenter, importer.center).length();
+	    var distanceBetweenCountryCenter = exporterCenter.subVectors(exporterCenter, importer.center).length();
 
         var start = exporter.center;
         var end = importer.center;
-
-        var mid = start.clone().lerpSelf(end, 0.5);
+        
+        // #Issue: lerpSelf() -> lerp()
+        // var mid = start.clone().lerpSelf(end, 0.5);
+        var mid = start.clone().lerp(end, 0.5);
         var midLength = mid.length();
         mid.normalize();
         mid.multiplyScalar(midLength + distanceBetweenCountryCenter * 0.7);
 
-        var normal = (new THREE.Vector3()).sub(start, end);
+        // #Issue: sub(a) -> subVectors(a, b)
+        var normal = (new THREE.Vector3()).subVectors(start, end);
         normal.normalize();
 
         var distanceHalf = distanceBetweenCountryCenter * 0.5;
 
         var startAnchor = start;
-        var midStartAnchor = mid.clone().addSelf(normal.clone().multiplyScalar(distanceHalf));
-        var midEndAnchor = mid.clone().addSelf(normal.clone().multiplyScalar(-distanceHalf));
+        // #Issue: addSelf() -> add()
+        // var midStartAnchor = mid.clone().addSelf(normal.clone().multiplyScalar(distanceHalf));
+        // var midEndAnchor = mid.clone().addSelf(normal.clone().multiplyScalar(-distanceHalf));
+	    var midStartAnchor = mid.clone().add(normal.clone().multiplyScalar(distanceHalf));
+	    var midEndAnchor = mid.clone().add(normal.clone().multiplyScalar(-distanceHalf));
         var endAnchor = end;
-
+        
         var splineCurveA = new THREE.CubicBezierCurve3(start, startAnchor, midStartAnchor, mid);
         var splineCurveB = new THREE.CubicBezierCurve3(mid, midEndAnchor, endAnchor, end);
 
@@ -486,6 +515,7 @@ Globe = function (container) {
         var lineColors = [];
 
         var particlesGeo = new THREE.Geometry();
+	    // var particlesGeo = new THREE.BufferGeometry();
         var particleColors = [];
 
         for (var i in inputData) {
@@ -498,10 +528,12 @@ Globe = function (container) {
                 lineColors.push(lineColor);
                 lastColor = lineColor;
             }
-
-            THREE.GeometryUtils.merge(linesGeo, set.lineGeometry);
-
-            var particleColor = lastColor.clone();
+            
+            // #Issue: THREE.GeometryUtils.merge -> geometry.merge(anotherGeometry)
+            // THREE.GeometryUtils.merge(linesGeo, set.lineGeometry);
+	        linesGeo.merge(set.lineGeometry);
+         
+	        var particleColor = lastColor.clone();
             var points = set.lineGeometry.vertices;
             var particleCount = Math.floor(set.v / 8000 / set.lineGeometry.vertices.length) + 1;
             particleCount = constrain(particleCount, 1, 100);
@@ -547,29 +579,40 @@ Globe = function (container) {
             size: {type: 'f', value: []},
             customColor: {type: 'c', value: []}
         };
-
-        var uniforms = {
+	
+        // #Issue: Uniform example:  https://github.com/mrdoob/three.js/wiki/Uniforms-types
+	    var uniforms = {
             amplitude: {type: "f", value: 1.0},
             color: {type: "c", value: new THREE.Color(0xffffff)},
-            texture: {type: "t", value: 0, texture: THREE.ImageUtils.loadTexture("../assets/images/particleA.png")},
-        };
-
+            // texture: {type: "t", value: 0, texture: THREE.ImageUtils.loadTexture("../assets/images/particleA.png")},
+            // texture: {type: "t", value: 0, texture: new THREE.TextureLoader().load("../assets/images/particleA.png")}
+		    texture: {type: "t", value: new THREE.TextureLoader().load("../assets/images/particleA.png")}
+		
+	    };
+	    
+	
+	    // #Issue: THREE.ImageUtils.loadTexture has been deprecated. Use THREE.TextureLoader() instead.
         var shaderMaterial = new THREE.ShaderMaterial({
-
             uniforms: uniforms,
-            attributes: attributes,
+            // attributes: attributes,
             vertexShader: document.getElementById('vertexshader').textContent,
             fragmentShader: document.getElementById('fragmentshader').textContent,
-
+            //
             blending: THREE.AdditiveBlending,
             depthTest: true,
             depthWrite: false,
             transparent: true
         });
-
         particlesGeo.colors = particleColors;
-        var pSystem = new THREE.ParticleSystem(particlesGeo, shaderMaterial);
-        pSystem.dynamic = true;
+	
+        var size = [];
+        console.log('particlesGeo=====', particlesGeo);
+	    // particlesGeo.addAttribute('size', new THREE.Float32BufferAttribute( size, 1 ));
+	    // #Issue: THREE.ParticleSystem has been renamed to THREE.Points.
+	    // var pSystem = new THREE.ParticleSystem(particlesGeo, shaderMaterial);
+	    var pSystem = new THREE.Points(particlesGeo, shaderMaterial);
+	
+	    pSystem.dynamic = true;
         splineOutline.add(pSystem);
 
         var vertices = pSystem.geometry.vertices;
@@ -603,7 +646,9 @@ Globe = function (container) {
 
 
                 particle.copy(currentPoint);
-                particle.lerpSelf(nextPoint, particle.lerpN);
+	            // #Issue: lerpSelf() -> lerp()
+	            // particle.lerpSelf(nextPoint, particle.lerpN);
+	            particle.lerp(nextPoint, particle.lerpN);
             }
             this.geometry.verticesNeedUpdate = true;
         };

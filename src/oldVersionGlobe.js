@@ -80,16 +80,20 @@ Globe = function (container) {
         lookupTexture.needsUpdate = true;
 
         var indexedMapTexture = new THREE.Texture(mapIndexedImage);
-        //THREE.ImageUtils.loadTexture( 'images/map_indexed.png' );
+        // var indexedMapTexture = THREE.ImageUtils.loadTexture( 'images/map_indexed.png' );
         indexedMapTexture.needsUpdate = true;
         indexedMapTexture.magFilter = THREE.NearestFilter;
         indexedMapTexture.minFilter = THREE.NearestFilter;
 
         var outlinedMapTexture = new THREE.Texture(mapOutlineImage);
-        outlinedMapTexture.needsUpdate = true;
+	    console.log('outlined map text====',outlinedMapTexture);
+	    outlinedMapTexture.needsUpdate = true;
         // outlinedMapTexture.magFilter = THREE.NearestFilter;
         // outlinedMapTexture.minFilter = THREE.NearestFilter;
-
+	
+	    console.log('indexed map text====',indexedMapTexture);
+        indexedMapTexture = THREE.ImageUtils.loadTexture('../assets/images/map_indexed.png');
+	    console.log('indexed map text----',indexedMapTexture);
         var uniforms = {
             'mapIndex': {type: 't', value: 0, texture: indexedMapTexture},
             'lookup': {type: 't', value: 1, texture: lookupTexture},
@@ -107,7 +111,7 @@ Globe = function (container) {
             fragmentShader: document.getElementById('globeFragmentShader').textContent,
             // sizeAttenuation: true,
         });
-
+        console.log('shadermaterial===', shaderMaterial);
         sphere = new THREE.Mesh(new THREE.SphereGeometry(100, 40, 40), shaderMaterial);
         // sphere.receiveShadow = true;
         // sphere.castShadow = true;
@@ -124,7 +128,7 @@ Globe = function (container) {
 
         var lines = getVisualizedMesh();
         visualizationMesh.add(lines);
-
+	    console.log('rotating====', rotating);
         //	-----------------------------------------------------------------------------
         //	Setup our renderer
         var sceneArea = document.createElement("canvas");
@@ -145,7 +149,14 @@ Globe = function (container) {
         camera.position.y = 0;
         camera.lookAt(scene.width / 2, scene.height / 2);
         scene.add(camera);
-
+	
+	    var geometry = new THREE.SphereGeometry( 1, 1, 1 );
+	    var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+	    var cube = new THREE.Mesh( geometry, material );
+	    scene.add( cube );
+	
+	    // camera.position.z = 50;
+	    
         rotateToTargetCountry();
         highlightCountry(96);
 
@@ -270,6 +281,7 @@ Globe = function (container) {
         THREE.SceneUtils.traverseHierarchy(rotating,
             function (mesh) {
                 if (mesh.update !== undefined) {
+	                // console.log('mesh====', mesh);
                     mesh.update();
                 }
             }

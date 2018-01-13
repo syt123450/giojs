@@ -403,6 +403,33 @@ var SceneEventManager = (function () {
 
 }());
 
+var Utils = (function(){
+
+    return {
+
+        wrap: function wrap(value, min, rangeSize) {
+            rangeSize-=min;
+            while (value < min) {
+                value += rangeSize;
+            }
+            return value % rangeSize;
+        },
+
+        constrain: function constrain(v, min, max) {
+            if (v < min)
+                v = min;
+            else if (v > max)
+                v = max;
+            return v;
+        },
+
+        formatColor: function(color) {
+            return color;
+        }
+    }
+
+}());
+
 /**
  * Created by ss on 2018/1/9.
  */
@@ -504,6 +531,18 @@ function SurfaceHandler(controller) {
         controller.earthSurfaceShader.setHighlightColor(color);
     }
 
+    function adjustOceanBrightness(brightness) {
+
+    }
+
+    function adjustMentionedBrightness(brightness) {
+
+    }
+
+    function adjustRelatedBrightness(brightness) {
+
+    }
+
     return {
 
         getPickColor: getPickColor,
@@ -512,36 +551,15 @@ function SurfaceHandler(controller) {
 
         setSurfaceColor: setSurfaceColor,
 
-        setSelectedColor: setSelectedColor
+        setSelectedColor: setSelectedColor,
+
+        adjustOceanBrightness: adjustOceanBrightness,
+
+        adjustMentionedBrightness: adjustMentionedBrightness,
+
+        adjustRelatedBrightness: adjustRelatedBrightness
     }
 }
-
-var Utils = (function(){
-
-    return {
-
-        wrap: function wrap(value, min, rangeSize) {
-            rangeSize-=min;
-            while (value < min) {
-                value += rangeSize;
-            }
-            return value % rangeSize;
-        },
-
-        constrain: function constrain(v, min, max) {
-            if (v < min)
-                v = min;
-            else if (v > max)
-                v = max;
-            return v;
-        },
-
-        formatColor: function(color) {
-            return color;
-        }
-    }
-
-}());
 
 function RotationHandler(controller) {
 
@@ -1570,11 +1588,12 @@ var ObjectUtils = (function() {
         return renderer;
     }
 
-    function createStats() {
+    function createStats(container) {
 
         var stats = new Stats();
         stats.showPanel( 1 );
-        document.body.appendChild( stats.dom );
+        stats.dom.style.position = "absolute";
+        container.appendChild( stats.dom );
 
         return stats;
     }
@@ -1589,6 +1608,7 @@ var ObjectUtils = (function() {
 
         createStats: createStats
     }
+
 }());
 
 /**
@@ -1637,7 +1657,7 @@ function Controller(container) {
     function initScene() {
 
         if (controller.isStatsEnabled) {
-            controller.stats = ObjectUtils.createStats();
+            controller.stats = ObjectUtils.createStats(container);
         }
 
         DefaultDataPreprocessors.process(controller);

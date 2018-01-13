@@ -9,7 +9,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "rollup": "^0.53.3",
+    "rollup": "^0.53.4",
     "uglify-js": "^2.4.11"
   },
   "scripts": {

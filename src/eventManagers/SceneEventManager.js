@@ -2,7 +2,7 @@
  * Created by ss on 2018/1/7.
  */
 
-var SceneEventManager = (function () {
+function SceneEventManager() {
 
     var mouseX = 0, mouseY = 0, pmouseX = 0, pmouseY = 0;
     var pressX = 0, pressY = 0;
@@ -63,6 +63,9 @@ var SceneEventManager = (function () {
 
     function onClick() {
 
+        console.log(controller.container);
+        console.log(controller.renderer.domElement);
+
         //	make the rest not work if the event was actually a drag style click
         if (Math.abs(pressX - mouseX) > 3 || Math.abs(pressY - mouseY) > 3)
             return;
@@ -82,11 +85,18 @@ var SceneEventManager = (function () {
 
         controller = controllerPara;
 
-        controller.renderer.domElement.addEventListener('mousemove', onDocumentMouseMove, true);
-        controller.renderer.domElement.addEventListener('mousedown', onDocumentMouseDown, true);
-        controller.renderer.domElement.addEventListener('mouseup', onDocumentMouseUp, false);
-        controller.renderer.domElement.addEventListener('click', onClick, true);
-        controller.renderer.domElement.addEventListener('mousewheel', onMouseWheel, false);
+        // controller.renderer.domElement.addEventListener('mousemove', onDocumentMouseMove, true);
+        // controller.renderer.domElement.addEventListener('mousedown', onDocumentMouseDown, true);
+        // controller.renderer.domElement.addEventListener('mouseup', onDocumentMouseUp, false);
+        // controller.renderer.domElement.addEventListener('click', onClick, true);
+        // controller.renderer.domElement.addEventListener('mousewheel', onMouseWheel, false);
+
+        controller.container.addEventListener('mousemove', onDocumentMouseMove, true);
+        controller.container.addEventListener('mousedown', onDocumentMouseDown, true);
+        controller.container.addEventListener('mouseup', onDocumentMouseUp, false);
+        controller.container.addEventListener('click', onClick, true);
+        controller.container.addEventListener('mousewheel', onMouseWheel, false);
+
         window.addEventListener('resize', onResize, false);
     }
 
@@ -94,6 +104,6 @@ var SceneEventManager = (function () {
         bindEvent: bindEvent
     }
 
-}());
+}
 
 export {SceneEventManager}

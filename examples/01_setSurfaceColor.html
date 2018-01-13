@@ -4,41 +4,47 @@
     <meta charset="UTF-8">
     <title>Title</title>
 
-    <style>
-
-        html, body {
-            height: 100%;
-            width: 100%;
-            margin: 0;
-            padding: 0;
-        }
-
-        #original {
-            float: left;
-            background-color: red;
-        }
-
-        #changed {
-            float: left;
-            background-color: green;
-        }
-
-    </style>
-
     <script src="js/three.min.js"></script>
     <script src="js/jquery.min.js"></script>
 
     <script src="../build/Gio.js"></script>
 
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/compare.css">
+
 </head>
 <body>
 
-<div id="original"></div>
+<div class="originalTitle">The Original Globe</div>
+<div id="originalArea"></div>
 
-<div id="changed"></div>
+<div class="changedTitle">Use the setSurfaceColor() API to change the globe color</div>
+<div id="changedArea"></div>
+
+<div class="view_source">View Source</div>
 
 <script>
 
+    var containerOriginal = document.getElementById("originalArea");
+    var containerChanged = document.getElementById("changedArea");
+
+    var controllerOriginal = new GIO.Controller(containerOriginal);
+    var controllerChanged = new GIO.Controller(containerChanged);
+    controllerChanged.setSurfaceColor(0x00FF00);
+
+    $.ajax({
+        url: 'mockData/countryData.json',
+        type: 'GET',
+        contentType: "application/json; charset=utf-8",
+        async: true,
+        dataType: 'json',
+        success: function (inputData) {
+            controllerOriginal.addData(inputData);
+            controllerOriginal.init();
+            controllerChanged.addData(inputData);
+            controllerChanged.init();
+        }
+    });
 
 </script>
 

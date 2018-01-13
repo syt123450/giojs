@@ -78,7 +78,7 @@ function Controller(container) {
 
         controller.scene.add(controller.camera);
 
-        SceneEventManager.bindEvent(controller);
+        (new SceneEventManager).bindEvent(controller);
 
         controller.visSystemHandler.updateSystem();
         controller.rotationHandler.rotateToTargetCountry();

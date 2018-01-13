@@ -5,7 +5,7 @@
     <title>Development Test</title>
     <script src="../js/lib/three-test.js"></script>
     <script src="../assets/dependence/stats.min.js"></script>
-    <script src="../build/IOGlobe.js"></script>
+    <script src="../build/Gio.js"></script>
     <style>
 
         html, body {
@@ -39,7 +39,7 @@
 
     var container = document.getElementById("globalArea");
 
-    var controller = new IOGlobe.Controller(container);
+    var controller = new GIO.Controller(container);
     controller.addData(inputData);
     controller.setSurfaceColor(0x00FF00);
     controller.setSelectedColor(0xFF0000);

@@ -2,10 +2,10 @@
  * Created by ss on 2018/1/7.
  */
 export default {
-    input: 'src/IOGlobe.js',
+    input: 'src/Gio.js',
     output: {
         format: 'iife',
-        file: 'build/IOGlobe.js',
-        name: "IOGlobe"
+        file: 'build/Gio.js',
+        name: "GIO"
     }
 };

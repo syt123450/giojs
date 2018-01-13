@@ -1,5 +1,5 @@
 {
-  "name": "ioglobe",
+  "name": "Gio.js",
   "version": "1.0.0",
   "description": "",
   "directories": {
@@ -15,16 +15,16 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build-beautify": "rollup -c",
-    "build-uglify": "rollup -c && uglifyjs build/IOGlobe.js -cm --preamble \"// https://github.com/syt123450/IOGlobe/blob/master/LICENSE\" --output build/IOGlobe.min.js"
+    "build-uglify": "rollup -c && uglifyjs build/Gio.js -cm --preamble \"// https://github.com/syt123450/Gio.js/blob/master/LICENSE\" --output build/Gio.min.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/syt123450/IOGlobe.git"
+    "url": "git+https://github.com/syt123450/Gio.js.git"
   },
   "author": "",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/syt123450/IOGlobe/issues"
+    "url": "https://github.com/syt123450/Gio.js/issues"
   },
-  "homepage": "https://github.com/syt123450/IOGlobe#readme"
+  "homepage": "https://github.com/syt123450/Gio.js#readme"
 }

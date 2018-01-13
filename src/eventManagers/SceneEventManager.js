@@ -14,8 +14,8 @@ var SceneEventManager = (function () {
         pmouseX = mouseX;
         pmouseY = mouseY;
 
-        mouseX = event.clientX - controller.container.clientWidth * 0.5;
-        mouseY = event.clientY - controller.container.clientHeight * 0.5;
+        mouseX = event.clientX - controller.container.clientWidth * 0.5 - controller.container.offsetLeft;
+        mouseY = event.clientY - controller.container.clientHeight * 0.5 - controller.container.offsetTop;
 
         if (controller.rotationHandler.isDragging()) {
 
@@ -71,8 +71,8 @@ var SceneEventManager = (function () {
 
         console.log(pickColorIndex);
 
-        if (pickColorIndex != 0 &&
-            (controller.disableUnrelated && controller.mentionedCountryCodes.indexOf(pickColorIndex) != -1 || !controller.disableUnrelated)) {
+        if (pickColorIndex !== 0 &&
+            (controller.disableUnrelated && controller.mentionedCountryCodes.indexOf(pickColorIndex) !== -1 || !controller.disableUnrelated)) {
 
             controller.switchCountryHandler.executeSwitch(pickColorIndex)
         }

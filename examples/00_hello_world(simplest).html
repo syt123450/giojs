@@ -18,7 +18,7 @@
     <script src="js/three.min.js"></script>
     <script src="js/jquery.min.js"></script>
 
-    <script src="../build/IOGlobe.js"></script>
+    <script src="../build/Gio.js"></script>
 
 </head>
 <body>
@@ -28,7 +28,7 @@
 <script>
 
     var container = document.getElementById("globalArea");
-    var controller = new IOGlobe.Controller(container);
+    var controller = new GIO.Controller(container);
 
     $.ajax({
         url: 'mockData/countryData.json',

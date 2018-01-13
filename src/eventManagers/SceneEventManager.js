@@ -85,17 +85,11 @@ function SceneEventManager() {
 
         controller = controllerPara;
 
-        // controller.renderer.domElement.addEventListener('mousemove', onDocumentMouseMove, true);
-        // controller.renderer.domElement.addEventListener('mousedown', onDocumentMouseDown, true);
-        // controller.renderer.domElement.addEventListener('mouseup', onDocumentMouseUp, false);
-        // controller.renderer.domElement.addEventListener('click', onClick, true);
-        // controller.renderer.domElement.addEventListener('mousewheel', onMouseWheel, false);
-
-        controller.container.addEventListener('mousemove', onDocumentMouseMove, true);
-        controller.container.addEventListener('mousedown', onDocumentMouseDown, true);
-        controller.container.addEventListener('mouseup', onDocumentMouseUp, false);
-        controller.container.addEventListener('click', onClick, true);
-        controller.container.addEventListener('mousewheel', onMouseWheel, false);
+        controller.renderer.domElement.addEventListener('mousemove', onDocumentMouseMove, true);
+        controller.renderer.domElement.addEventListener('mousedown', onDocumentMouseDown, true);
+        controller.renderer.domElement.addEventListener('mouseup', onDocumentMouseUp, false);
+        controller.renderer.domElement.addEventListener('click', onClick, true);
+        controller.renderer.domElement.addEventListener('mousewheel', onMouseWheel, false);
 
         window.addEventListener('resize', onResize, false);
     }

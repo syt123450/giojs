@@ -5,17 +5,13 @@
 import {CountryData} from "./countryInfo/CountryData.js";
 import {JSONLoader} from "./dataLoaders/JSONLoader.js";
 import {Marker} from "./markers/Marker.js";
-import {SceneEventManager} from "./eventManagers/SceneEventManager.js";
 import {SurfaceHandler} from "./handler/SurfaceHandler";
 import {RotationHandler} from "./handler/RotationHandler";
 import {WheelHandler} from "./handler/WheelHandler";
-import {Sphere} from "./objects/Sphere";
-import {LineGeometry} from "./objects/LineGeometry";
-import {DefaultDataPreprocessors} from "./dataPreprocessors/DefaultDataPreprocessors.js";
 import {VisSystemHandler} from "./handler/VisSystemHandler.js";
 import {SwitchCountryHandler} from "./handler/SwitchCountryHandler";
 import {ResizeHandler} from "./handler/ResizeHandler";
-import {ObjectUtils} from "./utils/BasicObjectUtils.js";
+import {InitHandler} from "./handler/InitHandler";
 
 function Controller(container) {
 
@@ -27,6 +23,7 @@ function Controller(container) {
     this.visSystemHandler = new VisSystemHandler(this);
     this.switchCountryHandler = new SwitchCountryHandler(this);
     this.resizeHandler = new ResizeHandler(this);
+    this.initHandler = new InitHandler(this);
 
     this.visualizationMesh = null;
     this.renderer = null;
@@ -53,80 +50,9 @@ function Controller(container) {
 
     var controller = this;
 
-    function init() {
-
-        initScene();
-        animate();
-    }
-
-    function initScene() {
-
-        var loadingIcon = ObjectUtils.createLoading(controller);
-        controller.container.appendChild(loadingIcon);
-
-        controller.renderer = ObjectUtils.createRenderer(controller.container);
-        controller.camera = ObjectUtils.createCamera(controller.container);
-        controller.lights = ObjectUtils.createLights();
-
-        controller.scene = new THREE.Scene();
-        controller.rotating = new THREE.Object3D();
-        controller.sphere = new Sphere();
-        controller.earthSurfaceShader = controller.sphere.earthSurfaceShader;
-
-        if (controller.isStatsEnabled) {
-            controller.stats = ObjectUtils.createStats(container);
-        }
-
-        DefaultDataPreprocessors.process(controller);
-
-        LineGeometry.buildDataVizGeometries(controller);
-
-        for (var i in controller.lights) {
-            controller.scene.add(controller.lights[i]);
-        }
-
-        controller.scene.add(controller.rotating);
-
-        controller.rotating.add(controller.sphere);
-
-        controller.scene.add(controller.camera);
-
-        container.appendChild(controller.renderer.domElement);
-
-        controller.container.removeChild(loadingIcon);
-
-        (new SceneEventManager).bindEvent(controller);
-
-        controller.visSystemHandler.updateSystem();
-        controller.rotationHandler.rotateToTargetCountry();
-        controller.surfaceHandler.highlightCountry(controller.selectedCountry["colorCode"]);
-    }
-
-    function animate() {
-
-        if (controller.isStatsEnabled) {
-            controller.stats.update();
-        }
-
-        controller.rotationHandler.update();
-
-        controller.renderer.clear();
-        controller.renderer.render(controller.scene, controller.camera);
-
-        THREE.SceneUtils.traverseHierarchy(controller.rotating,
-            function (mesh) {
-                if (mesh.update !== undefined) {
-                    mesh.update();
-                }
-            }
-        );
-
-        requestAnimationFrame(animate);
-    }
-
     return {
 
-        init: init,
+        init: controller.initHandler.init,
 
         addData: function (data) {
             JSONLoader.loadData(controller, data);
@@ -185,15 +111,15 @@ function Controller(container) {
         },
 
         adjustRelatedBrightness: function (brightness) {
-
+            controller.surfaceHandler.adjustRelatedBrightness(brightness);
         },
 
         adjustOceanBrightness: function (brightness) {
-
+            controller.surfaceHandler.adjustOceanBrightness(brightness);
         },
 
         adjustMentionedBrightness: function (brightness) {
-
+            controller.surfaceHandler.adjustMentionedBrightness(brightness);
         },
 
         setLoadingSrc: function(src) {

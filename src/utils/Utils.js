@@ -24,6 +24,10 @@ var Utils = (function(){
 
         formatColor: function(color) {
             return color;
+        },
+
+        transformBrightness: function(brightness, min, max) {
+            return Math.floor(min + (max - min) * brightness);
         }
     }
 

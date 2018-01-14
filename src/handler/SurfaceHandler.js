@@ -102,15 +102,15 @@ function SurfaceHandler(controller) {
     }
 
     function adjustOceanBrightness(brightness) {
-
+        oceanColor = Utils.transformBrightness(brightness, 0, 20);
     }
 
     function adjustMentionedBrightness(brightness) {
-
+        mentionColor = Utils.transformBrightness(brightness, 50, 100);
     }
 
     function adjustRelatedBrightness(brightness) {
-
+        relatedColor = Utils.transformBrightness(brightness, 100, 150);
     }
 
     return {

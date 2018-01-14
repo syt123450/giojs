@@ -20,6 +20,7 @@ import {ObjectUtils} from "./utils/BasicObjectUtils.js";
 function Controller(container) {
 
     this.container = container;
+
     this.rotationHandler = new RotationHandler(this);
     this.surfaceHandler = new SurfaceHandler(this);
     this.wheelHandler = new WheelHandler(this);
@@ -28,14 +29,14 @@ function Controller(container) {
     this.resizeHandler = new ResizeHandler(this);
 
     this.visualizationMesh = null;
-    this.renderer = ObjectUtils.createRenderer(container);
-    this.camera = ObjectUtils.createCamera(container);
-    this.lights = ObjectUtils.createLights();
+    this.renderer = null;
+    this.camera = null;
+    this.lights = null;
 
-    this.scene = new THREE.Scene();
-    this.rotating = new THREE.Object3D();
-    this.sphere = new Sphere();
-    this.earthSurfaceShader = this.sphere.earthSurfaceShader;
+    this.scene = null;
+    this.rotating = null;
+    this.sphere = null;
+    this.earthSurfaceShader = null;
     this.inputData = null;
     this.disableUnrelated = false;
     this.isLightenMentioned = false;
@@ -48,6 +49,8 @@ function Controller(container) {
     this.stats = null;
     this.isStatsEnabled = false;
 
+    this.loadingSrc = null;
+
     var controller = this;
 
     function init() {
@@ -57,6 +60,18 @@ function Controller(container) {
     }
 
     function initScene() {
+
+        var loadingIcon = ObjectUtils.createLoading(controller);
+        controller.container.appendChild(loadingIcon);
+
+        controller.renderer = ObjectUtils.createRenderer(controller.container);
+        controller.camera = ObjectUtils.createCamera(controller.container);
+        controller.lights = ObjectUtils.createLights();
+
+        controller.scene = new THREE.Scene();
+        controller.rotating = new THREE.Object3D();
+        controller.sphere = new Sphere();
+        controller.earthSurfaceShader = controller.sphere.earthSurfaceShader;
 
         if (controller.isStatsEnabled) {
             controller.stats = ObjectUtils.createStats(container);
@@ -74,9 +89,11 @@ function Controller(container) {
 
         controller.rotating.add(controller.sphere);
 
+        controller.scene.add(controller.camera);
+
         container.appendChild(controller.renderer.domElement);
 
-        controller.scene.add(controller.camera);
+        controller.container.removeChild(loadingIcon);
 
         (new SceneEventManager).bindEvent(controller);
 
@@ -177,6 +194,10 @@ function Controller(container) {
 
         adjustMentionedBrightness: function (brightness) {
 
+        },
+
+        setLoadingSrc: function(src) {
+            controller.loadingSrc = src;
         }
     }
 }

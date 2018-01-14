@@ -19,6 +19,7 @@ html, body {
     text-align: center;
     cursor: pointer;
     user-select: none;
+    box-sizing: border-box;
 }
 
 .view_source:hover {

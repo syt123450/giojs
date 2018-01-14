@@ -36,6 +36,7 @@ var ObjectUtils = (function() {
 
     function createRenderer(container) {
 
+        container.style.backgroundColor = "#000000";
         var sceneArea = document.createElement("canvas");
         sceneArea.width = container.width;
         sceneArea.height = container.height;
@@ -60,6 +61,18 @@ var ObjectUtils = (function() {
         return stats;
     }
 
+    function createLoading(controller) {
+
+        var loadingIcon = document.createElement("img");
+        loadingIcon.src = controller.loadingSrc;
+        loadingIcon.style.position = "absolute";
+        loadingIcon.style.left = "47%";
+        loadingIcon.style.top = "40%";
+        loadingIcon.style.width = "5%";
+
+        return loadingIcon;
+    }
+
     return {
 
         createCamera: createCamera,
@@ -68,7 +81,9 @@ var ObjectUtils = (function() {
 
         createRenderer: createRenderer,
 
-        createStats: createStats
+        createStats: createStats,
+
+        createLoading: createLoading
     }
 
 }());

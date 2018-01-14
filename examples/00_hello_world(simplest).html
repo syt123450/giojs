@@ -6,7 +6,7 @@
 
     <style>
 
-        html, body, #globalArea {
+        #globalArea {
             height: 100%;
             width: 100%;
             margin: 0;
@@ -20,10 +20,14 @@
 
     <script src="../build/Gio.js"></script>
 
+    <link rel="stylesheet" href="css/common.css">
+
 </head>
 <body>
 
 <div id="globalArea"></div>
+
+<div class="view_source">View Source</div>
 
 <script>
 
@@ -31,7 +35,7 @@
     var controller = new GIO.Controller(container);
 
     $.ajax({
-        url: 'mockData/countryData.json',
+        url: 'data/countryData.json',
         type: 'GET',
         contentType: "application/json; charset=utf-8",
         async: true,

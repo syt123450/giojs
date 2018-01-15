@@ -2,6 +2,7 @@
  * Created by ss on 2018/1/7.
  */
 
+import {} from "./style/StyleConfigure";
 import {CountryData} from "./countryInfo/CountryData.js";
 import {JSONLoader} from "./dataLoaders/JSONLoader.js";
 import {Marker} from "./markers/Marker.js";
@@ -13,12 +14,14 @@ import {SwitchCountryHandler} from "./handler/SwitchCountryHandler.js";
 import {ResizeHandler} from "./handler/ResizeHandler.js";
 import {InitHandler} from "./handler/InitHandler.js";
 import {Configure} from "./configure/Configure.js";
+import {ConfigureHandler} from "./handler/ConfigureHandler.js";
 
 function Controller(container) {
 
     this.container = container;
     this.configure = new Configure();
 
+    this.configureHandler = new ConfigureHandler(this);
     this.rotationHandler = new RotationHandler(this);
     this.surfaceHandler = new SurfaceHandler(this);
     this.wheelHandler = new WheelHandler(this);
@@ -53,6 +56,8 @@ function Controller(container) {
 
         addData: function (data) {
             JSONLoader.loadData(controller, data);
+
+            return controller;
         },
 
         setSurfaceColor: function (color) {
@@ -60,6 +65,8 @@ function Controller(container) {
             if (controller.earthSurfaceShader !== null) {
                 controller.earthSurfaceShader.update();
             }
+
+            return controller;
         },
 
         setSelectedColor: function (color) {
@@ -68,6 +75,8 @@ function Controller(container) {
             if (controller.earthSurfaceShader !== null) {
                 controller.earthSurfaceShader.update();
             }
+
+            return controller;
         },
 
         getScene: function () {
@@ -76,24 +85,34 @@ function Controller(container) {
 
         setInitCountry: function (ISOAbbr) {
             controller.selectedCountry = CountryData[ISOAbbr];
+
+            return controller;
         },
 
         disableUnrelated: function (flag) {
             controller.configure.disableUnrelated = flag;
+
+            return controller;
         },
 
         lightenMentioned: function (flag) {
             controller.configure.isLightenMentioned = flag;
+
+            return controller;
         },
 
         setExportColor: function (color) {
 
             controller.configure.exportColor = color;
+
+            return controller;
         },
 
         setImportColor: function (color) {
 
             controller.configure.importColor = color;
+
+            return controller;
         },
 
         getSelectedCountry: function () {
@@ -110,10 +129,14 @@ function Controller(container) {
 
         enableStats: function () {
             controller.configure.isStatsEnabled = true;
+
+            return controller;
         },
 
         disableStats: function () {
             controller.configure.isStatsEnabled = false;
+
+            return controller;
         },
 
         getStatsObject: function () {
@@ -123,24 +146,35 @@ function Controller(container) {
         adjustRelatedBrightness: function (brightness) {
 
             controller.configure.relatedBrightness = brightness;
+
+            return controller;
         },
 
         adjustOceanBrightness: function (brightness) {
 
             controller.configure.oceanBrightness = brightness;
+
+            return controller;
         },
 
         adjustMentionedBrightness: function (brightness) {
 
             controller.configure.mentionedBrightness = brightness;
+
+            return controller;
         },
 
         setLoadingSrc: function (src) {
             controller.configure.loadingSrc = src;
+
+            return controller;
         },
 
         setStyle: function (style) {
 
+            controller.configureHandler.configureStyle(style);
+
+            return controller;
         }
     }
 }

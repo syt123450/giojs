@@ -61,7 +61,7 @@ function Controller(container, configureObject) {
         addData: function (data) {
             JSONLoader.loadData(controller, data);
 
-            return controller;
+            return this;
         },
 
         setSurfaceColor: function (color) {
@@ -70,7 +70,7 @@ function Controller(container, configureObject) {
                 controller.earthSurfaceShader.update();
             }
 
-            return controller;
+            return this;
         },
 
         setSelectedColor: function (color) {
@@ -80,7 +80,7 @@ function Controller(container, configureObject) {
                 controller.earthSurfaceShader.update();
             }
 
-            return controller;
+            return this;
         },
 
         getScene: function () {
@@ -90,33 +90,33 @@ function Controller(container, configureObject) {
         setInitCountry: function (ISOAbbr) {
             controller.selectedCountry = CountryData[ISOAbbr];
 
-            return controller;
+            return this;
         },
 
         disableUnrelated: function (flag) {
             controller.configure.disableUnrelated = flag;
 
-            return controller;
+            return this;
         },
 
         lightenMentioned: function (flag) {
             controller.configure.isLightenMentioned = flag;
 
-            return controller;
+            return this;
         },
 
         setExportColor: function (color) {
 
             controller.configure.exportColor = color;
 
-            return controller;
+            return this;
         },
 
         setImportColor: function (color) {
 
             controller.configure.importColor = color;
 
-            return controller;
+            return this;
         },
 
         getSelectedCountry: function () {
@@ -134,13 +134,13 @@ function Controller(container, configureObject) {
         enableStats: function () {
             controller.configure.isStatsEnabled = true;
 
-            return controller;
+            return this;
         },
 
         disableStats: function () {
             controller.configure.isStatsEnabled = false;
 
-            return controller;
+            return this;
         },
 
         getStatsObject: function () {
@@ -151,41 +151,41 @@ function Controller(container, configureObject) {
 
             controller.configure.relatedBrightness = brightness;
 
-            return controller;
+            return this;
         },
 
         adjustOceanBrightness: function (brightness) {
 
             controller.configure.oceanBrightness = brightness;
 
-            return controller;
+            return this;
         },
 
         adjustMentionedBrightness: function (brightness) {
 
             controller.configure.mentionedBrightness = brightness;
 
-            return controller;
+            return this;
         },
 
         setLoadingSrc: function (src) {
             controller.configure.loadingSrc = src;
 
-            return controller;
+            return this;
         },
 
         setStyle: function (style) {
 
             controller.configureHandler.configureStyle(style);
 
-            return controller;
+            return this;
         },
 
         configureJSON: function(configure) {
 
             controller.configureHandler.configureJSON(configure);
 
-            return controller;
+            return this;
         }
     }
 }

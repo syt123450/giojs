@@ -6,6 +6,8 @@ var StrangeStyle = (function () {
 
         clickedColor: 0x0000ff,
 
+        clickedDifferent: true,
+
         importColor: 0x154492,
 
         exportColor: 0xdd380c,

@@ -3,7 +3,6 @@
  */
 
 import {} from "./style/StyleConfigure";
-import {CountryData} from "./countryInfo/CountryData.js";
 import {JSONLoader} from "./dataLoaders/JSONLoader.js";
 import {Marker} from "./markers/Marker.js";
 import {SurfaceHandler} from "./handler/SurfaceHandler.js";
@@ -48,7 +47,7 @@ function Controller(container, configureObject) {
     this.mentionedCountryCodes = [];
     this.relatedCountries = [];
 
-    this.selectedCountry = CountryData["CN"];
+    this.selectedCountry = null;
 
     this.stats = null;
 
@@ -56,9 +55,15 @@ function Controller(container, configureObject) {
 
     return {
 
-        init: controller.initHandler.init,
+        init: function() {
+
+            controller.initHandler.init();
+
+            return this;
+        },
 
         addData: function (data) {
+
             JSONLoader.loadData(controller, data);
 
             return this;
@@ -66,9 +71,7 @@ function Controller(container, configureObject) {
 
         setSurfaceColor: function (color) {
             controller.configure.surfaceColor = color;
-            if (controller.earthSurfaceShader !== null) {
-                controller.earthSurfaceShader.update();
-            }
+            controller.surfaceHandler.update();
 
             return this;
         },
@@ -76,9 +79,7 @@ function Controller(container, configureObject) {
         setSelectedColor: function (color) {
             controller.configure.clickedDifferent = true;
             controller.configure.clickedColor = color;
-            if (controller.earthSurfaceShader !== null) {
-                controller.earthSurfaceShader.update();
-            }
+            controller.surfaceHandler.update();
 
             return this;
         },
@@ -88,7 +89,7 @@ function Controller(container, configureObject) {
         },
 
         setInitCountry: function (ISOAbbr) {
-            controller.selectedCountry = CountryData[ISOAbbr];
+            controller.configure.selectedCountry = ISOAbbr;
 
             return this;
         },

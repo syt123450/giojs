@@ -39,12 +39,16 @@
 
     var container = document.getElementById("globalArea");
 
-    var controller = new GIO.Controller(container, {
+    var controller = (new GIO.Controller(container, {
         surfaceColor: 0xff0000,
         clickedColor: 0x0000ff,
-        clickedDifferent: true
-    });
-    controller.addData(inputData).init();
+        clickedDifferent: true,
+        selectedCountry: "US"
+    }))
+        .addData(inputData)
+        .init();
+
+//    controller.addData(inputData).init();
 //    controller.setSurfaceColor(0x00FF00);
 //    controller.setSelectedColor(0xFF0000);
 //    controller.lightenMentioned(true);

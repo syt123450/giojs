@@ -4,6 +4,7 @@ import {SceneEventManager} from "../eventManagers/SceneEventManager.js";
 import {DefaultDataPreprocessors} from "../dataPreprocessors/DefaultDataPreprocessors.js";
 import {ObjectUtils} from "../utils/BasicObjectUtils.js";
 import {Sphere} from "../objects/Sphere";
+import {CountryData} from "../countryInfo/CountryData";
 
 function InitHandler(controller) {
 
@@ -33,6 +34,8 @@ function InitHandler(controller) {
         if (controller.configure.isStatsEnabled) {
             controller.stats = ObjectUtils.createStats(container);
         }
+
+        controller.selectedCountry = CountryData[controller.configure.selectedCountry];
 
         DefaultDataPreprocessors.process(controller);
 

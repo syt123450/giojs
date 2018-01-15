@@ -24,6 +24,8 @@ function Configure() {
 
     this.loadingSrc = null;
 
+    this.selectedCountry = "CN";
+
     return this;
 }
 

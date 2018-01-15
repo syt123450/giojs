@@ -96,11 +96,19 @@ function SurfaceHandler(controller) {
         return 'rgb(' + color + ',' + color + ',' + color +')';
     }
 
+    function update() {
+        if (controller.earthSurfaceShader !== null) {
+            controller.earthSurfaceShader.update();
+        }
+    }
+
     return {
 
         getPickColor: getPickColor,
 
-        highlightCountry: highlightCountry
+        highlightCountry: highlightCountry,
+
+        update: update
     }
 }
 

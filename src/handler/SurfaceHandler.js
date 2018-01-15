@@ -6,10 +6,11 @@ import {Utils} from "../utils/Utils.js";
 
 function SurfaceHandler(controller) {
 
-    var oceanColor = 10;
-    var mentionColor = 50;
-    var relatedColor = 150;
     var highlightColor = 255;
+
+    var oceanMin = 0, oceanMax = 20;
+    var mentionedMin = 50, mentionedMax = 100;
+    var relatedMin = 100, relatedMax = 150;
 
     function getPickColor(mouseX, mouseY) {
 
@@ -65,17 +66,21 @@ function SurfaceHandler(controller) {
         var ctx = controller.earthSurfaceShader.lookupCanvas.getContext('2d');
         ctx.clearRect(0, 0, 256, 1);
 
-        ctx.fillStyle = generateFillStyle(oceanColor);
+        ctx.fillStyle = generateFillStyle(Utils.transformBrightness(controller.configure.oceanBrightness, oceanMin, oceanMax));
         ctx.fillRect( 0, 0, 1, 1 );
 
-        if (controller.isLightenMentioned) {
-            ctx.fillStyle = generateFillStyle(mentionColor);
+        if (controller.configure.isLightenMentioned) {
+            ctx.fillStyle = generateFillStyle(
+                Utils.transformBrightness(controller.configure.mentionedBrightness, mentionedMin, mentionedMax)
+            );
             for (var i in controller.mentionedCountryCodes) {
                 ctx.fillRect( controller.mentionedCountryCodes[i], 0, 1, 1 );
             }
         }
 
-        ctx.fillStyle = generateFillStyle(relatedColor);
+        ctx.fillStyle = generateFillStyle(
+            Utils.transformBrightness(controller.configure.relatedBrightness, relatedMin, relatedMax)
+        );
         for (var i in controller.relatedCountries) {
 
             ctx.fillRect( controller.relatedCountries[i].colorCode, 0, 1, 1 );
@@ -91,43 +96,11 @@ function SurfaceHandler(controller) {
         return 'rgb(' + color + ',' + color + ',' + color +')';
     }
 
-    function setSurfaceColor(color) {
-
-        controller.earthSurfaceShader.setShaderColor(color);
-    }
-
-    function setSelectedColor(color) {
-
-        controller.earthSurfaceShader.setHighlightColor(color);
-    }
-
-    function adjustOceanBrightness(brightness) {
-        oceanColor = Utils.transformBrightness(brightness, 0, 20);
-    }
-
-    function adjustMentionedBrightness(brightness) {
-        mentionColor = Utils.transformBrightness(brightness, 50, 100);
-    }
-
-    function adjustRelatedBrightness(brightness) {
-        relatedColor = Utils.transformBrightness(brightness, 100, 150);
-    }
-
     return {
 
         getPickColor: getPickColor,
 
-        highlightCountry: highlightCountry,
-
-        setSurfaceColor: setSurfaceColor,
-
-        setSelectedColor: setSelectedColor,
-
-        adjustOceanBrightness: adjustOceanBrightness,
-
-        adjustMentionedBrightness: adjustMentionedBrightness,
-
-        adjustRelatedBrightness: adjustRelatedBrightness
+        highlightCountry: highlightCountry
     }
 }
 

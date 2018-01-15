@@ -4,9 +4,9 @@
 
 import {EarthSurfaceShader} from "../shaders/EarthSurfaceShader";
 
-function Sphere() {
+function Sphere(controller) {
 
-    var earthSurfaceShader = new EarthSurfaceShader();
+    var earthSurfaceShader = new EarthSurfaceShader(controller);
 
     var shaderMaterial = new THREE.ShaderMaterial({
 

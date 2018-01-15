@@ -3,7 +3,7 @@ import {LineGeometry} from "../objects/LineGeometry.js";
 import {SceneEventManager} from "../eventManagers/SceneEventManager.js";
 import {DefaultDataPreprocessors} from "../dataPreprocessors/DefaultDataPreprocessors.js";
 import {ObjectUtils} from "../utils/BasicObjectUtils.js";
-import {Sphere} from "../objects/Sphere.js";
+import {Sphere} from "../objects/Sphere";
 
 function InitHandler(controller) {
 
@@ -15,7 +15,7 @@ function InitHandler(controller) {
 
     function initScene() {
 
-        if (controller.loadingSrc !== null) {
+        if (controller.configure.loadingSrc !== null) {
             var loadingIcon = ObjectUtils.createLoading(controller);
             controller.container.appendChild(loadingIcon);
         }
@@ -24,12 +24,13 @@ function InitHandler(controller) {
         controller.camera = ObjectUtils.createCamera(controller.container);
         controller.lights = ObjectUtils.createLights();
 
-        controller.scene = new THREE.Scene();
-        controller.rotating = new THREE.Object3D();
-        controller.sphere = new Sphere();
+        controller.sphere = new Sphere(controller);
         controller.earthSurfaceShader = controller.sphere.earthSurfaceShader;
 
-        if (controller.isStatsEnabled) {
+        controller.scene = new THREE.Scene();
+        controller.rotating = new THREE.Object3D();
+
+        if (controller.configure.isStatsEnabled) {
             controller.stats = ObjectUtils.createStats(container);
         }
 
@@ -50,9 +51,9 @@ function InitHandler(controller) {
         (new SceneEventManager).bindEvent(controller);
         controller.visSystemHandler.updateSystem();
 
-        container.appendChild(controller.renderer.domElement);
+        controller.container.appendChild(controller.renderer.domElement);
 
-        if (controller.loadingSrc !== null) {
+        if (controller.configure.loadingSrc !== null) {
             controller.container.removeChild(loadingIcon);
         }
 

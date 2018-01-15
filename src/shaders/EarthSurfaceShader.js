@@ -6,17 +6,19 @@ import {MapIndexBase64} from "../data/MapIndex.js";
 import {MapOutlineBase64} from "../data/MapOutline.js";
 import {Utils} from "../utils/Utils";
 
-function EarthSurfaceShader() {
+function EarthSurfaceShader(controller) {
 
     var selectedColorDifferent = false;
     var helperColor = new THREE.Color();
-    var surfaceColor = new THREE.Vector3(1, 1, 1);
-    var selectedColor = new THREE.Vector3(1, 1, 1);
+    var surfaceColor = new THREE.Vector3();
+    var selectedColor = new THREE.Vector3();
 
     var lookupCanvas, lookupTexture;
     var uniforms = createUniforms();
 
     function createUniforms() {
+
+        loadSurfaceColor();
 
         var uniforms = {};
 
@@ -55,7 +57,23 @@ function EarthSurfaceShader() {
         return uniforms;
     }
 
+    function loadSurfaceColor() {
+
+        if (controller.configure.clickedDifferent) {
+            selectedColorDifferent = true;
+            setHighlightColor(controller.configure.clickedColor);
+        } else {
+            selectedColorDifferent = false;
+        }
+
+        setShaderColor(controller.configure.surfaceColor);
+    }
+
     function setShaderColor(color) {
+
+        if (color == null) {
+            return;
+        }
 
         color = Utils.formatColor(color);
 
@@ -74,7 +92,9 @@ function EarthSurfaceShader() {
 
     function setHighlightColor(color) {
 
-        console.log("set surface.");
+        if (color == null) {
+            return;
+        }
 
         color = Utils.formatColor(color);
 
@@ -85,6 +105,10 @@ function EarthSurfaceShader() {
         selectedColor.x = helperColor.r;
         selectedColor.y = helperColor.g;
         selectedColor.z = helperColor.b;
+    }
+
+    function update() {
+        loadSurfaceColor();
     }
 
     return {
@@ -148,7 +172,9 @@ function EarthSurfaceShader() {
 
         setShaderColor: setShaderColor,
 
-        setHighlightColor: setHighlightColor
+        setHighlightColor: setHighlightColor,
+
+        update: update
     }
 }
 

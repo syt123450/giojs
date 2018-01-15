@@ -4,6 +4,23 @@ var Utils = (function(){
         return (typeof str==='string')&& str.constructor===String;
     }
 
+    function transformStringToHex(str) {
+        if (str.charAt(0) !== "#") {
+            return null;
+        }
+
+        return parseInt(str.substring(1), 16);
+    }
+
+    function formatHexColor(color) {
+
+        if (color < 0 || color > 16777215) {
+            return null;
+        }
+
+        return color;
+    }
+
     return {
 
         wrap: function wrap(value, min, rangeSize) {
@@ -23,10 +40,21 @@ var Utils = (function(){
         },
 
         formatColor: function(color) {
-            return color;
+
+            if (isString(color)) {
+                return transformStringToHex(color);
+            } else {
+                return formatHexColor(color);
+            }
         },
 
         transformBrightness: function(brightness, min, max) {
+            if (brightness > 1) {
+                return max;
+            }
+            if (brightness < 0) {
+                return min;
+            }
             return Math.floor(min + (max - min) * brightness);
         }
     }

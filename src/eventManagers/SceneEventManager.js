@@ -72,7 +72,7 @@ function SceneEventManager() {
         console.log(pickColorIndex);
 
         if (pickColorIndex !== 0 &&
-            (controller.disableUnrelated && controller.mentionedCountryCodes.indexOf(pickColorIndex) !== -1 || !controller.disableUnrelated)) {
+            (controller.configure.disableUnrelated && controller.mentionedCountryCodes.indexOf(pickColorIndex) !== -1 || !controller.configure.disableUnrelated)) {
 
             controller.switchCountryHandler.executeSwitch(pickColorIndex)
         }

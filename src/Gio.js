@@ -5,17 +5,19 @@
 import {CountryData} from "./countryInfo/CountryData.js";
 import {JSONLoader} from "./dataLoaders/JSONLoader.js";
 import {Marker} from "./markers/Marker.js";
-import {SurfaceHandler} from "./handler/SurfaceHandler";
-import {RotationHandler} from "./handler/RotationHandler";
-import {WheelHandler} from "./handler/WheelHandler";
+import {SurfaceHandler} from "./handler/SurfaceHandler.js";
+import {RotationHandler} from "./handler/RotationHandler.js";
+import {WheelHandler} from "./handler/WheelHandler.js";
 import {VisSystemHandler} from "./handler/VisSystemHandler.js";
-import {SwitchCountryHandler} from "./handler/SwitchCountryHandler";
-import {ResizeHandler} from "./handler/ResizeHandler";
-import {InitHandler} from "./handler/InitHandler";
+import {SwitchCountryHandler} from "./handler/SwitchCountryHandler.js";
+import {ResizeHandler} from "./handler/ResizeHandler.js";
+import {InitHandler} from "./handler/InitHandler.js";
+import {Configure} from "./configure/Configure.js";
 
 function Controller(container) {
 
     this.container = container;
+    this.configure = new Configure();
 
     this.rotationHandler = new RotationHandler(this);
     this.surfaceHandler = new SurfaceHandler(this);
@@ -35,8 +37,6 @@ function Controller(container) {
     this.sphere = null;
     this.earthSurfaceShader = null;
     this.inputData = null;
-    this.disableUnrelated = false;
-    this.isLightenMentioned = false;
 
     this.mentionedCountryCodes = [];
     this.relatedCountries = [];
@@ -44,9 +44,6 @@ function Controller(container) {
     this.selectedCountry = CountryData["CN"];
 
     this.stats = null;
-    this.isStatsEnabled = false;
-
-    this.loadingSrc = null;
 
     var controller = this;
 
@@ -58,9 +55,20 @@ function Controller(container) {
             JSONLoader.loadData(controller, data);
         },
 
-        setSurfaceColor: controller.surfaceHandler.setSurfaceColor,
+        setSurfaceColor: function (color) {
+            controller.configure.surfaceColor = color;
+            if (controller.earthSurfaceShader !== null) {
+                controller.earthSurfaceShader.update();
+            }
+        },
 
-        setSelectedColor: controller.surfaceHandler.setSelectedColor,
+        setSelectedColor: function (color) {
+            controller.configure.clickedDifferent = true;
+            controller.configure.clickedColor = color;
+            if (controller.earthSurfaceShader !== null) {
+                controller.earthSurfaceShader.update();
+            }
+        },
 
         getScene: function () {
             return controller.scene;
@@ -71,19 +79,21 @@ function Controller(container) {
         },
 
         disableUnrelated: function (flag) {
-            controller.disableUnrelated = flag;
+            controller.configure.disableUnrelated = flag;
         },
 
         lightenMentioned: function (flag) {
-            controller.isLightenMentioned = flag;
+            controller.configure.isLightenMentioned = flag;
         },
 
         setExportColor: function (color) {
-            controller.visSystemHandler.setExportColor(color);
+
+            controller.configure.exportColor = color;
         },
 
         setImportColor: function (color) {
-            controller.visSystemHandler.setImportColor(color);
+
+            controller.configure.importColor = color;
         },
 
         getSelectedCountry: function () {
@@ -98,32 +108,39 @@ function Controller(container) {
             controller.switchCountryHandler.setCountryPickCallBack(callBack);
         },
 
-        enableStats: function() {
-            controller.isStatsEnabled = true;
+        enableStats: function () {
+            controller.configure.isStatsEnabled = true;
         },
 
-        disableStats: function() {
-            controller.isStatsEnabled = false;
+        disableStats: function () {
+            controller.configure.isStatsEnabled = false;
         },
 
-        getStatsObject: function() {
+        getStatsObject: function () {
             return controller.stats;
         },
 
         adjustRelatedBrightness: function (brightness) {
-            controller.surfaceHandler.adjustRelatedBrightness(brightness);
+
+            controller.configure.relatedBrightness = brightness;
         },
 
         adjustOceanBrightness: function (brightness) {
-            controller.surfaceHandler.adjustOceanBrightness(brightness);
+
+            controller.configure.oceanBrightness = brightness;
         },
 
         adjustMentionedBrightness: function (brightness) {
-            controller.surfaceHandler.adjustMentionedBrightness(brightness);
+
+            controller.configure.mentionedBrightness = brightness;
         },
 
-        setLoadingSrc: function(src) {
-            controller.loadingSrc = src;
+        setLoadingSrc: function (src) {
+            controller.configure.loadingSrc = src;
+        },
+
+        setStyle: function (style) {
+
         }
     }
 }

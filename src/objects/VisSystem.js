@@ -9,9 +9,6 @@ import {CountryColorMap} from "../countryInfo/CountryColorMap.js";
 
 var VisSystem = (function () {
 
-    var exportColor = 0xdd380c;
-    var importColor = 0x154492;
-
     function getVisualizedMesh(controller) {
 
         var geometries = createGeometries(controller);
@@ -47,10 +44,10 @@ var VisSystem = (function () {
 
                 if (set.e === CountryColorMap[selectedCountry.colorCode]) {
                     controller.relatedCountries.push(CountryData[set.i]);
-                    lineColor = new THREE.Color(exportColor);
+                    lineColor = new THREE.Color(controller.configure.exportColor);
                 } else {
                     controller.relatedCountries.push(CountryData[set.e]);
-                    lineColor = new THREE.Color(importColor);
+                    lineColor = new THREE.Color(controller.configure.importColor);
                 }
 
                 var lastColor;
@@ -174,15 +171,8 @@ var VisSystem = (function () {
     }
 
     return {
-        getVisualizedMesh: getVisualizedMesh,
 
-        setExportColor: function(color) {
-            exportColor = color;
-        },
-
-        setImportColor: function(color) {
-            importColor = color;
-        }
+        getVisualizedMesh: getVisualizedMesh
     }
 
 }());

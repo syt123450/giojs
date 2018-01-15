@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>API setSurfaceColor() / Gio.js</title>
 
     <script src="js/three.min.js"></script>
     <script src="js/jquery.min.js"></script>
@@ -31,6 +31,7 @@
     var controllerOriginal = new GIO.Controller(containerOriginal);
     var controllerChanged = new GIO.Controller(containerChanged);
     controllerChanged.setSurfaceColor(0x00FF00);
+//    controllerChanged.setSurfaceColor("#00FF00");
 
     $.ajax({
         url: 'data/countryData.json',

@@ -16,9 +16,11 @@ import {InitHandler} from "./handler/InitHandler.js";
 import {Configure} from "./configure/Configure.js";
 import {ConfigureHandler} from "./handler/ConfigureHandler.js";
 
-function Controller(container) {
+function Controller(container, configureObject) {
 
     this.container = container;
+    this.constructorConfigure = configureObject;
+
     this.configure = new Configure();
 
     this.configureHandler = new ConfigureHandler(this);
@@ -29,6 +31,8 @@ function Controller(container) {
     this.switchCountryHandler = new SwitchCountryHandler(this);
     this.resizeHandler = new ResizeHandler(this);
     this.initHandler = new InitHandler(this);
+
+    this.configureHandler.configureConstructor();
 
     this.visualizationMesh = null;
     this.renderer = null;
@@ -173,6 +177,13 @@ function Controller(container) {
         setStyle: function (style) {
 
             controller.configureHandler.configureStyle(style);
+
+            return controller;
+        },
+
+        configureJSON: function(configure) {
+
+            controller.configureHandler.configureJSON(configure);
 
             return controller;
         }

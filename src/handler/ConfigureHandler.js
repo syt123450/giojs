@@ -2,36 +2,38 @@ import {StyleFactory} from "../style/StyleFactory";
 
 function ConfigureHandler(controller) {
 
-    function configureJSON() {
+    function configureJSON(configure) {
 
+        if(configure instanceof Object) {
+            for (var attribute in configure) {
+                controller.configure[attribute] = configure[attribute];
+            }
+
+            if (controller.configure.clickedDifferent === false) {
+                controller.configure.clickedColor = controller.configure.surfaceColor;
+            }
+        }
     }
 
     function configureStyle(styleName) {
 
         var style = StyleFactory.getStyle(styleName);
 
-        console.log(style);
-
-        for (var attribute in style) {
-            controller.configure[attribute] = style[attribute];
-        }
-
-        if (controller.configure.surfaceColor !== controller.configure.clickedColor) {
-            controller.configure.clickedDifferent = true;
-        }
-
-        console.log(controller.configure);
+        configureJSON(style);
     }
 
     function configureConstructor() {
 
+        configureJSON(controller.constructorConfigure);
     }
 
     return {
 
         configureJSON: configureJSON,
 
-        configureStyle: configureStyle
+        configureStyle: configureStyle,
+
+        configureConstructor: configureConstructor
     }
 }
 

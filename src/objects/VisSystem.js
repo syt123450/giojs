@@ -14,7 +14,7 @@ var VisSystem = (function () {
         var geometries = createGeometries(controller);
 
         var splineOutline = createSplineOutline(geometries.linesGeo);
-        var pSystem = createParticleSystem(geometries.particlesGeo);
+        var pSystem = createParticleSystem(geometries.particlesGeo, geometries.movingPoints);
 
         splineOutline.add(pSystem);
 
@@ -30,8 +30,13 @@ var VisSystem = (function () {
         var linesGeo = new THREE.Geometry();
         var lineColors = [];
 
-        var particlesGeo = new THREE.Geometry();
-        var particleColors = [];
+        var particlesGeo = new THREE.BufferGeometry();
+
+        var movingPoints = [];
+
+        var positions = [];
+        var sizes = [];
+        var customColors = [];
 
         for (var i in inputData) {
 
@@ -56,18 +61,19 @@ var VisSystem = (function () {
                     lastColor = lineColor;
                 }
 
-                THREE.GeometryUtils.merge(linesGeo, set.lineGeometry);
+                linesGeo.merge(set.lineGeometry);
 
                 var particleColor = lastColor.clone();
                 var points = set.lineGeometry.vertices;
                 var particleCount = Math.floor(set.v / 8000 / set.lineGeometry.vertices.length) + 1;
                 particleCount = Utils.constrain(particleCount, 1, 100);
                 var particleSize = set.lineGeometry.size;
+
                 for (var s = 0; s < particleCount; s++) {
 
                     var desiredIndex = s / particleCount * points.length;
-                    var rIndex = Utils.constrain(Math.floor(desiredIndex), 0, points.length - 1);
 
+                    var rIndex = Utils.constrain(Math.floor(desiredIndex), 0, points.length - 1);
                     var point = points[rIndex];
                     var particle = point.clone();
                     particle.moveIndex = rIndex;
@@ -76,19 +82,37 @@ var VisSystem = (function () {
                         particle.nextIndex = 0;
                     particle.lerpN = 0;
                     particle.path = points;
-                    particlesGeo.vertices.push(particle);
+
+                    movingPoints.push(particle);
+
                     particle.size = particleSize;
-                    particleColors.push(particleColor);
+
+                    positions.push(particle.x);
+                    positions.push(particle.y);
+                    positions.push(particle.z);
+
+                    sizes.push(particleSize);
+
+                    customColors.push(particleColor.r);
+                    customColors.push(particleColor.g);
+                    customColors.push(particleColor.b);
+
                 }
             }
         }
 
         linesGeo.colors = lineColors;
-        particlesGeo.colors = particleColors;
+
+        particlesGeo.addAttribute("position", new THREE.Float32BufferAttribute(positions, 3));
+        particlesGeo.addAttribute("size", new THREE.Float32BufferAttribute(sizes, 1));
+        particlesGeo.addAttribute("customColor", new THREE.Float32BufferAttribute(customColors, 3));
+
+        particlesGeo.attributes.position.needsUpdate = true;
 
         return {
             linesGeo: linesGeo,
-            particlesGeo: particlesGeo
+            particlesGeo: particlesGeo,
+            movingPoints: movingPoints
         }
     }
 
@@ -111,14 +135,13 @@ var VisSystem = (function () {
         return splineOutline;
     }
 
-    function createParticleSystem(particlesGeo) {
+    function createParticleSystem(particlesGeo, movingPoints) {
 
         var movingSpriteShader = new MovingSpriteShader();
 
         var shaderMaterial = new THREE.ShaderMaterial({
 
             uniforms: movingSpriteShader.uniforms,
-            attributes: movingSpriteShader.attributes,
             vertexShader: movingSpriteShader.vertexShader,
             fragmentShader: movingSpriteShader.fragmentShader,
 
@@ -128,22 +151,19 @@ var VisSystem = (function () {
             transparent: true
         });
 
-        var pSystem = new THREE.ParticleSystem(particlesGeo, shaderMaterial);
+        var pSystem = new THREE.Points(particlesGeo, shaderMaterial);
+
         pSystem.dynamic = true;
 
-        var vertices = pSystem.geometry.vertices;
-        var values_size = movingSpriteShader.attributes.size.value;
-        var values_color = movingSpriteShader.attributes.customColor.value;
+        pSystem.movingPoints = movingPoints;
 
-        for (var v = 0; v < vertices.length; v++) {
-            values_size[v] = pSystem.geometry.vertices[v].size;
-            values_color[v] = particlesGeo.colors[v];
-        }
 
         pSystem.update = function () {
 
-            for (var i in this.geometry.vertices) {
-                var particle = this.geometry.vertices[i];
+            for (var i in this.movingPoints) {
+
+                var particle = this.movingPoints[i];
+
                 var path = particle.path;
 
                 particle.lerpN += 0.05;
@@ -162,9 +182,15 @@ var VisSystem = (function () {
 
 
                 particle.copy(currentPoint);
-                particle.lerpSelf(nextPoint, particle.lerpN);
+                particle.lerp(nextPoint, particle.lerpN);
+
+                this.geometry.attributes.position.array[3 * i] = particle.x;
+                this.geometry.attributes.position.array[3 * i + 1] = particle.y;
+                this.geometry.attributes.position.array[3 * i + 2] = particle.z;
             }
-            this.geometry.verticesNeedUpdate = true;
+
+            this.geometry.attributes.position.needsUpdate = true;
+
         };
 
         return pSystem;

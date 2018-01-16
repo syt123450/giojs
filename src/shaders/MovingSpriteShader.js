@@ -9,18 +9,21 @@ function MovingSpriteShader() {
     var particleImg = new Image();
     particleImg.src = ParticleABase64;
 
+    var particleTexture = new THREE.Texture(particleImg);
+    particleTexture.needsUpdate = true;
+
+    var uniform = {
+        amplitude: {type: "f", value: 1.0},
+        color: {type: "c", value: new THREE.Color(0xffffff)},
+        texture: {type: "t", value: particleTexture}
+    };
+
+    console.log("===");
+    console.log(uniform);
+
     return {
 
-        attributes: {
-            size: {type: 'f', value: []},
-            customColor: {type: 'c', value: []}
-        },
-
-        uniforms: {
-            amplitude: {type: "f", value: 1.0},
-            color: {type: "c", value: new THREE.Color(0xffffff)},
-            texture: {type: "t", value: 0, texture: THREE.ImageUtils.loadTexture(particleImg.src)},
-        },
+        uniforms: uniform,
 
         vertexShader: [
             "uniform float amplitude;",

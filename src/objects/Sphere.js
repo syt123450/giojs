@@ -20,7 +20,6 @@ function Sphere(controller) {
     sphere.rotation.x = Math.PI;
     sphere.rotation.y = -Math.PI / 2;
     sphere.rotation.z = Math.PI;
-    sphere.id = "base";
 
     sphere.earthSurfaceShader = earthSurfaceShader;
 

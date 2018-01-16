@@ -75,7 +75,7 @@ function InitHandler(controller) {
         controller.renderer.clear();
         controller.renderer.render(controller.scene, controller.camera);
 
-        THREE.SceneUtils.traverseHierarchy(controller.rotating,
+        controller.rotating.traverse(
             function (mesh) {
                 if (mesh.update !== undefined) {
                     mesh.update();

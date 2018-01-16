@@ -9,12 +9,16 @@ var LineGeometry = (function () {
 
         console.log("making connection between " + exporter.name + " and " + importer.name);
 
-        var distanceBetweenCountryCenter = exporter.center.clone().subSelf(importer.center).length();
+        var exporterCenter = exporter.center.clone();
+        var distanceBetweenCountryCenter = exporterCenter.subVectors(exporterCenter, importer.center).length();
+
 
         var start = exporter.center;
         var end = importer.center;
 
-        var mid = start.clone().lerpSelf(end, 0.5);
+        var mid = start.clone().lerp(end, 0.5);
+
+
         var midLength = mid.length();
         mid.normalize();
         mid.multiplyScalar(midLength + distanceBetweenCountryCenter * 0.7);
@@ -25,8 +29,10 @@ var LineGeometry = (function () {
         var distanceHalf = distanceBetweenCountryCenter * 0.5;
 
         var startAnchor = start;
-        var midStartAnchor = mid.clone().addSelf(normal.clone().multiplyScalar(distanceHalf));
-        var midEndAnchor = mid.clone().addSelf(normal.clone().multiplyScalar(-distanceHalf));
+
+        var midStartAnchor = mid.clone().add(normal.clone().multiplyScalar(distanceHalf));
+        var midEndAnchor = mid.clone().add(normal.clone().multiplyScalar(-distanceHalf));
+
         var endAnchor = end;
 
         var splineCurveA = new THREE.CubicBezierCurve3(start, startAnchor, midStartAnchor, mid);

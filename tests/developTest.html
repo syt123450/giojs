@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Development Test</title>
-    <script src="../assets/dependence/three-test.js"></script>
+    <script src="../assets/dependence/three.min.js"></script>
     <script src="../assets/dependence/stats.min.js"></script>
     <script src="../build/Gio.js"></script>
     <style>
@@ -17,7 +17,7 @@
 
         #globalArea {
             height: 100%;
-            width: 50%;
+            width: 100%;
             margin: 0;
             padding: 0;
             float: left;
@@ -27,7 +27,7 @@
     </style>
 </head>
 <body>
-<div style="width: 100px; height: 100%; float: left; background-color: red"></div>
+<!--<div style="width: 100px; height: 100%; float: left; background-color: red"></div>-->
 <div id="globalArea"></div>
 
 <script>
@@ -45,7 +45,7 @@
 //        clickedDifferent: true,
 //        selectedCountry: "US"
 //    }))
-    var controller = (new GIO.Controller(container, ))
+    var controller = (new GIO.Controller(container))
         .addData(inputData);
 
 //    controller.addData(inputData).init();
@@ -60,7 +60,7 @@
 //        console.log("User Call Back.");
 //    });
 
-    controller.setStyle("strange");
+//    controller.setStyle("strange");
 
 //    controller.enableStats(true);
 

@@ -28,10 +28,13 @@ function EarthSurfaceShader(controller) {
         var mapOutlineBase64 = new Image();
         mapOutlineBase64.src = MapOutlineBase64;
 
-        uniforms.mapIndex = {type: 't', value: 0, texture: THREE.ImageUtils.loadTexture(mapIndexedImage.src)};
-        uniforms.mapIndex.texture.needsUpdate = true;
-        uniforms.mapIndex.texture.magFilter = THREE.NearestFilter;
-        uniforms.mapIndex.texture.minFilter = THREE.NearestFilter;
+        var mapIndexedTexture = new THREE.Texture(mapIndexedImage);
+        uniforms.mapIndex = {type: 't', value: mapIndexedTexture};
+
+
+        uniforms.mapIndex.value.needsUpdate = true;
+        uniforms.mapIndex.value.magFilter = THREE.NearestFilter;
+        uniforms.mapIndex.value.minFilter = THREE.NearestFilter;
 
         lookupCanvas = document.createElement('canvas');
         lookupCanvas.width = 256;
@@ -42,10 +45,12 @@ function EarthSurfaceShader(controller) {
         lookupTexture.minFilter = THREE.NearestFilter;
         lookupTexture.needsUpdate = true;
 
-        uniforms.lookup = {type: 't', value: 1, texture: lookupTexture};
+        uniforms.lookup = {type: 't', value: lookupTexture};
 
-        uniforms.outline = {type: 't', value: 2, texture: THREE.ImageUtils.loadTexture(mapOutlineBase64.src)};
-        uniforms.outline.texture.needsUpdate = true;
+        var mapOutlineTexture = new THREE.Texture(mapOutlineBase64);
+        uniforms.outline = {type: 't', value: mapOutlineTexture};
+
+        uniforms.outline.value.needsUpdate = true;
 
         uniforms.outlineLevel = {type: 'f', value: 1};
 

@@ -1,6 +1,7 @@
 /**
  * Created by ss on 2018/1/7.
  */
+import {CountryColorMap} from "../countryInfo/CountryColorMap";
 
 function SceneEventManager() {
 
@@ -8,6 +9,9 @@ function SceneEventManager() {
     var pressX = 0, pressY = 0;
 
     var controller;
+
+    var mouse = new THREE.Vector2();
+    var raycaster = new THREE.Raycaster();
 
     function onDocumentMouseMove(event) {
 
@@ -67,11 +71,23 @@ function SceneEventManager() {
         if (Math.abs(pressX - mouseX) > 3 || Math.abs(pressY - mouseY) > 3)
             return;
 
+        mouse.x = ((event.clientX - controller.container.offsetLeft) / controller.container.clientWidth) * 2 - 1;
+        mouse.y = -((event.clientY - controller.container.offsetTop) / controller.container.clientHeight) * 2 + 1;
+
+        raycaster.setFromCamera(mouse, controller.camera);
+
+        var intersects = raycaster.intersectObjects(controller.scene.children, true);
+
+        if (intersects.length === 0) {
+            return;
+        }
+
         var pickColorIndex = controller.surfaceHandler.getPickColor(mouseX, mouseY);
 
         console.log(pickColorIndex);
 
-        if (pickColorIndex !== 0 &&
+        if (CountryColorMap[pickColorIndex] !== undefined &&
+            pickColorIndex !== 0 &&
             (controller.configure.disableUnrelated && controller.mentionedCountryCodes.indexOf(pickColorIndex) !== -1 || !controller.configure.disableUnrelated)) {
 
             controller.switchCountryHandler.executeSwitch(pickColorIndex)

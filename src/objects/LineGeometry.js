@@ -7,11 +7,8 @@ var LineGeometry = (function () {
 
     function makeConnectionLineGeometry(exporter, importer, value) {
 
-        console.log("making connection between " + exporter.name + " and " + importer.name);
-
         var exporterCenter = exporter.center.clone();
         var distanceBetweenCountryCenter = exporterCenter.subVectors(exporterCenter, importer.center).length();
-
 
         var start = exporter.center;
         var end = importer.center;

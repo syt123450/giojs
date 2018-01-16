@@ -21,6 +21,8 @@ function Sphere(controller) {
     sphere.rotation.y = -Math.PI / 2;
     sphere.rotation.z = Math.PI;
 
+    sphere.name = "sphere";
+
     sphere.earthSurfaceShader = earthSurfaceShader;
 
     return sphere;

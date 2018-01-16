@@ -6,7 +6,7 @@ import {CountryData} from "../countryInfo/CountryData";
 
 function SwitchCountryHandler(controller) {
 
-    var pickedCallBack;
+    var pickedCallBack = null;
 
     function executeSwitch(pickColorIndex) {
 
@@ -15,7 +15,7 @@ function SwitchCountryHandler(controller) {
         controller.surfaceHandler.highlightCountry(pickColorIndex);
         controller.rotationHandler.rotateToTargetCountry();
 
-        if (pickedCallBack != null) {
+        if (pickedCallBack !== null) {
 
             var selectedCountry = JSON.parse(JSON.stringify(controller.selectedCountry));
             var relatedCountries = JSON.parse(JSON.stringify(controller.relatedCountries));

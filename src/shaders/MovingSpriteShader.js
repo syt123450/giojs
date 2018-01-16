@@ -18,9 +18,6 @@ function MovingSpriteShader() {
         texture: {type: "t", value: particleTexture}
     };
 
-    console.log("===");
-    console.log(uniform);
-
     return {
 
         uniforms: uniform,

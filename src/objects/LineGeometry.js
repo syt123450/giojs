@@ -20,7 +20,7 @@ var LineGeometry = (function () {
         mid.normalize();
         mid.multiplyScalar(midLength + distanceBetweenCountryCenter * 0.7);
 
-        var normal = (new THREE.Vector3()).sub(start, end);
+        var normal = (new THREE.Vector3()).subVectors(start, end);
         normal.normalize();
 
         var distanceHalf = distanceBetweenCountryCenter * 0.5;

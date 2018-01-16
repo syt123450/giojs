@@ -6,11 +6,7 @@ import {ParticleABase64} from "../data/ParticleA.js";
 
 function MovingSpriteShader() {
 
-    var particleImg = new Image();
-    particleImg.src = ParticleABase64;
-
-    var particleTexture = new THREE.Texture(particleImg);
-    particleTexture.needsUpdate = true;
+    var particleTexture = (new THREE.TextureLoader()).load(ParticleABase64);
 
     var uniform = {
         amplitude: {type: "f", value: 1.0},

@@ -187,6 +187,10 @@ function Controller(container, configureObject) {
             controller.configureHandler.configureJSON(configure);
 
             return this;
+        },
+
+        changeCountryTo: function() {
+
         }
     }
 }

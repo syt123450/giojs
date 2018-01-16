@@ -22,17 +22,9 @@ function EarthSurfaceShader(controller) {
 
         var uniforms = {};
 
-        var mapIndexedImage = new Image();
-        mapIndexedImage.src = MapIndexBase64;
+        var mapIndexedTexture = (new THREE.TextureLoader()).load(MapIndexBase64);
 
-        var mapOutlineBase64 = new Image();
-        mapOutlineBase64.src = MapOutlineBase64;
-
-        var mapIndexedTexture = new THREE.Texture(mapIndexedImage);
         uniforms.mapIndex = {type: 't', value: mapIndexedTexture};
-
-
-        uniforms.mapIndex.value.needsUpdate = true;
         uniforms.mapIndex.value.magFilter = THREE.NearestFilter;
         uniforms.mapIndex.value.minFilter = THREE.NearestFilter;
 
@@ -47,11 +39,9 @@ function EarthSurfaceShader(controller) {
 
         uniforms.lookup = {type: 't', value: lookupTexture};
 
-        var mapOutlineTexture = new THREE.Texture(mapOutlineBase64);
+        var mapOutlineTexture = (new THREE.TextureLoader()).load(MapOutlineBase64);
+
         uniforms.outline = {type: 't', value: mapOutlineTexture};
-
-        uniforms.outline.value.needsUpdate = true;
-
         uniforms.outlineLevel = {type: 'f', value: 1};
 
         uniforms.surfaceColor = { type: 'v3', value: surfaceColor };

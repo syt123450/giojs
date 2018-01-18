@@ -42,6 +42,11 @@ var VisSystem = (function () {
 
             var set = inputData[i];
 
+            if (controller.configure.inOnly && set.i !== CountryColorMap[selectedCountry.colorCode] ||
+                controller.configure.outOnly && set.e !== CountryColorMap[selectedCountry.colorCode]) {
+                continue;
+            }
+
             if (set.i === CountryColorMap[selectedCountry.colorCode] ||
                 set.e === CountryColorMap[selectedCountry.colorCode]) {
 
@@ -49,10 +54,19 @@ var VisSystem = (function () {
 
                 if (set.e === CountryColorMap[selectedCountry.colorCode]) {
                     controller.relatedCountries.push(CountryData[set.i]);
-                    lineColor = new THREE.Color(controller.configure.exportColor);
+                    if (set.inColor === undefined) {
+                        lineColor = new THREE.Color(controller.configure.exportColor);
+                    } else {
+                        lineColor = new THREE.Color(set.inColor);
+                    }
+
                 } else {
                     controller.relatedCountries.push(CountryData[set.e]);
-                    lineColor = new THREE.Color(controller.configure.importColor);
+                    if (set.outColor === undefined) {
+                        lineColor = new THREE.Color(controller.configure.importColor);
+                    } else {
+                        lineColor = new THREE.Color(set.outColor);
+                    }
                 }
 
                 var lastColor;

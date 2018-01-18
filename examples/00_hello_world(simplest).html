@@ -34,6 +34,8 @@
     var container = document.getElementById("globalArea");
     var controller = new GIO.Controller(container);
 
+    controller.showInOnly(true);
+
     $.ajax({
         url: 'data/countryData.json',
         type: 'GET',

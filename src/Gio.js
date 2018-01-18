@@ -182,7 +182,7 @@ function Controller(container, configureObject) {
             return this;
         },
 
-        configureJSON: function(configure) {
+        configure: function(configure) {
 
             controller.configureHandler.configureJSON(configure);
 
@@ -192,6 +192,28 @@ function Controller(container, configureObject) {
         switchCountry: function(ISOAbbr, direction) {
 
             controller.switchCountryHandler.switchFromAPI(ISOAbbr);
+
+            return this;
+        },
+
+        showInOnly: function(flag) {
+            if (flag === true) {
+                controller.configure.inOnly = true;
+                controller.configure.outOnly = false;
+            } else {
+                controller.configure.inOnly = false;
+            }
+
+            return this;
+        },
+
+        showOutOnly: function(flag) {
+            if (flag === true) {
+                controller.configure.outOnly = true;
+                controller.configure.inOnly = false;
+            } else {
+                controller.configure.outOnly = false;
+            }
 
             return this;
         }

@@ -26,6 +26,10 @@ function Configure() {
 
     this.selectedCountry = "CN";
 
+    this.inOnly = false;
+
+    this.outOnly = false;
+
     return this;
 }
 

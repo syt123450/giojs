@@ -5,6 +5,16 @@ html, body {
     padding: 0;
 }
 
+header {
+    position: absolute;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: white;
+    z-index: 1000;
+}
+
 .view_source {
     position: fixed;
     height: 40px;

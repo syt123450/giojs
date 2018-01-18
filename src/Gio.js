@@ -189,8 +189,11 @@ function Controller(container, configureObject) {
             return this;
         },
 
-        changeCountryTo: function() {
+        switchCountry: function(ISOAbbr, direction) {
 
+            controller.switchCountryHandler.switchFromAPI(ISOAbbr);
+
+            return this;
         }
     }
 }

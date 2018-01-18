@@ -3,6 +3,7 @@
  */
 import {CountryColorMap} from "../countryInfo/CountryColorMap";
 import {CountryData} from "../countryInfo/CountryData";
+import {Utils} from "../utils/Utils";
 
 function SwitchCountryHandler(controller) {
 
@@ -23,22 +24,49 @@ function SwitchCountryHandler(controller) {
     }
 
     function executeCallback() {
+
         if (pickedCallBack !== null) {
 
-            var selectedCountry = JSON.parse(JSON.stringify(controller.selectedCountry));
+            var selectedCountry = Utils.transformCountryData(controller.selectedCountry);
 
-            selectedCountry.ISOCode = CountryColorMap[selectedCountry.colorCode];
+            var relatedCountries = [];
 
-            var relatedCountries = JSON.parse(JSON.stringify(controller.relatedCountries));
+            for (var i in controller.relatedCountries) {
+                relatedCountries.push(
+                    Utils.transformCountryData(controller.relatedCountries[i])
+                )
+            }
 
             pickedCallBack(selectedCountry, relatedCountries);
         }
     }
 
-    function switchFromAPI(ISOAbbr) {
+    function switchFromAPI(ISOAbbr, direction) {
+
+        var snapshot = {};
+
+        if (direction === "in" || direction === "out") {
+
+            snapshot.inOnly = controller.configure.inOnly;
+            snapshot.outOnly = controller.configure.outOnly;
+
+            if (direction === "in") {
+                controller.configure.inOnly = true;
+                controller.configure.outOnly = false;
+            } else {
+                controller.configure.inOnly = false;
+                controller.configure.outOnly = true;
+            }
+        }
 
         if (CountryData[ISOAbbr] !== undefined) {
             executeSwitch(CountryData[ISOAbbr].colorCode);
+        }
+
+        if (direction === "in" || direction === "out") {
+
+            controller.configure.inOnly = snapshot.inOnly;
+            controller.configure.outOnly = snapshot.outOnly;
         }
     }
 

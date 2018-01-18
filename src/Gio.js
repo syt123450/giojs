@@ -69,6 +69,17 @@ function Controller(container, configureObject) {
             return this;
         },
 
+        addDataAsync: function (url, callback) {
+
+
+            return this;
+        },
+
+        addLiveData: function (url, callback, milliseconds) {
+
+            return this;
+        },
+
         setSurfaceColor: function (color) {
             controller.configure.surfaceColor = color;
             controller.surfaceHandler.update();
@@ -191,7 +202,7 @@ function Controller(container, configureObject) {
 
         switchCountry: function(ISOAbbr, direction) {
 
-            controller.switchCountryHandler.switchFromAPI(ISOAbbr);
+            controller.switchCountryHandler.switchFromAPI(ISOAbbr, direction);
 
             return this;
         },

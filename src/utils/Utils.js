@@ -1,3 +1,5 @@
+import {CountryColorMap} from "../countryInfo/CountryColorMap";
+
 var Utils = (function(){
 
     function isString(str){
@@ -56,6 +58,19 @@ var Utils = (function(){
                 return min;
             }
             return Math.floor(min + (max - min) * brightness);
+        },
+
+        transformCountryData: function(countryData) {
+
+            var outputData = {};
+
+            outputData.name = countryData.name;
+            outputData.lat = countryData.lat;
+            outputData.lon = countryData.lon;
+            outputData.center = countryData.center.clone();
+            outputData.ISOCode = CountryColorMap[countryData.colorCode];
+
+            return outputData;
         }
     }
 

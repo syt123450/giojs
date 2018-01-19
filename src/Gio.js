@@ -2,8 +2,7 @@
  * Created by ss on 2018/1/7.
  */
 
-import {} from "./style/StyleConfigure";
-import {JSONLoader} from "./dataLoaders/JSONLoader.js";
+import {} from "./style/StyleConfigure.js";
 import {Marker} from "./markers/Marker.js";
 import {SurfaceHandler} from "./handler/SurfaceHandler.js";
 import {RotationHandler} from "./handler/RotationHandler.js";
@@ -14,6 +13,7 @@ import {ResizeHandler} from "./handler/ResizeHandler.js";
 import {InitHandler} from "./handler/InitHandler.js";
 import {Configure} from "./configure/Configure.js";
 import {ConfigureHandler} from "./handler/ConfigureHandler.js";
+import {DataHandler} from "./handler/DataHandler.js";
 
 function Controller(container, configureObject) {
 
@@ -30,6 +30,7 @@ function Controller(container, configureObject) {
     this.switchCountryHandler = new SwitchCountryHandler(this);
     this.resizeHandler = new ResizeHandler(this);
     this.initHandler = new InitHandler(this);
+    this.dataHandler = new DataHandler(this);
 
     this.configureHandler.configureConstructor();
 
@@ -64,18 +65,21 @@ function Controller(container, configureObject) {
 
         addData: function (data) {
 
-            JSONLoader.loadData(controller, data);
+            controller.dataHandler.loadJSON(data);
 
             return this;
         },
 
         addDataAsync: function (url, callback) {
 
+            controller.dataHandler.loadAsync(url, callback);
 
             return this;
         },
 
         addLiveData: function (url, callback, milliseconds) {
+
+            controller.dataHandler.liveLoad(url, callback, milliseconds);
 
             return this;
         },
@@ -208,6 +212,7 @@ function Controller(container, configureObject) {
         },
 
         showInOnly: function(flag) {
+
             if (flag === true) {
                 controller.configure.inOnly = true;
                 controller.configure.outOnly = false;
@@ -219,12 +224,20 @@ function Controller(container, configureObject) {
         },
 
         showOutOnly: function(flag) {
+
             if (flag === true) {
                 controller.configure.outOnly = true;
                 controller.configure.inOnly = false;
             } else {
                 controller.configure.outOnly = false;
             }
+
+            return this;
+        },
+
+        closeLiveLoader: function() {
+
+            controller.configure.liveLoad = false;
 
             return this;
         }

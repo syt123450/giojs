@@ -30,6 +30,8 @@ function Configure() {
 
     this.outOnly = false;
 
+    this.liveLoad = false;
+
     return this;
 }
 

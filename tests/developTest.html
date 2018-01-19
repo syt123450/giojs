@@ -45,10 +45,10 @@
 //        clickedDifferent: true,
 //        selectedCountry: "US"
 //    }))
-    var controller = (new GIO.Controller(container))
-        .addData(inputData);
+    var controller = new GIO.Controller(container);
+//        .addData(inputData);
 
-//    controller.addData(inputData).init();
+    controller.addData(inputData);
 //    controller.setSurfaceColor(0x00FF00);
 //    controller.setSelectedColor(0xFF0000);
 //    controller.lightenMentioned(true);
@@ -62,9 +62,17 @@
 
 //    controller.setStyle("strange");
 
-//    controller.enableStats(true);
+    controller.enableStats(true);
+
+//    var url = "../examples/data/countryData.json";
+//
+//    controller.addDataAsync(url, asyncLoadCallback);
 
     controller.init();
+
+    function asyncLoadCallback() {
+        controller.init();
+    }
 
 </script>
 

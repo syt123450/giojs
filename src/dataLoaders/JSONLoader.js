@@ -2,14 +2,16 @@
  * Created by ss on 2018/1/7.
  */
 
-var JSONLoader = (function () {
+function JSONLoader() {
+
+    function load(controller, data) {
+        controller.inputData = JSON.parse(JSON.stringify(data));
+    }
 
     return {
-        loadData: function(controller, data) {
 
-            controller.inputData = JSON.parse(JSON.stringify(data));
-        }
+        load: load
     }
-}());
+}
 
 export {JSONLoader}

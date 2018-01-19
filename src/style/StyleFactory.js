@@ -1,15 +1,17 @@
-var StyleFactory = (function () {
+var StyleFactory = ( function () {
 
     var styleMap = {};
 
-    function getStyle(styleName) {
+    function getStyle ( styleName ) {
 
-        return styleMap[styleName];
+        return styleMap[ styleName ];
+
     }
 
-    function register(styleName, style) {
+    function register( styleName, style ) {
 
-        styleMap[styleName] = style;
+        styleMap[ styleName ] = style;
+
     }
 
     return {
@@ -17,8 +19,9 @@ var StyleFactory = (function () {
         getStyle: getStyle,
 
         register: register
+
     }
 
-}());
+}() );
 
-export {StyleFactory}
+export { StyleFactory }

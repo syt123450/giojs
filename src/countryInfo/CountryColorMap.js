@@ -2,9 +2,10 @@
  * Created by ss on 2018/1/7.
  */
 
-var CountryColorMap = (function () {
+var CountryColorMap = ( function () {
 
     return {
+
         '1': 'PE',
         '2': 'BF',
         '3': 'FR',
@@ -233,7 +234,9 @@ var CountryColorMap = (function () {
         '226': 'IM',
         '227': 'GU',
         '228': 'SG'
-    };
-}());
 
-export {CountryColorMap}
+    };
+
+}() );
+
+export { CountryColorMap }

@@ -1,6 +1,6 @@
-import {Utils} from "../utils/Utils";
+import { Utils } from "../utils/Utils.js";
 
-function RotationHandler(controller) {
+function RotationHandler ( controller ) {
 
     var rotateX = 0, rotateY = 0;
     var rotateVX = 0, rotateVY = 0;
@@ -10,16 +10,20 @@ function RotationHandler(controller) {
 
     var dragging = false;
 
-    function update() {
-        if (rotateTargetX !== undefined && rotateTargetY !== undefined) {
+    function update () {
 
-            rotateVX += (rotateTargetX - rotateX) * 0.012;
-            rotateVY += (rotateTargetY - rotateY) * 0.012;
+        if ( rotateTargetX !== undefined && rotateTargetY !== undefined ) {
 
-            if (Math.abs(rotateTargetX - rotateX) < 0.1 && Math.abs(rotateTargetY - rotateY) < 0.1) {
+            rotateVX += ( rotateTargetX - rotateX ) * 0.012;
+            rotateVY += ( rotateTargetY - rotateY ) * 0.012;
+
+            if ( Math.abs( rotateTargetX - rotateX ) < 0.1 && Math.abs( rotateTargetY - rotateY ) < 0.1 ) {
+
                 rotateTargetX = undefined;
                 rotateTargetY = undefined;
+
             }
+
         }
 
         rotateX += rotateVX;
@@ -28,74 +32,105 @@ function RotationHandler(controller) {
         rotateVX *= 0.98;
         rotateVY *= 0.98;
 
-        if (dragging || rotateTargetX !== undefined) {
+        if ( dragging || rotateTargetX !== undefined ) {
+
             rotateVX *= 0.6;
             rotateVY *= 0.6;
+
         }
 
-        if (rotateX < -rotateXMax) {
+        if ( rotateX < -rotateXMax ) {
+
             rotateX = -rotateXMax;
             rotateVX *= -0.95;
+
         }
-        if (rotateX > rotateXMax) {
+
+        if ( rotateX > rotateXMax ) {
+
             rotateX = rotateXMax;
             rotateVX *= -0.95;
+
         }
 
         controller.rotating.rotation.x = rotateX;
         controller.rotating.rotation.y = rotateY;
+
     }
 
-    function rotateToTargetCountry() {
+    function rotateToTargetCountry () {
 
         var selectedCountry = controller.selectedCountry;
 
         rotateTargetX = selectedCountry.lat * Math.PI/180;
-        var targetY0 = -(selectedCountry.lon - 9) * Math.PI / 180;
+        var targetY0 = -( selectedCountry.lon - 9 ) * Math.PI / 180;
         var piCounter = 0;
-        while(true) {
+
+        while( true ) {
+
             var targetY0Neg = targetY0 - Math.PI * 2 * piCounter;
             var targetY0Pos = targetY0 + Math.PI * 2 * piCounter;
-            if(Math.abs(targetY0Neg - controller.rotating.rotation.y) < Math.PI) {
+
+            if ( Math.abs( targetY0Neg - controller.rotating.rotation.y ) < Math.PI ) {
+
                 rotateTargetY = targetY0Neg;
                 break;
-            } else if(Math.abs(targetY0Pos - controller.rotating.rotation.y) < Math.PI) {
+
+            } else if ( Math.abs( targetY0Pos - controller.rotating.rotation.y ) < Math.PI ) {
+
                 rotateTargetY = targetY0Pos;
                 break;
+
             }
+
             piCounter++;
             rotateTargetY = Utils.wrap(targetY0, -Math.PI, Math.PI);
+
         }
 
         rotateVX *= 0.6;
         rotateVY *= 0.6;
+
     }
 
     return {
+
         rotateToTargetCountry: rotateToTargetCountry,
 
         update: update,
 
-        addRotateVY: function(VYValue) {
+        addRotateVY: function ( VYValue ) {
+
             rotateVY += VYValue;
+
         },
 
-        addRotateVX: function(VXValue) {
+        addRotateVX: function ( VXValue ) {
+
             rotateVX += VXValue;
+
         },
 
-        setDragging: function(isDragging) {
+        setDragging: function( isDragging ) {
+
             dragging = isDragging;
+
         },
 
-        isDragging: function() {
+        isDragging: function () {
+
             return dragging;
+
         },
 
-        clearRotateTargetX: function() {
+        clearRotateTargetX: function () {
+
             rotateTargetX = undefined;
+
         }
+
     }
+
 }
 
-export {RotationHandler}
+export { RotationHandler }

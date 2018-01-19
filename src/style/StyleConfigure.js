@@ -1,4 +1,4 @@
-import {StyleFactory} from "./StyleFactory";
+import { StyleFactory } from "./StyleFactory.js";
 
-import {StrangeStyle} from "./StrangeStyle";
-StyleFactory.register("strange", StrangeStyle);
+import { StrangeStyle } from "./StrangeStyle.js";
+StyleFactory.register( "strange", StrangeStyle );

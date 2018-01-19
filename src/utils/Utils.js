@@ -1,66 +1,102 @@
-import {CountryColorMap} from "../countryInfo/CountryColorMap";
+import { CountryColorMap } from "../countryInfo/CountryColorMap.js";
 
-var Utils = (function(){
+var Utils = ( function () {
 
-    function isString(str){
-        return (typeof str==='string')&& str.constructor===String;
+    function isString ( str ){
+
+        return ( typeof str === 'string' ) && str.constructor === String;
+
     }
 
-    function transformStringToHex(str) {
-        if (str.charAt(0) !== "#") {
+    function transformStringToHex ( str ) {
+
+        if ( str.charAt( 0 ) !== "#" ) {
+
             return null;
+
         }
 
-        return parseInt(str.substring(1), 16);
+        return parseInt( str.substring( 1 ), 16 );
+
     }
 
-    function formatHexColor(color) {
+    function formatHexColor ( color ) {
 
-        if (color < 0 || color > 16777215) {
+        if ( color < 0 || color > 16777215 ) {
+
             return null;
+
         }
 
         return color;
+
     }
 
     return {
 
-        wrap: function wrap(value, min, rangeSize) {
+        wrap: function wrap ( value, min, rangeSize ) {
+
             rangeSize-=min;
-            while (value < min) {
+
+            while ( value < min ) {
+
                 value += rangeSize;
+
             }
+
             return value % rangeSize;
+
         },
 
-        constrain: function constrain(v, min, max) {
-            if (v < min)
+        constrain: function constrain ( v, min, max ) {
+
+            if ( v < min ) {
+
                 v = min;
-            else if (v > max)
+
+            } else if ( v > max ) {
+
                 v = max;
+
+            }
+
             return v;
+
         },
 
-        formatColor: function(color) {
+        formatColor: function ( color ) {
 
-            if (isString(color)) {
-                return transformStringToHex(color);
+            if ( isString( color ) ) {
+
+                return transformStringToHex( color );
+
             } else {
-                return formatHexColor(color);
+
+                return formatHexColor( color );
+
             }
+
         },
 
-        transformBrightness: function(brightness, min, max) {
-            if (brightness > 1) {
+        transformBrightness: function ( brightness, min, max ) {
+
+            if ( brightness > 1 ) {
+
                 return max;
+
             }
-            if (brightness < 0) {
+
+            if ( brightness < 0 ) {
+
                 return min;
+
             }
-            return Math.floor(min + (max - min) * brightness);
+
+            return Math.floor( min + ( max - min ) * brightness );
+
         },
 
-        transformCountryData: function(countryData) {
+        transformCountryData: function( countryData ) {
 
             var outputData = {};
 
@@ -71,9 +107,10 @@ var Utils = (function(){
             outputData.ISOCode = CountryColorMap[countryData.colorCode];
 
             return outputData;
+
         }
     }
 
-}());
+}() );
 
-export {Utils}
+export { Utils }

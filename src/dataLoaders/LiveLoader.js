@@ -1,5 +1,5 @@
 //in develop
-function LiveLoader() {
+function LiveLoader () {
 
     this.callback = null;
     this.milliseconds = 5000;
@@ -8,21 +8,23 @@ function LiveLoader() {
 
     var liveLoader = this;
 
-    function load(controller, url, callback, milliseconds) {
+    function load ( controller, url, callback, milliseconds ) {
 
         liveLoader.callback = callback;
         liveLoader.milliseconds = milliseconds;
 
         controller.configure.liveLoad = true;
-    }
-
-    function loopCall() {
 
     }
 
-    function stop() {
+    function loopCall () {
+
+    }
+
+    function stop () {
 
         controller.configure.liveLoad = false;
+
     }
 
     return {
@@ -30,7 +32,9 @@ function LiveLoader() {
         load: load,
 
         stop: stop
+
     }
+
 }
 
-export {LiveLoader}
+export { LiveLoader }

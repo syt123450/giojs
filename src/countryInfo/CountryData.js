@@ -2,9 +2,10 @@
  * Created by ss on 2018/1/7.
  */
 
-var CountryData = (function () {
+var CountryData = ( function () {
 
     var basicCountryData = {
+
         AD: {colorCode: 186, name: 'ANDORRA', lat: 42.5, lon: 1.6},
         AE: {colorCode: 22, name: 'UNITED ARAB EMIRATES', lat: 24, lon: 54},
         AF: {colorCode: 30, name: 'AFGHANISTAN', lat: 33, lon: 65},
@@ -254,14 +255,16 @@ var CountryData = (function () {
         ZA: {colorCode: 86, name: 'SOUTH AFRICA', lat: -29, lon: 24},
         ZM: {colorCode: 60, name: 'ZAMBIA', lat: -15, lon: 30},
         ZW: {colorCode: 135, name: 'ZIMBABWE', lat: -20, lon: 30}
+
     };
 
-    function createCountryCenter() {
+    function createCountryCenter () {
 
         var rad = 100;
 
-        for (var s in basicCountryData) {
-            var country = basicCountryData[s];
+        for ( var s in basicCountryData ) {
+
+            var country = basicCountryData[ s ];
 
             var lon = country.lon - 90;
             var lat = country.lat;
@@ -270,18 +273,20 @@ var CountryData = (function () {
             var theta = 2 * Math.PI - lon * Math.PI / 180 + Math.PI * 0.06;
 
             var center = new THREE.Vector3();
-            center.x = Math.sin(phi) * Math.cos(theta) * rad;
-            center.y = Math.cos(phi) * rad;
-            center.z = Math.sin(phi) * Math.sin(theta) * rad;
+            center.x = Math.sin( phi ) * Math.cos( theta ) * rad;
+            center.y = Math.cos( phi ) * rad;
+            center.z = Math.sin( phi ) * Math.sin( theta ) * rad;
 
             country.center = center;
+
         }
+
     }
 
     createCountryCenter();
 
     return basicCountryData;
 
-}());
+}() );
 
-export {CountryData}
+export { CountryData }

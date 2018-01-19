@@ -2,11 +2,11 @@
  * Created by ss on 2018/1/7.
  */
 
-import {MapIndexBase64} from "../data/MapIndex.js";
-import {MapOutlineBase64} from "../data/MapOutline.js";
-import {Utils} from "../utils/Utils";
+import { MapIndexBase64 } from "../data/MapIndex.js";
+import { MapOutlineBase64 } from "../data/MapOutline.js";
+import { Utils } from "../utils/Utils.js";
 
-function EarthSurfaceShader(controller) {
+function EarthSurfaceShader ( controller ) {
 
     var selectedColorDifferent = false;
     var helperColor = new THREE.Color();
@@ -16,33 +16,33 @@ function EarthSurfaceShader(controller) {
     var lookupCanvas, lookupTexture;
     var uniforms = createUniforms();
 
-    function createUniforms() {
+    function createUniforms () {
 
         loadSurfaceColor();
 
         var uniforms = {};
 
-        var mapIndexedTexture = (new THREE.TextureLoader()).load(MapIndexBase64);
+        var mapIndexedTexture = ( new THREE.TextureLoader() ).load( MapIndexBase64 );
 
-        uniforms.mapIndex = {type: 't', value: mapIndexedTexture};
+        uniforms.mapIndex = { type: 't', value: mapIndexedTexture };
         uniforms.mapIndex.value.magFilter = THREE.NearestFilter;
         uniforms.mapIndex.value.minFilter = THREE.NearestFilter;
 
-        lookupCanvas = document.createElement('canvas');
+        lookupCanvas = document.createElement( 'canvas' );
         lookupCanvas.width = 256;
         lookupCanvas.height = 1;
 
-        lookupTexture = new THREE.Texture(lookupCanvas);
+        lookupTexture = new THREE.Texture( lookupCanvas );
         lookupTexture.magFilter = THREE.NearestFilter;
         lookupTexture.minFilter = THREE.NearestFilter;
         lookupTexture.needsUpdate = true;
 
-        uniforms.lookup = {type: 't', value: lookupTexture};
+        uniforms.lookup = { type: 't', value: lookupTexture };
 
-        var mapOutlineTexture = (new THREE.TextureLoader()).load(MapOutlineBase64);
+        var mapOutlineTexture = ( new THREE.TextureLoader() ).load( MapOutlineBase64 );
 
-        uniforms.outline = {type: 't', value: mapOutlineTexture};
-        uniforms.outlineLevel = {type: 'f', value: 1};
+        uniforms.outline = { type: 't', value: mapOutlineTexture };
+        uniforms.outlineLevel = { type: 'f', value: 1 };
 
         uniforms.surfaceColor = { type: 'v3', value: surfaceColor };
         uniforms.flag = { type: 'f', value: 1 };
@@ -50,60 +50,76 @@ function EarthSurfaceShader(controller) {
         uniforms.selectedColor = { type: 'v3', value: selectedColor };
 
         return uniforms;
+
     }
 
-    function loadSurfaceColor() {
+    function loadSurfaceColor () {
 
-        if (controller.configure.clickedDifferent) {
+        if ( controller.configure.clickedDifferent ) {
+
             selectedColorDifferent = true;
-            setHighlightColor(controller.configure.clickedColor);
+            setHighlightColor( controller.configure.clickedColor );
+
         } else {
+
             selectedColorDifferent = false;
+
         }
 
-        setShaderColor(controller.configure.surfaceColor);
+        setShaderColor( controller.configure.surfaceColor );
+
     }
 
-    function setShaderColor(color) {
+    function setShaderColor( color ) {
 
-        if (color == null) {
+        if ( color === null ) {
+
             return;
+
         }
 
-        color = Utils.formatColor(color);
+        color = Utils.formatColor( color );
 
-        helperColor.setHex(color);
+        helperColor.setHex( color );
 
         surfaceColor.x = helperColor.r;
         surfaceColor.y = helperColor.g;
         surfaceColor.z = helperColor.b;
 
-        if (!selectedColorDifferent) {
+        if ( !selectedColorDifferent ) {
+
             selectedColor.x = helperColor.r;
             selectedColor.y = helperColor.g;
             selectedColor.z = helperColor.b;
+
         }
+
     }
 
     function setHighlightColor(color) {
 
-        if (color == null) {
+        if (color === null) {
+
             return;
+
         }
 
-        color = Utils.formatColor(color);
+        color = Utils.formatColor( color );
 
         selectedColorDifferent = true;
 
-        helperColor.setHex(color);
+        helperColor.setHex( color );
 
         selectedColor.x = helperColor.r;
         selectedColor.y = helperColor.g;
         selectedColor.z = helperColor.b;
+
     }
 
-    function update() {
+    function update () {
+
         loadSurfaceColor();
+
     }
 
     return {
@@ -170,7 +186,8 @@ function EarthSurfaceShader(controller) {
         setHighlightColor: setHighlightColor,
 
         update: update
+
     }
 }
 
-export {EarthSurfaceShader}
+export { EarthSurfaceShader }

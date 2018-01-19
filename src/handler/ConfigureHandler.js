@@ -1,30 +1,39 @@
-import {StyleFactory} from "../style/StyleFactory";
+import { StyleFactory } from "../style/StyleFactory.js";
 
-function ConfigureHandler(controller) {
+function ConfigureHandler ( controller ) {
 
-    function configureJSON(configure) {
+    function configureJSON ( configure ) {
 
-        if(configure instanceof Object) {
-            for (var attribute in configure) {
-                controller.configure[attribute] = configure[attribute];
+        if ( configure instanceof Object ) {
+
+            for ( var attribute in configure ) {
+
+                controller.configure[ attribute ] = configure[ attribute ];
+
             }
 
-            if (controller.configure.clickedDifferent === false) {
+            if ( controller.configure.clickedDifferent === false ) {
+
                 controller.configure.clickedColor = controller.configure.surfaceColor;
+
             }
+
         }
+
     }
 
-    function configureStyle(styleName) {
+    function configureStyle ( styleName ) {
 
-        var style = StyleFactory.getStyle(styleName);
+        var style = StyleFactory.getStyle( styleName );
 
-        configureJSON(style);
+        configureJSON( style );
+
     }
 
-    function configureConstructor() {
+    function configureConstructor () {
 
-        configureJSON(controller.constructorConfigure);
+        configureJSON( controller.constructorConfigure );
+
     }
 
     return {
@@ -34,7 +43,9 @@ function ConfigureHandler(controller) {
         configureStyle: configureStyle,
 
         configureConstructor: configureConstructor
+
     }
+
 }
 
-export {ConfigureHandler}
+export { ConfigureHandler }

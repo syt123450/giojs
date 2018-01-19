@@ -1,94 +1,113 @@
 
-import {LineGeometry} from "../objects/LineGeometry.js";
-import {SceneEventManager} from "../eventManagers/SceneEventManager.js";
-import {DefaultDataPreprocessors} from "../dataPreprocessors/DefaultDataPreprocessors.js";
-import {ObjectUtils} from "../utils/BasicObjectUtils.js";
-import {Sphere} from "../objects/Sphere";
-import {CountryData} from "../countryInfo/CountryData";
+import { LineGeometry } from "../objects/LineGeometry.js";
+import { SceneEventManager } from "../eventManagers/SceneEventManager.js";
+import { DefaultDataPreprocessors } from "../dataPreprocessors/DefaultDataPreprocessors.js";
+import { ObjectUtils } from "../utils/BasicObjectUtils.js";
+import { Sphere } from "../objects/Sphere.js";
+import { CountryData } from "../countryInfo/CountryData.js";
 
-function InitHandler(controller) {
+function InitHandler ( controller ) {
 
-    function init() {
+    function init () {
 
         initScene();
         animate();
+
     }
 
-    function initScene() {
+    function initScene () {
 
-        if (controller.configure.loadingSrc !== null) {
-            var loadingIcon = ObjectUtils.createLoading(controller);
-            controller.container.appendChild(loadingIcon);
+        if ( controller.configure.loadingSrc !== null ) {
+
+            var loadingIcon = ObjectUtils.createLoading( controller );
+            controller.container.appendChild( loadingIcon );
+
         }
 
-        controller.renderer = ObjectUtils.createRenderer(controller.container);
-        controller.camera = ObjectUtils.createCamera(controller.container);
+        controller.renderer = ObjectUtils.createRenderer( controller.container );
+        controller.camera = ObjectUtils.createCamera( controller.container );
         controller.lights = ObjectUtils.createLights();
 
-        controller.sphere = new Sphere(controller);
+        controller.sphere = new Sphere( controller );
         controller.earthSurfaceShader = controller.sphere.earthSurfaceShader;
 
         controller.scene = new THREE.Scene();
         controller.rotating = new THREE.Object3D();
 
-        if (controller.configure.isStatsEnabled) {
-            controller.stats = ObjectUtils.createStats(container);
+        if ( controller.configure.isStatsEnabled ) {
+
+            controller.stats = ObjectUtils.createStats( container );
+
         }
 
-        controller.selectedCountry = CountryData[controller.configure.selectedCountry];
+        controller.selectedCountry = CountryData[ controller.configure.selectedCountry ];
 
-        DefaultDataPreprocessors.process(controller);
+        DefaultDataPreprocessors.process( controller );
+        LineGeometry.buildDataVizGeometries( controller );
 
-        LineGeometry.buildDataVizGeometries(controller);
+        for ( var i in controller.lights ) {
 
-        for (var i in controller.lights) {
-            controller.scene.add(controller.lights[i]);
+            controller.scene.add( controller.lights[ i ] );
+
         }
 
-        controller.scene.add(controller.rotating);
+        controller.scene.add( controller.rotating );
+        controller.rotating.add( controller.sphere );
+        controller.scene.add( controller.camera );
 
-        controller.rotating.add(controller.sphere);
-
-        controller.scene.add(controller.camera);
-
-        (new SceneEventManager).bindEvent(controller);
+        ( new SceneEventManager ).bindEvent( controller );
         controller.visSystemHandler.updateSystem();
 
-        controller.container.appendChild(controller.renderer.domElement);
+        controller.container.appendChild( controller.renderer.domElement );
 
-        if (controller.configure.loadingSrc !== null) {
+        if ( controller.configure.loadingSrc !== null ) {
+
             controller.container.removeChild(loadingIcon);
+
         }
 
         controller.rotationHandler.rotateToTargetCountry();
-        controller.surfaceHandler.highlightCountry(controller.selectedCountry["colorCode"]);
+        controller.surfaceHandler.highlightCountry( controller.selectedCountry[ "colorCode" ] );
+
     }
 
-    function animate() {
+    function animate () {
 
-        if (controller.isStatsEnabled) {
+        if ( controller.isStatsEnabled ) {
+
             controller.stats.update();
+
         }
 
         controller.rotationHandler.update();
 
         controller.renderer.clear();
-        controller.renderer.render(controller.scene, controller.camera);
+        controller.renderer.render( controller.scene, controller.camera );
 
         controller.rotating.traverse(
-            function (mesh) {
-                if (mesh.update !== undefined) {
+
+            function ( mesh ) {
+
+                if ( mesh.update !== undefined ) {
+
                     mesh.update();
+
                 }
+
             }
+
         );
 
-        requestAnimationFrame(animate);
+        requestAnimationFrame( animate );
+
     }
 
     return {
+
         init: init
+
     }
+
 }
 
-export {InitHandler}
+export { InitHandler }

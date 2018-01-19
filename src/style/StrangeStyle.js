@@ -1,4 +1,4 @@
-var StrangeStyle = (function () {
+var StrangeStyle = ( function () {
 
     return {
 
@@ -17,8 +17,9 @@ var StrangeStyle = (function () {
         mentionedBrightness: 0.5,
 
         relatedBrightness: 0.5
+
     }
 
-}());
+}() );
 
-export {StrangeStyle}
+export { StrangeStyle }

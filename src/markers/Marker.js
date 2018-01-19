@@ -2,8 +2,8 @@
  * Created by ss on 2018/1/7.
  */
 
-function Marker() {
+function Marker () {
 
 }
 
-export {Marker}
+export { Marker }

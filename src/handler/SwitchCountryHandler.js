@@ -1,73 +1,88 @@
 /**
  * Created by ss on 2018/1/12.
  */
-import {CountryColorMap} from "../countryInfo/CountryColorMap";
-import {CountryData} from "../countryInfo/CountryData";
-import {Utils} from "../utils/Utils";
+import { CountryColorMap } from "../countryInfo/CountryColorMap.js";
+import { CountryData } from "../countryInfo/CountryData.js";
+import { Utils } from "../utils/Utils.js";
 
-function SwitchCountryHandler(controller) {
+function SwitchCountryHandler ( controller ) {
 
     var pickedCallBack = null;
 
-    function execute(pickColorIndex) {
+    function execute( pickColorIndex ) {
 
-        executeSwitch(pickColorIndex);
+        executeSwitch( pickColorIndex );
         executeCallback();
+
     }
 
-    function executeSwitch(pickColorIndex) {
+    function executeSwitch ( pickColorIndex ) {
 
-        controller.selectedCountry = CountryData[CountryColorMap[pickColorIndex]];
+        controller.selectedCountry = CountryData[ CountryColorMap[ pickColorIndex ] ];
         controller.visSystemHandler.updateSystem();
-        controller.surfaceHandler.highlightCountry(pickColorIndex);
+        controller.surfaceHandler.highlightCountry( pickColorIndex );
         controller.rotationHandler.rotateToTargetCountry();
+
     }
 
-    function executeCallback() {
+    function executeCallback () {
 
-        if (pickedCallBack !== null) {
+        if ( pickedCallBack !== null ) {
 
-            var selectedCountry = Utils.transformCountryData(controller.selectedCountry);
+            var selectedCountry = Utils.transformCountryData( controller.selectedCountry );
 
             var relatedCountries = [];
 
-            for (var i in controller.relatedCountries) {
+            for ( var i in controller.relatedCountries ) {
+
                 relatedCountries.push(
-                    Utils.transformCountryData(controller.relatedCountries[i])
+                    Utils.transformCountryData( controller.relatedCountries[ i ] )
                 )
+
             }
 
-            pickedCallBack(selectedCountry, relatedCountries);
+            pickedCallBack( selectedCountry, relatedCountries );
+
         }
+
     }
 
-    function switchFromAPI(ISOAbbr, direction) {
+    function switchFromAPI ( ISOAbbr, direction ) {
 
         var snapshot = {};
 
-        if (direction === "in" || direction === "out") {
+        if ( direction === "in" || direction === "out" ) {
 
             snapshot.inOnly = controller.configure.inOnly;
             snapshot.outOnly = controller.configure.outOnly;
 
-            if (direction === "in") {
+            if ( direction === "in" ) {
+
                 controller.configure.inOnly = true;
                 controller.configure.outOnly = false;
+
             } else {
+
                 controller.configure.inOnly = false;
                 controller.configure.outOnly = true;
+
             }
+
         }
 
-        if (CountryData[ISOAbbr] !== undefined) {
-            executeSwitch(CountryData[ISOAbbr].colorCode);
+        if ( CountryData[ ISOAbbr ] !== undefined ) {
+
+            executeSwitch( CountryData[ ISOAbbr ].colorCode );
+
         }
 
-        if (direction === "in" || direction === "out") {
+        if ( direction === "in" || direction === "out" ) {
 
             controller.configure.inOnly = snapshot.inOnly;
             controller.configure.outOnly = snapshot.outOnly;
+
         }
+
     }
 
     return {
@@ -76,10 +91,14 @@ function SwitchCountryHandler(controller) {
 
         switchFromAPI: switchFromAPI,
 
-        setCountryPickCallBack: function(callBack) {
+        setCountryPickCallBack: function (callBack) {
+
             pickedCallBack = callBack;
+
         }
+
     }
+
 }
 
-export {SwitchCountryHandler}
+export { SwitchCountryHandler }

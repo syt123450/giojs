@@ -1,4 +1,4 @@
-function Configure() {
+function Configure () {
 
     this.surfaceColor = 0xffffff;
 
@@ -33,6 +33,7 @@ function Configure() {
     this.liveLoad = false;
 
     return this;
+
 }
 
-export {Configure}
+export { Configure }

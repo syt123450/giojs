@@ -10,10 +10,14 @@
   "dependencies": {},
   "devDependencies": {
     "rollup": "^0.53.4",
-    "uglify-js": "^2.4.11"
+    "uglify-js": "^2.4.11",
+    "mocha": "^4.1.0",
+    "coveralls": "^3.0.0",
+    "istanbul": "^0.4.5"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "rollup -c && mocha",
+    "coverage-test": "istanbul cover _mocha",
     "build-beautify": "rollup -c",
     "build-uglify": "rollup -c && uglifyjs build/Gio.js -cm --preamble \"// https://github.com/syt123450/Gio.js/blob/master/LICENSE\" --output build/Gio.min.js"
   },

@@ -1,8 +1,12 @@
 /**
- * Created by ss on 2018/1/9.
+ * @author syt123450 / https://github.com/syt123450
  */
 
 import { Utils } from "../utils/Utils.js";
+
+/**
+ * This handler handle all task related to the earth surface.
+ */
 
 function SurfaceHandler ( controller ) {
 

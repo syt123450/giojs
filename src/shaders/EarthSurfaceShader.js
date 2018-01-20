@@ -1,20 +1,35 @@
 /**
- * Created by ss on 2018/1/7.
+ * @author syt123450 / https://github.com/syt123450
  */
 
 import { MapIndexBase64 } from "../data/MapIndex.js";
 import { MapOutlineBase64 } from "../data/MapOutline.js";
 import { Utils } from "../utils/Utils.js";
 
+/**
+ * shader material's parameter for earth surface
+ */
+
 function EarthSurfaceShader ( controller ) {
 
     var selectedColorDifferent = false;
     var helperColor = new THREE.Color();
+
+    // cache color object for surface color
+
     var surfaceColor = new THREE.Vector3();
+
+    //cache color object for selected Color
+
     var selectedColor = new THREE.Vector3();
 
     var lookupCanvas, lookupTexture;
+
+    // the uniforms object will be created when the EarthSurfaceShader object is created
+
     var uniforms = createUniforms();
+
+    // this function create the uniform for shader
 
     function createUniforms () {
 
@@ -23,6 +38,8 @@ function EarthSurfaceShader ( controller ) {
         var uniforms = {};
 
         var mapIndexedTexture = ( new THREE.TextureLoader() ).load( MapIndexBase64 );
+
+        // the mapIndex is used for getting the color when click on the earth
 
         uniforms.mapIndex = { type: 't', value: mapIndexedTexture };
         uniforms.mapIndex.value.magFilter = THREE.NearestFilter;
@@ -37,21 +54,37 @@ function EarthSurfaceShader ( controller ) {
         lookupTexture.minFilter = THREE.NearestFilter;
         lookupTexture.needsUpdate = true;
 
+        // the lookup is used for
+
         uniforms.lookup = { type: 't', value: lookupTexture };
 
         var mapOutlineTexture = ( new THREE.TextureLoader() ).load( MapOutlineBase64 );
 
+        // the outline is what the user see in browser
+
         uniforms.outline = { type: 't', value: mapOutlineTexture };
+
+        // the outlineLevel is used by webgl to judge whether to show outline
+
         uniforms.outlineLevel = { type: 'f', value: 1 };
 
+        // the surfaceColor is passed into webgl to render the surface color
+
         uniforms.surfaceColor = { type: 'v3', value: surfaceColor };
+
+        // the flag is passed into webgl to judge whether to show surface color
+
         uniforms.flag = { type: 'f', value: 1 };
+
+        // the selectedColor is passed into webgl to render the selected country on the surface
 
         uniforms.selectedColor = { type: 'v3', value: selectedColor };
 
         return uniforms;
 
     }
+
+    // this function will set selectedColor and surfaceColor based on the configure
 
     function loadSurfaceColor () {
 
@@ -86,6 +119,8 @@ function EarthSurfaceShader ( controller ) {
         surfaceColor.y = helperColor.g;
         surfaceColor.z = helperColor.b;
 
+        // if user set selected color to be different with the surface color, this function will not set the selectedColor
+
         if ( !selectedColorDifferent ) {
 
             selectedColor.x = helperColor.r;
@@ -115,6 +150,8 @@ function EarthSurfaceShader ( controller ) {
         selectedColor.z = helperColor.b;
 
     }
+
+    // this function used to update the shader material when user change the surface color at run time
 
     function update () {
 
@@ -180,10 +217,6 @@ function EarthSurfaceShader ( controller ) {
         lookupCanvas: lookupCanvas,
 
         lookupTexture: lookupTexture,
-
-        setShaderColor: setShaderColor,
-
-        setHighlightColor: setHighlightColor,
 
         update: update
 

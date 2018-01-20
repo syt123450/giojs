@@ -1,4 +1,12 @@
+/**
+ * @author syt123450 / https://github.com/syt123450
+ */
+
 import { Utils } from "../utils/Utils.js";
+
+/**
+ * This handler handle rotation of the globe.
+ */
 
 function RotationHandler ( controller ) {
 

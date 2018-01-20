@@ -1,8 +1,12 @@
 /**
- * Created by ss on 2018/1/7.
+ * @author syt123450 / https://github.com/syt123450
  */
 
 import { ParticleABase64 } from "../data/ParticleA.js";
+
+/**
+ * Shader material's parameter for moving sprite on spline
+ */
 
 function MovingSpriteShader () {
 

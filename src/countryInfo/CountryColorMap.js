@@ -1,5 +1,11 @@
 /**
- * Created by ss on 2018/1/7.
+ * @author syt123450 / https://github.com/syt123450
+ * @author Botime / https://github.com/BoTime
+ */
+
+/**
+ * This is a singleton object.
+ * When getting picked clicked color, the surfaceHandler will lookup the clicked country through this map.
  */
 
 var CountryColorMap = ( function () {

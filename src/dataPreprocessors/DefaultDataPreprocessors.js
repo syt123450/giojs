@@ -1,8 +1,13 @@
 /**
- * Created by ss on 2018/1/7.
+ * @author syt123450 / https://github.com/syt123450
  */
 
 import { CountryData } from "../countryInfo/CountryData.js";
+
+/**
+ * This default data preprocessor is used to create mentionedCountries for controller.
+ * The process() function will be called when InitHandler's init() function is called.
+ */
 
 var DefaultDataPreprocessors = ( function () {
 
@@ -16,6 +21,8 @@ var DefaultDataPreprocessors = ( function () {
 
             var importCountryCode = CountryData[ dataSet.i ].colorCode;
             var exportCountryCode = CountryData[ dataSet.e ].colorCode;
+
+            // add mentioned color to controller's mentionedCountryCodes ( an array to store the code )
 
             if ( controller.mentionedCountryCodes.indexOf( importCountryCode ) === -1 ) {
 

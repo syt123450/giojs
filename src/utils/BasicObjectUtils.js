@@ -1,4 +1,14 @@
+/**
+ * @author syt123450 / https://github.com/syt123450
+ */
+
+/**
+ * This utils create simple object in for the scene
+ */
+
 var ObjectUtils = ( function () {
+
+    //create Three.js camera
 
     function createCamera ( container ) {
 
@@ -10,6 +20,8 @@ var ObjectUtils = ( function () {
         return camera;
 
     }
+
+    //create Three.js lights
 
     function createLights () {
 
@@ -36,6 +48,8 @@ var ObjectUtils = ( function () {
 
     }
 
+    //create Three.js renderer, using webgl renderer to render canvas
+
     function createRenderer ( container ) {
 
         container.style.backgroundColor = "#000000";
@@ -55,6 +69,8 @@ var ObjectUtils = ( function () {
 
     }
 
+    //create stats to monitor performance, for development, the detailed introduce about stats: https://github.com/mrdoob/stats.js
+
     function createStats ( container ) {
 
         var stats = new Stats();
@@ -65,6 +81,8 @@ var ObjectUtils = ( function () {
         return stats;
 
     }
+
+    //create loading object
 
     function createLoading ( controller ) {
 

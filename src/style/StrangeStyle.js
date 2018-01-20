@@ -1,3 +1,9 @@
+/**
+ * @author syt123450 / https://github.com/syt123450
+ */
+
+// Developer can adjust and define their own style like this, and contribute to our repository
+
 var StrangeStyle = ( function () {
 
     return {

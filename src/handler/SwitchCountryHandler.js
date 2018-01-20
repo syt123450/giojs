@@ -1,9 +1,14 @@
 /**
- * Created by ss on 2018/1/12.
+ * @author syt123450 / https://github.com/syt123450
  */
+
 import { CountryColorMap } from "../countryInfo/CountryColorMap.js";
 import { CountryData } from "../countryInfo/CountryData.js";
 import { Utils } from "../utils/Utils.js";
+
+/**
+ * This handler handle the switch of the clicked country.
+ */
 
 function SwitchCountryHandler ( controller ) {
 
@@ -91,7 +96,7 @@ function SwitchCountryHandler ( controller ) {
 
         switchFromAPI: switchFromAPI,
 
-        setCountryPickCallBack: function (callBack) {
+        setCountryPickCallBack: function ( callBack ) {
 
             pickedCallBack = callBack;
 

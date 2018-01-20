@@ -1,5 +1,9 @@
 /**
- * Created by ss on 2018/1/12.
+ * @author syt123450 / https://github.com/syt123450
+ */
+
+/**
+ * This handler handle resize of the window event.
  */
 
 function ResizeHandler ( controller ) {

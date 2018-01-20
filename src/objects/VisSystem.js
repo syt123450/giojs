@@ -1,5 +1,5 @@
 /**
- * Created by ss on 2018/1/7.
+ * @author syt123450 / https://github.com/syt123450
  */
 
 import { Utils } from "../utils/Utils.js";
@@ -7,9 +7,16 @@ import { MovingSpriteShader } from "../shaders/MovingSpriteShader.js";
 import { CountryData } from "../countryInfo/CountryData.js";
 import { CountryColorMap } from "../countryInfo/CountryColorMap.js";
 
+/**
+ * The VisSystem create the mesh of spine lines and the moving object on the globe.
+ * The mesh will be created each time the clicked country changes.
+ */
+
 var VisSystem = ( function () {
 
     function getVisualizedMesh ( controller ) {
+
+        // create
 
         var geometries = createGeometries( controller );
 

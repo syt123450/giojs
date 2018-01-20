@@ -1,10 +1,16 @@
 /**
- * Created by ss on 2018/1/8.
+ * @author syt123450 / https://github.com/syt123450
  */
 
 import { EarthSurfaceShader } from "../shaders/EarthSurfaceShader.js";
 
+/**
+ * The Sphere object is the earth object (without spineline visual system)
+ */
+
 function Sphere ( controller ) {
+
+    // create EarthSurfaceShader object when initialized
 
     var earthSurfaceShader = new EarthSurfaceShader( controller );
 
@@ -23,6 +29,8 @@ function Sphere ( controller ) {
     sphere.rotation.z = Math.PI;
 
     sphere.name = "sphere";
+
+    // hold the pointer for EarthSurfaceShader, the controller will use this pointer to hold the pointer of the EarthSurfaceShader
 
     sphere.earthSurfaceShader = earthSurfaceShader;
 

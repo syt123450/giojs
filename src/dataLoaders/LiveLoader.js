@@ -1,4 +1,13 @@
-//in develop
+/**
+ * @author syt123450 / https://github.com/syt123450
+ */
+
+/**
+ * This is a live loader, which can be used to load data from a url and refresh the data in the controller
+ */
+
+// still in develop
+
 function LiveLoader () {
 
     this.callback = null;

@@ -1,5 +1,15 @@
+/**
+ * @author syt123450 / https://github.com/syt123450
+ */
+
 import { Utils } from "../utils/Utils.js";
 import { CountryData } from "../countryInfo/CountryData.js";
+
+/**
+ * This object build the basic geometry to be used by creation spline geometry and pSystem geometry.
+ * The build function will build for all input data
+ * The buildDataVizGeometries will be executed when InitHandler's init() function is called
+ */
 
 var LineGeometry = ( function () {
 
@@ -80,6 +90,7 @@ var LineGeometry = ( function () {
         }
 
     }
+
 }() );
 
 export { LineGeometry }

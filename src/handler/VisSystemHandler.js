@@ -1,8 +1,12 @@
 /**
- * Created by ss on 2018/1/10.
+ * @author syt123450 / https://github.com/syt123450
  */
 
 import { VisSystem } from "../objects/VisSystem.js";
+
+/**
+ * This handler handle the update of VisSystem ( The system will be updated when clicked country changed ).
+ */
 
 function VisSystemHandler ( controller ) {
 

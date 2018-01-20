@@ -1,5 +1,9 @@
 /**
- * Created by ss on 2018/1/10.
+ * @author syt123450 / https://github.com/syt123450
+ */
+
+/**
+ * This is the image in "/assets/images/map_indexed.png", encoded in based64
  */
 
 var MapIndexBase64 = (function () {

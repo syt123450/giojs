@@ -1,4 +1,13 @@
+/**
+ * @author syt123450 / https://github.com/syt123450
+ */
+
 import { CountryColorMap } from "../countryInfo/CountryColorMap.js";
+
+/**
+ * it contains static function, the functions will be called by other component in whole project.
+ * The stateless function can be added here.
+ */
 
 var Utils = ( function () {
 
@@ -36,7 +45,7 @@ var Utils = ( function () {
 
         wrap: function wrap ( value, min, rangeSize ) {
 
-            rangeSize-=min;
+            rangeSize -= min;
 
             while ( value < min ) {
 
@@ -47,6 +56,8 @@ var Utils = ( function () {
             return value % rangeSize;
 
         },
+
+        // constrain the value in a range
 
         constrain: function constrain ( v, min, max ) {
 
@@ -64,6 +75,8 @@ var Utils = ( function () {
 
         },
 
+        // format code to hex type (the input may "#000000" or 0x000000)
+
         formatColor: function ( color ) {
 
             if ( isString( color ) ) {
@@ -77,6 +90,8 @@ var Utils = ( function () {
             }
 
         },
+
+        // transform brightness from user's input (0 - 1) to (min - max)
 
         transformBrightness: function ( brightness, min, max ) {
 
@@ -95,6 +110,8 @@ var Utils = ( function () {
             return Math.floor( min + ( max - min ) * brightness );
 
         },
+
+        // deep clone an object from a country data, add more information for user's callback
 
         transformCountryData: function( countryData ) {
 

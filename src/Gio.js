@@ -1,5 +1,5 @@
 /**
- * Created by ss on 2018/1/7.
+ * @author syt123450 / https://github.com/syt123450
  */
 
 import {} from "./style/StyleConfigure.js";
@@ -15,12 +15,24 @@ import { Configure } from "./configure/Configure.js";
 import { ConfigureHandler } from "./handler/ConfigureHandler.js";
 import { DataHandler } from "./handler/DataHandler.js";
 
+/**
+ * This is the controller object when IO Globe is running,
+ * When developer want to create a new IO globe, they first need to create a controller instance and then init this controller.
+ * How to create and use this controller is introduce in API document and shown in demos.
+ */
+
 function Controller ( container, configureObject ) {
+
+    //constructor parameters
 
     this.container = container;
     this.constructorConfigure = configureObject;
 
+    //configure object
+
     this.configure = new Configure();
+
+    //handler used to handle tasks in controller
 
     this.configureHandler = new ConfigureHandler( this );
     this.rotationHandler = new RotationHandler( this );
@@ -32,7 +44,11 @@ function Controller ( container, configureObject ) {
     this.initHandler = new InitHandler( this );
     this.dataHandler = new DataHandler( this );
 
+    //configure "configure object" through constructor configure
+
     this.configureHandler.configureConstructor();
+
+    //important components, they will be initialized when initHandler is called
 
     this.visualizationMesh = null;
     this.renderer = null;
@@ -52,7 +68,11 @@ function Controller ( container, configureObject ) {
 
     this.stats = null;
 
+    //hold controller itself
+
     var controller = this;
+
+    //API is defined in return object
 
     return {
 
@@ -290,7 +310,9 @@ function Controller ( container, configureObject ) {
             return this;
 
         }
+
     }
+
 }
 
 export { Controller }

@@ -1,3 +1,11 @@
+/**
+ * @author syt123450 / https://github.com/syt123450
+ */
+
+/**
+ * This is the asynchronous loader, which can be used to load data asynchronous from a given url
+ */
+
 function AsyncLoader () {
 
     this.callback = null;

@@ -1,10 +1,14 @@
 /**
- * Created by ss on 2018/1/7.
+ * @author syt123450 / https://github.com/syt123450
+ */
+
+/**
+ * This is a JSON loader which can load JSON data into the controller
  */
 
 function JSONLoader () {
 
-    function load( controller, data ) {
+    function load ( controller, data ) {
 
         controller.inputData = JSON.parse( JSON.stringify( data ) );
 

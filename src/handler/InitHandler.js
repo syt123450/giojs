@@ -1,3 +1,6 @@
+/**
+ * @author syt123450 / https://github.com/syt123450
+ */
 
 import { LineGeometry } from "../objects/LineGeometry.js";
 import { SceneEventManager } from "../eventManagers/SceneEventManager.js";
@@ -5,6 +8,10 @@ import { DefaultDataPreprocessors } from "../dataPreprocessors/DefaultDataPrepro
 import { ObjectUtils } from "../utils/BasicObjectUtils.js";
 import { Sphere } from "../objects/Sphere.js";
 import { CountryData } from "../countryInfo/CountryData.js";
+
+/**
+ * This handler handle initialization task for controller.
+ */
 
 function InitHandler ( controller ) {
 

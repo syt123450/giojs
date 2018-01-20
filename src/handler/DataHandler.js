@@ -1,6 +1,14 @@
+/**
+ * @author syt123450 / https://github.com/syt123450
+ */
+
 import { JSONLoader } from "../dataLoaders/JSONLoader.js";
 import { LiveLoader } from "../dataLoaders/LiveLoader.js";
 import { AsyncLoader } from "../dataLoaders/AsyncLoader.js";
+
+/**
+ * This handler handle all data load related task for controller.
+ */
 
 function DataHandler ( controller ) {
 

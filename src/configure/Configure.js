@@ -1,3 +1,13 @@
+/**
+ * @author syt123450 / https://github.com/syt123450
+ */
+
+/**
+ * This is a Configure object, the controller will create a "configure object" and hold the object.
+ * When user using the API to do some configuration, they are actually setting the configure object.
+ * When IO Globe is running, other component in controller will read this configure object through controller
+ */
+
 function Configure () {
 
     this.surfaceColor = 0xffffff;

@@ -14,10 +14,12 @@
     <style>
 
         #globalArea {
+
             height: 100%;
             width: 100%;
             margin: 0;
             padding: 0;
+
         }
 
     </style>
@@ -33,28 +35,36 @@
 
 <script>
 
-    var container = document.getElementById("globalArea");
-    var controller = new GIO.Controller(container);
+    var container = document.getElementById( "globalArea" );
+    var controller = new GIO.Controller( container );
 
-    controller.configure({
+    // use the configure() API and JSON object to configure the controller. The attribute of JSON object can be seen in API document
+
+    controller.configure( {
+
         surfaceColor: 0xff0000,
         clickedColor: 0x00ffff,
         clickedDifferent: true,
         importColor: 0xffff00,
         exportColor: 0x00ffff
-    });
 
-    $.ajax({
-        url: 'data/countryData.json',
-        type: 'GET',
+    } );
+
+    $.ajax( {
+
+        url: "data/countryData.json",
+        type: "GET",
         contentType: "application/json; charset=utf-8",
         async: true,
-        dataType: 'json',
-        success: function (inputData) {
-            controller.addData(inputData);
+        dataType: "json",
+        success: function ( inputData ) {
+
+            controller.addData( inputData );
             controller.init();
+
         }
-    });
+
+    } );
 
 </script>
 

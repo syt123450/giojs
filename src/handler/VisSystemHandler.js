@@ -12,10 +12,18 @@ function VisSystemHandler ( controller ) {
 
     function updateSystem () {
 
+        // first remove the old object from rotating ( contains splines and moving sprites )
+
         controller.rotating.remove( controller.visualizationMesh );
+
+        // create a new visualization mesh
+
         controller.visualizationMesh = new THREE.Object3D();
         var lines = VisSystem.getVisualizedMesh( controller );
         controller.visualizationMesh.add( lines );
+
+        // add the new visualization mesh to rotating
+
         controller.rotating.add( controller.visualizationMesh );
 
     }

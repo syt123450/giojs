@@ -16,7 +16,11 @@ function SurfaceHandler ( controller ) {
     var mentionedMin = 50, mentionedMax = 100;
     var relatedMin = 100, relatedMax = 150;
 
+    // this function return a color code range in (0 - 255) from a clicked area on the screen
+
     function getPickColor ( mouseX, mouseY ) {
+
+        // first need to hide above layer and shows the map_index image
 
         var ctx = controller.earthSurfaceShader.lookupCanvas.getContext( '2d' );
         ctx.clearRect( 0, 0, 256, 1 );
@@ -46,10 +50,12 @@ function SurfaceHandler ( controller ) {
         mx = Math.floor( mx );
         my = Math.floor( my );
 
+        // picked color from map_index image
+
         var buf = new Uint8Array( 4 );
-        // console.log(buf);
         gl.readPixels( mx, my, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, buf );
-        // console.log(buf);
+
+        // restore the above layer
 
         controller.renderer.autoClear = true;
         controller.renderer.autoClearColor = true;
@@ -67,13 +73,21 @@ function SurfaceHandler ( controller ) {
 
     }
 
+    // this function highlight the surface
+
     function highlightCountry ( code ) {
+
+        // clear the surface
 
         var ctx = controller.earthSurfaceShader.lookupCanvas.getContext( '2d' );
         ctx.clearRect( 0, 0, 256, 1 );
 
+        // highlight ocean
+
         ctx.fillStyle = generateFillStyle( Utils.transformBrightness( controller.configure.oceanBrightness, oceanMin, oceanMax ) );
         ctx.fillRect( 0, 0, 1, 1 );
+
+        // highlight mentioned countries
 
         if ( controller.configure.isLightenMentioned ) {
 
@@ -89,6 +103,8 @@ function SurfaceHandler ( controller ) {
 
         }
 
+        // highlight related countries
+
         ctx.fillStyle = generateFillStyle(
             Utils.transformBrightness( controller.configure.relatedBrightness, relatedMin, relatedMax )
         );
@@ -99,6 +115,8 @@ function SurfaceHandler ( controller ) {
 
         }
 
+        // highlight clicked country
+
         ctx.fillStyle = generateFillStyle( highlightColor );
         ctx.fillRect( code, 0, 1, 1 );
 
@@ -106,7 +124,7 @@ function SurfaceHandler ( controller ) {
 
     }
 
-    function generateFillStyle( color ) {
+    function generateFillStyle ( color ) {
 
         return 'rgb(' + color + ',' + color + ',' + color +')';
 

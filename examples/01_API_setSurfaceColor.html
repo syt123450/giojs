@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <title>API setSurfaceColor() / Gio.js</title>
 
-    <script src="js/three.min.js"></script>
     <script src="js/jquery.min.js"></script>
 
+    <script src="js/three.min.js"></script>
     <script src="../build/Gio.js"></script>
 
     <link rel="stylesheet" href="css/common.css">
@@ -25,27 +25,41 @@
 
 <script>
 
-    var containerOriginal = document.getElementById("originalArea");
-    var containerChanged = document.getElementById("changedArea");
+    var containerOriginal = document.getElementById( "originalArea" );
+    var containerChanged = document.getElementById( "changedArea" );
 
-    var controllerOriginal = new GIO.Controller(containerOriginal);
-    var controllerChanged = new GIO.Controller(containerChanged);
-    controllerChanged.setSurfaceColor(0x00FF00);
-//    controllerChanged.setSurfaceColor("#00FF00");
+    // in order to compare the difference when apply the API settings, create two globes ( two controller ).
 
-    $.ajax({
-        url: 'data/countryData.json',
-        type: 'GET',
+    var controllerOriginal = new GIO.Controller( containerOriginal );
+    var controllerChanged = new GIO.Controller( containerChanged );
+
+    // use the setSurfaceColor() API to change the globe's surface color
+
+    controllerChanged.setSurfaceColor( 0x00FF00 );
+
+    // the parameter's style of the setSurfaceColor() can be 0x000000 or "#000000"
+
+//    controllerChanged.setSurfaceColor( "#00FF00" );
+
+    $.ajax( {
+
+        url: "data/countryData.json",
+        type: "GET",
         contentType: "application/json; charset=utf-8",
         async: true,
-        dataType: 'json',
-        success: function (inputData) {
-            controllerOriginal.addData(inputData);
+        dataType: "json",
+        success: function ( inputData ) {
+
+            // add data and init two globe when receive the data
+
+            controllerOriginal.addData( inputData );
             controllerOriginal.init();
-            controllerChanged.addData(inputData);
+            controllerChanged.addData( inputData );
             controllerChanged.init();
+
         }
-    });
+
+    } );
 
 </script>
 

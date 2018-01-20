@@ -43,7 +43,7 @@ var Utils = ( function () {
 
     return {
 
-        wrap: function wrap ( value, min, rangeSize ) {
+        wrap: function ( value, min, rangeSize ) {
 
             rangeSize -= min;
 
@@ -59,7 +59,7 @@ var Utils = ( function () {
 
         // constrain the value in a range
 
-        constrain: function constrain ( v, min, max ) {
+        constrain: function ( v, min, max ) {
 
             if ( v < min ) {
 
@@ -113,7 +113,7 @@ var Utils = ( function () {
 
         // deep clone an object from a country data, add more information for user's callback
 
-        transformCountryData: function( countryData ) {
+        transformCountryData: function ( countryData ) {
 
             var outputData = {};
 

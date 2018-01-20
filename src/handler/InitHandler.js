@@ -22,7 +22,11 @@ function InitHandler ( controller ) {
 
     }
 
+    // this function is used to initialize the data, object and status of the controller
+
     function initScene () {
+
+        // if the loading image's src is configured, create it and append it to the dom
 
         if ( controller.configure.loadingSrc !== null ) {
 
@@ -30,6 +34,8 @@ function InitHandler ( controller ) {
             controller.container.appendChild( loadingIcon );
 
         }
+
+        // create all the objects for the scene
 
         controller.renderer = ObjectUtils.createRenderer( controller.container );
         controller.camera = ObjectUtils.createCamera( controller.container );
@@ -41,6 +47,8 @@ function InitHandler ( controller ) {
         controller.scene = new THREE.Scene();
         controller.rotating = new THREE.Object3D();
 
+        // the stats object will only be created when "isStatsEnabled" in the configure is set to be true
+
         if ( controller.configure.isStatsEnabled ) {
 
             controller.stats = ObjectUtils.createStats( container );
@@ -48,10 +56,19 @@ function InitHandler ( controller ) {
 
         }
 
+        // defined the initial country
+
         controller.selectedCountry = CountryData[ controller.configure.selectedCountry ];
 
+        // get the mentioned countries
+
         DefaultDataPreprocessors.process( controller );
+
+        // create basic geometry for splines and moving sprites
+
         LineGeometry.buildDataVizGeometries( controller );
+
+        // add objects to the scene
 
         for ( var i in controller.lights ) {
 
@@ -63,10 +80,19 @@ function InitHandler ( controller ) {
         controller.rotating.add( controller.sphere );
         controller.scene.add( controller.camera );
 
+        // bind events to the dom
+
         ( new SceneEventManager ).bindEvent( controller );
+
+        // create the visSystem based on the previous creation and settings
+
         controller.visSystemHandler.updateSystem();
 
+        // now the creation is finished, append the 3D object to the dom
+
         controller.container.appendChild( controller.renderer.domElement );
+
+        // remove loading, as the 3D object has shown in the browser
 
         if ( controller.configure.loadingSrc !== null ) {
 
@@ -74,12 +100,18 @@ function InitHandler ( controller ) {
 
         }
 
+        // rotate to the init country and highlight the init country
+
         controller.rotationHandler.rotateToTargetCountry();
         controller.surfaceHandler.highlightCountry( controller.selectedCountry[ "colorCode" ] );
+
+        // set finishing initialization sign
 
         controller.initialized = true;
 
     }
+
+    // the animate function will be execute periodically
 
     function animate () {
 
@@ -93,6 +125,8 @@ function InitHandler ( controller ) {
 
         controller.renderer.clear();
         controller.renderer.render( controller.scene, controller.camera );
+
+        // update the moving sprite on the spline
 
         controller.rotating.traverse(
 

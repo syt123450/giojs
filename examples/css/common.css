@@ -1,11 +1,14 @@
 html, body {
+
     height: 100%;
     width: 100%;
     margin: 0;
     padding: 0;
+
 }
 
 header {
+
     position: absolute;
     width: 100%;
     height: 40px;
@@ -13,9 +16,11 @@ header {
     text-align: center;
     color: white;
     z-index: 1000;
+
 }
 
 .view_source {
+
     position: fixed;
     height: 40px;
     width: 120px;
@@ -30,13 +35,18 @@ header {
     cursor: pointer;
     user-select: none;
     box-sizing: border-box;
+
 }
 
 .view_source:hover {
+
     color: #e5e5e5;
     background-color: #6e6e6e;
+
 }
 
 .view_source:active {
+
     border: 1px #727272 solid;
+
 }

@@ -25,26 +25,33 @@
 
 <script>
 
-    var containerOriginal = document.getElementById("originalArea");
-    var containerChanged = document.getElementById("changedArea");
+    var containerOriginal = document.getElementById( "originalArea" );
+    var containerChanged = document.getElementById( "changedArea" );
 
-    var controllerOriginal = new GIO.Controller(containerOriginal);
-    var controllerChanged = new GIO.Controller(containerChanged);
-    controllerChanged.setInitCountry("US");
+    var controllerOriginal = new GIO.Controller( containerOriginal );
+    var controllerChanged = new GIO.Controller( containerChanged );
 
-    $.ajax({
-        url: 'data/countryData.json',
-        type: 'GET',
+    // use the setInitCountry() API to change the init country, which is the country the globe will rotate to when controller.init() is called.
+
+    controllerChanged.setInitCountry( "US" );
+
+    $.ajax( {
+
+        url: "data/countryData.json",
+        type: "GET",
         contentType: "application/json; charset=utf-8",
         async: true,
-        dataType: 'json',
-        success: function (inputData) {
-            controllerOriginal.addData(inputData);
+        dataType: "json",
+        success: function ( inputData ) {
+
+            controllerOriginal.addData( inputData );
             controllerOriginal.init();
-            controllerChanged.addData(inputData);
+            controllerChanged.addData( inputData );
             controllerChanged.init();
+
         }
-    });
+
+    } );
 
 </script>
 

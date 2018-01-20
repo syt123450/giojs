@@ -4,8 +4,15 @@
     <meta charset="UTF-8">
     <title>Hello World (Simplest Usage) / Gio.js</title>
 
-    <script src="js/three.min.js"></script>
+    <!-- JQuery is not necessary, it is used for AJAX in this demo -->
+
     <script src="js/jquery.min.js"></script>
+
+    <!-- must include Three.js library before Gio.js-->
+
+    <script src="js/three.min.js"></script>
+
+    <!-- must include the Gio.js library-->
 
     <script src="../build/Gio.js"></script>
 
@@ -14,10 +21,12 @@
     <style>
 
         #globalArea {
+
             height: 100%;
             width: 100%;
             margin: 0;
             padding: 0;
+
         }
 
     </style>
@@ -33,20 +42,36 @@
 
 <script>
 
-    var container = document.getElementById("globalArea");
-    var controller = new GIO.Controller(container);
+    // get the container to hold the IO globe
 
-    $.ajax({
-        url: 'data/countryData.json',
-        type: 'GET',
+    var container = document.getElementById( "globalArea" );
+
+    // create controller for the IO globe, input the container as the parameter
+
+    var controller = new GIO.Controller( container );
+
+    // ask a file for the JSON data, using AJAX to load the data
+
+    $.ajax( {
+
+        url: "data/countryData.json",
+        type: "GET",
         contentType: "application/json; charset=utf-8",
         async: true,
-        dataType: 'json',
-        success: function (inputData) {
-            controller.addData(inputData);
+        dataType: "json",
+        success: function ( inputData ) {
+
+            // if received the data, use addData() API to add the the data to the controller
+
+            controller.addData( inputData );
+
+            // call the init() API to show the IO globe in the browser
+
             controller.init();
+
         }
-    });
+
+    } );
 
 </script>
 

@@ -25,35 +25,56 @@
 
 <script>
 
-    var containerOriginal = document.getElementById("originalArea");
-    var containerChanged = document.getElementById("changedArea");
+    var containerOriginal = document.getElementById( "originalArea" );
+    var containerChanged = document.getElementById( "changedArea" );
 
-    var controllerOriginal = new GIO.Controller(containerOriginal);
-    var controllerChanged = new GIO.Controller(containerChanged);
+    var controllerOriginal = new GIO.Controller( containerOriginal );
+    var controllerChanged = new GIO.Controller( containerChanged );
 
-    $.ajax({
-        url: 'data/countryData.json',
-        type: 'GET',
+    /**
+     * except for using setExportColor() or setImportColor() API, developer can directly set line color in each data set.
+     * With the proper definition of the color for each line, the effect will be amazing ~ ~ ~
+     * The import color is defined in attribute "inColor".
+     * The export color is defined in attribute "outColor".
+     * This demo show what will the definition in data the globe look like.
+     * The detailed definition of data can been seen in the file "/examples/data/coloredData.json"
+     */
+
+    // get the original data
+
+    $.ajax( {
+
+        url: "data/countryData.json",
+        type: "GET",
         contentType: "application/json; charset=utf-8",
         async: true,
-        dataType: 'json',
-        success: function (inputData) {
-            controllerOriginal.addData(inputData);
+        dataType: "json",
+        success: function ( inputData ) {
+
+            controllerOriginal.addData( inputData );
             controllerOriginal.init();
-        }
-    });
 
-    $.ajax({
-        url: 'data/coloredData.json',
-        type: 'GET',
+        }
+
+    } );
+
+    // get the color labeled data
+
+    $.ajax( {
+
+        url: "data/coloredData.json",
+        type: "GET",
         contentType: "application/json; charset=utf-8",
         async: true,
-        dataType: 'json',
-        success: function (inputData) {
-            controllerChanged.addData(inputData);
+        dataType: "json",
+        success: function ( inputData ) {
+
+            controllerChanged.addData( inputData );
             controllerChanged.init();
+
         }
-    });
+
+    } );
 
 </script>
 

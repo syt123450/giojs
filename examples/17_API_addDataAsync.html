@@ -14,10 +14,12 @@
     <style>
 
         #globalArea {
+
             height: 100%;
             width: 100%;
             margin: 0;
             padding: 0;
+
         }
 
     </style>
@@ -35,15 +37,20 @@
 
 <script>
 
-    var container = document.getElementById("globalArea");
-    var controller = new GIO.Controller(container);
+    var container = document.getElementById( "globalArea" );
+    var controller = new GIO.Controller( container );
 
     var url = "data/countryData.json";
 
-    controller.addDataAsync(url, asyncLoadCallback);
+    // use the addDataAsync() API to asynchronous load the data from a given URL.
+    // callback function can be set, this callback will be executed when data is loaded
 
-    function asyncLoadCallback() {
+    controller.addDataAsync( url, asyncLoadCallback );
+
+    function asyncLoadCallback () {
+
         controller.init();
+
     }
 
 </script>

@@ -30,34 +30,49 @@
 
     // the data is not quite representative, we may need to create a new data set to show this feature
 
-    var containerOriginal = document.getElementById("originalArea");
-    var containerChanged = document.getElementById("changedArea");
+    var containerOriginal = document.getElementById( "originalArea" );
+    var containerChanged = document.getElementById( "changedArea" );
 
-    var controllerOriginal = new GIO.Controller(containerOriginal);
-    var controllerChanged = new GIO.Controller(containerChanged);
-    controllerChanged.disableUnmentioned(true);
+    var controllerOriginal = new GIO.Controller( containerOriginal );
+    var controllerChanged = new GIO.Controller( containerChanged );
 
-    $.ajax({
-        url: 'data/countryData.json',
-        type: 'GET',
+    // use the disableUnmentioned() API to let the unmentioned countries unclickable
+
+    controllerChanged.disableUnmentioned( true );
+
+    $.ajax( {
+
+        url: "data/countryData.json",
+        type: "GET",
         contentType: "application/json; charset=utf-8",
         async: true,
-        dataType: 'json',
-        success: function (inputData) {
-            controllerOriginal.addData(inputData);
+        dataType: "json",
+        success: function ( inputData ) {
+
+            controllerOriginal.addData( inputData );
             controllerOriginal.init();
-            controllerChanged.addData(inputData);
+            controllerChanged.addData( inputData );
             controllerChanged.init();
+
         }
-    });
 
-    $("#enable").click(function() {
-        controllerChanged.disableUnmentioned(true);
-    });
+    } );
 
-    $("#disable").click(function() {
-        controllerChanged.disableUnmentioned(false);
-    })
+    // click the "enable" button to enable the function
+
+    $( "#enable" ).click( function () {
+
+        controllerChanged.disableUnmentioned( true );
+
+    } );
+
+    // click the "disable" button to change back to the original globe
+
+    $( "#disable" ).click( function () {
+
+        controllerChanged.disableUnmentioned( false );
+
+    } );
 
 </script>
 

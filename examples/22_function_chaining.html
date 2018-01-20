@@ -14,10 +14,12 @@
     <style>
 
         #globalArea {
+
             height: 100%;
             width: 100%;
             margin: 0;
             padding: 0;
+
         }
 
     </style>
@@ -33,24 +35,30 @@
 
 <script>
 
-    var container = document.getElementById("globalArea");
-    var controller = new GIO.Controller(container);
+    var container = document.getElementById( "globalArea" );
+    var controller = new GIO.Controller( container );
 
-    controller.setSurfaceColor("#00FF00")
-        .setSelectedColor("#FF0000")
-        .disableUnmentioned(true);
+    // The functional call can be used as a chain
 
-    $.ajax({
-        url: 'data/countryData.json',
-        type: 'GET',
+    controller.setSurfaceColor( "#00FF00" )
+        .setSelectedColor( "#FF0000" )
+        .disableUnmentioned( true );
+
+    $.ajax( {
+
+        url: "data/countryData.json",
+        type: "GET",
         contentType: "application/json; charset=utf-8",
         async: true,
-        dataType: 'json',
-        success: function (inputData) {
-            controller.addData(inputData);
+        dataType: "json",
+        success: function ( inputData ) {
+
+            controller.addData( inputData );
             controller.init();
+
         }
-    });
+
+    } );
 
 </script>
 

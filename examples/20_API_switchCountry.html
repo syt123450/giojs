@@ -14,13 +14,16 @@
     <style>
 
         #globalArea {
+
             height: 100%;
             width: 100%;
             margin: 0;
             padding: 0;
+
         }
 
         #china, #russia, #america {
+
             position: absolute;
             left: 100px;
             width: 100px;
@@ -33,23 +36,32 @@
             box-sizing: border-box;
             transition: 1s;
             background-color: rgba(110, 110, 110, 0.8);
+
         }
 
         #china:hover, #russia:hover, #america:hover {
+
             color: #fff;
             background-color: #929292;
+
         }
 
         #china {
+
             top: 200px;
+
         }
 
         #russia {
+
             top: 280px;
+
         }
 
         #america {
+
             top: 360px;
+
         }
 
     </style>
@@ -69,32 +81,44 @@
 
 <script>
 
-    var container = document.getElementById("globalArea");
-    var controller = new GIO.Controller(container);
+    var container = document.getElementById( "globalArea" );
+    var controller = new GIO.Controller( container );
 
-    $.ajax({
-        url: 'data/countryData.json',
-        type: 'GET',
+    $.ajax( {
+
+        url: "data/countryData.json",
+        type: "GET",
         contentType: "application/json; charset=utf-8",
         async: true,
-        dataType: 'json',
-        success: function (inputData) {
-            controller.addData(inputData);
+        dataType: "json",
+        success: function ( inputData ) {
+
+            controller.addData( inputData );
             controller.init();
+
         }
-    });
 
-    $("#china").click(function() {
-        controller.switchCountry("CN");
-    });
+    } );
 
-    $("#russia").click(function() {
-        controller.switchCountry("RU");
-    });
+    $( "#china" ).click( function () {
 
-    $("#america").click(function() {
-        controller.switchCountry("US");
-    });
+        // use the switchCountry() API to directly change the clicked country without clicked on the surface
+
+        controller.switchCountry( "CN" );
+
+    } );
+
+    $( "#russia" ).click( function () {
+
+        controller.switchCountry( "RU" );
+
+    } );
+
+    $( "#america" ).click( function () {
+
+        controller.switchCountry( "US" );
+
+    } );
 
 </script>
 

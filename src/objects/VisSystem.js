@@ -16,8 +16,6 @@ var VisSystem = ( function () {
 
     function getVisualizedMesh ( controller ) {
 
-        // create
-
         var geometries = createGeometries( controller );
 
         var splineOutline = createSplineOutline( geometries.linesGeo );

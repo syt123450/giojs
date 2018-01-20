@@ -5,6 +5,9 @@
     <title>API enableStats() and disableStats() / Gio.js</title>
 
     <script src="js/three.min.js"></script>
+
+    <!-- the stats.js library must be included first-->
+
     <script src="js/stats.min.js"></script>
     <script src="js/jquery.min.js"></script>
 
@@ -15,13 +18,16 @@
     <style>
 
         #globalArea {
+
             height: 100%;
             width: 100%;
             margin: 0;
             padding: 0;
+
         }
 
         #enable, #disable {
+
             position: absolute;
             left: 100px;
             width: 150px;
@@ -35,19 +41,26 @@
             transition: 1s;
             border-radius: 5px;
             background-color: rgba(110, 110, 110, 0.8);
+
         }
 
         #enable:hover, #disable:hover {
+
             color: #fff;
             background-color: #929292;
+
         }
 
         #enable {
+
             top: 200px;
+
         }
 
         #disable {
+
             top: 300px;
+
         }
 
     </style>
@@ -66,29 +79,44 @@
 
 <script>
 
-    var container = document.getElementById("globalArea");
-    var controller = new GIO.Controller(container);
+    var container = document.getElementById( "globalArea" );
+    var controller = new GIO.Controller( container );
+
+    // use the enableStats() and disableStats() API to show or hide stats panel
+
     controller.enableStats();
 
-    $.ajax({
-        url: 'data/countryData.json',
-        type: 'GET',
+    $.ajax( {
+
+        url: "data/countryData.json",
+        type: "GET",
         contentType: "application/json; charset=utf-8",
         async: true,
-        dataType: 'json',
-        success: function (inputData) {
-            controller.addData(inputData);
+        dataType: "json",
+        success: function ( inputData ) {
+
+            controller.addData( inputData );
             controller.init();
+
         }
-    });
 
-    $("#enable").click(function() {
+    } );
+
+    // in this demo, bind the enableStats() API to "enable" button
+
+    $( "#enable" ).click( function () {
+
         controller.enableStats();
-    });
 
-    $("#disable").click(function() {
+    } );
+
+    // in this demo, bind the disableStats() API to "disable" button
+
+    $( "#disable" ).click( function () {
+
         controller.disableStats();
-    });
+
+    } );
 
 </script>
 

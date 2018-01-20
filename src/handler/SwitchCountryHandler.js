@@ -23,9 +23,20 @@ function SwitchCountryHandler ( controller ) {
 
     function executeSwitch ( pickColorIndex ) {
 
+        // first change the selectedCountry
+
         controller.selectedCountry = CountryData[ CountryColorMap[ pickColorIndex ] ];
+
+        // then create a new visSystem
+
         controller.visSystemHandler.updateSystem();
+
+        // change the highlight country on the earth surface
+
         controller.surfaceHandler.highlightCountry( pickColorIndex );
+
+        // at last rotate the earth
+
         controller.rotationHandler.rotateToTargetCountry();
 
     }
@@ -33,6 +44,8 @@ function SwitchCountryHandler ( controller ) {
     function executeCallback () {
 
         if ( pickedCallBack !== null ) {
+
+            // protected clone, return new object for user
 
             var selectedCountry = Utils.transformCountryData( controller.selectedCountry );
 
@@ -53,6 +66,8 @@ function SwitchCountryHandler ( controller ) {
     }
 
     function switchFromAPI ( ISOAbbr, direction ) {
+
+        // using the snapshot, so the function just change the controller.configure for a short time
 
         var snapshot = {};
 
@@ -80,6 +95,8 @@ function SwitchCountryHandler ( controller ) {
             executeSwitch( CountryData[ ISOAbbr ].colorCode );
 
         }
+
+        // restore the controller.configure
 
         if ( direction === "in" || direction === "out" ) {
 

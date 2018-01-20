@@ -4,7 +4,7 @@
 
 // Developer can adjust and define their own style like this, and contribute to our repository
 
-var StrangeStyle = ( function () {
+var MagicStyle = ( function () {
 
     return {
 
@@ -28,4 +28,4 @@ var StrangeStyle = ( function () {
 
 }() );
 
-export { StrangeStyle }
+export { MagicStyle }

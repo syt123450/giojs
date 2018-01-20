@@ -14,6 +14,7 @@ import { InitHandler } from "./handler/InitHandler.js";
 import { Configure } from "./configure/Configure.js";
 import { ConfigureHandler } from "./handler/ConfigureHandler.js";
 import { DataHandler } from "./handler/DataHandler.js";
+import {ObjectUtils} from "./utils/BasicObjectUtils";
 
 /**
  * This is the controller object when IO Globe is running,
@@ -23,16 +24,16 @@ import { DataHandler } from "./handler/DataHandler.js";
 
 function Controller ( container, configureObject ) {
 
-    //constructor parameters
+    // constructor parameters
 
     this.container = container;
     this.constructorConfigure = configureObject;
 
-    //configure object
+    // configure object
 
     this.configure = new Configure();
 
-    //handler used to handle tasks in controller
+    // handler used to handle tasks in controller
 
     this.configureHandler = new ConfigureHandler( this );
     this.rotationHandler = new RotationHandler( this );
@@ -44,11 +45,11 @@ function Controller ( container, configureObject ) {
     this.initHandler = new InitHandler( this );
     this.dataHandler = new DataHandler( this );
 
-    //configure "configure object" through constructor configure
+    // configure "configure object" through constructor configure
 
     this.configureHandler.configureConstructor();
 
-    //important components, they will be initialized when initHandler is called
+    // important components, they will be initialized when initHandler is called
 
     this.visualizationMesh = null;
     this.renderer = null;
@@ -68,11 +69,13 @@ function Controller ( container, configureObject ) {
 
     this.stats = null;
 
-    //hold controller itself
+    this.initialized = false;
+
+    // hold controller itself
 
     var controller = this;
 
-    //API is defined in return object
+    // API is defined in return object
 
     return {
 
@@ -111,7 +114,12 @@ function Controller ( container, configureObject ) {
         setSurfaceColor: function ( color ) {
 
             controller.configure.surfaceColor = color;
-            controller.surfaceHandler.update();
+
+            if ( controller.initialized === true ) {
+
+                controller.surfaceHandler.update();
+
+            }
 
             return this;
 
@@ -121,7 +129,12 @@ function Controller ( container, configureObject ) {
 
             controller.configure.clickedDifferent = true;
             controller.configure.clickedColor = color;
-            controller.surfaceHandler.update();
+
+            if ( controller.initialized === true ) {
+
+                controller.surfaceHandler.update();
+
+            }
 
             return this;
 
@@ -141,7 +154,7 @@ function Controller ( container, configureObject ) {
 
         },
 
-        disableUnrelated: function ( flag ) {
+        disableUnmentioned: function ( flag ) {
 
             controller.configure.disableUnrelated = flag;
 
@@ -153,6 +166,12 @@ function Controller ( container, configureObject ) {
 
             controller.configure.isLightenMentioned = flag;
 
+            if ( controller.initialized === true ) {
+
+                controller.surfaceHandler.update();
+
+            }
+
             return this;
 
         },
@@ -161,6 +180,12 @@ function Controller ( container, configureObject ) {
 
             controller.configure.exportColor = color;
 
+            if ( controller.initialized === true ) {
+
+                controller.visSystemHandler.update();
+
+            }
+
             return this;
 
         },
@@ -168,6 +193,12 @@ function Controller ( container, configureObject ) {
         setImportColor: function ( color ) {
 
             controller.configure.importColor = color;
+
+            if ( controller.initialized === true ) {
+
+                controller.visSystemHandler.update();
+
+            }
 
             return this;
 
@@ -193,6 +224,18 @@ function Controller ( container, configureObject ) {
 
         enableStats: function () {
 
+            if ( controller.configure.isStatsEnabled === false && controller.initialized ) {
+
+                if ( controller.stats === null ) {
+
+                    controller.stats = ObjectUtils.createStats(controller.container);
+
+                }
+
+                controller.container.appendChild(controller.stats.dom);
+
+            }
+
             controller.configure.isStatsEnabled = true;
 
             return this;
@@ -200,6 +243,12 @@ function Controller ( container, configureObject ) {
         },
 
         disableStats: function () {
+
+            if ( controller.configure.isStatsEnabled === true && controller.stats !== null ) {
+
+                controller.container.removeChild(controller.stats.dom);
+
+            }
 
             controller.configure.isStatsEnabled = false;
 
@@ -253,15 +302,22 @@ function Controller ( container, configureObject ) {
 
         },
 
-        configure: function( configure ) {
+        configure: function ( configure ) {
 
             controller.configureHandler.configureJSON( configure );
+
+            if ( controller.initialized === true ) {
+
+                controller.surfaceHandler.update();
+                controller.visSystemHandler.update();
+
+            }
 
             return this;
 
         },
 
-        switchCountry: function( ISOAbbr, direction ) {
+        switchCountry: function ( ISOAbbr, direction ) {
 
             controller.switchCountryHandler.switchFromAPI( ISOAbbr, direction );
 
@@ -269,7 +325,7 @@ function Controller ( container, configureObject ) {
 
         },
 
-        showInOnly: function( flag ) {
+        showInOnly: function ( flag ) {
 
             if ( flag === true ) {
 
@@ -282,11 +338,17 @@ function Controller ( container, configureObject ) {
 
             }
 
+            if ( controller.initialized === true ) {
+
+                controller.visSystemHandler.updateSystem();
+
+            }
+
             return this;
 
         },
 
-        showOutOnly: function( flag ) {
+        showOutOnly: function ( flag ) {
 
             if ( flag === true ) {
 
@@ -299,11 +361,17 @@ function Controller ( container, configureObject ) {
 
             }
 
+            if ( controller.initialized === true ) {
+
+                controller.visSystemHandler.updateSystem();
+
+            }
+
             return this;
 
         },
 
-        closeLiveLoader: function() {
+        closeLiveLoader: function () {
 
             controller.configure.liveLoad = false;
 

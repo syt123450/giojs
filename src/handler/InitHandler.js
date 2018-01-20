@@ -44,6 +44,7 @@ function InitHandler ( controller ) {
         if ( controller.configure.isStatsEnabled ) {
 
             controller.stats = ObjectUtils.createStats( container );
+            controller.container.appendChild( controller.stats.dom );
 
         }
 
@@ -69,18 +70,20 @@ function InitHandler ( controller ) {
 
         if ( controller.configure.loadingSrc !== null ) {
 
-            controller.container.removeChild(loadingIcon);
+            controller.container.removeChild( loadingIcon );
 
         }
 
         controller.rotationHandler.rotateToTargetCountry();
         controller.surfaceHandler.highlightCountry( controller.selectedCountry[ "colorCode" ] );
 
+        controller.initialized = true;
+
     }
 
     function animate () {
 
-        if ( controller.isStatsEnabled ) {
+        if ( controller.configure.isStatsEnabled ) {
 
             controller.stats.update();
 

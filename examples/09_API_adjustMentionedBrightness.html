@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>API setSurfaceColor() / Gio.js</title>
+    <title>API adjustMentionedBrightness() / Gio.js</title>
 
     <script src="js/three.min.js"></script>
     <script src="js/jquery.min.js"></script>
@@ -18,7 +18,7 @@
 <div class="originalTitle">The Basic Globe</div>
 <div id="originalArea"></div>
 
-<div class="changedTitle">Use the setSurfaceColor() API to change the globe color</div>
+<div class="changedTitle">Use the adjustMentionedBrightness() API to adjust the mentioned countries brightness</div>
 <div id="changedArea"></div>
 
 <div class="view_source">View Source</div>
@@ -30,8 +30,7 @@
 
     var controllerOriginal = new GIO.Controller(containerOriginal);
     var controllerChanged = new GIO.Controller(containerChanged);
-    controllerChanged.setSurfaceColor(0x00FF00);
-//    controllerChanged.setSurfaceColor("#00FF00");
+    controllerChanged.adjustMentionedBrightness(1);
 
     $.ajax({
         url: 'data/countryData.json',

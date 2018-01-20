@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <title>Demo chain function / Gio.js</title>
 
+    <script src="js/three.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+
+    <script src="../build/Gio.js"></script>
+
+    <link rel="stylesheet" href="css/common.css">
+
     <style>
 
         #globalArea {
@@ -15,15 +22,10 @@
 
     </style>
 
-    <script src="js/three.min.js"></script>
-    <script src="js/jquery.min.js"></script>
-
-    <script src="../build/Gio.js"></script>
-
-    <link rel="stylesheet" href="css/common.css">
-
 </head>
 <body>
+
+<header>All API can be chained, used like jquery API</header>
 
 <div id="globalArea"></div>
 
@@ -33,6 +35,10 @@
 
     var container = document.getElementById("globalArea");
     var controller = new GIO.Controller(container);
+
+    controller.setSurfaceColor("#00FF00")
+        .setSelectedColor("#FF0000")
+        .disableUnmentioned(true);
 
     $.ajax({
         url: 'data/countryData.json',

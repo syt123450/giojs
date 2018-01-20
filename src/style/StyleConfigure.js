@@ -6,5 +6,5 @@ import { StyleFactory } from "./StyleFactory.js";
 
 // developer need to register their new style to StyleFactory here
 
-import { StrangeStyle } from "./StrangeStyle.js";
-StyleFactory.register( "strange", StrangeStyle );
+import { MagicStyle } from "./MagicStyle.js";
+StyleFactory.register( "magic", MagicStyle );

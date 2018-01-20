@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Hello World (Simplest Usage) / Gio.js</title>
+    <title>API configure() / Gio.js</title>
 
     <script src="js/three.min.js"></script>
     <script src="js/jquery.min.js"></script>
@@ -25,7 +25,7 @@
 </head>
 <body>
 
-<header>A demo showing the simplest usage of Gio.js</header>
+<header>Use the configure() API to configure the globe</header>
 
 <div id="globalArea"></div>
 
@@ -35,6 +35,14 @@
 
     var container = document.getElementById("globalArea");
     var controller = new GIO.Controller(container);
+
+    controller.configure({
+        surfaceColor: 0xff0000,
+        clickedColor: 0x00ffff,
+        clickedDifferent: true,
+        importColor: 0xffff00,
+        exportColor: 0x00ffff
+    });
 
     $.ajax({
         url: 'data/countryData.json',

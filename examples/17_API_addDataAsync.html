@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Hello World (Simplest Usage) / Gio.js</title>
+    <title>API addDataAsync() / Gio.js</title>
 
     <script src="js/three.min.js"></script>
     <script src="js/jquery.min.js"></script>
@@ -25,7 +25,9 @@
 </head>
 <body>
 
-<header>A demo showing the simplest usage of Gio.js</header>
+<header>Use addDataAsync() API to asynchronous load data from a given url, set callback to execute when onload of the
+    data
+</header>
 
 <div id="globalArea"></div>
 
@@ -36,17 +38,13 @@
     var container = document.getElementById("globalArea");
     var controller = new GIO.Controller(container);
 
-    $.ajax({
-        url: 'data/countryData.json',
-        type: 'GET',
-        contentType: "application/json; charset=utf-8",
-        async: true,
-        dataType: 'json',
-        success: function (inputData) {
-            controller.addData(inputData);
-            controller.init();
-        }
-    });
+    var url = "data/countryData.json";
+
+    controller.addDataAsync(url, asyncLoadCallback);
+
+    function asyncLoadCallback() {
+        controller.init();
+    }
 
 </script>
 

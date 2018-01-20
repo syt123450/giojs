@@ -32,3 +32,32 @@
     box-sizing: border-box;
     padding-left: 20px;
 }
+
+#enable, #disable {
+    position: absolute;
+    left: 52%;
+    width: 100px;
+    height: 40px;
+    color: #cbcbcb;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    user-select: none;
+    box-sizing: border-box;
+    transition: 1s;
+    border-radius: 5px;
+    background-color: rgba(110, 110, 110, 0.8);
+}
+
+#enable:hover, #disable:hover {
+    color: #fff;
+    background-color: #929292;
+}
+
+#enable {
+    top: 50px;
+}
+
+#disable {
+    top: 100px;
+}

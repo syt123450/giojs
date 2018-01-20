@@ -120,6 +120,8 @@ function SurfaceHandler ( controller ) {
 
         }
 
+        highlightCountry( controller.selectedCountry.colorCode );
+
     }
 
     return {

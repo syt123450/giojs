@@ -71,12 +71,11 @@ var ObjectUtils = ( function () {
 
     //create stats to monitor performance, for development, the detailed introduce about stats: https://github.com/mrdoob/stats.js
 
-    function createStats ( container ) {
+    function createStats () {
 
         var stats = new Stats();
         stats.showPanel( 1 );
         stats.dom.style.position = "absolute";
-        container.appendChild( stats.dom );
 
         return stats;
 

@@ -2,7 +2,7 @@
  * @author syt123450 / https://github.com/syt123450
  */
 
-import { ParticleABase64 } from "../data/ParticleA.js";
+import { ParticleBase64 } from "../data/Particle.js";
 
 /**
  * Shader material's parameter for moving sprite on spline
@@ -10,7 +10,7 @@ import { ParticleABase64 } from "../data/ParticleA.js";
 
 function MovingSpriteShader () {
 
-    var particleTexture = ( new THREE.TextureLoader() ).load( ParticleABase64 );
+    var particleTexture = ( new THREE.TextureLoader() ).load( ParticleBase64 );
 
     var uniform = {
 

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>API enableStats() and disableStats() / Gio.js</title>
+
+    <script src="js/three.min.js"></script>
+    <script src="js/stats.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+
+    <script src="../build/Gio.js"></script>
+
+    <link rel="stylesheet" href="css/common.css">
+
+    <style>
+
+        #globalArea {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        #enable, #disable {
+            position: absolute;
+            left: 100px;
+            width: 150px;
+            height: 40px;
+            color: #cbcbcb;
+            text-align: center;
+            line-height: 40px;
+            cursor: pointer;
+            user-select: none;
+            box-sizing: border-box;
+            transition: 1s;
+            border-radius: 5px;
+            background-color: rgba(110, 110, 110, 0.8);
+        }
+
+        #enable:hover, #disable:hover {
+            color: #fff;
+            background-color: #929292;
+        }
+
+        #enable {
+            top: 200px;
+        }
+
+        #disable {
+            top: 300px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<header>API enableStats() and disableStats() can be used to open or close stats for performance monitor</header>
+
+<div id="globalArea"></div>
+
+<div id="enable">Enable Stats</div>
+<div id="disable">Disable Stats</div>
+
+<div class="view_source">View Source</div>
+
+<script>
+
+    var container = document.getElementById("globalArea");
+    var controller = new GIO.Controller(container);
+    controller.enableStats();
+
+    $.ajax({
+        url: 'data/countryData.json',
+        type: 'GET',
+        contentType: "application/json; charset=utf-8",
+        async: true,
+        dataType: 'json',
+        success: function (inputData) {
+            controller.addData(inputData);
+            controller.init();
+        }
+    });
+
+    $("#enable").click(function() {
+        controller.enableStats();
+    });
+
+    $("#disable").click(function() {
+        controller.disableStats();
+    });
+
+</script>
+
+</body>
+</html>

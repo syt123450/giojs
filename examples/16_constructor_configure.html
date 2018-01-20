@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Hello World (Simplest Usage) / Gio.js</title>
+    <title>constructor configure / Gio.js</title>
 
     <script src="js/three.min.js"></script>
     <script src="js/jquery.min.js"></script>
@@ -25,7 +25,7 @@
 </head>
 <body>
 
-<header>A demo showing the simplest usage of Gio.js</header>
+<header>Configure in the constructor of Controller</header>
 
 <div id="globalArea"></div>
 
@@ -34,7 +34,13 @@
 <script>
 
     var container = document.getElementById("globalArea");
-    var controller = new GIO.Controller(container);
+    var controller = new GIO.Controller(container, {
+        surfaceColor: 0xff0000,
+        clickedColor: 0x00ffff,
+        clickedDifferent: true,
+        importColor: 0xffff00,
+        exportColor: 0x00ffff
+    });
 
     $.ajax({
         url: 'data/countryData.json',

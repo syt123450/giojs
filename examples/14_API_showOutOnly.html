@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>API setSurfaceColor() / Gio.js</title>
+    <title>API showOutOnly() / Gio.js</title>
 
     <script src="js/three.min.js"></script>
     <script src="js/jquery.min.js"></script>
@@ -18,10 +18,13 @@
 <div class="originalTitle">The Basic Globe</div>
 <div id="originalArea"></div>
 
-<div class="changedTitle">Use the setSurfaceColor() API to change the globe color</div>
+<div class="changedTitle">Use the showOutOnly() API to only show "out" data of clicked country</div>
 <div id="changedArea"></div>
 
 <div class="view_source">View Source</div>
+
+<div id="enable">Enable</div>
+<div id="disable">Disable</div>
 
 <script>
 
@@ -30,8 +33,7 @@
 
     var controllerOriginal = new GIO.Controller(containerOriginal);
     var controllerChanged = new GIO.Controller(containerChanged);
-    controllerChanged.setSurfaceColor(0x00FF00);
-//    controllerChanged.setSurfaceColor("#00FF00");
+    controllerChanged.showOutOnly(true);
 
     $.ajax({
         url: 'data/countryData.json',
@@ -46,6 +48,14 @@
             controllerChanged.init();
         }
     });
+
+    $("#enable").click(function() {
+        controllerChanged.showOutOnly(true);
+    });
+
+    $("#disable").click(function() {
+        controllerChanged.showOutOnly(false);
+    })
 
 </script>
 

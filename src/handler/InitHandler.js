@@ -8,6 +8,8 @@ import { ObjectUtils } from "../utils/BasicObjectUtils.js";
 import { Sphere } from "../objects/Sphere.js";
 import { CountryData } from "../countryInfo/CountryData.js";
 
+import { DefaultDataPreprocessor } from "../dataPreprocessors/DefaultDataProcessor.js";
+import { TransformProcessor } from "../dataPreprocessors/TransformProcessor.js";
 /**
  * This handler handle initialization task for controller.
  */
@@ -59,9 +61,15 @@ function InitHandler ( controller ) {
 
         controller.selectedCountry = CountryData[ controller.configure.selectedCountry ];
 
-        // pre-processor the user's input data
+        
+        // register data processors here
+        var transformDataProcessor = new TransformProcessor();
+        var defaultDataPreprocessor = new DefaultDataPreprocessor();
 
-        controller.dateProcessor.process();
+        defaultDataPreprocessor.setSuccessor(transformDataProcessor);
+
+        // pre-processor the user's input data
+        defaultDataPreprocessor.process(controller);
 
         // create basic geometry for splines and moving sprites
 

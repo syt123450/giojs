@@ -1,4 +1,4 @@
-AbstractDataProcessor = function() {
+export function AbstractDataProcessor() {
     this.successor = null;
 };
 
@@ -12,7 +12,11 @@ AbstractDataProcessor.prototype.process = function(controller) {
 		this.processDetail(controller);
 	}
 	
-	this.successor.process(controller);
+	if(this.successor !== null)
+	{
+		this.successor.process(controller);
+	}
+	
 }
 
 AbstractDataProcessor.prototype.processDetail = function(controller) {
@@ -21,6 +25,3 @@ AbstractDataProcessor.prototype.processDetail = function(controller) {
 AbstractDataProcessor.prototype.isMatched = function(controller) {
 	return true;
 }
-
-
-export { AbstractDataProcessor }

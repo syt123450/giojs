@@ -1,5 +1,5 @@
 import { CountryData } from "../countryInfo/CountryData.js";
-import { AbstractDataProcessor } from "../dataProcessors/AbstractDataProcessor.js";
+import { AbstractDataProcessor } from "../dataPreprocessors/AbstractDataProcessor.js";
 
 
 /**
@@ -7,7 +7,7 @@ import { AbstractDataProcessor } from "../dataProcessors/AbstractDataProcessor.j
  * The process() function will be called when InitHandler's init() function is called.
  */
 
-DefaultDataPreprocessor = function() {}；
+export function DefaultDataPreprocessor() {}
 DefaultDataPreprocessor.prototype = new AbstractDataProcessor();
 DefaultDataPreprocessor.prototype.constructor = DefaultDataPreprocessor;
 
@@ -37,5 +37,3 @@ DefaultDataPreprocessor.prototype.processDetail = function(controller) {
 
     }
 }
-
-export { DefaultDataPreprocessors }

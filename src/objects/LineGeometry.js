@@ -83,7 +83,7 @@ var LineGeometry = ( function () {
                 var exporter = CountryData[ exporterName ];
                 var importer = CountryData[ importerName ];
 
-                set.lineGeometry = makeConnectionLineGeometry( exporter, importer, set.v );
+                set.lineGeometry = makeConnectionLineGeometry( exporter, importer, set.fakeData );
 
             }
 

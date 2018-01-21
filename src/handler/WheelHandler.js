@@ -10,7 +10,7 @@ import { Utils } from "../utils/Utils.js";
 
 function WheelHandler ( controller ) {
 
-    function handleMWheel( delta ) {
+    function handleMWheel ( delta ) {
 
         // zoom in or zoom out the camera, its just like magnify or minify the globe
 

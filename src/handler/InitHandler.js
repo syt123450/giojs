@@ -4,7 +4,6 @@
 
 import { LineGeometry } from "../objects/LineGeometry.js";
 import { SceneEventManager } from "../eventManagers/SceneEventManager.js";
-import { DefaultDataPreprocessors } from "../dataPreprocessors/DefaultDataPreprocessors.js";
 import { ObjectUtils } from "../utils/BasicObjectUtils.js";
 import { Sphere } from "../objects/Sphere.js";
 import { CountryData } from "../countryInfo/CountryData.js";
@@ -60,9 +59,9 @@ function InitHandler ( controller ) {
 
         controller.selectedCountry = CountryData[ controller.configure.selectedCountry ];
 
-        // get the mentioned countries
+        // pre-processor the user's input data
 
-        DefaultDataPreprocessors.process( controller );
+        controller.dateProcessor.process();
 
         // create basic geometry for splines and moving sprites
 

@@ -1,51 +1,41 @@
-/**
- * @author syt123450 / https://github.com/syt123450
- */
-
 import { CountryData } from "../countryInfo/CountryData.js";
+import { AbstractDataProcessor } from "../dataProcessors/AbstractDataProcessor.js";
+
 
 /**
  * This default data preprocessor is used to create mentionedCountries for controller.
  * The process() function will be called when InitHandler's init() function is called.
  */
 
-var DefaultDataPreprocessors = ( function () {
+DefaultDataPreprocessor = function() {}；
+DefaultDataPreprocessor.prototype = new AbstractDataProcessor();
+DefaultDataPreprocessor.prototype.constructor = DefaultDataPreprocessor;
 
-    function process ( controller ) {
+DefaultDataPreprocessor.prototype.processDetail = function(controller) {
+    var inputData = controller.inputData;
 
-        var inputData = controller.inputData;
+    for ( var i in inputData ) {
 
-        for ( var i in inputData ) {
+        var dataSet = inputData[ i ];
 
-            var dataSet = inputData[ i ];
+        var importCountryCode = CountryData[ dataSet.i ].colorCode;
+        var exportCountryCode = CountryData[ dataSet.e ].colorCode;
 
-            var importCountryCode = CountryData[ dataSet.i ].colorCode;
-            var exportCountryCode = CountryData[ dataSet.e ].colorCode;
+        // add mentioned color to controller's mentionedCountryCodes ( an array to store the code )
 
-            // add mentioned color to controller's mentionedCountryCodes ( an array to store the code )
+        if ( controller.mentionedCountryCodes.indexOf( importCountryCode ) === -1 ) {
 
-            if ( controller.mentionedCountryCodes.indexOf( importCountryCode ) === -1 ) {
+            controller.mentionedCountryCodes.push( importCountryCode );
 
-                controller.mentionedCountryCodes.push( importCountryCode );
+        }
 
-            }
+        if  (controller.mentionedCountryCodes.indexOf( exportCountryCode ) === -1 ) {
 
-            if  (controller.mentionedCountryCodes.indexOf( exportCountryCode ) === -1 ) {
-
-                controller.mentionedCountryCodes.push( exportCountryCode );
-
-            }
+            controller.mentionedCountryCodes.push( exportCountryCode );
 
         }
 
     }
-
-    return {
-
-        process: process
-
-    }
-
-}() );
+}
 
 export { DefaultDataPreprocessors }

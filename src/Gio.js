@@ -14,8 +14,9 @@ import { InitHandler } from "./handler/InitHandler.js";
 import { Configure } from "./configure/Configure.js";
 import { ConfigureHandler } from "./handler/ConfigureHandler.js";
 import { DataHandler } from "./handler/DataHandler.js";
-import {ObjectUtils} from "./utils/BasicObjectUtils";
-import {DataProcessor} from "./dataPreprocessors/DataProcessor";
+import { ObjectUtils } from "./utils/BasicObjectUtils.js";
+import { DataProcessor } from "./dataPreprocessors/DataProcessor.js";
+import { LineGeometry } from "./objects/LineGeometry.js";
 
 /**
  * This is the controller object when IO Globe is running,
@@ -378,9 +379,28 @@ function Controller ( container, configureObject ) {
 
         closeLiveLoader: function () {
 
-            controller.configure.liveLoad = false;
+            // controller.configure.liveLoad = false;
+
+            controller.dataHandler.stopLiveLoader();
 
             return this;
+
+        },
+
+        // to be used after addData() function is called when controller has already been init()
+
+        update: function () {
+
+            if ( controller.initialized === true ) {
+
+                LineGeometry.buildDataVizGeometries( controller );
+                controller.dateProcessor.process();
+                controller.visSystemHandler.updateSystem();
+                controller.surfaceHandler.update();
+
+            }
+
+            console.log(controller);
 
         }
 

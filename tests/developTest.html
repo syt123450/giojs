@@ -27,7 +27,7 @@
     </style>
 </head>
 <body>
-<!--<div style="width: 100px; height: 100%; float: left; background-color: red"></div>-->
+
 <div id="globalArea"></div>
 
 <script>
@@ -39,40 +39,26 @@
 
     var container = document.getElementById("globalArea");
 
-//    var controller = (new GIO.Controller(container, {
-//        surfaceColor: 0xff0000,
-//        clickedColor: 0x0000ff,
-//        clickedDifferent: true,
-//        selectedCountry: "US"
-//    }))
     var controller = new GIO.Controller(container);
-//        .addData(inputData);
-
-    controller.addData(inputData);
-//    controller.setSurfaceColor(0x00FF00);
-//    controller.setSelectedColor(0xFF0000);
-//    controller.lightenMentioned(true);
-//    controller.setInitCountry("US");
-//    controller.setSurfaceColor(0xFF0000);
-//    controller.disableUnrelated(true);
-//    controller.setExportColor(0xFFFFFF);
-//    controller.onCountryPicked(function() {
-//        console.log("User Call Back.");
-//    });
-
-//    controller.setStyle("magic");
-
+//    controller.addData(inputData);
     controller.enableStats(true);
 
 //    var url = "../examples/data/countryData.json";
-//
-//    controller.addDataAsync(url, asyncLoadCallback);
 
     controller.init();
 
-    function asyncLoadCallback() {
-        controller.init();
-    }
+        controller.addData(inputData);
+        controller.update();
+
+        console.log(controller);
+
+//    controller.addLiveData(url, callback, 6000);
+//
+//    function callback() {
+//        console.log(222);
+//    }
+
+//    setTimeout(controller.closeLiveLoader, 5000);
 
 </script>
 

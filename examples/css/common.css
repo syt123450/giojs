@@ -50,3 +50,16 @@ header {
     border: 1px #727272 solid;
 
 }
+
+.view_source a {
+
+    color: #ccc;
+    text-decoration: none;
+
+}
+
+.view_source a:hover {
+
+    color: #e5e5e5;
+
+}

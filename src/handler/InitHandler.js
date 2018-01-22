@@ -45,6 +45,7 @@ function InitHandler ( controller ) {
 
         controller.sphere = new Sphere( controller );
         controller.halo = new Halo( controller );
+        controller.haloShader = controller.halo.haloShader;
         controller.earthSurfaceShader = controller.sphere.earthSurfaceShader;
         
         controller.scene = new THREE.Scene();

@@ -25,6 +25,8 @@ function Halo ( controller ) {
 	var mesh = new THREE.Mesh( geometry, shaderMaterial );
 	mesh.scale.set( 1.2, 1.2, 1.2 );
 
+	mesh.haloShader = haloShader;
+
 	return mesh;
 
 }

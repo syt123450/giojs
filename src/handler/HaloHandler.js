@@ -9,6 +9,7 @@ function HaloHandler ( controller ) {
     function create () {
 
         controller.halo = new Halo( controller );
+        controller.haloShader = controller.halo.haloShader;
         controller.scene.add( controller.halo );
 
     }
@@ -20,13 +21,19 @@ function HaloHandler ( controller ) {
 
     }
 
+    function update () {
+
+        controller.haloShader.update();
+
+    }
+
     return {
 
         create: create,
 
         remove: remove,
 
-        update: controller.halo.update
+        update: update
 
     }
 

@@ -13,9 +13,10 @@ function WheelHandler ( controller ) {
     function handleMWheel ( delta ) {
 
         // zoom in or zoom out the camera, its just like magnify or minify the globe
+        // constrain camera to 1000 - 2000
 
-        controller.camera.scale.z += delta * 0.1;
-        controller.camera.scale.z = Utils.constrain( controller.camera.scale.z, 0.7, 5.0 );
+        var positionZ = Utils.constrain( controller.camera.position.z + delta * 100, 1000, 2000 );
+        controller.camera.position.set( 0, 0, positionZ );
 
     }
 

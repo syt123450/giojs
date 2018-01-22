@@ -10,6 +10,7 @@ import { CountryData } from "../countryInfo/CountryData.js";
 
 import { DefaultDataPreprocessor } from "../dataPreprocessors/DefaultDataProcessor.js";
 import { TransformProcessor } from "../dataPreprocessors/TransformProcessor.js";
+import { Halo } from "../objects/Halo.js";
 /**
  * This handler handle initialization task for controller.
  */
@@ -43,6 +44,7 @@ function InitHandler ( controller ) {
         controller.lights = ObjectUtils.createLights();
 
         controller.sphere = new Sphere( controller );
+        controller.halo = new Halo();
         controller.earthSurfaceShader = controller.sphere.earthSurfaceShader;
 
         controller.scene = new THREE.Scene();
@@ -75,17 +77,11 @@ function InitHandler ( controller ) {
 
         // pre-processor the user's input data
 
-        if ( controller.inputData !== null ) {
-
-            defaultDataPreprocessor.process(controller);
-
-        }
+        defaultDataPreprocessor.process(controller);
 
         // create basic geometry for splines and moving sprites
 
         LineGeometry.buildDataVizGeometries( controller );
-
-        console.log( controller.inputData );
 
         // add objects to the scene
 
@@ -95,6 +91,7 @@ function InitHandler ( controller ) {
 
         }
 
+        controller.scene.add( controller.halo );
         controller.scene.add( controller.rotating );
         controller.rotating.add( controller.sphere );
         controller.scene.add( controller.camera );

@@ -1,12 +1,10 @@
 /**
  * @author botime / https://github.com/botime
  *
- * radius: <float>
- * color: <int> in hex. Eg. 0xffffff
  */
 
 function Halo(radius, color) {
-	radius = radius || 1.0;
+	radius = radius || 100;
 	color = new THREE.Color(color || 0xffffff);
 	
 	var geometry = new THREE.SphereBufferGeometry(radius, 32, 32);
@@ -54,6 +52,8 @@ function Halo(radius, color) {
 	this.mesh = mesh;
 	this.getShader = getShader;
 	this.setColor = setColor.bind(this);
+
+	return mesh;
 }
 
 export { Halo };

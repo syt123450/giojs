@@ -73,6 +73,12 @@ var LineGeometry = ( function () {
 
         buildDataVizGeometries: function ( controller ) {
 
+            if ( controller.inputData === null ) {
+
+                return;
+
+            }
+
             for ( var s in controller.inputData ) {
 
                 var set = controller.inputData[ s ];

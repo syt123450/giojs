@@ -64,6 +64,7 @@ function Controller ( container, configureObject ) {
     this.scene = null;
     this.rotating = null;
     this.sphere = null;
+    this.halo = null;
     this.earthSurfaceShader = null;
     this.inputData = null;
 

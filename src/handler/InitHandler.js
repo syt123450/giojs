@@ -44,7 +44,7 @@ function InitHandler ( controller ) {
         controller.lights = ObjectUtils.createLights();
 
         controller.sphere = new Sphere( controller );
-        controller.halo = new Halo();
+        controller.halo = new Halo( controller );
         controller.earthSurfaceShader = controller.sphere.earthSurfaceShader;
         
         controller.scene = new THREE.Scene();

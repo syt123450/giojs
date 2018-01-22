@@ -1,5 +1,6 @@
 /**
  * @author mokuteno / https://github.com/manymeeting
+ * @author syt123450 / https://github.com/syt123450
  */
 
 import { CountryData } from "../countryInfo/CountryData.js";

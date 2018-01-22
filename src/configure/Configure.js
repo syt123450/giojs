@@ -20,6 +20,8 @@ function Configure () {
 
     this.exportColor = 0xdd380c;
 
+    this.haloColor = 0xffffff;
+
     this.oceanBrightness = 0.5;
 
     this.mentionedBrightness = 0.5;

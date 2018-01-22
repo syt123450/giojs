@@ -1,7 +1,7 @@
 /**
  * @author mokuteno / https://github.com/manymeeting
  */
- 
+
 import { CountryData } from "../countryInfo/CountryData.js";
 import { AbstractDataProcessor } from "../dataPreprocessors/AbstractDataProcessor.js";
 
@@ -11,11 +11,14 @@ import { AbstractDataProcessor } from "../dataPreprocessors/AbstractDataProcesso
  * The process() function will be called when InitHandler's init() function is called.
  */
 
-export function DefaultDataPreprocessor() {}
+export function DefaultDataPreprocessor () {}
+
 DefaultDataPreprocessor.prototype = new AbstractDataProcessor();
+
 DefaultDataPreprocessor.prototype.constructor = DefaultDataPreprocessor;
 
-DefaultDataPreprocessor.prototype.processDetail = function(controller) {
+DefaultDataPreprocessor.prototype.processDetail = function ( controller ) {
+
     var inputData = controller.inputData;
 
     for ( var i in inputData ) {
@@ -27,17 +30,18 @@ DefaultDataPreprocessor.prototype.processDetail = function(controller) {
 
         // add mentioned color to controller's mentionedCountryCodes ( an array to store the code )
 
-        if ( controller.mentionedCountryCodes.indexOf( importCountryCode ) === -1 ) {
+        if ( controller.mentionedCountryCodes.indexOf( importCountryCode ) === - 1 ) {
 
             controller.mentionedCountryCodes.push( importCountryCode );
 
         }
 
-        if  (controller.mentionedCountryCodes.indexOf( exportCountryCode ) === -1 ) {
+        if ( controller.mentionedCountryCodes.indexOf( exportCountryCode ) === - 1 ) {
 
             controller.mentionedCountryCodes.push( exportCountryCode );
 
         }
 
     }
-}
+
+};

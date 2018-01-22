@@ -16,6 +16,7 @@ import { ConfigureHandler } from "./handler/ConfigureHandler.js";
 import { DataHandler } from "./handler/DataHandler.js";
 import { ObjectUtils } from "./utils/BasicObjectUtils.js";
 import { LineGeometry } from "./objects/LineGeometry.js";
+import { HaloHandler } from "./handler/HaloHandler.js";
 
 /**
  * This is the controller object when IO Globe is running,
@@ -45,6 +46,7 @@ function Controller ( container, configureObject ) {
     this.resizeHandler = new ResizeHandler( this );
     this.initHandler = new InitHandler( this );
     this.dataHandler = new DataHandler( this );
+    this.haloHandler = new HaloHandler( this );
     
     // define a data processor to pre-processor the data, will be initialized in InitHandler
 
@@ -421,6 +423,56 @@ function Controller ( container, configureObject ) {
 
                 controller.visSystemHandler.updateSystem();
                 controller.surfaceHandler.update();
+
+            }
+
+        },
+
+        setHaloColor: function ( color ) {
+
+            controller.configure.haloColor = color;
+
+            if ( controller.initialized === true ) {
+
+                controller.haloHandler.update();
+
+            }
+
+        },
+
+        removeHalo: function () {
+
+            controller.configure.halo = false;
+
+            if ( controller.initialized === true ) {
+
+                controller.haloHandler.remove();
+
+            }
+
+        },
+
+        addHalo: function ( color ) {
+
+            controller.configure.halo = true;
+
+            if ( color !== undefined ) {
+
+                controller.configure.haloColor = color;
+
+            }
+
+            if ( controller.initialized === true ) {
+
+                if ( controller.halo !== null ) {
+
+                    controller.haloHandler.update();
+
+                } else {
+
+                    controller.haloHandler.create();
+
+                }
 
             }
 

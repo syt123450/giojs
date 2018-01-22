@@ -42,7 +42,7 @@ function Configure () {
 
     this.outOnly = false;
 
-    this.liveLoad = false;
+    this.halo = true;
 
     return this;
 

@@ -5,16 +5,17 @@
 
 function HaloShader ( controller ) {
 
-    var color = new THREE.Color( controller.configure.haloColor );
-
     var colorVector = new THREE.Vector3();
 
-    colorVector.x = color.r;
-    colorVector.y = color.g;
-    colorVector.z = color.b;
+    update();
 
     function update () {
 
+        var color = new THREE.Color( controller.configure.haloColor );
+
+        colorVector.x = color.r;
+        colorVector.y = color.g;
+        colorVector.z = color.b;
     }
 
     return {

@@ -15,8 +15,6 @@ import { Configure } from "./configure/Configure.js";
 import { ConfigureHandler } from "./handler/ConfigureHandler.js";
 import { DataHandler } from "./handler/DataHandler.js";
 import {ObjectUtils} from "./utils/BasicObjectUtils";
-import {DataProcessor} from "./dataPreprocessors/DataProcessor";
-
 /**
  * This is the controller object when IO Globe is running,
  * When developer want to create a new IO globe, they first need to create a controller instance and then init this controller.
@@ -45,10 +43,10 @@ function Controller ( container, configureObject ) {
     this.resizeHandler = new ResizeHandler( this );
     this.initHandler = new InitHandler( this );
     this.dataHandler = new DataHandler( this );
+    
+    // define a data processor to pre-processor the data, will be initialized in InitHandler
 
-    // define a data processor to pre-processor the data
-
-    this.dateProcessor = new DataProcessor( this );
+    this.dataProcessor = null;
 
     // configure "configure object" through constructor configure
 

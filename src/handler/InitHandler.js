@@ -63,12 +63,18 @@ function InitHandler ( controller ) {
 
         
         // register data processors here
+
         var transformDataProcessor = new TransformProcessor();
         var defaultDataPreprocessor = new DefaultDataPreprocessor();
+
+        controller.dataProcessor = defaultDataPreprocessor;
+
+        // set order of processors
 
         defaultDataPreprocessor.setSuccessor(transformDataProcessor);
 
         // pre-processor the user's input data
+
         defaultDataPreprocessor.process(controller);
 
         // create basic geometry for splines and moving sprites

@@ -1,3 +1,7 @@
+/**
+ * @author mokuteno / https://github.com/manymeeting
+ */
+
 import { AbstractDataProcessor } from "../dataPreprocessors/AbstractDataProcessor.js";
 
 /**
@@ -22,3 +26,5 @@ TransformProcessor.prototype.processDetail = function ( controller ) {
     }
 
 };
+
+

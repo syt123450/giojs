@@ -46,6 +46,10 @@ function Controller ( container, configureObject ) {
     this.initHandler = new InitHandler( this );
     this.dataHandler = new DataHandler( this );
     
+    // define a data processor to pre-processor the data, will be initialized in InitHandler
+
+    this.dataProcessor = null;
+
     // configure "configure object" through constructor configure
 
     this.configureHandler.configureConstructor();

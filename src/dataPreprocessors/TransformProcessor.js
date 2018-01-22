@@ -1,32 +1,24 @@
-/**
- * @author syt123450 / https://github.com/syt123450
- */
+import { AbstractDataProcessor } from "../dataPreprocessors/AbstractDataProcessor.js";
 
 /**
  * This data processor set a new fake data from user's input value, this fake data used for later geometry creation
  */
 
-var TransformProcessor = ( function () {
+export function TransformProcessor () {}
 
-    function process ( controller ) {
+TransformProcessor.prototype = new AbstractDataProcessor();
 
-        var inputData = controller.inputData;
+TransformProcessor.prototype.constructor = TransformProcessor;
 
-        for ( var i in inputData ) {
+TransformProcessor.prototype.processDetail = function ( controller ) {
 
-            var set = inputData[ i ];
-            set.fakeData = set.v;
+    var inputData = controller.inputData;
 
-        }
+    for ( var i in inputData ) {
 
-    }
-
-    return {
-
-        process: process
+        var set = inputData[ i ];
+        set.fakeData = set.v;
 
     }
 
-}() );
-
-export { TransformProcessor }
+};

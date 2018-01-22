@@ -15,7 +15,6 @@ import { Configure } from "./configure/Configure.js";
 import { ConfigureHandler } from "./handler/ConfigureHandler.js";
 import { DataHandler } from "./handler/DataHandler.js";
 import { ObjectUtils } from "./utils/BasicObjectUtils.js";
-import { DataProcessor } from "./dataPreprocessors/DataProcessor.js";
 import { LineGeometry } from "./objects/LineGeometry.js";
 
 /**
@@ -46,11 +45,7 @@ function Controller ( container, configureObject ) {
     this.resizeHandler = new ResizeHandler( this );
     this.initHandler = new InitHandler( this );
     this.dataHandler = new DataHandler( this );
-
-    // define a data processor to pre-processor the data
-
-    this.dateProcessor = new DataProcessor( this );
-
+    
     // configure "configure object" through constructor configure
 
     this.configureHandler.configureConstructor();

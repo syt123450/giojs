@@ -75,11 +75,17 @@ function InitHandler ( controller ) {
 
         // pre-processor the user's input data
 
-        defaultDataPreprocessor.process(controller);
+        if ( controller.inputData !== null ) {
+
+            defaultDataPreprocessor.process(controller);
+
+        }
 
         // create basic geometry for splines and moving sprites
 
         LineGeometry.buildDataVizGeometries( controller );
+
+        console.log( controller.inputData );
 
         // add objects to the scene
 

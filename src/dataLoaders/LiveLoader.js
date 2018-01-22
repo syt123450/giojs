@@ -43,34 +43,33 @@ function LiveLoader () {
     }
 
     function loopCall () {
-        console.log(111);
 
-        liveLoader.asyncLoader.load(liveLoader.controller, liveLoader.url, updateSystem);
+        liveLoader.asyncLoader.load( liveLoader.controller, liveLoader.url, updateSystem );
 
-        if (liveLoader.callback !== null) {
+        if ( liveLoader.callback !== null ) {
+
             liveLoader.callback();
+
         }
+
     }
 
-    function updateSystem() {
+    function updateSystem () {
 
         if ( liveLoader.controller.initialized === true ) {
 
-            console.log("in process data.");
-
+            liveLoader.controller.dataProcessor.process();
             LineGeometry.buildDataVizGeometries( liveLoader.controller );
-            liveLoader.controller.dateProcessor.process();
-            // liveLoader.controller.visSystemHandler.updateSystem();
+            liveLoader.controller.visSystemHandler.updateSystem();
             liveLoader.controller.surfaceHandler.update();
 
-            console.log(liveLoader.controller);
-
         }
+
     }
 
     function stop () {
 
-        window.clearInterval(liveLoader.intervalHandle);
+        window.clearInterval( liveLoader.intervalHandle );
 
     }
 

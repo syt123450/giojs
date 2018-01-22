@@ -40,25 +40,14 @@
     var container = document.getElementById("globalArea");
 
     var controller = new GIO.Controller(container);
-//    controller.addData(inputData);
-    controller.enableStats(true);
-
-//    var url = "../examples/data/countryData.json";
 
     controller.init();
 
+    setTimeout(addData, 10000);
+
+    function addData() {
         controller.addData(inputData);
-        controller.update();
-
-        console.log(controller);
-
-//    controller.addLiveData(url, callback, 6000);
-//
-//    function callback() {
-//        console.log(222);
-//    }
-
-//    setTimeout(controller.closeLiveLoader, 5000);
+    }
 
 </script>
 

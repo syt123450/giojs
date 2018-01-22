@@ -96,6 +96,31 @@ function Controller ( container, configureObject ) {
 
             controller.dataHandler.loadJSON( data );
 
+            if ( controller.initialized === true ) {
+
+                controller.dataProcessor.process( controller );
+                LineGeometry.buildDataVizGeometries( controller );
+
+                controller.visSystemHandler.updateSystem();
+                controller.surfaceHandler.update();
+
+            }
+
+            return this;
+
+        },
+
+        clearData: function () {
+
+            controller.inputData = null;
+
+            if ( controller.initialized === true ) {
+
+                controller.visSystemHandler.updateSystem();
+                controller.surfaceHandler.update();
+
+            }
+
             return this;
 
         },
@@ -187,7 +212,7 @@ function Controller ( container, configureObject ) {
 
             if ( controller.initialized === true ) {
 
-                controller.visSystemHandler.update();
+                controller.visSystemHandler.updateSystem();
 
             }
 
@@ -201,7 +226,7 @@ function Controller ( container, configureObject ) {
 
             if ( controller.initialized === true ) {
 
-                controller.visSystemHandler.update();
+                controller.visSystemHandler.updateSystem();
 
             }
 
@@ -378,28 +403,25 @@ function Controller ( container, configureObject ) {
 
         closeLiveLoader: function () {
 
-            // controller.configure.liveLoad = false;
-
             controller.dataHandler.stopLiveLoader();
 
             return this;
 
         },
 
-        // to be used after addData() function is called when controller has already been init()
+        // to be used to force update the whole system after init(), may not be used by user
 
         update: function () {
 
             if ( controller.initialized === true ) {
 
+                controller.dataProcessor.process( controller );
                 LineGeometry.buildDataVizGeometries( controller );
-                controller.dateProcessor.process();
+
                 controller.visSystemHandler.updateSystem();
                 controller.surfaceHandler.update();
 
             }
-
-            console.log(controller);
 
         }
 

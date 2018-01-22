@@ -7,7 +7,6 @@ import { SceneEventManager } from "../eventManagers/SceneEventManager.js";
 import { ObjectUtils } from "../utils/BasicObjectUtils.js";
 import { Sphere } from "../objects/Sphere.js";
 import { CountryData } from "../countryInfo/CountryData.js";
-import { Halo } from "../objects/Halo";
 
 import { DefaultDataPreprocessor } from "../dataPreprocessors/DefaultDataProcessor.js";
 import { TransformProcessor } from "../dataPreprocessors/TransformProcessor.js";
@@ -47,7 +46,6 @@ function InitHandler ( controller ) {
         controller.sphere = new Sphere( controller );
         controller.halo = new Halo();
         controller.earthSurfaceShader = controller.sphere.earthSurfaceShader;
-        controller.halo = new Halo(controller.sphere.geometry.parameters.radius);
         
         controller.scene = new THREE.Scene();
         controller.rotating = new THREE.Object3D();
@@ -97,7 +95,6 @@ function InitHandler ( controller ) {
         controller.scene.add( controller.rotating );
         controller.rotating.add( controller.sphere );
         controller.scene.add( controller.camera );
-        controller.scene.add( controller.halo.mesh );
         
         // bind events to the dom
 

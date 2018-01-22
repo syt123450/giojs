@@ -1,3 +1,7 @@
+/**
+ * @author mokuteno / https://github.com/manymeeting
+ */
+ 
 import { CountryData } from "../countryInfo/CountryData.js";
 import { AbstractDataProcessor } from "../dataPreprocessors/AbstractDataProcessor.js";
 

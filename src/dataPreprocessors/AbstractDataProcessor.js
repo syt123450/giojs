@@ -1,3 +1,7 @@
+/**
+ * @author mokuteno / https://github.com/manymeeting
+ */
+
 export function AbstractDataProcessor() {
     this.successor = null;
 };

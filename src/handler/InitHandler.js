@@ -92,10 +92,13 @@ function InitHandler ( controller ) {
 
         }
 
-        controller.scene.add( controller.halo );
         controller.scene.add( controller.rotating );
         controller.rotating.add( controller.sphere );
         controller.scene.add( controller.camera );
+
+        // halo must be add after adding the rotating object
+
+        controller.scene.add( controller.halo );
         
         // bind events to the dom
 
@@ -103,7 +106,9 @@ function InitHandler ( controller ) {
 
         // create the visSystem based on the previous creation and settings
 
+
         controller.visSystemHandler.updateSystem();
+
 
         // now the creation is finished, append the 3D object to the dom
 

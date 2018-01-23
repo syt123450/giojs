@@ -2,7 +2,6 @@
  * @author syt123450 / https://github.com/syt123450
  */
 
-import { LineGeometry } from "../objects/LineGeometry.js";
 import { AsyncLoader } from "./AsyncLoader.js";
 
 /**
@@ -59,7 +58,6 @@ function LiveLoader () {
         if ( liveLoader.controller.initialized === true ) {
 
             liveLoader.controller.dataProcessor.process();
-            LineGeometry.buildDataVizGeometries( liveLoader.controller );
             liveLoader.controller.visSystemHandler.updateSystem();
             liveLoader.controller.surfaceHandler.update();
 

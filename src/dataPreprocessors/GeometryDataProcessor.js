@@ -2,8 +2,9 @@
  * @author syt123450 / https://github.com/syt123450
  */
 
-import { Utils } from "../utils/Utils.js";
+import { AbstractDataProcessor } from "./AbstractDataProcessor.js";
 import { CountryData } from "../countryInfo/CountryData.js";
+import { Utils } from "../utils/Utils.js";
 
 /**
  * This object build the basic geometry to be used by creation spline geometry and pSystem geometry.
@@ -11,9 +12,36 @@ import { CountryData } from "../countryInfo/CountryData.js";
  * The buildDataVizGeometries will be executed when InitHandler's init() function is called
  */
 
-var LineGeometry = ( function () {
+export function GeometryDataProcessor () {
+}
+
+GeometryDataProcessor.prototype = new AbstractDataProcessor();
+
+GeometryDataProcessor.prototype.constructor = GeometryDataProcessor;
+
+GeometryDataProcessor.prototype.processDetail = function ( controller ) {
 
     var vec3_origin = new THREE.Vector3( 0, 0, 0 );
+
+    if ( controller.inputData === null ) {
+
+        return;
+
+    }
+
+    for ( var s in controller.inputData ) {
+
+        var set = controller.inputData[ s ];
+
+        var exporterName = set.e.toUpperCase();
+        var importerName = set.i.toUpperCase();
+
+        var exporter = CountryData[ exporterName ];
+        var importer = CountryData[ importerName ];
+
+        set.lineGeometry = makeConnectionLineGeometry( exporter, importer, set.fakeData );
+
+    }
 
     function makeConnectionLineGeometry ( exporter, importer, value ) {
 
@@ -69,34 +97,4 @@ var LineGeometry = ( function () {
 
     }
 
-    return {
-
-        buildDataVizGeometries: function ( controller ) {
-
-            if ( controller.inputData === null ) {
-
-                return;
-
-            }
-
-            for ( var s in controller.inputData ) {
-
-                var set = controller.inputData[ s ];
-
-                var exporterName = set.e.toUpperCase();
-                var importerName = set.i.toUpperCase();
-
-                var exporter = CountryData[ exporterName ];
-                var importer = CountryData[ importerName ];
-
-                set.lineGeometry = makeConnectionLineGeometry( exporter, importer, set.fakeData );
-
-            }
-
-        }
-
-    }
-
-}() );
-
-export { LineGeometry }
+};

@@ -2,7 +2,6 @@
  * @author syt123450 / https://github.com/syt123450
  */
 
-import { LineGeometry } from "../objects/LineGeometry.js";
 import { SceneEventManager } from "../eventManagers/SceneEventManager.js";
 import { ObjectUtils } from "../utils/BasicObjectUtils.js";
 import { Sphere } from "../objects/Sphere.js";
@@ -10,6 +9,8 @@ import { CountryData } from "../countryInfo/CountryData.js";
 
 import { DefaultDataPreprocessor } from "../dataPreprocessors/DefaultDataProcessor.js";
 import { TransformProcessor } from "../dataPreprocessors/TransformProcessor.js";
+import { GeometryDataProcessor } from "../dataPreprocessors/GeometryDataProcessor.js";
+
 import { Halo } from "../objects/Halo.js";
 /**
  * This handler handle initialization task for controller.
@@ -63,26 +64,26 @@ function InitHandler ( controller ) {
         // defined the initial country
 
         controller.selectedCountry = CountryData[ controller.configure.selectedCountry ];
-
         
         // register data processors here
 
         var transformDataProcessor = new TransformProcessor();
         var defaultDataPreprocessor = new DefaultDataPreprocessor();
 
+        // used to create basic geometry for splines and moving sprites
+
+        var geometryDataProcessor = new GeometryDataProcessor();
+
         controller.dataProcessor = defaultDataPreprocessor;
 
         // set order of processors
 
         defaultDataPreprocessor.setSuccessor(transformDataProcessor);
+        transformDataProcessor.setSuccessor(geometryDataProcessor);
 
         // pre-processor the user's input data
 
         defaultDataPreprocessor.process(controller);
-
-        // create basic geometry for splines and moving sprites
-
-        LineGeometry.buildDataVizGeometries( controller );
 
         // add objects to the scene
 

@@ -15,7 +15,6 @@ import { Configure } from "./configure/Configure.js";
 import { ConfigureHandler } from "./handler/ConfigureHandler.js";
 import { DataHandler } from "./handler/DataHandler.js";
 import { ObjectUtils } from "./utils/BasicObjectUtils.js";
-import { LineGeometry } from "./objects/LineGeometry.js";
 import { HaloHandler } from "./handler/HaloHandler.js";
 
 /**
@@ -103,8 +102,6 @@ function Controller ( container, configureObject ) {
             if ( controller.initialized === true ) {
 
                 controller.dataProcessor.process( controller );
-                LineGeometry.buildDataVizGeometries( controller );
-
                 controller.visSystemHandler.updateSystem();
                 controller.surfaceHandler.update();
 
@@ -420,8 +417,6 @@ function Controller ( container, configureObject ) {
             if ( controller.initialized === true ) {
 
                 controller.dataProcessor.process( controller );
-                LineGeometry.buildDataVizGeometries( controller );
-
                 controller.visSystemHandler.updateSystem();
                 controller.surfaceHandler.update();
 

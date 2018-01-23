@@ -1,5 +1,6 @@
 /**
  * @author syt123450 / https://github.com/syt123450
+ * @author mokuteno / https://github.com/manymeeting
  */
 
 import { CountryColorMap } from "../countryInfo/CountryColorMap.js";
@@ -11,13 +12,13 @@ import { CountryColorMap } from "../countryInfo/CountryColorMap.js";
 
 var Utils = ( function () {
 
-    function isString ( str ){
+    function isString( str ) {
 
         return ( typeof str === 'string' ) && str.constructor === String;
 
     }
 
-    function transformStringToHex ( str ) {
+    function transformStringToHex( str ) {
 
         if ( str.charAt( 0 ) !== "#" ) {
 
@@ -29,7 +30,7 @@ var Utils = ( function () {
 
     }
 
-    function formatHexColor ( color ) {
+    function formatHexColor( color ) {
 
         if ( color < 0 || color > 16777215 ) {
 
@@ -121,13 +122,60 @@ var Utils = ( function () {
             outputData.lat = countryData.lat;
             outputData.lon = countryData.lon;
             outputData.center = countryData.center.clone();
-            outputData.ISOCode = CountryColorMap[countryData.colorCode];
+            outputData.ISOCode = CountryColorMap[ countryData.colorCode ];
 
             return outputData;
 
+        },
+
+        /**
+        * Flatten country data based on given min and max value.
+        *
+        * @param {Array} data
+        *   An array of data to be processed.
+        *   Example: [
+        *      {
+        *        "e": "CN",
+        *        "i": "US",
+        *        "v": 3300000
+        *      },
+        *      {
+        *        "e": "CN",
+        *        "i": "RU",
+        *        "v": 10000
+        *      }
+        *    ]
+        * @param {string} valueKey
+        * @param {number} definedMin
+        * @param {number} definedMax
+        */
+
+        flattenCountryData: function ( data, valueKey, definedMin, definedMax ) {
+
+            if ( data.length === 0 ) return;
+
+            var replica = JSON.parse( JSON.stringify( data ) );
+
+            replica.sort( function ( a, b ) {
+
+                return a[ valueKey ] - b[ valueKey ];
+
+            } );
+
+            var min = replica[ 0 ][ valueKey ];
+            var max = replica[ replica.length - 1 ][ valueKey ];
+
+            for ( var i = 0; i < data.length; i ++ ) {
+
+                var v = data[ i ][ valueKey ];
+                data[ i ][ valueKey ] = ( v - min ) * ( definedMax - definedMin ) / ( max - min ) + definedMin;
+
+            }
+
         }
-    }
+
+    };
 
 }() );
 
-export { Utils }
+export { Utils };

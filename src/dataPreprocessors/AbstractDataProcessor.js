@@ -2,7 +2,7 @@
  * @author mokuteno / https://github.com/manymeeting
  */
 
-export function AbstractDataProcessor () {
+function AbstractDataProcessor () {
 
 	this.successor = null;
 
@@ -38,3 +38,5 @@ AbstractDataProcessor.prototype.isMatched = function ( controller ) {
 	return true;
 
 };
+
+export { AbstractDataProcessor }

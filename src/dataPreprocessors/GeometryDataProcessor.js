@@ -12,8 +12,7 @@ import { Utils } from "../utils/Utils.js";
  * The buildDataVizGeometries will be executed when InitHandler's init() function is called
  */
 
-export function GeometryDataProcessor () {
-}
+function GeometryDataProcessor () {}
 
 GeometryDataProcessor.prototype = new AbstractDataProcessor();
 
@@ -98,3 +97,5 @@ GeometryDataProcessor.prototype.processDetail = function ( controller ) {
     }
 
 };
+
+export { GeometryDataProcessor }

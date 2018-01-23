@@ -9,7 +9,7 @@ import { AbstractDataProcessor } from "../dataPreprocessors/AbstractDataProcesso
  * This data processor set a new fake data from user's input value, this fake data used for later geometry creation
  */
 
-export function TransformProcessor () {}
+function TransformProcessor () {}
 
 TransformProcessor.prototype = new AbstractDataProcessor();
 
@@ -28,4 +28,5 @@ TransformProcessor.prototype.processDetail = function ( controller ) {
 
 };
 
+export { TransformProcessor }
 

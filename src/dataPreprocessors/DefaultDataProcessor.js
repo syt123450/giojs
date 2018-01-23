@@ -12,7 +12,7 @@ import { AbstractDataProcessor } from "../dataPreprocessors/AbstractDataProcesso
  * The process() function will be called when InitHandler's init() function is called.
  */
 
-export function DefaultDataPreprocessor () {}
+function DefaultDataPreprocessor () {}
 
 DefaultDataPreprocessor.prototype = new AbstractDataProcessor();
 
@@ -46,3 +46,5 @@ DefaultDataPreprocessor.prototype.processDetail = function ( controller ) {
     }
 
 };
+
+export { DefaultDataPreprocessor }

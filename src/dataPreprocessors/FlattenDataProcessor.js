@@ -19,7 +19,7 @@ FlattenDataProcessor.prototype.processDetail = function ( controller ) {
 
     var inputData = controller.inputData;
 
-    Utils.flattenCountryData(inputData, "fakeData", controller.configure.minDataValue, controller.configure.maxDataValue);
+    Utils.flattenCountryData(inputData, controller.inputValueKey, controller.configure.minDataValue, controller.configure.maxDataValue);
     
 };
 

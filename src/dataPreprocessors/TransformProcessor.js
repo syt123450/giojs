@@ -26,6 +26,10 @@ TransformProcessor.prototype.processDetail = function ( controller ) {
 
     }
 
+    // update input value key
+
+    controller.inputValueKey = "fakeData";
+
 };
 
 export { TransformProcessor }

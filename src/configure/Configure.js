@@ -64,6 +64,10 @@ function Configure () {
 
     this.halo = true;
 
+    this.minDataValue = 800000;
+
+    this.maxDataValue = 5000000;
+
     return this;
 
 }

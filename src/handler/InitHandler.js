@@ -9,6 +9,7 @@ import { CountryData } from "../countryInfo/CountryData.js";
 import { DefaultDataPreprocessor } from "../dataPreprocessors/DefaultDataProcessor.js";
 import { TransformProcessor } from "../dataPreprocessors/TransformProcessor.js";
 import { GeometryDataProcessor } from "../dataPreprocessors/GeometryDataProcessor.js";
+import { FlattenDataProcessor } from "../dataPreprocessors/FlattenDataProcessor.js";
 
 /**
  * This handler handle initialization task for controller.
@@ -161,16 +162,23 @@ function InitHandler ( controller ) {
         var transformDataProcessor = new TransformProcessor();
         var defaultDataPreprocessor = new DefaultDataPreprocessor();
 
-        // used to create basic geometry for splines and moving sprites
+        // a processor used to create basic geometry for splines and moving sprites
 
         var geometryDataProcessor = new GeometryDataProcessor();
+
+        // a processor used to flatten country data
+        
+        var flattenDataProcessor = new FlattenDataProcessor();
+
+        // set the first data processor on the "chain"
 
         controller.dataProcessor = defaultDataPreprocessor;
 
         // set order of processors
 
         defaultDataPreprocessor.setSuccessor(transformDataProcessor);
-        transformDataProcessor.setSuccessor(geometryDataProcessor);
+        transformDataProcessor.setSuccessor(flattenDataProcessor);
+        flattenDataProcessor.setSuccessor(geometryDataProcessor);
 
         // pre-processor the user's input data
 

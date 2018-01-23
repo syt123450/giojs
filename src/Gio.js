@@ -69,6 +69,7 @@ function Controller ( container, configureObject ) {
     this.halo = null;
     this.haloShader = null;
     this.inputData = null;
+    this.inputValueKey = "v";
 
     this.mentionedCountryCodes = [];
     this.relatedCountries = [];

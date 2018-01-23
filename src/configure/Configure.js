@@ -46,21 +46,35 @@ function Configure () {
 
     this.relatedBrightness = 0.5;
 
-    // use to
+    // use to control whether show stats panel
 
     this.isStatsEnabled = false;
 
+    // used to control whether to let unrelated countries ( unmentioned countries in input data ) unclickable
+
     this.disableUnrelated = false;
+
+    // use to control whether to lighten mentioned countries ( mentioned in input data )
 
     this.isLightenMentioned = false;
 
+    // resource of the loading icon
+
     this.loadingSrc = null;
+
+    // setting for the initial country when globe is initialized
 
     this.selectedCountry = "CN";
 
+    // control whether only show "in" lines for clicked country
+
     this.inOnly = false;
 
+    // control whether only show "out" lines for clicked country
+
     this.outOnly = false;
+
+    // control whether show halo
 
     this.halo = true;
 

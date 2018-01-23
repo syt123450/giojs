@@ -2,13 +2,13 @@
  * @author syt123450 / https://github.com/syt123450
  */
 
-import { Halo } from "../objects/Halo.js";
+import { ObjectUtils } from "../utils/ObjectUtils.js";
 
 function HaloHandler ( controller ) {
 
     function create () {
 
-        controller.halo = new Halo( controller );
+        controller.halo = ObjectUtils.createHalo( controller );
         controller.haloShader = controller.halo.haloShader;
         controller.scene.add( controller.halo );
 

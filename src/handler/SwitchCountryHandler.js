@@ -29,7 +29,7 @@ function SwitchCountryHandler ( controller ) {
 
         // then create a new visSystem
 
-        controller.visSystemHandler.updateSystem();
+        controller.visSystemHandler.update();
 
         // change the highlight country on the earth surface
 

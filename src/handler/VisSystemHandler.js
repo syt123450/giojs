@@ -2,7 +2,7 @@
  * @author syt123450 / https://github.com/syt123450
  */
 
-import { VisSystem } from "../objects/VisSystem.js";
+import { ObjectUtils } from "../utils/ObjectUtils.js";
 
 /**
  * This handler handle the update of VisSystem ( The system will be updated when clicked country changed ).
@@ -10,7 +10,7 @@ import { VisSystem } from "../objects/VisSystem.js";
 
 function VisSystemHandler ( controller ) {
 
-    function updateSystem () {
+    function update () {
 
         // first remove the old object from rotating ( contains splines and moving sprites )
 
@@ -19,7 +19,7 @@ function VisSystemHandler ( controller ) {
         // create a new visualization mesh
 
         controller.visualizationMesh = new THREE.Object3D();
-        var lines = VisSystem.getVisualizedMesh( controller );
+        var lines = ObjectUtils.createSplineSystem( controller );
         controller.visualizationMesh.add( lines );
 
         // add the new visualization mesh to rotating
@@ -30,7 +30,7 @@ function VisSystemHandler ( controller ) {
 
     return {
 
-        updateSystem: updateSystem
+        update: update
 
     }
 

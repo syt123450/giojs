@@ -58,7 +58,7 @@ function LiveLoader () {
         if ( liveLoader.controller.initialized === true ) {
 
             liveLoader.controller.dataProcessor.process();
-            liveLoader.controller.visSystemHandler.updateSystem();
+            liveLoader.controller.visSystemHandler.update();
             liveLoader.controller.surfaceHandler.update();
 
         }

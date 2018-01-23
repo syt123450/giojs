@@ -1,20 +1,173 @@
 /**
  * @author syt123450 / https://github.com/syt123450
+ * @author botime / https://github.com/botime
  */
 
+import { HaloShader } from "../shaders/HaloShader.js";
+import { EarthSurfaceShader } from "../shaders/EarthSurfaceShader.js";
 import { Utils } from "../utils/Utils.js";
 import { MovingSpriteShader } from "../shaders/MovingSpriteShader.js";
 import { CountryData } from "../countryInfo/CountryData.js";
 import { CountryColorMap } from "../countryInfo/CountryColorMap.js";
 
 /**
- * The VisSystem create the mesh of spine lines and the moving object on the globe.
- * The mesh will be created each time the clicked country changes.
+ * This utils create objects in for the scene
  */
 
-var VisSystem = ( function () {
+var ObjectUtils = ( function () {
 
-    function getVisualizedMesh ( controller ) {
+    //create Three.js camera
+
+    function createCamera ( container ) {
+
+        var camera = new THREE.PerspectiveCamera( 12, container.clientWidth / container.clientHeight, 1, 20000 );
+        camera.position.z = 1400;
+        camera.position.y = 0;
+        camera.lookAt( 0, 0, 0 );
+
+        return camera;
+
+    }
+
+    //create Three.js lights
+
+    function createLights () {
+
+        var lights = [];
+
+        var light1 = new THREE.AmbientLight( 0x505050 );
+
+        var light2 = new THREE.SpotLight( 0xeeeeee, 3 );
+        light2.position.x = 730;
+        light2.position.y = 520;
+        light2.position.z = 626;
+        light2.castShadow = true;
+
+        var light3 = new THREE.PointLight( 0x222222, 14.8 );
+        light3.position.x = -640;
+        light3.position.y = -500;
+        light3.position.z = -1000;
+
+        lights.push( light1 );
+        lights.push( light2 );
+        lights.push( light3 );
+
+        return lights;
+
+    }
+
+    //create Three.js renderer, using webgl renderer to render canvas
+
+    function createRenderer ( container ) {
+
+        container.style.backgroundColor = "#000000";
+
+        var sceneArea = document.createElement( "canvas" );
+        sceneArea.width = container.width;
+        sceneArea.height = container.height;
+        sceneArea.style.backgroundColor = "#000000";
+
+        var renderer = new THREE.WebGLRenderer( { canvas: sceneArea, antialias: false } );
+        renderer.setSize( container.clientWidth, container.clientHeight );
+        renderer.autoClear = false;
+        renderer.sortObjects = false;
+        renderer.generateMipmaps = false;
+
+        return renderer;
+
+    }
+
+    //create stats to monitor performance, for development, the detailed introduce about stats: https://github.com/mrdoob/stats.js
+
+    function createStats () {
+
+        var stats = new Stats();
+        stats.showPanel( 1 );
+        stats.dom.style.position = "absolute";
+
+        return stats;
+
+    }
+
+    //create loading object
+
+    function createLoading ( controller ) {
+
+        var loadingIcon = document.createElement( "img" );
+        loadingIcon.src = controller.configure.loadingSrc;
+        loadingIcon.style.position = "absolute";
+        loadingIcon.style.left = "47%";
+        loadingIcon.style.top = "40%";
+        loadingIcon.style.width = "5%";
+
+        return loadingIcon;
+
+    }
+
+    // The Sphere object is the earth object (without spineline visual system)
+
+    function createSphere ( controller ) {
+
+        // create EarthSurfaceShader object when initialized
+
+        var earthSurfaceShader = new EarthSurfaceShader( controller );
+
+        var shaderMaterial = new THREE.ShaderMaterial( {
+
+            uniforms: earthSurfaceShader.uniforms,
+            vertexShader: earthSurfaceShader.vertexShader,
+            fragmentShader: earthSurfaceShader.fragmentShader
+
+        } );
+
+        var sphere = new THREE.Mesh( new THREE.SphereGeometry( 100, 40, 40 ), shaderMaterial );
+        sphere.doubleSided = false;
+        sphere.rotation.x = Math.PI;
+        sphere.rotation.y = -Math.PI / 2;
+        sphere.rotation.z = Math.PI;
+
+        sphere.name = "sphere";
+
+        // hold the pointer for EarthSurfaceShader, the controller will use this pointer to hold the pointer of the EarthSurfaceShader
+
+        sphere.earthSurfaceShader = earthSurfaceShader;
+
+        return sphere;
+
+    }
+
+    function createHalo ( controller ) {
+
+        var radius = 100;
+        var geometry = new THREE.SphereBufferGeometry( radius, 32, 32 );
+
+        var haloShader = new HaloShader( controller );
+        var shaderMaterial = new THREE.ShaderMaterial( {
+
+            uniforms: haloShader.uniforms,
+            vertexShader: haloShader.vertexShader,
+            fragmentShader: haloShader.fragmentShader,
+            side: THREE.BackSide,
+            blending: THREE.AdditiveBlending,
+            transparent: true
+
+        } );
+
+        var mesh = new THREE.Mesh( geometry, shaderMaterial );
+        mesh.scale.set( 1.2, 1.2, 1.2 );
+
+        mesh.haloShader = haloShader;
+
+        return mesh;
+
+    }
+
+    /**
+     * The SplineSystem contains the mesh of spine lines and the moving object on the globe.
+     * The mesh will be created each time the clicked country changes.
+     */
+
+    function createSplineSystem ( controller ) {
 
         var geometries = createGeometries( controller );
 
@@ -56,7 +209,7 @@ var VisSystem = ( function () {
             }
 
             if ( set.i === CountryColorMap[ selectedCountry.colorCode ] ||
-                 set.e === CountryColorMap[ selectedCountry.colorCode ] ) {
+                set.e === CountryColorMap[ selectedCountry.colorCode ] ) {
 
                 var lineColor;
 
@@ -168,15 +321,15 @@ var VisSystem = ( function () {
 
         var splineOutline = new THREE.Line( linesGeo, new THREE.LineBasicMaterial( {
 
-                color: 0xffffff,
-                opacity: 1.0,
-                blending: THREE.AdditiveBlending,
-                transparent: true,
-                depthWrite: false,
-                vertexColors: true,
-                linewidth: 1
+            color: 0xffffff,
+            opacity: 1.0,
+            blending: THREE.AdditiveBlending,
+            transparent: true,
+            depthWrite: false,
+            vertexColors: true,
+            linewidth: 1
 
-            } ) );
+        } ) );
 
         splineOutline.renderDepth = false;
 
@@ -254,10 +407,24 @@ var VisSystem = ( function () {
 
     return {
 
-        getVisualizedMesh: getVisualizedMesh
+        createCamera: createCamera,
+
+        createLights: createLights,
+
+        createRenderer: createRenderer,
+
+        createStats: createStats,
+
+        createLoading: createLoading,
+
+        createSphere: createSphere,
+
+        createHalo: createHalo,
+
+        createSplineSystem: createSplineSystem
 
     }
 
 }() );
 
-export { VisSystem }
+export { ObjectUtils }

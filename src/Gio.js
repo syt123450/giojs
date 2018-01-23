@@ -14,7 +14,7 @@ import { InitHandler } from "./handler/InitHandler.js";
 import { Configure } from "./configure/Configure.js";
 import { ConfigureHandler } from "./handler/ConfigureHandler.js";
 import { DataHandler } from "./handler/DataHandler.js";
-import { ObjectUtils } from "./utils/BasicObjectUtils.js";
+import { ObjectUtils } from "./utils/ObjectUtils.js";
 import { HaloHandler } from "./handler/HaloHandler.js";
 
 /**
@@ -102,7 +102,7 @@ function Controller ( container, configureObject ) {
             if ( controller.initialized === true ) {
 
                 controller.dataProcessor.process( controller );
-                controller.visSystemHandler.updateSystem();
+                controller.visSystemHandler.update();
                 controller.surfaceHandler.update();
 
             }
@@ -117,7 +117,7 @@ function Controller ( container, configureObject ) {
 
             if ( controller.initialized === true ) {
 
-                controller.visSystemHandler.updateSystem();
+                controller.visSystemHandler.update();
                 controller.surfaceHandler.update();
 
             }
@@ -213,7 +213,7 @@ function Controller ( container, configureObject ) {
 
             if ( controller.initialized === true ) {
 
-                controller.visSystemHandler.updateSystem();
+                controller.visSystemHandler.update();
 
             }
 
@@ -227,7 +227,7 @@ function Controller ( container, configureObject ) {
 
             if ( controller.initialized === true ) {
 
-                controller.visSystemHandler.updateSystem();
+                controller.visSystemHandler.update();
 
             }
 
@@ -371,7 +371,7 @@ function Controller ( container, configureObject ) {
 
             if ( controller.initialized === true ) {
 
-                controller.visSystemHandler.updateSystem();
+                controller.visSystemHandler.update();
 
             }
 
@@ -394,7 +394,7 @@ function Controller ( container, configureObject ) {
 
             if ( controller.initialized === true ) {
 
-                controller.visSystemHandler.updateSystem();
+                controller.visSystemHandler.update();
 
             }
 
@@ -417,7 +417,7 @@ function Controller ( container, configureObject ) {
             if ( controller.initialized === true ) {
 
                 controller.dataProcessor.process( controller );
-                controller.visSystemHandler.updateSystem();
+                controller.visSystemHandler.update();
                 controller.surfaceHandler.update();
 
             }

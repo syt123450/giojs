@@ -8,21 +8,27 @@ var MagicStyle = ( function () {
 
     return {
 
-        surfaceColor: 0xff0000,
+        color: {
 
-        clickedColor: 0x0000ff,
+            surface: 0xff0000,
 
-        clickedDifferent: true,
+            selected: 0x0000ff,
 
-        importColor: 0x154492,
+            in: 0x154492,
 
-        exportColor: 0xdd380c,
+            out: 0xdd380c,
 
-        oceanBrightness: 0.5,
+            halo: 0x00ff00
+        },
 
-        mentionedBrightness: 0.5,
+        brightness: {
 
-        relatedBrightness: 0.5
+            ocean: 0.5,
+
+            mentioned: 0.5,
+
+            related: 0.5
+        }
 
     }
 

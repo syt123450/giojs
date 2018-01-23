@@ -43,11 +43,21 @@
 
     var controller = new GIO.Controller( container, {
 
-        surfaceColor: 0xff0000,
-        clickedColor: 0x00ffff,
-        clickedDifferent: true,
-        importColor: 0xffff00,
-        exportColor: 0x00ffff
+        color: {
+
+            surface: 0xff0000,
+            selected: 0x00ffff,
+            in: 0xffff00,
+            out: 0x00ffff,
+            halo: 0x00ff00
+
+        },
+
+        brightness: {
+
+            ocean: 0.2
+
+        }
 
     } );
 

@@ -201,8 +201,8 @@ var ObjectUtils = ( function () {
 
             var set = inputData[ i ];
 
-            if ( controller.configure.inOnly && set.i !== CountryColorMap[ selectedCountry.colorCode ] ||
-                controller.configure.outOnly && set.e !== CountryColorMap[ selectedCountry.colorCode ] ) {
+            if ( controller.configure.control.inOnly && set.i !== CountryColorMap[ selectedCountry.colorCode ] ||
+                controller.configure.control.outOnly && set.e !== CountryColorMap[ selectedCountry.colorCode ] ) {
 
                 continue;
 
@@ -217,13 +217,13 @@ var ObjectUtils = ( function () {
 
                     controller.relatedCountries.push(CountryData[set.i]);
 
-                    if ( set.inColor === undefined ) {
+                    if ( set.outColor === undefined ) {
 
-                        lineColor = new THREE.Color( controller.configure.exportColor );
+                        lineColor = new THREE.Color( controller.configure.color.out );
 
                     } else {
 
-                        lineColor = new THREE.Color( set.inColor );
+                        lineColor = new THREE.Color( set.outColor );
 
                     }
 
@@ -231,13 +231,13 @@ var ObjectUtils = ( function () {
 
                     controller.relatedCountries.push( CountryData[ set.e ] );
 
-                    if ( set.outColor === undefined ) {
+                    if ( set.inColor === undefined ) {
 
-                        lineColor = new THREE.Color( controller.configure.importColor);
+                        lineColor = new THREE.Color( controller.configure.color.in );
 
                     } else {
 
-                        lineColor = new THREE.Color( set.outColor );
+                        lineColor = new THREE.Color( set.inColor );
 
                     }
 

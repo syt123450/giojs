@@ -145,7 +145,7 @@ function Controller ( container, configureObject ) {
 
         setSurfaceColor: function ( color ) {
 
-            controller.configure.surfaceColor = color;
+            controller.configure.color.surface = color;
 
             if ( controller.initialized === true ) {
 
@@ -159,8 +159,7 @@ function Controller ( container, configureObject ) {
 
         setSelectedColor: function ( color ) {
 
-            controller.configure.clickedDifferent = true;
-            controller.configure.clickedColor = color;
+            controller.configure.color.selected = color;
 
             if ( controller.initialized === true ) {
 
@@ -180,7 +179,7 @@ function Controller ( container, configureObject ) {
 
         setInitCountry: function ( ISOAbbr ) {
 
-            controller.configure.selectedCountry = ISOAbbr;
+            controller.configure.control.initCountry = ISOAbbr;
 
             return this;
 
@@ -188,7 +187,7 @@ function Controller ( container, configureObject ) {
 
         disableUnmentioned: function ( flag ) {
 
-            controller.configure.disableUnrelated = flag;
+            controller.configure.control.disableUnmentioned = flag;
 
             return this;
 
@@ -196,7 +195,7 @@ function Controller ( container, configureObject ) {
 
         lightenMentioned: function ( flag ) {
 
-            controller.configure.isLightenMentioned = flag;
+            controller.configure.control.lightenMentioned = flag;
 
             if ( controller.initialized === true ) {
 
@@ -210,7 +209,7 @@ function Controller ( container, configureObject ) {
 
         setExportColor: function ( color ) {
 
-            controller.configure.exportColor = color;
+            controller.configure.color.out = color;
 
             if ( controller.initialized === true ) {
 
@@ -224,7 +223,7 @@ function Controller ( container, configureObject ) {
 
         setImportColor: function ( color ) {
 
-            controller.configure.importColor = color;
+            controller.configure.color.in = color;
 
             if ( controller.initialized === true ) {
 
@@ -256,7 +255,7 @@ function Controller ( container, configureObject ) {
 
         enableStats: function () {
 
-            if ( controller.configure.isStatsEnabled === false && controller.initialized ) {
+            if ( controller.configure.control.stats === false && controller.initialized ) {
 
                 if ( controller.stats === null ) {
 
@@ -268,7 +267,7 @@ function Controller ( container, configureObject ) {
 
             }
 
-            controller.configure.isStatsEnabled = true;
+            controller.configure.control.stats = true;
 
             return this;
 
@@ -276,13 +275,13 @@ function Controller ( container, configureObject ) {
 
         disableStats: function () {
 
-            if ( controller.configure.isStatsEnabled === true && controller.stats !== null ) {
+            if ( controller.configure.control.stats === true && controller.stats !== null ) {
 
                 controller.container.removeChild(controller.stats.dom);
 
             }
 
-            controller.configure.isStatsEnabled = false;
+            controller.configure.control.stats = false;
 
             return this;
 
@@ -296,7 +295,7 @@ function Controller ( container, configureObject ) {
 
         adjustRelatedBrightness: function ( brightness ) {
 
-            controller.configure.relatedBrightness = brightness;
+            controller.configure.brightness.related = brightness;
 
             return this;
 
@@ -304,7 +303,7 @@ function Controller ( container, configureObject ) {
 
         adjustOceanBrightness: function ( brightness ) {
 
-            controller.configure.oceanBrightness = brightness;
+            controller.configure.brightness.ocean = brightness;
 
             return this;
 
@@ -312,7 +311,7 @@ function Controller ( container, configureObject ) {
 
         adjustMentionedBrightness: function ( brightness ) {
 
-            controller.configure.mentionedBrightness = brightness;
+            controller.configure.brightness.mentioned = brightness;
 
             return this;
 
@@ -320,7 +319,7 @@ function Controller ( container, configureObject ) {
 
         setLoadingSrc: function ( src ) {
 
-            controller.configure.loadingSrc = src;
+            controller.configure.resource.loading = src;
 
             return this;
 
@@ -361,13 +360,12 @@ function Controller ( container, configureObject ) {
 
             if ( flag === true ) {
 
-                controller.configure.inOnly = true;
-                controller.configure.outOnly = false;
+                controller.configure.control.inOnly = true;
+                controller.configure.control.outOnly = false;
 
             } else {
 
-                controller.configure.inOnly = false;
-
+                controller.configure.control.inOnly = false;
             }
 
             if ( controller.initialized === true ) {
@@ -384,12 +382,12 @@ function Controller ( container, configureObject ) {
 
             if ( flag === true ) {
 
-                controller.configure.outOnly = true;
-                controller.configure.inOnly = false;
+                controller.configure.control.outOnly = true;
+                controller.configure.control.inOnly = false;
 
             } else {
 
-                controller.configure.outOnly = false;
+                controller.configure.control.outOnly = false;
 
             }
 
@@ -427,7 +425,7 @@ function Controller ( container, configureObject ) {
 
         setHaloColor: function ( color ) {
 
-            controller.configure.haloColor = color;
+            controller.configure.color.halo = color;
 
             if ( controller.initialized === true ) {
 
@@ -439,7 +437,8 @@ function Controller ( container, configureObject ) {
 
         removeHalo: function () {
 
-            controller.configure.halo = false;
+            controller.configure.control.halo = false;
+
 
             if ( controller.initialized === true ) {
 
@@ -451,11 +450,11 @@ function Controller ( container, configureObject ) {
 
         addHalo: function ( color ) {
 
-            controller.configure.halo = true;
+            controller.configure.control.halo = true;
 
             if ( color !== undefined ) {
 
-                controller.configure.haloColor = color;
+                controller.configure.color.halo = color;
 
             }
 

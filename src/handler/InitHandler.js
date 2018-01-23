@@ -17,6 +17,8 @@ import { FlattenDataProcessor } from "../dataPreprocessors/FlattenDataProcessor.
 
 function InitHandler ( controller ) {
 
+    var loadingIcon;
+
     function init () {
 
         initScene();
@@ -66,7 +68,7 @@ function InitHandler ( controller ) {
 
     function animate () {
 
-        if ( controller.configure.isStatsEnabled ) {
+        if ( controller.configure.control.stats ) {
 
             controller.stats.update();
 
@@ -101,9 +103,9 @@ function InitHandler ( controller ) {
 
         // if the loading image's src is configured, create it and append it to the dom
 
-        if ( controller.configure.loadingSrc !== null ) {
+        if ( controller.configure.resource.loading !== null ) {
 
-            var loadingIcon = ObjectUtils.createLoading( controller );
+            loadingIcon = ObjectUtils.createLoading( controller );
             controller.container.appendChild( loadingIcon );
 
         }
@@ -129,7 +131,7 @@ function InitHandler ( controller ) {
 
         // the stats object will only be created when "isStatsEnabled" in the configure is set to be true
 
-        if ( controller.configure.isStatsEnabled ) {
+        if ( controller.configure.control.stats ) {
 
             controller.stats = ObjectUtils.createStats( container );
             controller.container.appendChild( controller.stats.dom );
@@ -189,7 +191,7 @@ function InitHandler ( controller ) {
 
         // remove loading, as the 3D object has shown in the browser
 
-        if ( controller.configure.loadingSrc !== null ) {
+        if ( controller.configure.resource.loading !== null ) {
 
             controller.container.removeChild( loadingIcon );
 
@@ -202,7 +204,7 @@ function InitHandler ( controller ) {
 
         // defined the initial country
 
-        controller.selectedCountry = CountryData[ controller.configure.selectedCountry ];
+        controller.selectedCountry = CountryData[ controller.configure.control.initCountry ];
 
         // create the visSystem based on the previous creation and settings
 

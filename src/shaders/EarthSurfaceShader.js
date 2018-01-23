@@ -12,7 +12,6 @@ import { Utils } from "../utils/Utils.js";
 
 function EarthSurfaceShader ( controller ) {
 
-    var selectedColorDifferent = false;
     var helperColor = new THREE.Color();
 
     // cache color object for surface color
@@ -88,24 +87,23 @@ function EarthSurfaceShader ( controller ) {
 
     function loadSurfaceColor () {
 
-        if ( controller.configure.clickedDifferent ) {
+        setShaderColor( controller.configure.color.surface );
 
-            selectedColorDifferent = true;
-            setHighlightColor( controller.configure.clickedColor );
+        if ( controller.configure.color.selected === null ) {
+
+            setHighlightColor( controller.configure.color.surface );
 
         } else {
 
-            selectedColorDifferent = false;
+            setHighlightColor( controller.configure.color.selected );
 
         }
-
-        setShaderColor( controller.configure.surfaceColor );
 
     }
 
     function setShaderColor( color ) {
 
-        if ( color === null ) {
+        if (color === null) {
 
             return;
 
@@ -119,16 +117,6 @@ function EarthSurfaceShader ( controller ) {
         surfaceColor.y = helperColor.g;
         surfaceColor.z = helperColor.b;
 
-        // if user set selected color to be different with the surface color, this function will not set the selectedColor
-
-        if ( !selectedColorDifferent ) {
-
-            selectedColor.x = helperColor.r;
-            selectedColor.y = helperColor.g;
-            selectedColor.z = helperColor.b;
-
-        }
-
     }
 
     function setHighlightColor(color) {
@@ -140,8 +128,6 @@ function EarthSurfaceShader ( controller ) {
         }
 
         color = Utils.formatColor( color );
-
-        selectedColorDifferent = true;
 
         helperColor.setHex( color );
 

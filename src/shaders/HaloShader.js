@@ -11,7 +11,7 @@ function HaloShader ( controller ) {
 
     function update () {
 
-        var color = new THREE.Color( controller.configure.haloColor );
+        var color = new THREE.Color( controller.configure.color.halo );
 
         colorVector.x = color.r;
         colorVector.y = color.g;

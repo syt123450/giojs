@@ -150,9 +150,9 @@ function SceneEventManager () {
 
         if ( CountryColorMap[ pickColorIndex ] !== undefined &&
              pickColorIndex !== 0 &&
-             ( controller.configure.disableUnrelated &&
+             ( controller.configure.control.disableUnmentioned &&
                  controller.mentionedCountryCodes.indexOf( pickColorIndex ) !== -1 ||
-                 !controller.configure.disableUnrelated ) ) {
+                 !controller.configure.control.disableUnmentioned ) ) {
 
             controller.switchCountryHandler.executeSwitch( pickColorIndex )
 

@@ -73,18 +73,18 @@ function SwitchCountryHandler ( controller ) {
 
         if ( direction === "in" || direction === "out" ) {
 
-            snapshot.inOnly = controller.configure.inOnly;
-            snapshot.outOnly = controller.configure.outOnly;
+            snapshot.inOnly = controller.configure.control.inOnly;
+            snapshot.outOnly = controller.configure.control.outOnly;
 
             if ( direction === "in" ) {
 
-                controller.configure.inOnly = true;
-                controller.configure.outOnly = false;
+                controller.configure.control.inOnly = true;
+                controller.configure.control.outOnly = false;
 
             } else {
 
-                controller.configure.inOnly = false;
-                controller.configure.outOnly = true;
+                controller.configure.control.inOnly = false;
+                controller.configure.control.outOnly = true;
 
             }
 
@@ -100,8 +100,8 @@ function SwitchCountryHandler ( controller ) {
 
         if ( direction === "in" || direction === "out" ) {
 
-            controller.configure.inOnly = snapshot.inOnly;
-            controller.configure.outOnly = snapshot.outOnly;
+            controller.configure.control.inOnly = snapshot.inOnly;
+            controller.configure.control.outOnly = snapshot.outOnly;
 
         }
 

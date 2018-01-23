@@ -16,15 +16,55 @@ function ConfigureHandler ( controller ) {
 
         if ( configure instanceof Object ) {
 
-            for ( var attribute in configure ) {
-
-                controller.configure[ attribute ] = configure[ attribute ];
-
-            }
-
             if ( controller.configure.clickedDifferent === false ) {
 
                 controller.configure.clickedColor = controller.configure.surfaceColor;
+
+            }
+
+            if ( configure.control !== undefined ) {
+
+                for ( var attribute in configure.control ) {
+
+                    controller.configure.control[ attribute ] = configure.control[ attribute ];
+
+                }
+
+            }
+
+            if ( configure.color !== undefined ) {
+
+                for ( var attribute in configure.color ) {
+
+                    controller.configure.color[ attribute ] = configure.color[ attribute ];
+
+                }
+
+                if ( configure.color.selected === undefined && configure.color.surface !== undefined ) {
+
+                    controller.configure.color.selected = configure.color.surface;
+
+                }
+
+            }
+
+            if ( configure.brightness !== undefined ) {
+
+                for ( var attribute in configure.brightness ) {
+
+                    controller.configure.brightness[ attribute ] = configure.brightness[ attribute ];
+
+                }
+
+            }
+
+            if (configure.resource !== undefined ) {
+
+                for ( var attribute in configure.resource ) {
+
+                    controller.configure.resource[ attribute ] = configure.resource[ attribute ];
+
+                }
 
             }
 

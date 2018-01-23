@@ -84,15 +84,15 @@ function SurfaceHandler ( controller ) {
 
         // highlight ocean
 
-        ctx.fillStyle = generateFillStyle( Utils.transformBrightness( controller.configure.oceanBrightness, oceanMin, oceanMax ) );
+        ctx.fillStyle = generateFillStyle( Utils.transformBrightness( controller.configure.brightness.ocean, oceanMin, oceanMax ) );
         ctx.fillRect( 0, 0, 1, 1 );
 
         // highlight mentioned countries
 
-        if ( controller.configure.isLightenMentioned ) {
+        if ( controller.configure.control.lightenMentioned ) {
 
             ctx.fillStyle = generateFillStyle(
-                Utils.transformBrightness( controller.configure.mentionedBrightness, mentionedMin, mentionedMax )
+                Utils.transformBrightness( controller.configure.brightness.mentioned, mentionedMin, mentionedMax )
             );
 
             for ( var i in controller.mentionedCountryCodes ) {
@@ -106,7 +106,7 @@ function SurfaceHandler ( controller ) {
         // highlight related countries
 
         ctx.fillStyle = generateFillStyle(
-            Utils.transformBrightness( controller.configure.relatedBrightness, relatedMin, relatedMax )
+            Utils.transformBrightness( controller.configure.brightness.related, relatedMin, relatedMax )
         );
 
         for ( var i in controller.relatedCountries ) {

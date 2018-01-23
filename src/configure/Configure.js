@@ -10,23 +10,43 @@
 
 function Configure () {
 
+    // used to set the surface color
+
     this.surfaceColor = 0xffffff;
+
+    // used to set the color of selected country
 
     this.clickedColor = 0xffffff;
 
+    // if the selected country's color is different from surface color, this attribute should be set "true"
+
     this.clickedDifferent = false;
+
+    // use to set the "in" spline line color
 
     this.importColor = 0x154492;
 
+    // use to set the "out" spline line color
+
     this.exportColor = 0xdd380c;
+
+    // use to set color
 
     this.haloColor = 0xffffff;
 
+    // use to set the ocean brightness ( range is 0 - 1 )
+
     this.oceanBrightness = 0.5;
+
+    // use to set the mentioned countries brightness ( range is 0 - 1 ), only the attribute isLightenMentioned == true, this attribute will take effect
 
     this.mentionedBrightness = 0.5;
 
+    // use to set brightness of countries related to selected country
+
     this.relatedBrightness = 0.5;
+
+    // use to
 
     this.isStatsEnabled = false;
 

@@ -2,7 +2,7 @@
  * @author syt123450 / https://github.com/syt123450
  */
 
-import { SceneEventManager } from "../eventManagers/SceneEventManager.js";
+import { SceneEventManager } from "../eventManagers/MouseEventManager.js";
 import { ObjectUtils } from "../utils/ObjectUtils.js";
 import { CountryData } from "../countryInfo/CountryData.js";
 

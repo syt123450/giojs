@@ -421,6 +421,8 @@ function Controller ( container, configureObject ) {
 
             }
 
+            return this;
+
         },
 
         setHaloColor: function ( color ) {
@@ -432,6 +434,8 @@ function Controller ( container, configureObject ) {
                 controller.haloHandler.update();
 
             }
+
+            return this;
 
         },
 
@@ -445,6 +449,8 @@ function Controller ( container, configureObject ) {
                 controller.haloHandler.remove();
 
             }
+
+            return this;
 
         },
 
@@ -471,6 +477,8 @@ function Controller ( container, configureObject ) {
                 }
 
             }
+
+            return this;
 
         }
 

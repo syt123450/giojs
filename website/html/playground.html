@@ -8,9 +8,24 @@
     <link rel="stylesheet" href="../assets/cssLib/bootstrap.min.css">
     <script src="../assets/jsLib/bootstrap.min.js"></script>
 
+    <script src="../js/three.min.js"></script>
+    <script src="../../build/Gio.js"></script>
+
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/playground.css">
+    <style>
 
+        #globalArea {
+            position: absolute;
+            top: 80px;
+            height: 80%;
+            width: 80%;
+            margin: 0;
+            padding: 0;
+
+        }
+
+    </style>
 </head>
 <body>
 
@@ -62,6 +77,10 @@
 
 </nav>
 
+<div class="container">
+    <div id="globalArea"></div>
+</div>
+
 </body>
 
 <script>
@@ -71,6 +90,39 @@
             $("#nav-collapse").slideToggle();
         });
     })
+
+
+    // get the container to hold the IO globe
+
+    var container = document.getElementById( "globalArea" );
+
+    // create controller for the IO globe, input the container as the parameter
+
+    var controller = new GIO.Controller( container );
+
+    // ask a file for the JSON data, using AJAX to load the data
+
+    $.ajax( {
+
+        url: "data/countryData.json",
+        type: "GET",
+        contentType: "application/json; charset=utf-8",
+        async: true,
+        dataType: "json",
+        success: function ( inputData ) {
+
+            // if received the data, use addData() API to add the the data to the controller
+
+            controller.addData( inputData );
+
+            // call the init() API to show the IO globe in the browser
+
+            controller.init();
+
+        }
+
+    } );  
+    
 
 </script>
 

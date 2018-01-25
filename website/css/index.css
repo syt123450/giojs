@@ -100,21 +100,91 @@
     background-color: #fff;
     box-sizing: border-box;
     border-bottom: 1px solid #000;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+#start > div {
+
+    height: 100%;
+}
+
+#start > div > div {
+
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+
+#start > div > div > header {
+
+    height: 50px;
+    line-height: 50px;
+    font-size: 30px;
+    margin-bottom: 20px;
 }
 
 #download {
 
     height: 90%;
     width: 100%;
-    background-color: #cfcfcf;
+    background-color: #fff;
     box-sizing: border-box;
     border-bottom: 1px solid #000;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+#download > div {
+    height: 100%;
+}
+
+#download > div > div {
+    width: 50%;
+    float: left;
+}
+
+#download > div > div > img {
+    width: 100%;
+}
+
+#download > div > div > header {
+
+    height: 50px;
+    line-height: 50px;
+    font-size: 30px;
+    margin-bottom: 20px;
+
+}
+
+#download > div > div > p.sub-title {
+
+    height: 30px;
+    line-height: 30px;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+#download > div > div > div.code {
+
+    width: 100%;
+    height: 35px;
+    line-height: 35px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding-left: 15px;
+    background-color: #f2f2f2;
 }
 
 footer {
 
     height: 80px;
     width: 100%;
+    font-size: 18px;
+    line-height: 80px;
     box-sizing: border-box;
-    background-color: blue;
+    background-color: #fff;
+    text-align: center;
 }

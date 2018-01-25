@@ -1,6 +1,8 @@
 html, body {
     margin: 0;
     padding: 0;
+    height: 100%;
+    width: 100%;
 }
 
 a:hover {
@@ -9,6 +11,10 @@ a:hover {
 
 p {
     margin: 0;
+}
+
+body {
+    font-family: Georgia, serif;
 }
 
 body > nav {
@@ -22,7 +28,8 @@ body > nav {
     border-bottom: 1px solid #03d6d7;
     box-shadow: 0 2px 2px -2px #03d6d7;
     box-sizing: border-box;
-    position: absolute;
+    position: fixed;
+    background-color: #fff;
 }
 
 body > nav > div {

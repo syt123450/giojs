@@ -60,12 +60,12 @@ var ObjectUtils = ( function () {
 
     function createRenderer ( container ) {
 
-        container.style.backgroundColor = "#000000";
+        container.style.backgroundColor = "#ffffff";
 
         var sceneArea = document.createElement( "canvas" );
         sceneArea.width = container.width;
         sceneArea.height = container.height;
-        sceneArea.style.backgroundColor = "#000000";
+        sceneArea.style.backgroundColor = "#ffffff";
 
         var renderer = new THREE.WebGLRenderer( { canvas: sceneArea, antialias: false } );
         renderer.setSize( container.clientWidth, container.clientHeight );

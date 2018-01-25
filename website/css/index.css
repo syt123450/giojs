@@ -1,0 +1,120 @@
+#introduce {
+
+    min-height: 90%;
+    width: 100%;
+    background-color: #fff;
+    box-sizing: border-box;
+    border-bottom: 1px solid #000;
+    padding-top: 60px;
+
+}
+
+#introduce > div {
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+#introduce > div > img {
+    padding: 50px;
+    box-sizing: border-box;
+    width: 300px;
+    float: left;
+}
+
+#description {
+    width: 60%;
+    height: 300px;
+    float: left;
+}
+
+#description > p {
+
+    margin-top: 40px;
+    width: 100%;
+    font-size: 40px;
+
+}
+
+#description > div {
+
+    width: 100%;
+    margin-top: 30px;
+}
+
+#description > div > div {
+
+    width : 33%;
+    float: left;
+}
+
+#description > div > div > div {
+
+    width: 150px;
+    height: 45px;
+    line-height: 45px;
+    border: 1px solid #000;
+    border-radius: 22px;
+    cursor: pointer;
+}
+
+#description > div > div > div > img {
+
+    height: 40px;
+    margin-left: 5px;
+    margin-top: 2px;
+    margin-right: 15px;
+    float: left;
+}
+
+#description > div > div > div > p {
+
+    width: auto;
+    float: left;
+}
+
+#explanation {
+
+    width: 100%;
+    height: 200px;
+    background-color: red;
+    float: left;
+}
+
+#explanation > div {
+
+    width: 33%;
+    height: 100%;
+    float: left;
+    border-right: 1px solid #000;
+}
+
+#explanation > div > p {
+
+    text-align: center;
+}
+
+#start {
+
+    height: 90%;
+    width: 100%;
+    background-color: #fff;
+    box-sizing: border-box;
+    border-bottom: 1px solid #000;
+}
+
+#download {
+
+    height: 90%;
+    width: 100%;
+    background-color: #cfcfcf;
+    box-sizing: border-box;
+    border-bottom: 1px solid #000;
+}
+
+footer {
+
+    height: 80px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: blue;
+}

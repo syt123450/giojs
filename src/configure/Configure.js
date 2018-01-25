@@ -66,7 +66,9 @@ function Configure () {
 
         // use to set halo color
 
-        halo: 0xffffff
+        halo: 0xffffff,
+
+        background: null
 
     };
 

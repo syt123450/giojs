@@ -126,7 +126,7 @@ function InitHandler ( controller ) {
         controller.haloShader = controller.halo.haloShader;
         controller.earthSurfaceShader = controller.sphere.earthSurfaceShader;
 
-        controller.scene = new THREE.Scene();
+        controller.scene = ObjectUtils.createScene( controller );
         controller.rotating = new THREE.Object3D();
 
         // the stats object will only be created when "isStatsEnabled" in the configure is set to be true

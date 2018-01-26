@@ -3,7 +3,7 @@
  */
 
 /**
- * This handler handle resize of the window event.
+ * This handlers handle resize of the window event.
  */
 
 function ResizeHandler ( controller ) {

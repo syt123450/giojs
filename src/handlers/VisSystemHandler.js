@@ -5,7 +5,7 @@
 import { ObjectUtils } from "../utils/ObjectUtils.js";
 
 /**
- * This handler handle the update of VisSystem ( The system will be updated when clicked country changed ).
+ * This handlers handle the update of VisSystem ( The system will be updated when clicked country changed ).
  */
 
 function VisSystemHandler ( controller ) {

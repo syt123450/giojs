@@ -5,7 +5,7 @@
 import { Utils } from "../utils/Utils.js";
 
 /**
- * This handler handle rotation of the globe.
+ * This handlers handle rotation of the globe.
  */
 
 function RotationHandler ( controller ) {

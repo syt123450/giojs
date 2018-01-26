@@ -2,7 +2,7 @@
  * @author syt123450 / https://github.com/syt123450
  */
 
-import { SceneEventManager } from "../eventManagers/MouseEventManager.js";
+import { SceneEventManager } from "../managers/MouseEventManager.js";
 import { ObjectUtils } from "../utils/ObjectUtils.js";
 import { CountryData } from "../countryInfo/CountryData.js";
 
@@ -10,9 +10,10 @@ import { DefaultDataPreprocessor } from "../dataPreprocessors/DefaultDataProcess
 import { TransformProcessor } from "../dataPreprocessors/TransformProcessor.js";
 import { GeometryDataProcessor } from "../dataPreprocessors/GeometryDataProcessor.js";
 import { FlattenDataProcessor } from "../dataPreprocessors/FlattenDataProcessor.js";
+import {ProcessorManager} from "../managers/ProcessorManager";
 
 /**
- * This handler handle initialization task for controller.
+ * This handlers handle initialization task for controller.
  */
 
 function InitHandler ( controller ) {
@@ -159,32 +160,13 @@ function InitHandler ( controller ) {
 
     function initData () {
 
-        // register data processors here
-
-        var transformDataProcessor = new TransformProcessor();
-        var defaultDataPreprocessor = new DefaultDataPreprocessor();
-
-        // a processor used to create basic geometry for splines and moving sprites
-
-        var geometryDataProcessor = new GeometryDataProcessor();
-
-        // a processor used to flatten country data
-        
-        var flattenDataProcessor = new FlattenDataProcessor();
-
         // set the first data processor on the "chain"
 
-        controller.dataProcessor = defaultDataPreprocessor;
-
-        // set order of processors
-
-        defaultDataPreprocessor.setSuccessor(transformDataProcessor);
-        transformDataProcessor.setSuccessor(flattenDataProcessor);
-        flattenDataProcessor.setSuccessor(geometryDataProcessor);
+        controller.dataProcessor = ProcessorManager.getProcessorChain();
 
         // pre-processor the user's input data
 
-        defaultDataPreprocessor.process(controller);
+        controller.dataProcessor.process(controller);
     }
 
     function closeLoading () {

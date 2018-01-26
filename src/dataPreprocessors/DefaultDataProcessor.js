@@ -4,7 +4,7 @@
  */
 
 import { CountryData } from "../countryInfo/CountryData.js";
-import { AbstractDataProcessor } from "../dataPreprocessors/AbstractDataProcessor.js";
+import { AbstractDataProcessor } from ".//AbstractDataProcessor.js";
 
 
 /**

@@ -3,7 +3,6 @@
  */
 
 import {} from "./style/StyleConfigure.js";
-import { Marker } from "./markers/Marker.js";
 import { SurfaceHandler } from "./handler/SurfaceHandler.js";
 import { RotationHandler } from "./handler/RotationHandler.js";
 import { WheelHandler } from "./handler/WheelHandler.js";

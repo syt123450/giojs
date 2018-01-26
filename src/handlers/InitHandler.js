@@ -5,12 +5,7 @@
 import { SceneEventManager } from "../managers/MouseEventManager.js";
 import { ObjectUtils } from "../utils/ObjectUtils.js";
 import { CountryData } from "../countryInfo/CountryData.js";
-
-import { DefaultDataPreprocessor } from "../dataPreprocessors/DefaultDataProcessor.js";
-import { TransformProcessor } from "../dataPreprocessors/TransformProcessor.js";
-import { GeometryDataProcessor } from "../dataPreprocessors/GeometryDataProcessor.js";
-import { FlattenDataProcessor } from "../dataPreprocessors/FlattenDataProcessor.js";
-import {ProcessorManager} from "../managers/ProcessorManager";
+import { ProcessorManager } from "../managers/ProcessorManager";
 
 /**
  * This handlers handle initialization task for controller.

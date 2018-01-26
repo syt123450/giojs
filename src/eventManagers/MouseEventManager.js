@@ -3,6 +3,7 @@
  */
 
 import { CountryColorMap } from "../countryInfo/CountryColorMap.js";
+import { Utils } from "../utils/Utils.js";
 
 /**
  * This Manager manage all mouse event for the scene.
@@ -27,7 +28,7 @@ function SceneEventManager () {
         pmouseY = mouseY;
 
         mouseX = event.clientX - controller.container.clientWidth * 0.5 - controller.container.offsetLeft;
-        mouseY = event.clientY - controller.container.clientHeight * 0.5 - controller.container.offsetTop;
+        mouseY = event.clientY - controller.container.clientHeight * 0.5 - controller.container.offsetTop + Utils.getScrollTopOfBody();
 
         // if it is in a dragging state, let the RotationHandler to handler the rotation of the globe
 

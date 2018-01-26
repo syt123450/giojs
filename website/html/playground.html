@@ -38,7 +38,7 @@
         <div id="logo">
 
             <img src="../assets/images/logo.png">
-            <div><a href="../index.html">Gio.js</a></div>
+            <div>Gio.js</div>
 
         </div>
 
@@ -91,7 +91,11 @@
         $("#more").click(function() {
             $("#nav-collapse").slideToggle();
         });
-    })
+
+        $("#logo").click(function() {
+            window.location.href = "../index.html";
+        });
+    });
 
 
     // get the container to hold the IO globe

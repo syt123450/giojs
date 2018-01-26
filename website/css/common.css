@@ -41,6 +41,7 @@ body > nav > div {
 #logo {
     float: left;
     height: 60px;
+    cursor: pointer;
 }
 
 #logo > img {

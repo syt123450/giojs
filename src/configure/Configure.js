@@ -68,6 +68,8 @@ function Configure () {
 
         halo: 0xffffff,
 
+        // use to set the background color of the scene
+
         background: null
 
     };

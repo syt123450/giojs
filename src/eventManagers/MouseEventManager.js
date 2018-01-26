@@ -119,7 +119,7 @@ function SceneEventManager () {
         // let the mouse and raycaster to judge whether the click is on the earth, if not do noting
 
         mouse.x = ( ( event.clientX - controller.container.offsetLeft ) / controller.container.clientWidth ) * 2 - 1;
-        mouse.y = -( ( event.clientY - controller.container.offsetTop ) / controller.container.clientHeight ) * 2 + 1;
+        mouse.y = -( ( event.clientY - controller.container.offsetTop + Utils.getScrollTopOfBody()) / controller.container.clientHeight ) * 2 + 1;
 
         raycaster.setFromCamera( mouse, controller.camera );
 

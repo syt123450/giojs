@@ -10,10 +10,6 @@
 
 function Configure () {
 
-    this.minDataValue = 800000;
-
-    this.maxDataValue = 5000000;
-
     this.control =  {
 
         // use to control whether show stats panel

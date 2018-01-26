@@ -17,9 +17,11 @@ FlattenDataProcessor.prototype.constructor = FlattenDataProcessor;
 
 FlattenDataProcessor.prototype.processDetail = function ( controller ) {
 
+    var minDataValue = 800000, maxDataValue = 5000000;
+
     var inputData = controller.inputData;
 
-    Utils.flattenCountryData(inputData, controller.inputValueKey, controller.configure.minDataValue, controller.configure.maxDataValue);
+    Utils.flattenCountryData(inputData, controller.inputValueKey, minDataValue, maxDataValue);
     
 };
 

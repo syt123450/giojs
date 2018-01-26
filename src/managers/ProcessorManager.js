@@ -2,10 +2,10 @@
  * @author syt123450 / https://github.com/syt123450
  */
 
-import { TransformProcessor } from "../dataPreprocessors/TransformProcessor";
-import { DefaultDataPreprocessor } from "../dataPreprocessors/DefaultDataProcessor";
-import { GeometryDataProcessor } from "../dataPreprocessors/GeometryDataProcessor";
-import { FlattenDataProcessor } from "../dataPreprocessors/FlattenDataProcessor";
+import { TransformProcessor } from "../dataPreprocessors/TransformProcessor.js";
+import { DefaultDataPreprocessor } from "../dataPreprocessors/DefaultDataProcessor.js";
+import { GeometryDataProcessor } from "../dataPreprocessors/GeometryDataProcessor.js";
+import { FlattenDataProcessor } from "../dataPreprocessors/FlattenDataProcessor.js";
 
 var ProcessorManager = ( function () {
 

@@ -480,6 +480,20 @@ function Controller ( container, configureObject ) {
 
             return this;
 
+        },
+
+        setBackgroundColor: function ( color ) {
+
+            controller.configure.color.background = color;
+
+            if ( controller.initialized === true ) {
+
+                controller.scene.background = new THREE.Color( color );
+
+            }
+
+            return this;
+
         }
 
     }

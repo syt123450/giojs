@@ -16,6 +16,18 @@ import { CountryColorMap } from "../countryInfo/CountryColorMap.js";
 
 var ObjectUtils = ( function () {
 
+    function createScene ( controller ) {
+
+        var scene = new THREE.Scene();
+        if ( controller.configure.color.background !== null ) {
+
+            scene.background = new THREE.Color( controller.configure.color.background );
+
+        }
+
+        return scene;
+    }
+
     //create Three.js camera
 
     function createCamera ( container ) {
@@ -406,6 +418,8 @@ var ObjectUtils = ( function () {
     }
 
     return {
+
+        createScene: createScene,
 
         createCamera: createCamera,
 

@@ -3,9 +3,11 @@ $(function () {
         $("#nav-collapse").slideToggle();
     });
 
-   $("#toStart").click(function () {
-       window.location.href = "#start";
-   });
+    $("#toStart").click(function() {
+        $('html, body').animate({
+            scrollTop: $("#start").offset().top
+        }, 1000);
+    });
 
    $("#toPlayground").click(function () {
        window.location.href = "html/playground.html";
@@ -13,6 +15,12 @@ $(function () {
 
    $("#toGithub").click(function() {
         window.location.href = "https://github.com/syt123450/Gio.js";
+   });
+
+   $("#downloadNav").click(function () {
+       $('html, body').animate({
+           scrollTop: $("#download").offset().top
+       }, 2000);
    });
 
     var container = document.getElementById( "globeArea" );

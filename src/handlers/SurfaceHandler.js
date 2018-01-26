@@ -5,7 +5,7 @@
 import { Utils } from "../utils/Utils.js";
 
 /**
- * This handler handle all task related to the earth surface.
+ * This handlers handle all task related to the earth surface.
  */
 
 function SurfaceHandler ( controller ) {

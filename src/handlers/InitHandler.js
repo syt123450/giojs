@@ -2,7 +2,7 @@
  * @author syt123450 / https://github.com/syt123450
  */
 
-import { SceneEventManager } from "../eventManagers/MouseEventManager.js";
+import { SceneEventManager } from "../managers/MouseEventManager.js";
 import { ObjectUtils } from "../utils/ObjectUtils.js";
 import { CountryData } from "../countryInfo/CountryData.js";
 
@@ -12,7 +12,7 @@ import { GeometryDataProcessor } from "../dataPreprocessors/GeometryDataProcesso
 import { FlattenDataProcessor } from "../dataPreprocessors/FlattenDataProcessor.js";
 
 /**
- * This handler handle initialization task for controller.
+ * This handlers handle initialization task for controller.
  */
 
 function InitHandler ( controller ) {

@@ -2,7 +2,7 @@
  * @author mokuteno / https://github.com/manymeeting
  */
 
-import { AbstractDataProcessor } from "../dataPreprocessors/AbstractDataProcessor.js";
+import { AbstractDataProcessor } from ".//AbstractDataProcessor.js";
 import { Utils } from "../utils/Utils.js";
 
 /**

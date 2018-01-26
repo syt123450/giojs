@@ -30,7 +30,7 @@ function SceneEventManager () {
         mouseX = event.clientX - controller.container.clientWidth * 0.5 - controller.container.offsetLeft;
         mouseY = event.clientY - controller.container.clientHeight * 0.5 - controller.container.offsetTop + Utils.getScrollTopOfBody();
 
-        // if it is in a dragging state, let the RotationHandler to handler the rotation of the globe
+        // if it is in a dragging state, let the RotationHandler to handlers the rotation of the globe
 
         if ( controller.rotationHandler.isDragging() ) {
 
@@ -162,7 +162,7 @@ function SceneEventManager () {
     }
 
     /**
-     * bind all event handler to the dom of the scene, the resize event will be bind to window.
+     * bind all event handlers to the dom of the scene, the resize event will be bind to window.
      * This function will be called when InitHandler's init() function be called
      */
 

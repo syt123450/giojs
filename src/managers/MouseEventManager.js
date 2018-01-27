@@ -27,8 +27,8 @@ function SceneEventManager () {
         pmouseX = mouseX;
         pmouseY = mouseY;
 
-        mouseX = event.clientX - controller.container.clientWidth * 0.5 - controller.container.offsetLeft;
-        mouseY = event.clientY - controller.container.clientHeight * 0.5 - controller.container.offsetTop + Utils.getScrollTopOfBody();
+        mouseX = event.clientX - controller.container.clientWidth * 0.5 - Utils.getElementViewLeft( controller.container );
+        mouseY = event.clientY - controller.container.clientHeight * 0.5 - Utils.getElementViewTop( controller.container );
 
         // if it is in a dragging state, let the RotationHandler to handlers the rotation of the globe
 
@@ -118,8 +118,8 @@ function SceneEventManager () {
 
         // let the mouse and raycaster to judge whether the click is on the earth, if not do noting
 
-        mouse.x = ( ( event.clientX - controller.container.offsetLeft ) / controller.container.clientWidth ) * 2 - 1;
-        mouse.y = -( ( event.clientY - controller.container.offsetTop + Utils.getScrollTopOfBody()) / controller.container.clientHeight ) * 2 + 1;
+        mouse.x = ( ( event.clientX - Utils.getElementViewLeft( controller.container ) ) / controller.container.clientWidth ) * 2 - 1;
+        mouse.y = -( ( event.clientY - Utils.getElementViewTop( controller.container ) ) / controller.container.clientHeight ) * 2 + 1;
 
         raycaster.setFromCamera( mouse, controller.camera );
 

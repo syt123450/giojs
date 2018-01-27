@@ -42,27 +42,62 @@ var Utils = ( function () {
 
     }
 
-    function getScrollTopOfBody() {
+    function getElementViewTop ( element ){
 
-        var scrollTop;
+        var actualTop = element.offsetTop;
+        var current = element.offsetParent;
 
-        if ( typeof window.pageYOffset !== 'undefined' ) {
+        while ( current !== null ) {
 
-            scrollTop = window.pageYOffset;
-
-        } else if ( typeof document.compatMode !== 'undefined' && document.compatMode !== 'BackCompat' ) {
-
-            scrollTop = document.documentElement.scrollTop;
-
-        } else if ( typeof document.body !== 'undefined' ) {
-
-            scrollTop = document.body.scrollTop;
+            actualTop += current.offsetTop;
+            current = current.offsetParent;
 
         }
 
-        return scrollTop;
+        var elementScrollTop;
+
+        if ( document.compatMode === "BackCompat" ) {
+
+            elementScrollTop = document.body.scrollTop;
+
+        } else {
+
+            elementScrollTop = document.documentElement.scrollTop;
+
+        }
+
+        return actualTop - elementScrollTop;
 
     }
+
+    function getElementViewLeft ( element ) {
+
+        var actualLeft = element.offsetLeft;
+        var current = element.offsetParent;
+
+        while ( current !== null ) {
+
+            actualLeft += current.offsetLeft;
+            current = current.offsetParent;
+
+        }
+
+        var elementScrollLeft;
+
+        if ( document.compatMode === "BackCompat" ) {
+
+            elementScrollLeft = document.body.scrollLeft;
+
+        } else {
+
+            elementScrollLeft = document.documentElement.scrollLeft;
+
+        }
+
+        return actualLeft - elementScrollLeft;
+
+    }
+
 
     return {
 
@@ -196,7 +231,9 @@ var Utils = ( function () {
 
         },
 
-        getScrollTopOfBody: getScrollTopOfBody
+        getElementViewTop: getElementViewTop,
+
+        getElementViewLeft: getElementViewLeft
 
     };
 

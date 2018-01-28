@@ -18,13 +18,10 @@
     <style>
 
         #globalArea {
-            position: absolute;
-            top: 80px;
-            height: 80%;
-            width: 80%;
+            height: 100%;
+            width: 100%;
             margin: 0;
             padding: 0;
-
         }
 
     </style>
@@ -78,10 +75,41 @@
     </div>
 
 </nav>
+<div id="globalArea"></div>
 
-<div class="container">
-    <div id="globalArea"></div>
+<div id="controlPanel">
+    
+    <ul>
+        <li class="ctl-panel-header">
+            <h3>Control</h3>
+        </li>
+        <li class="ctl-panel-item">
+            <span>Show Stats</span>
+            <div><input type="checkbox" checked="checked"></div>
+        </li>
+        <li class="ctl-panel-item">
+            <span>Disable Inactives</span>
+            <div><input type="checkbox" checked="checked"></div>
+        </li>
+        <li class="ctl-panel-item">
+            <span>Lighten Actives</span>
+            <div><input type="checkbox" checked="checked"></div>
+        </li>
+        <li class="ctl-panel-item">
+            <span>In Only</span>
+            <div><input type="checkbox" checked="checked"></div>
+        </li>
+        <li class="ctl-panel-item">
+            <span>Out Only</span>
+            <div><input type="checkbox" checked="checked"></div>
+        </li>
+        <li class="ctl-panel-item">
+            <span>Halo</span>
+            <div><input type="checkbox" checked="checked"></div>
+        </li>
+    </ul>
 </div>
+
 
 </body>
 

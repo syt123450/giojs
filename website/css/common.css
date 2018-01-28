@@ -1,0 +1,176 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+p {
+    margin: 0;
+}
+
+body {
+    font-family: Georgia, serif;
+}
+
+body > nav {
+    left: 0;
+    top: 0;
+    height: 60px;
+    width: 100%;
+    font-family: Georgia, serif;
+    line-height: 60px;
+    text-align: center;
+    border-bottom: 1px solid #03d6d7;
+    box-shadow: 0 2px 2px -2px #03d6d7;
+    box-sizing: border-box;
+    position: fixed;
+    background-color: #fff;
+}
+
+body > nav > div {
+
+    height: 100%;
+
+}
+
+#logo {
+    float: left;
+    height: 60px;
+    cursor: pointer;
+}
+
+#logo > img {
+
+    height: 80%;
+    margin-top: 4%;
+    float: left;
+}
+
+#logo > div {
+
+    font-size: 25px;
+    line-height: 60px;
+    float: left;
+    margin-left: 20px;
+
+}
+
+body > nav  > div > ul {
+
+    height: 40px;
+    width: auto;
+    display: block;
+    line-height: 40px;
+    list-style: none;
+    float: left;
+    font-size: 16px;
+    margin-top: 10px;
+
+}
+
+body > nav  > div > ul > li {
+    height: 100%;
+    width: auto;
+    float: left;
+    border-color: white;
+    position: relative;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    margin-right: 20px;
+    box-sizing: border-box;
+}
+
+body > nav  > div > ul > li > a {
+    float: left;
+    height: 100%;
+    width: 100%;
+    color: #758eb8;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}
+
+body > nav > div > ul > li:hover {
+
+    border-bottom: 3px solid #40ddff;
+}
+
+body > nav > div > ul > li:hover > a {
+    color: #40ddff;
+}
+
+.now {
+
+    border-bottom: 3px solid #40ddff;
+
+}
+
+.now > a {
+
+    color: #40ddff;
+
+}
+
+#nav-collapse {
+    display: none;
+    margin: 0 1px;
+}
+
+#nav-collapse ul {
+    margin: 0;
+}
+
+#nav-collapse li {
+    border-top: 1px solid #ddd;
+}
+
+#nav-collapse li a {
+    color: #000;
+}
+
+#more .nav-tabs {
+
+    margin-bottom: 0;
+
+}
+
+#more li {
+    float: right;
+    border-bottom: 0;
+    height: 40px;
+    margin-top: 10px;
+}
+
+#more li a {
+    color: #000;
+}
+
+.github-corner:hover .octo-arm {
+    animation: octocat-wave 560ms ease-in-out;
+}
+
+@keyframes octocat-wave {
+    0%, 100% {
+        transform: rotate(0)
+    }
+    20%, 60% {
+        transform: rotate(-25deg)
+    }
+    40%, 80% {
+        transform: rotate(10deg)
+    }
+}
+
+@media (max-width: 500px) {
+    .github-corner:hover .octo-arm {
+        animation: none
+    }
+
+    .github-corner .octo-arm {
+        animation: octocat-wave 560ms ease-in-out
+    }
+}

@@ -1,0 +1,27 @@
+#controlPanel
+{
+	position: fixed;
+	width: 250px;
+	top: 60px;
+	right: 0;
+	color: #eee;
+}
+
+#controlPanel li
+{
+	list-style: none;
+	
+}
+
+#controlPanel li > span
+{
+	float: left;
+	clear: both;
+	width: 80%;
+}
+
+#controlPanel li > div
+{
+	float: left;
+	margin-left: 10px;
+}

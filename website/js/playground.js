@@ -6,9 +6,12 @@ var GIO;
 
         (function(Playground){
 
+            var controller;
 
             function registerListeners()
             {
+
+                // navigation
 
                 $("#more").click(function() {
                     $("#nav-collapse").slideToggle();
@@ -16,6 +19,20 @@ var GIO;
 
                 $("#logo").click(function() {
                     window.location.href = "../index.html";
+                });
+
+                // control panel
+
+                $(document).on("click", "#ctlInOnly", function(){
+
+                    if($(this).prop("checked"))
+                    {
+                        controller.showInOnly( true );
+                    }
+                    else
+                    {
+                        controller.showInOnly( false );
+                    }
                 });
 
             }
@@ -28,7 +45,7 @@ var GIO;
 
                 // create controller for the IO globe, input the container as the parameter
 
-                var controller = new GIO.Controller( container );
+                controller = new GIO.Controller( container );
 
                 // ask a file for the JSON data, using AJAX to load the data
 
@@ -56,7 +73,7 @@ var GIO;
             }
 
             // expose
-
+            Playground.controller = controller;
             Playground.initilize = initilize;
             Playground.registerListeners = registerListeners;
 

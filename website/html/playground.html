@@ -152,57 +152,45 @@
                 <button class="jscolor {valueElement:null,value:'ffffff'}" style="border:2px solid black">Pick</button>
             </div>
         </li>
-        
+
+
+        <li class="ctl-panel-header">
+            <h3>Brightness</h3>
+        </li>
+        <li class="ctl-panel-item">
+            <span class="ctl-panel-item-name">Ocean</span>
+            <div class="ctl-panel-item-content">
+              <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+            </div>
+        </li>
+        <li class="ctl-panel-item">
+            <span class="ctl-panel-item-name">Mentioned</span>
+            <div class="ctl-panel-item-content">
+              <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+            </div>
+        </li>
+        <li class="ctl-panel-item">
+            <span class="ctl-panel-item-name">Related</span>
+            <div class="ctl-panel-item-content">
+              <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+            </div>
+        </li>
     </ul>
+
+
+    <div id="panelBtns">
+        <button type="button" class="btn btn-secondary">Generate</button>
+        <button type="button" class="btn btn-secondary">...</button>
+    </div>
 </div>
+
+
 
 
 </body>
 
 <script>
 
-    $(function() {
-        $("#more").click(function() {
-            $("#nav-collapse").slideToggle();
-        });
-
-        $("#logo").click(function() {
-            window.location.href = "../index.html";
-        });
-    });
-
-
-    // get the container to hold the IO globe
-
-    var container = document.getElementById( "globalArea" );
-
-    // create controller for the IO globe, input the container as the parameter
-
-    var controller = new GIO.Controller( container );
-
-    // ask a file for the JSON data, using AJAX to load the data
-
-    $.ajax( {
-
-        url: "../assets/data/countryData.json",
-        type: "GET",
-        contentType: "application/json; charset=utf-8",
-        async: true,
-        dataType: "json",
-        success: function ( inputData ) {
-
-            // if received the data, use addData() API to add the the data to the controller
-
-            controller.addData( inputData );
-
-            // call the init() API to show the IO globe in the browser
-
-            controller.init();
-
-        }
-
-    } );  
-    
 
 </script>
 

@@ -1,10 +1,15 @@
 #controlPanel
 {
 	position: fixed;
-	width: 250px;
+	width: 280px;
 	top: 60px;
 	right: 0;
 	color: #eee;
+}
+
+#controlPanel ul
+{
+	padding: 0;
 }
 
 #controlPanel li
@@ -23,11 +28,18 @@
 {
 	float: left;
 	clear: both;
-	width: 130px;
+	width: 100px;
 }
 
 #controlPanel .ctl-panel-item-content
 {
 	float: left;
 	margin-left: 10px;
+}
+
+#panelBtns
+{
+	clear: both;
+	margin-top: 20px;
+	color: black;
 }

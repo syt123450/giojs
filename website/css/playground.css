@@ -10,17 +10,23 @@
 #controlPanel li
 {
 	list-style: none;
-	
+	display: block;
+	min-height: 20px;
 }
 
-#controlPanel li > span
+#controlPanel li.ctl-panel-header
+{
+	clear: both;
+}
+
+#controlPanel .ctl-panel-item-name
 {
 	float: left;
 	clear: both;
-	width: 80%;
+	width: 130px;
 }
 
-#controlPanel li > div
+#controlPanel .ctl-panel-item-content
 {
 	float: left;
 	margin-left: 10px;

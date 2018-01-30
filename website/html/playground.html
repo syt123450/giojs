@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Playground</title>
 
+    <script src="../assets/jsLib/stats.min.js"></script>
     <script src="../assets/jsLib/jquery.min.js"></script>
     <link rel="stylesheet" href="../assets/cssLib/bootstrap.min.css">
     <script src="../assets/jsLib/bootstrap.min.js"></script>
@@ -89,15 +90,15 @@
         </li>
         <li class="ctl-panel-item">
             <span class="ctl-panel-item-name">Show Stats</span>
-            <div class="ctl-panel-item-content"><input type="checkbox" checked="checked"></div>
+            <div class="ctl-panel-item-content"><input type="checkbox" id="ctlShowStats"></div>
         </li>
         <li class="ctl-panel-item">
             <span class="ctl-panel-item-name">Disable Inactives</span>
-            <div class="ctl-panel-item-content"><input type="checkbox" checked="checked"></div>
+            <div class="ctl-panel-item-content"><input type="checkbox" id="ctlDisableInactives"></div>
         </li>
         <li class="ctl-panel-item">
             <span class="ctl-panel-item-name">Lighten Actives</span>
-            <div class="ctl-panel-item-content"><input type="checkbox" checked="checked"></div>
+            <div class="ctl-panel-item-content"><input type="checkbox" id="ctlLightenActives"></div>
         </li>
         <li class="ctl-panel-item">
             <span class="ctl-panel-item-name">In Only</span>
@@ -105,11 +106,11 @@
         </li>
         <li class="ctl-panel-item">
             <span class="ctl-panel-item-name">Out Only</span>
-            <div class="ctl-panel-item-content"><input type="checkbox" checked="checked"></div>
+            <div class="ctl-panel-item-content"><input type="checkbox" id="ctlOutOnly"></div>
         </li>
         <li class="ctl-panel-item">
             <span class="ctl-panel-item-name">Halo</span>
-            <div class="ctl-panel-item-content"><input type="checkbox" checked="checked"></div>
+            <div class="ctl-panel-item-content"><input type="checkbox" id="ctlHalo" checked="checked"></div>
         </li>
 
 
@@ -180,7 +181,7 @@
 
     <div id="panelBtns">
         <button type="button" class="btn btn-secondary">Generate</button>
-        <button type="button" class="btn btn-secondary">...</button>
+        <button type="button" class="btn btn-secondary">Help</button>
     </div>
 </div>
 

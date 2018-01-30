@@ -35,6 +35,66 @@ var GIO;
                     }
                 });
 
+                $(document).on("click", "#ctlOutOnly", function(){
+
+                    if($(this).prop("checked"))
+                    {
+                        controller.showOutOnly( true );
+                    }
+                    else
+                    {
+                        controller.showOutOnly( false );
+                    }
+                });
+
+                $(document).on("click", "#ctlHalo", function(){
+
+                    if($(this).prop("checked"))
+                    {
+                        controller.addHalo();
+                    }
+                    else
+                    {
+                        controller.removeHalo();
+                    }
+                });
+
+                $(document).on("click", "#ctlLightenActives", function(){
+
+                    if($(this).prop("checked"))
+                    {
+                        controller.lightenMentioned(true);
+                    }
+                    else
+                    {
+                        controller.lightenMentioned(false);
+                    }
+                });
+
+                $(document).on("click", "#ctlDisableInactives", function(){
+
+                    if($(this).prop("checked"))
+                    {
+                        controller.disableUnmentioned(true);
+                    }
+                    else
+                    {
+                        controller.disableUnmentioned(false);
+                    }
+                });
+
+                $(document).on("click", "#ctlShowStats", function(){
+
+                    if($(this).prop("checked"))
+                    {
+                        controller.enableStats();
+                    }
+                    else
+                    {
+                        controller.disableStats();
+                    }
+                });
+
             }
 
             function initilize()

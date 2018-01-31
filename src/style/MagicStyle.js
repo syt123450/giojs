@@ -18,7 +18,9 @@ var MagicStyle = ( function () {
 
             out: 0xdd380c,
 
-            halo: 0x00ff00
+            halo: 0x00ff00,
+
+            background: 0x222222
         },
 
         brightness: {

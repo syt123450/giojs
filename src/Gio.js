@@ -3,19 +3,18 @@
  */
 
 import {} from "./style/StyleConfigure.js";
-import { Marker } from "./markers/Marker.js";
-import { SurfaceHandler } from "./handler/SurfaceHandler.js";
-import { RotationHandler } from "./handler/RotationHandler.js";
-import { WheelHandler } from "./handler/WheelHandler.js";
-import { VisSystemHandler } from "./handler/VisSystemHandler.js";
-import { SwitchCountryHandler } from "./handler/SwitchCountryHandler.js";
-import { ResizeHandler } from "./handler/ResizeHandler.js";
-import { InitHandler } from "./handler/InitHandler.js";
+import { SurfaceHandler } from "./handlers/SurfaceHandler.js";
+import { RotationHandler } from "./handlers/RotationHandler.js";
+import { WheelHandler } from "./handlers/WheelHandler.js";
+import { VisSystemHandler } from "./handlers/VisSystemHandler.js";
+import { SwitchCountryHandler } from "./handlers/SwitchCountryHandler.js";
+import { ResizeHandler } from "./handlers/ResizeHandler.js";
+import { InitHandler } from "./handlers/InitHandler.js";
 import { Configure } from "./configure/Configure.js";
-import { ConfigureHandler } from "./handler/ConfigureHandler.js";
-import { DataHandler } from "./handler/DataHandler.js";
+import { ConfigureHandler } from "./handlers/ConfigureHandler.js";
+import { DataHandler } from "./handlers/DataHandler.js";
 import { ObjectUtils } from "./utils/ObjectUtils.js";
-import { HaloHandler } from "./handler/HaloHandler.js";
+import { HaloHandler } from "./handlers/HaloHandler.js";
 
 /**
  * This is the controller object when IO Globe is running,
@@ -34,7 +33,7 @@ function Controller ( container, configureObject ) {
 
     this.configure = new Configure();
 
-    // handler used to handle tasks in controller
+    // handlers used to handle tasks in controller
 
     this.configureHandler = new ConfigureHandler( this );
     this.rotationHandler = new RotationHandler( this );
@@ -475,6 +474,20 @@ function Controller ( container, configureObject ) {
                     controller.haloHandler.create();
 
                 }
+
+            }
+
+            return this;
+
+        },
+
+        setBackgroundColor: function ( color ) {
+
+            controller.configure.color.background = color;
+
+            if ( controller.initialized === true ) {
+
+                controller.scene.background = new THREE.Color( color );
 
             }
 

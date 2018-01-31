@@ -42,6 +42,63 @@ var Utils = ( function () {
 
     }
 
+    function getElementViewTop ( element ){
+
+        var actualTop = element.offsetTop;
+        var current = element.offsetParent;
+
+        while ( current !== null ) {
+
+            actualTop += current.offsetTop;
+            current = current.offsetParent;
+
+        }
+
+        var elementScrollTop;
+
+        if ( document.compatMode === "BackCompat" ) {
+
+            elementScrollTop = document.body.scrollTop;
+
+        } else {
+
+            elementScrollTop = document.documentElement.scrollTop;
+
+        }
+
+        return actualTop - elementScrollTop;
+
+    }
+
+    function getElementViewLeft ( element ) {
+
+        var actualLeft = element.offsetLeft;
+        var current = element.offsetParent;
+
+        while ( current !== null ) {
+
+            actualLeft += current.offsetLeft;
+            current = current.offsetParent;
+
+        }
+
+        var elementScrollLeft;
+
+        if ( document.compatMode === "BackCompat" ) {
+
+            elementScrollLeft = document.body.scrollLeft;
+
+        } else {
+
+            elementScrollLeft = document.documentElement.scrollLeft;
+
+        }
+
+        return actualLeft - elementScrollLeft;
+
+    }
+
+
     return {
 
         wrap: function ( value, min, rangeSize ) {
@@ -172,7 +229,11 @@ var Utils = ( function () {
 
             }
 
-        }
+        },
+
+        getElementViewTop: getElementViewTop,
+
+        getElementViewLeft: getElementViewLeft
 
     };
 

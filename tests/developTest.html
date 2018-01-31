@@ -28,6 +28,8 @@
 </head>
 <body>
 
+<div style="height: 60%; width: 100%; float: left"></div>
+
 <div id="globalArea"></div>
 
 <script>
@@ -40,14 +42,17 @@
     var container = document.getElementById("globalArea");
 
     var controller = new GIO.Controller(container);
+    controller.addData(inputData);
 
     controller.init();
 
-    setTimeout(addData, 10000);
+//    controller.setBackgroundColor("#00FFFF");
 
-    function addData() {
-        controller.addData(inputData);
-    }
+//    setTimeout(addData, 10000);
+//
+//    function addData() {
+//        controller.addData(inputData);
+//    }
 
 </script>
 

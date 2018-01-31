@@ -1,0 +1,43 @@
+#documentArea {
+    height: 100%;
+    padding-top: 60px;
+    box-sizing: border-box;
+}
+
+aside {
+
+    width: 200px;
+    height: 100%;
+    background-color: red;
+    float: left;
+}
+
+aside > div {
+
+    height: 50px;
+    border-bottom: 1px solid #000;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+aside > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: none;
+}
+
+aside > ul > li {
+    border-bottom: 1px solid #000;
+    box-sizing: border-box;
+    height: 20px;
+    cursor: pointer;
+}
+
+main {
+
+    overflow: hidden;
+    height: 100%;
+    background-color: green;
+}

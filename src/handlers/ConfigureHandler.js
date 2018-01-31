@@ -5,7 +5,7 @@
 import { StyleFactory } from "../style/StyleFactory.js";
 
 /**
- * This handler handle all configure related task for controller.
+ * This handlers handle all configure related task for controller.
  */
 
 function ConfigureHandler ( controller ) {

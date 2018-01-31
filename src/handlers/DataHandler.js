@@ -7,7 +7,7 @@ import { LiveLoader } from "../dataLoaders/LiveLoader.js";
 import { AsyncLoader } from "../dataLoaders/AsyncLoader.js";
 
 /**
- * This handler handle all data load related task for controller.
+ * This handlers handle all data load related task for controller.
  */
 
 function DataHandler ( controller ) {

@@ -10,10 +10,6 @@
 
 function Configure () {
 
-    this.minDataValue = 800000;
-
-    this.maxDataValue = 5000000;
-
     this.control =  {
 
         // use to control whether show stats panel
@@ -66,7 +62,11 @@ function Configure () {
 
         // use to set halo color
 
-        halo: 0xffffff
+        halo: 0xffffff,
+
+        // use to set the background color of the scene
+
+        background: null
 
     };
 

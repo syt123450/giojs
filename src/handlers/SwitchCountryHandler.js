@@ -7,7 +7,7 @@ import { CountryData } from "../countryInfo/CountryData.js";
 import { Utils } from "../utils/Utils.js";
 
 /**
- * This handler handle the switch of the clicked country.
+ * This handlers handle the switch of the clicked country.
  */
 
 function SwitchCountryHandler ( controller ) {

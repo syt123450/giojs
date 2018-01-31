@@ -8,6 +8,8 @@ var GIO;
 
             var controller;
 
+            var colorPickerHandlerDict = {};
+
             function registerListeners()
             {
 
@@ -95,6 +97,34 @@ var GIO;
                     }
                 });
 
+
+                // register color picker handlers
+
+                colorPickerHandlerDict["ctlSurfaceColor"] = (function(color){
+                    controller.setSurfaceColor(color);
+                });
+
+                colorPickerHandlerDict["ctlSelectedColor"] = (function(color){
+                    controller.setSelectedColor(color);
+                });
+
+                colorPickerHandlerDict["ctlInputLineColor"] = (function(color){
+                    controller.setImportColor(color);
+                });
+
+                colorPickerHandlerDict["ctlOutputLineColor"] = (function(color){
+                    controller.setExportColor(color);
+                });
+
+                colorPickerHandlerDict["ctlHaloColor"] = (function(color){
+                    controller.setHaloColor(color);
+                });
+
+                colorPickerHandlerDict["ctlBackgroundColor"] = (function(color){
+                    controller.setBackgroundColor(color);
+                });
+
+
             }
 
             function initilize()
@@ -132,10 +162,30 @@ var GIO;
                 
             }
 
+            // a listener in charge of all color pickers' events
+
+            function colorPickerListener(picker) {
+                
+                // 'jscolor' instance can be used as a string
+
+                var jscolor = picker.jscolor;
+
+                var id = $(picker).attr("id");
+
+                var handler = colorPickerHandlerDict[id];
+
+                var formattedColor = GIO.Website.Util.formatColor('#' + jscolor);
+
+                handler(formattedColor);
+
+                console.log('#' + jscolor);
+            }
+
             // expose
             Playground.controller = controller;
             Playground.initilize = initilize;
             Playground.registerListeners = registerListeners;
+            Playground.colorPickerListener = colorPickerListener;
 
         })(Website.Playground || (Website.Playground = {}));
 
@@ -152,7 +202,5 @@ $(function() {
     GIO.Website.Playground.registerListeners();
 
 });
-
-
 
 

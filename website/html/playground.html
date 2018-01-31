@@ -13,7 +13,9 @@
     <script src="../assets/jsLib/jscolor.js"></script>
     <script src="../../build/Gio.js"></script>
 
+    <script src="../js/websiteUtil.js"></script>
     <script src="../js/playground.js"></script>
+
 
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/playground.css">
@@ -136,37 +138,37 @@
         <li class="ctl-panel-item">
             <span class="ctl-panel-item-name">Surface</span>
             <div class="ctl-panel-item-content">
-                <button class="jscolor {valueElement:null,value:'66ccff'}" style="border:2px solid black">Pick</button>
+                <input class="jscolor ctl-color-picker" onchange="GIO.Website.Playground.colorPickerListener(this)" id="ctlSurfaceColor" value="ffffff">
             </div>
         </li>
         <li class="ctl-panel-item">
             <span class="ctl-panel-item-name">Selected Country</span>
             <div class="ctl-panel-item-content">
-                <button class="jscolor {valueElement:null,value:'ffffff'}" style="border:2px solid black">Pick</button>
+                <input class="jscolor ctl-color-picker" onchange="GIO.Website.Playground.colorPickerListener(this)" id="ctlSelectedColor" value="ffffff">
             </div>
         </li>
         <li class="ctl-panel-item">
             <span class="ctl-panel-item-name">Input Line</span>
             <div class="ctl-panel-item-content">
-                <button class="jscolor {valueElement:null,value:'ffffff'}" style="border:2px solid black">Pick</button>
+                <input class="jscolor ctl-color-picker" onchange="GIO.Website.Playground.colorPickerListener(this)" id="ctlInputLineColor" value="ffffff">
             </div>
         </li>
         <li class="ctl-panel-item">
             <span class="ctl-panel-item-name">Output Line</span>
             <div class="ctl-panel-item-content">
-                <button class="jscolor {valueElement:null,value:'ffffff'}" style="border:2px solid black">Pick</button>
+                <input class="jscolor ctl-color-picker" onchange="GIO.Website.Playground.colorPickerListener(this)" id="ctlOutputLineColor" value="ffffff">
             </div>
         </li>
         <li class="ctl-panel-item">
             <span class="ctl-panel-item-name">Halo</span>
             <div class="ctl-panel-item-content">
-                <button class="jscolor {valueElement:null,value:'ffffff'}" style="border:2px solid black">Pick</button>
+                <input class="jscolor ctl-color-picker" onchange="GIO.Website.Playground.colorPickerListener(this)" id="ctlHaloColor" value="ffffff">
             </div>
         </li>
         <li class="ctl-panel-item">
             <span class="ctl-panel-item-name">Background</span>
             <div class="ctl-panel-item-content">
-                <button class="jscolor {valueElement:null,value:'ffffff'}" style="border:2px solid black">Pick</button>
+                <input class="jscolor ctl-color-picker" onchange="GIO.Website.Playground.colorPickerListener(this)" id="ctlBackgroundColor" value="ffffff">
             </div>
         </li>
 

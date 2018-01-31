@@ -19,11 +19,23 @@
     <link rel="stylesheet" href="../css/playground.css">
     <style>
 
+        #wrapper {
+
+            height: 100%;
+            width: 100%;
+            padding: 60px 0 0 0;
+            box-sizing: border-box;
+
+        }
+
         #globalArea {
+
             height: 100%;
             width: 100%;
             margin: 0;
             padding: 0;
+            position: relative;
+
         }
 
     </style>
@@ -80,7 +92,11 @@
 
 </nav>
 
-<div id="globalArea"></div>
+<div id="wrapper">
+    <div id="globalArea"></div>
+</div>
+
+
 
 <div id="controlPanel">
     

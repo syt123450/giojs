@@ -52,8 +52,30 @@ var GIO;
 
             }
 
+            // transform brightness from user's input (0 - 1) to (min - max)
+
+            function transformBrightness ( brightness, min, max ) {
+
+                if ( brightness > 1 ) {
+
+                    return max;
+
+                }
+
+                if ( brightness < 0 ) {
+
+                    return min;
+
+                }
+
+                return Math.floor( min + ( max - min ) * brightness );
+
+            }
+
             // expose
+            
             Util.formatColor = formatColor;
+            Util.transformBrightness = transformBrightness;
             
         })(Website.Util || (Website.Util = {}));
 

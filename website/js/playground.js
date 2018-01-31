@@ -10,6 +10,8 @@ var GIO;
 
             var colorPickerHandlerDict = {};
 
+            var sliderHandlerDict = {};
+
             function registerListeners()
             {
 
@@ -97,6 +99,14 @@ var GIO;
                     }
                 });
 
+                // register slider event listener
+
+                $(document).on("input", ".ctl-slider", function(){
+
+                    sliderListener(this);
+
+                });
+
 
                 // register color picker handlers
 
@@ -122,6 +132,21 @@ var GIO;
 
                 colorPickerHandlerDict["ctlBackgroundColor"] = (function(color){
                     controller.setBackgroundColor(color);
+                });
+
+
+                // register brightness slider handlers
+
+                sliderHandlerDict["ctlOceanBrightness"] =  (function(sliderValue){
+                    controller.adjustOceanBrightness(sliderValue);
+                });
+
+                sliderHandlerDict["ctlActiveBrightness"] =  (function(sliderValue){
+                    controller.adjustMentionedBrightness(sliderValue);
+                });
+
+                sliderHandlerDict["ctlRelatedBrightness"] =  (function(sliderValue){
+                    controller.adjustRelatedBrightness(sliderValue);
                 });
 
 
@@ -181,7 +206,28 @@ var GIO;
                 console.log('#' + jscolor);
             }
 
+            // a listener responses when slider value changes 
+
+            function sliderListener(slider) {
+
+
+                // TODO: the defined ranges should be reachable in controller
+
+                var sliderValue = slider.value / 100;
+
+                var id = $(slider).attr("id");
+
+                var handler = sliderHandlerDict[id];
+
+                handler(sliderValue);
+
+                // TODO: try to make update unecessary
+                controller.update();
+
+            }
+
             // expose
+
             Playground.controller = controller;
             Playground.initilize = initilize;
             Playground.registerListeners = registerListeners;

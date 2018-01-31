@@ -3,3 +3,5 @@ node_modules/
 package-lock.json
 build/
 coverage/
+test/build
+.DS_Store

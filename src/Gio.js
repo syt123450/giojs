@@ -296,6 +296,12 @@ function Controller ( container, configureObject ) {
 
             controller.configure.brightness.related = brightness;
 
+            if ( controller.initialized === true ) {
+
+                controller.surfaceHandler.update();
+
+            }
+
             return this;
 
         },
@@ -304,6 +310,12 @@ function Controller ( container, configureObject ) {
 
             controller.configure.brightness.ocean = brightness;
 
+            if ( controller.initialized === true ) {
+
+                controller.surfaceHandler.update();
+
+            }
+
             return this;
 
         },
@@ -311,6 +323,12 @@ function Controller ( container, configureObject ) {
         adjustMentionedBrightness: function ( brightness ) {
 
             controller.configure.brightness.mentioned = brightness;
+
+            if ( controller.initialized === true ) {
+
+                controller.surfaceHandler.update();
+
+            }
 
             return this;
 

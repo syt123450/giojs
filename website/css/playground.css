@@ -1,7 +1,7 @@
 #controlPanel
 {
 	position: fixed;
-	width: 280px;
+	width: 320px;
 	top: 60px;
 	right: 0;
 	color: #eee;
@@ -28,7 +28,7 @@
 {
 	float: left;
 	clear: both;
-	width: 120px;
+	width: 150px;
 }
 
 #controlPanel .ctl-panel-item-content

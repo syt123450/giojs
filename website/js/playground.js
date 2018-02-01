@@ -209,10 +209,7 @@ var GIO;
             // a listener responses when slider value changes 
 
             function sliderListener(slider) {
-
-
-                // TODO: the defined ranges should be reachable in controller
-
+                
                 var sliderValue = slider.value / 100;
 
                 var id = $(slider).attr("id");
@@ -220,9 +217,6 @@ var GIO;
                 var handler = sliderHandlerDict[id];
 
                 handler(sliderValue);
-
-                // TODO: try to make update unecessary
-                controller.update();
 
             }
 

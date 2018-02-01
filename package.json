@@ -20,8 +20,7 @@
     "uglify-js": "^2.4.11"
   },
   "scripts": {
-    "test": "rollup -c && mocha",
-    "unit-test": "mocha --recursive --require babel-core/register",
+    "test": "mocha --recursive --require babel-core/register",
     "coverage-test": "istanbul cover _mocha",
     "build-beautify": "rollup -c",
     "build-uglify": "rollup -c && uglifyjs build/Gio.js -cm --preamble \"// https://github.com/syt123450/Gio.js/blob/master/LICENSE\" --output build/Gio.min.js"

@@ -12,6 +12,7 @@
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
+    "chai": "^4.1.2",
     "coveralls": "^3.0.0",
     "istanbul": "^0.4.5",
     "mocha": "^4.1.0",
@@ -20,8 +21,7 @@
   },
   "scripts": {
     "test": "rollup -c && mocha",
-    "compile": "babel --presets es2015 -d test/build/utils src/utils",
-    "unit-test": "npm run compile && mocha --recursive --compilers js:babel-core/register ./test/unit",
+    "unit-test": "mocha --recursive --require babel-core/register",
     "coverage-test": "istanbul cover _mocha",
     "build-beautify": "rollup -c",
     "build-uglify": "rollup -c && uglifyjs build/Gio.js -cm --preamble \"// https://github.com/syt123450/Gio.js/blob/master/LICENSE\" --output build/Gio.min.js"

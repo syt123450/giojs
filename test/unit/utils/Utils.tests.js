@@ -1,4 +1,4 @@
-import { Utils } from '../../../../src/utils/Utils';
+import { Utils } from '../../../src/utils/Utils';
 import assert from 'assert';
 import chai from "chai"
 

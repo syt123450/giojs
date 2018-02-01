@@ -106,7 +106,7 @@ var ObjectUtils = ( function () {
     function createLoading ( controller ) {
 
         var loadingIcon = document.createElement( "img" );
-        loadingIcon.src = controller.configure.loadingSrc;
+        loadingIcon.src = controller.configure.resource.loading;
         loadingIcon.style.position = "absolute";
         loadingIcon.style.left = "47%";
         loadingIcon.style.top = "40%";

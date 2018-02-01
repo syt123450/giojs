@@ -136,11 +136,7 @@ function SurfaceHandler ( controller ) {
 
     function update () {
 
-        if ( controller.earthSurfaceShader !== null ) {
-
-            controller.earthSurfaceShader.update();
-
-        }
+        controller.earthSurfaceShader.update();
 
         highlightCountry( controller.selectedCountry.colorCode );
 

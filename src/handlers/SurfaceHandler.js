@@ -32,6 +32,8 @@ function SurfaceHandler ( controller ) {
         controller.earthSurfaceShader.uniforms[ 'outlineLevel' ].value = 0;
         controller.earthSurfaceShader.uniforms[ 'flag' ].value = 0;
 
+        controller.rotating.remove( controller.visualizationMesh );
+
         controller.earthSurfaceShader.lookupTexture.needsUpdate = true;
 
         controller.renderer.autoClear = false;
@@ -66,6 +68,8 @@ function SurfaceHandler ( controller ) {
 
         controller.earthSurfaceShader.uniforms[ 'outlineLevel' ].value = 1;
         controller.earthSurfaceShader.uniforms[ 'flag' ].value = 1;
+
+        controller.rotating.add( controller.visualizationMesh );
 
         highlightCountry( controller.selectedCountry.colorCode );
 

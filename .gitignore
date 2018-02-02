@@ -1,7 +1,7 @@
 .idea
 node_modules/
 package-lock.json
-build/
+#build/
 coverage/
 test/build
 .DS_Store

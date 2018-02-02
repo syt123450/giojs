@@ -3,7 +3,7 @@
  */
 
 import { ConfigureHandler } from '../../../src/handlers/ConfigureHandler.js';
-import chai from "chai"
+import chai from "chai";
 
 describe( 'Test configureJSON', function () {
 
@@ -102,14 +102,23 @@ describe( 'Test configureJSON', function () {
         }
 
     };
-
+    
     var configureHandler = new ConfigureHandler( controller );
     configureHandler.configureJSON( configureParameter );
 
     it( 'should configure json into controller', function () {
-
+        
         chai.expect( controller.configure ).to.deep.equal( expectConfigure );
 
     } );
-
+    
+    it( 'configureConstructor() should be called ', function () {
+        configureHandler.configureConstructor();
+    } );
+    
+    it( 'configureStyle() should be called ', function () {
+        configureHandler.configureStyle('styleName');
+    } );
+    
+    
 });

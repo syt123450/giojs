@@ -5,12 +5,11 @@
 
 #introduce {
 
-    min-height: 90%;
+    min-height: 95%;
     width: 100%;
-    background-color: #fff;
     box-sizing: border-box;
-    border-bottom: 1px solid #000;
     padding-top: 60px;
+    background: linear-gradient(to top right, white, #d0f9ff);
 
 }
 
@@ -36,7 +35,8 @@
 
     margin-top: 40px;
     width: 100%;
-    font-size: 40px;
+    font-size: 35px;
+    font-family: DINAlternateBold, serif;
 
 }
 
@@ -57,7 +57,6 @@
     width: 150px;
     height: 45px;
     line-height: 45px;
-    border: 1px solid #000;
     border-radius: 22px;
     cursor: pointer;
 }
@@ -77,11 +76,25 @@
     float: left;
 }
 
+#toStart {
+
+    color: white;
+    background: linear-gradient(to right, #0071bc, #29abe2);
+}
+
+#toPlayground {
+    color: #4d4d4d;
+    border: 1px solid #29A6DD;
+}
+
+#toGithub {
+    background-color: #f2f2f2;
+}
+
 #explanation {
 
     width: 100%;
     height: 200px;
-    background-color: red;
     float: left;
 }
 
@@ -90,21 +103,22 @@
     width: 33%;
     height: 100%;
     float: left;
-    border-right: 1px solid #000;
 }
 
 #explanation > div > p {
 
     text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #0071bc;
 }
 
 #start {
 
     height: 90%;
     width: 100%;
-    background-color: #fff;
+    background-color: #e6e6e6;
     box-sizing: border-box;
-    border-bottom: 1px solid #000;
     padding-top: 60px;
     padding-bottom: 60px;
 }
@@ -127,6 +141,7 @@
     line-height: 50px;
     font-size: 30px;
     margin-bottom: 20px;
+    font-family: DINAlternateBold, serif;
 }
 
 #download {
@@ -135,7 +150,6 @@
     width: 100%;
     background-color: #fff;
     box-sizing: border-box;
-    border-bottom: 1px solid #000;
     padding-top: 60px;
     padding-bottom: 60px;
 }
@@ -159,6 +173,7 @@
     line-height: 50px;
     font-size: 30px;
     margin-bottom: 20px;
+    font-family: DINAlternateBold, serif;
 
 }
 
@@ -169,27 +184,31 @@
     font-size: 20px;
     margin-top: 20px;
     margin-bottom: 10px;
+    font-weight: bold;
 }
 
 #download > div > div > div.code {
 
     width: 100%;
     height: 35px;
+    color: #0071bc;
     line-height: 35px;
     border: 1px solid #000;
     border-radius: 5px;
     box-sizing: border-box;
     padding-left: 15px;
-    background-color: #f2f2f2;
+    background-color: #e6e6e6;
 }
 
 footer {
 
-    height: 80px;
+    height: 50px;
     width: 100%;
-    font-size: 18px;
-    line-height: 80px;
+    font-size: 16px;
+    color: #fff;
+    line-height: 50px;
     box-sizing: border-box;
-    background-color: #fff;
+    background-color: #333;
     text-align: center;
+    clear: both;
 }

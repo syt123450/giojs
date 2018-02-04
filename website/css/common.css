@@ -1,3 +1,13 @@
+@font-face {
+    font-family: DINLightRegular;
+    src: url('../fonts/DINLightRegular.otf')
+}
+
+@font-face {
+    font-family: "DINAlternateBold";
+    src: url('../fonts/DINAlternateBold.otf')
+}
+
 html, body {
     margin: 0;
     padding: 0;
@@ -14,7 +24,7 @@ p {
 }
 
 body {
-    font-family: Georgia, serif;
+    font-family: DINLightRegular, serif;
 }
 
 body > nav {
@@ -22,11 +32,11 @@ body > nav {
     top: 0;
     height: 60px;
     width: 100%;
-    font-family: Georgia, serif;
+    font-family: DINLightRegular, serif;
     line-height: 60px;
     text-align: center;
-    border-bottom: 1px solid #03d6d7;
-    box-shadow: 0 2px 2px -2px #03d6d7;
+    border-bottom: 1px solid #0071bc;
+    box-shadow: 0 2px 2px -2px #0071bc;
     box-sizing: border-box;
     position: fixed;
     background-color: #fff;
@@ -57,6 +67,9 @@ body > nav > div {
     line-height: 60px;
     float: left;
     margin-left: 20px;
+    font-family: DINAlternateBold, serif;
+    font-weight: bold;
+    color: #4d4d4d;
 
 }
 
@@ -89,29 +102,29 @@ body > nav  > div > ul > li > a {
     float: left;
     height: 100%;
     width: 100%;
-    color: #758eb8;
+    color: #808080;
     -webkit-transition-duration: 0.3s;
     transition-duration: 0.3s;
 }
 
 body > nav > div > ul > li:hover {
 
-    border-bottom: 3px solid #40ddff;
+    border-bottom: 3px solid #0071bc;
 }
 
 body > nav > div > ul > li:hover > a {
-    color: #40ddff;
+    color: #0071bc;
 }
 
 .now {
 
-    border-bottom: 3px solid #40ddff;
+    border-bottom: 3px solid #0071bc;
 
 }
 
 .now > a {
 
-    color: #40ddff;
+    color: #0071bc;
 
 }
 
@@ -151,6 +164,19 @@ body > nav > div > ul > li:hover > a {
 
 .github-corner:hover .octo-arm {
     animation: octocat-wave 560ms ease-in-out;
+}
+
+.github-corner svg {
+
+    height: 100px;
+    width: 100px;
+    fill:#29abe2;
+    color:#fff;
+    position: absolute;
+    top: 0;
+    border: 0;
+    right: 0;
+
 }
 
 @keyframes octocat-wave {

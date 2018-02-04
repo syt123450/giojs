@@ -1,23 +1,33 @@
+body {
+    background: linear-gradient(to top right, white, #d0f9ff);
+}
+
 #documentArea {
-    height: 100%;
-    padding-top: 60px;
+    height: 90%;
+    padding-top: 80px;
     box-sizing: border-box;
 }
 
 aside {
 
-    width: 200px;
+    width: 250px;
     height: 100%;
-    background-color: red;
+    color: #fff;
+    background-color: #29abe2;
     float: left;
+    overflow: auto;
 }
 
 aside > div {
 
-    height: 50px;
-    border-bottom: 1px solid #000;
+    height: 35px;
+    line-height: 35px;
+    border-bottom: 1px solid #fff;
     box-sizing: border-box;
     cursor: pointer;
+    font-weight: bold;
+    font-size: 18px;
+    padding-left: 10px;
 }
 
 aside > ul {
@@ -29,15 +39,33 @@ aside > ul {
 }
 
 aside > ul > li {
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid #fff;
     box-sizing: border-box;
-    height: 20px;
+    height: 30px;
     cursor: pointer;
+    padding-left: 20px;
+    line-height: 30px;
 }
 
 main {
 
-    overflow: hidden;
+    /*overflow: hidden;*/
     height: 100%;
-    background-color: green;
+    background-color: #fff;
+    overflow: auto;
+}
+
+footer {
+
+    position: fixed;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+    font-size: 16px;
+    color: #fff;
+    line-height: 50px;
+    box-sizing: border-box;
+    background-color: #333;
+    text-align: center;
+    clear: both;
 }

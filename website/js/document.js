@@ -30,6 +30,16 @@ $(function() {
         $("#basic").slideToggle();
     });
 
+    $("#configureLable").click(function() {
+
+        if (selectedUl !== "#configure") {
+            $(selectedUl).slideUp();
+        }
+
+        selectedUl = "#configure";
+        $("#configure").slideToggle();
+    });
+
     $("#designLabel").click(function() {
 
         if (selectedUl !== "#design") {
@@ -40,6 +50,16 @@ $(function() {
         $("#design").slideToggle();
     });
 
+    $("#colorLabel").click(function() {
+
+        if (selectedUl !== "#color") {
+            $(selectedUl).slideUp();
+        }
+
+        selectedUl = "#color";
+        $("#color").slideToggle();
+    });
+
     $("#dataLabel").click(function() {
 
         if (selectedUl !== "#data") {
@@ -48,6 +68,17 @@ $(function() {
 
         selectedUl = "#data";
         $("#data").slideToggle();
+    });
+
+    $("#callbackLabel").click(function() {
+
+        if (selectedUl !== "#callback") {
+            $(selectedUl).slideUp();
+        }
+
+        selectedUl = "#callback";
+        $("#callback").slideToggle();
+
     });
 
     $("#advancedLabel").click(function() {

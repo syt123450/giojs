@@ -29,6 +29,25 @@ aside > div {
     font-weight: bold;
     font-size: 18px;
     padding-left: 10px;
+    position: relative;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}
+
+aside > div:hover {
+
+    color: #4d4d4d;
+    background-color: #96d5ef;
+
+}
+
+aside > div > img {
+
+    position: absolute;
+    right: 10px;
+    height: 20px;
+    margin-top: 6px;
+
 }
 
 aside > ul {
@@ -46,11 +65,27 @@ aside > ul > li {
     cursor: pointer;
     padding-left: 20px;
     line-height: 30px;
+    color: #fff;
+    background-color: #29abe2;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}
+
+aside > ul > li:hover {
+
+    color: #4d4d4d;
+    background-color: #96d5ef;
+}
+
+.nowLabel {
+
+    color: #4d4d4d;
+    background-color: #96d5ef;
+
 }
 
 main {
 
-    /*overflow: hidden;*/
     height: 100%;
     background-color: #fff;
     overflow: auto;
@@ -59,6 +94,7 @@ main {
 main > div {
 
     display: none;
+    overflow: auto;
 
 }
 

@@ -1,7 +1,20 @@
-var selectedNav;
-var selectedArea;
+var selectedLabel = null;
+var selectedChapter = null;
+var selectedArea = "#helloDocument";
+var selectedSectionNav = null;
 
 $(function() {
+
+    jQuery.fn.rotate = function(degrees) {
+
+        $(this).css({'-webkit-transform' : 'rotate('+ degrees +'deg)',
+            '-moz-transform' : 'rotate('+ degrees +'deg)',
+            '-ms-transform' : 'rotate('+ degrees +'deg)',
+            'transform' : 'rotate('+ degrees +'deg)'});
+
+        return $(this);
+
+    };
 
     $("#more").click(function() {
         $("#nav-collapse").slideToggle();
@@ -12,6 +25,8 @@ $(function() {
     });
 
     bindDocumentEvent();
+
+    $("#helloDocument").show();
 });
 
 function bindDocumentEvent() {
@@ -115,18 +130,55 @@ function bindChapterHelper(chapterLabel, chapterSelection, chapterGuideArea) {
 
     $(chapterLabel).click(function() {
 
-        if (selectedNav !== chapterSelection) {
-            $(selectedNav).slideUp();
+        if (selectedLabel !== chapterLabel) {
+
+            if (selectedLabel !== null) {
+
+                $(selectedLabel).removeClass("nowLabel");
+                console.log(11);
+                $(selectedLabel + " img").rotate(0);
+            }
+
+            selectedLabel = chapterLabel;
+
+            $(selectedLabel).addClass("nowLabel");
+            $(selectedLabel + " img").rotate(90);
+
+        } else {
+
+            $(selectedLabel + " img").rotate(0);
+            $(selectedLabel).removeClass("nowLabel");
+
+            selectedLabel = null;
+
         }
 
-        selectedNav = chapterSelection;
+        if (selectedChapter !== chapterSelection) {
 
-        $(chapterSelection).slideToggle();
+            if (selectedChapter !== null) {
+                $(selectedChapter).slideUp();
+            }
 
-        $(selectedArea).hide();
+            selectedChapter = chapterSelection;
 
-        selectedArea = chapterGuideArea;
-        $(selectedArea).show();
+            $(chapterSelection).slideDown();
+
+            $(selectedArea).hide();
+            selectedArea = chapterGuideArea;
+            $(selectedArea).show();
+
+        } else {
+
+            selectedChapter = null;
+
+            $(chapterSelection).slideUp();
+
+            $(selectedArea).hide();
+            selectedArea = "#helloDocument";
+            selectedSectionNav = null;
+            $(selectedArea).show();
+        }
+
     });
 
 }
@@ -135,9 +187,20 @@ function bindSectionHelper(sectionNav, sectionArea) {
 
     $(sectionNav).click(function() {
 
-        $(selectedArea).hide();
-        selectedArea = sectionArea;
-        $(selectedArea).show();
+        if (selectedSectionNav !== sectionNav) {
+
+            if (selectedSectionNav !== null) {
+                $(selectedSectionNav).removeClass("nowLabel");
+            }
+
+            selectedSectionNav = sectionNav;
+            $(selectedSectionNav).addClass("nowLabel");
+
+            $(selectedArea).hide();
+            selectedArea = sectionArea;
+            $(selectedArea).show();
+
+        }
 
     });
 }

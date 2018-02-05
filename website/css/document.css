@@ -22,6 +22,7 @@ aside > div {
 
     height: 35px;
     line-height: 35px;
+    border-top: 1px solid #fff;
     border-bottom: 1px solid #fff;
     box-sizing: border-box;
     cursor: pointer;
@@ -39,7 +40,7 @@ aside > ul {
 }
 
 aside > ul > li {
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid #d4d4d4;
     box-sizing: border-box;
     height: 30px;
     cursor: pointer;
@@ -53,6 +54,12 @@ main {
     height: 100%;
     background-color: #fff;
     overflow: auto;
+}
+
+main > div {
+
+    display: none;
+
 }
 
 footer {

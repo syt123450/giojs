@@ -113,6 +113,8 @@ body > nav > div > ul > li:hover {
 }
 
 body > nav > div > ul > li:hover > a {
+
+    font-weight: bold;
     color: #0071bc;
 }
 
@@ -125,6 +127,7 @@ body > nav > div > ul > li:hover > a {
 .now > a {
 
     color: #0071bc;
+    font-weight: bold;
 
 }
 

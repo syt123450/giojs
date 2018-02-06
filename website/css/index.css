@@ -173,6 +173,11 @@
     font-family: DINAlternateBold, serif;
 }
 
+#globeArea {
+    height: 100%;
+    width: 100%;
+}
+
 #download {
 
     height: 90%;
@@ -232,6 +237,7 @@
     box-sizing: border-box;
     padding-left: 15px;
     background-color: #e6e6e6;
+    font-family: AmericanTypewriterRegular, serif;
 }
 
 footer {
@@ -247,7 +253,7 @@ footer {
     clear: both;
 }
 
-@media (max-width: 976px) {
+@media (max-width: 995px) {
 
     #imgWrapper {
 
@@ -265,20 +271,31 @@ footer {
     #description {
 
         width: 100%;
+        min-height: 200px;
     }
 
     #description > p {
 
         margin-top: 10px;
         text-align: center;
+        font-size: 30px;
     }
 
     #explanation > div {
         width: 100%;
     }
 
+    #start {
+        height: 180%;
+    }
+
     #start > div > div {
         width: 100%;
+        height: 50%;
+    }
+
+    #start > div > div > header {
+        text-align: center;
     }
 
     #download > div > div {
@@ -298,15 +315,28 @@ footer {
     #download > div > div > header {
         text-align: center;
     }
+
+    #globeWrapper {
+        padding: 50px;
+    }
 }
 
 @media (max-width: 650px) {
 
-    #description > div > div {
+    #description > div > #button1, #description > div > #button2 {
+        width: 50%;
+        margin-bottom: 20px;
+        text-align: center;
+        float: left;
+    }
+
+    #description > div > #button3 {
+
         width: 100%;
         margin-bottom: 20px;
         text-align: center;
-        float: none;
+        float: left;
+
     }
 
     #description > div > div > div {
@@ -317,6 +347,23 @@ footer {
 
 }
 
-@media (max-width: 400px) {
+@media (max-width: 490px) {
+
+    #description > p {
+        font-size: 25px;
+    }
+
+    #description > div > div > div {
+        width: 100px;
+    }
+
+    #description > div > div > div > img {
+        display: none;
+    }
+
+    #description > div > div > div > p {
+        width: 100%;
+        text-align: center;
+    }
 
 }

@@ -1,23 +1,59 @@
+body {
+    background: linear-gradient(to top right, white, #d0f9ff);
+}
+
 #documentArea {
-    height: 100%;
-    padding-top: 60px;
+    height: 90%;
+    padding-top: 80px;
     box-sizing: border-box;
 }
 
 aside {
 
-    width: 200px;
+    width: 250px;
     height: 100%;
-    background-color: red;
+    color: #fff;
+    background-color: #29abe2;
     float: left;
+    overflow: auto;
 }
 
 aside > div {
 
-    height: 50px;
-    border-bottom: 1px solid #000;
+    height: 35px;
+    line-height: 35px;
+    border-bottom: 1px solid #fff;
     box-sizing: border-box;
     cursor: pointer;
+    font-weight: bold;
+    font-size: 18px;
+    padding-left: 10px;
+    position: relative;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}
+
+aside > div:hover {
+
+    color: #4d4d4d;
+    background-color: #96d5ef;
+
+}
+
+aside > div.hoverDisable:hover {
+
+    color: #fff;
+    background-color: #29abe2;
+
+}
+
+aside > div > img {
+
+    position: absolute;
+    right: 10px;
+    height: 20px;
+    margin-top: 6px;
+
 }
 
 aside > ul {
@@ -26,18 +62,228 @@ aside > ul {
     padding: 0;
     box-sizing: border-box;
     display: none;
+    border-bottom: 1px solid #fff;
 }
 
 aside > ul > li {
-    border-bottom: 1px solid #000;
+
     box-sizing: border-box;
-    height: 20px;
+    height: 30px;
     cursor: pointer;
+    padding-left: 20px;
+    line-height: 30px;
+    color: #fff;
+    background-color: #29abe2;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}
+
+aside > ul > li:hover {
+
+    color: #4d4d4d;
+    background-color: #96d5ef;
+}
+
+.nowLabel {
+
+    color: #4d4d4d;
+    background-color: #96d5ef;
+
 }
 
 main {
 
-    overflow: hidden;
     height: 100%;
-    background-color: green;
+    background-color: #fff;
+    overflow: auto;
+}
+
+main > div {
+
+    display: none;
+    overflow: auto;
+    text-align: center;
+
+}
+
+footer {
+
+    position: fixed;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+    font-size: 16px;
+    color: #fff;
+    line-height: 50px;
+    box-sizing: border-box;
+    background-color: #333;
+    text-align: center;
+    clear: both;
+}
+
+#smallGuide {
+
+    display: none;
+    position: fixed;
+    top: 90px;
+    left: 35px;
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+    text-align: center;
+    background-color: #fff;
+    z-index: 10;
+    font-size: 30px;
+    color: #0071bc;
+    cursor: pointer;
+
+}
+
+#smallGuide:hover {
+
+    background-color: #eeeeee;
+}
+
+#hideNav {
+
+    position: fixed;
+    top: 0;
+    left: -250px;
+    z-index: 100;
+    width: 250px;
+    height: 100%;
+    color: #fff;
+    background-color: #29abe2;
+    float: left;
+    overflow: auto;
+}
+
+#hideNav > #ContentLogo {
+
+    width: 100px;
+    margin: 20px 0 20px 75px;
+
+}
+
+#hideNav > header {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#hideNav > div {
+
+    height: 35px;
+    line-height: 35px;
+    border-bottom: 1px solid #fff;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 18px;
+    padding-left: 10px;
+    position: relative;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}
+
+#startLabelS {
+    border-top: 1px solid #fff;
+}
+
+#hideNav > div:hover {
+
+    color: #4d4d4d;
+    background-color: #96d5ef;
+
+}
+
+#hideNav > div > img {
+
+    position: absolute;
+    right: 10px;
+    height: 20px;
+    margin-top: 6px;
+
+}
+
+#hideNav > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: none;
+    border-bottom: 1px solid #fff;
+}
+
+#hideNav > ul > li {
+
+    box-sizing: border-box;
+    height: 30px;
+    cursor: pointer;
+    padding-left: 20px;
+    line-height: 30px;
+    color: #fff;
+    background-color: #29abe2;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}
+
+#hideNav > ul > li:hover {
+
+    color: #4d4d4d;
+    background-color: #96d5ef;
+}
+
+#hideNav > ul > li.nowLabel {
+
+    color: #4d4d4d;
+    background-color: #96d5ef;
+}
+
+#hideNav > #close {
+
+    width: 40px;
+    margin-left: 105px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}
+
+#curtain {
+
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    background-color: #000;
+    opacity: 0.2;
+    top: 0;
+    left: 0;
+    display: none;
+
+}
+
+@media (max-width: 995px) {
+
+    aside {
+        width: 200px;
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    aside {
+        display: none;
+    }
+
+    #smallGuide {
+        display: block;
+    }
 }

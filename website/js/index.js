@@ -18,6 +18,9 @@ $(function () {
    });
 
    $("#downloadNav").click(function () {
+
+       $("#downloadNav").addClass("now");
+
        $('html, body').animate({
            scrollTop: $("#download").offset().top
        }, 2000);

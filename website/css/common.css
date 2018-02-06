@@ -131,26 +131,13 @@ body > nav > div > ul > li:hover > a {
 
 }
 
-#nav-collapse {
-    display: none;
-    margin: 0 1px;
-}
+#more {
 
-#nav-collapse ul {
-    margin: 0;
-}
-
-#nav-collapse li {
-    border-top: 1px solid #ddd;
-}
-
-#nav-collapse li a {
-    color: #000;
-}
-
-#more .nav-tabs {
-
-    margin-bottom: 0;
+    position: absolute;
+    top: 0;
+    right: 20px;
+    border-bottom: 0;
+    cursor: pointer;
 
 }
 
@@ -162,7 +149,31 @@ body > nav > div > ul > li:hover > a {
 }
 
 #more li a {
-    color: #000;
+
+    color: #0071bc;
+}
+
+#nav-collapse {
+    display: none;
+    margin: 0 1px;
+    background-color: #fff;
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+}
+
+#nav-collapse ul {
+    background-color: #fff;
+    margin: 0;
+}
+
+#nav-collapse li {
+
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+}
+
+#nav-collapse li a {
+    color: #808080;
 }
 
 .github-corner:hover .octo-arm {

@@ -17,7 +17,7 @@ export default {
         {
 
             format: 'umd',
-            file: 'build/Gio.umd.js',
+            file: 'build/Gio.module.js',
             name: "GIO-umd"
 
         }

@@ -2,8 +2,8 @@
  * @author syt123450 / https://github.com/syt123450
  */
 
-import { ConfigureHandler } from '../../../src/handlers/ConfigureHandler.js';
-import chai from "chai"
+// import { ConfigureHandler } from '../../../src/handlers/ConfigureHandler.js';
+// import chai from "chai"
 
 // describe( 'Test configureJSON', function () {
 //

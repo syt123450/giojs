@@ -158,7 +158,7 @@ describe('Test Utils.flattenCountryData()', function() {
 });
 
 describe('Test Utils.getElementViewTop()', function() {
-	it('Should ...', function() {
+	it('Should pass', function() {
         global.document = {
             compatMode: 'BackCompat',
             body: {
@@ -168,19 +168,19 @@ describe('Test Utils.getElementViewTop()', function() {
                 scrollTop: 20
             }
         };
-        
+
 		let element = {
             offsetTop: 10,
             offsetParent: {
             	offsetTop: 10,
-	            offsetParent: 20
+	            offsetParent: null
             },
 		};
-		
+
 		Utils.getElementViewTop(element);
 	});
-    
-    it('Should ...', function() {
+
+    it('Should pass', function() {
         global.document = {
             compatMode: '',
             body: {
@@ -190,21 +190,21 @@ describe('Test Utils.getElementViewTop()', function() {
                 scrollTop: 20
             }
         };
-        
+
         let element = {
             offsetTop: 10,
             offsetParent: {
                 offsetTop: 10,
-                offsetParent: 20
+                offsetParent: null
             },
         };
-        
+
         Utils.getElementViewTop(element);
     });
 });
 
 describe('Test Utils.getElementViewLeft()', function() {
-    it('Should ...', function() {
+    it('Should pass', function() {
         global.document = {
             compatMode: 'BackCompat',
             body: {
@@ -216,17 +216,17 @@ describe('Test Utils.getElementViewLeft()', function() {
         };
         
         let element = {
-            scrollLeft: 10,
+            offsetLeft: 10,
             offsetParent: {
-                scrollLeft: 10,
-                offsetParent: 20
+                offsetLeft: 10,
+                offsetParent: null
             },
         };
         
         Utils.getElementViewLeft(element);
     });
     
-    it('Should ...', function() {
+    it('Should pass', function() {
         global.document = {
             compatMode: '',
             body: {
@@ -238,10 +238,10 @@ describe('Test Utils.getElementViewLeft()', function() {
         };
         
         let element = {
-            scrollLeft: 10,
+            offsetLeft: 10,
             offsetParent: {
-                scrollLeft: 10,
-                offsetParent: 20
+                offsetLeft: 10,
+                offsetParent: null
             },
         };
         

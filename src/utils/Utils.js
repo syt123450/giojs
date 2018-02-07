@@ -46,12 +46,11 @@ var Utils = ( function () {
 
         var actualTop = element.offsetTop;
         var current = element.offsetParent;
-
-        while ( current !== null ) {
-
-            actualTop += current.offsetTop;
-            current = current.offsetParent;
-
+    
+        // while ( current !== null ) {
+        while ( current !== undefined ) {
+                actualTop += current.offsetTop;
+                current = current.offsetParent;
         }
 
         var elementScrollTop;
@@ -74,8 +73,9 @@ var Utils = ( function () {
 
         var actualLeft = element.offsetLeft;
         var current = element.offsetParent;
-
-        while ( current !== null ) {
+    
+        while ( current !== undefined ) {
+        // while ( current !== null ) {
 
             actualLeft += current.offsetLeft;
             current = current.offsetParent;
@@ -208,26 +208,15 @@ var Utils = ( function () {
         */
 
         flattenCountryData: function ( data, valueKey, definedMin, definedMax ) {
+            if ( data.length === 0 )
+                return;
 
-            if ( data.length === 0 ) return;
+            data.forEach( function ( country ) {
 
-            var replica = JSON.parse( JSON.stringify( data ) );
-
-            replica.sort( function ( a, b ) {
-
-                return a[ valueKey ] - b[ valueKey ];
+                var v = country[ valueKey ];
+                country[ valueKey ] = ( v - min ) * ( definedMax - definedMin ) / ( max - min ) + definedMin;
 
             } );
-
-            var min = replica[ 0 ][ valueKey ];
-            var max = replica[ replica.length - 1 ][ valueKey ];
-
-            for ( var i = 0; i < data.length; i ++ ) {
-
-                var v = data[ i ][ valueKey ];
-                data[ i ][ valueKey ] = ( v - min ) * ( definedMax - definedMin ) / ( max - min ) + definedMin;
-
-            }
 
         },
 

@@ -13,6 +13,13 @@ export default {
             file: 'build/Gio.js',
             name: "GIO"
 
+        },
+        {
+
+            format: 'umd',
+            file: 'build/Gio.module.js',
+            name: "GIO-umd"
+
         }
 
     ]

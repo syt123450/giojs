@@ -262,7 +262,7 @@ function Controller ( container, configureObject ) {
 
                 }
 
-                controller.container.appendChild(controller.stats.dom);
+                controller.container.appendChild( controller.stats.dom );
 
             }
 
@@ -276,7 +276,7 @@ function Controller ( container, configureObject ) {
 
             if ( controller.configure.control.stats === true && controller.stats !== null ) {
 
-                controller.container.removeChild(controller.stats.dom);
+                controller.container.removeChild( controller.stats.dom );
 
             }
 

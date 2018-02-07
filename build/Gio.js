@@ -545,21 +545,19 @@ var Utils = ( function () {
 
             var replica = JSON.parse( JSON.stringify( data ) );
 
-            replica.sort( function ( a, b ) {
+            var values = replica.map(function(countryData){
+                return countryData[valueKey];
+            });
 
-                return a[ valueKey ] - b[ valueKey ];
+            var min = Math.min.apply(null, values);
+            var max = Math.max.apply(null, values);
+
+            data.forEach( function ( country ) {
+
+                var v = country[ valueKey ];
+                country[ valueKey ] = ( v - min ) * ( definedMax - definedMin ) / ( max - min ) + definedMin;
 
             } );
-
-            var min = replica[ 0 ][ valueKey ];
-            var max = replica[ replica.length - 1 ][ valueKey ];
-
-            for ( var i = 0; i < data.length; i ++ ) {
-
-                var v = data[ i ][ valueKey ];
-                data[ i ][ valueKey ] = ( v - min ) * ( definedMax - definedMin ) / ( max - min ) + definedMin;
-
-            }
 
         },
 

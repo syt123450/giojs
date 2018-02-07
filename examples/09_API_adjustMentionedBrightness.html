@@ -33,6 +33,11 @@
     var controllerOriginal = new GIO.Controller( containerOriginal );
     var controllerChanged = new GIO.Controller( containerChanged );
 
+    // if you want to use adjustMentionedBrightness() API, you must set lightenMentioned(true), or mentioned country will be as usual country
+
+    controllerOriginal.lightenMentioned(true);
+    controllerChanged.lightenMentioned(true);
+
     // use the adjustMentionedBrightness() API to set the brightness of the mentioned countries, the brightness range is from 0 - 1
 
     controllerChanged.adjustMentionedBrightness( 1 );

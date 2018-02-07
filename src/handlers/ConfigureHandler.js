@@ -16,12 +16,6 @@ function ConfigureHandler ( controller ) {
 
         if ( configure instanceof Object ) {
 
-            if ( controller.configure.clickedDifferent === false ) {
-
-                controller.configure.clickedColor = controller.configure.surfaceColor;
-
-            }
-
             if ( configure.control !== undefined ) {
 
                 for ( var attribute in configure.control ) {

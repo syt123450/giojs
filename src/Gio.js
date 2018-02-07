@@ -262,7 +262,7 @@ function Controller ( container, configureObject ) {
 
                 }
 
-                controller.container.appendChild(controller.stats.dom);
+                controller.container.appendChild( controller.stats.dom );
 
             }
 
@@ -276,7 +276,7 @@ function Controller ( container, configureObject ) {
 
             if ( controller.configure.control.stats === true && controller.stats !== null ) {
 
-                controller.container.removeChild(controller.stats.dom);
+                controller.container.removeChild( controller.stats.dom );
 
             }
 
@@ -296,6 +296,12 @@ function Controller ( container, configureObject ) {
 
             controller.configure.brightness.related = brightness;
 
+            if ( controller.initialized === true ) {
+
+                controller.surfaceHandler.update();
+
+            }
+
             return this;
 
         },
@@ -304,6 +310,12 @@ function Controller ( container, configureObject ) {
 
             controller.configure.brightness.ocean = brightness;
 
+            if ( controller.initialized === true ) {
+
+                controller.surfaceHandler.update();
+
+            }
+
             return this;
 
         },
@@ -311,6 +323,12 @@ function Controller ( container, configureObject ) {
         adjustMentionedBrightness: function ( brightness ) {
 
             controller.configure.brightness.mentioned = brightness;
+
+            if ( controller.initialized === true ) {
+
+                controller.surfaceHandler.update();
+
+            }
 
             return this;
 

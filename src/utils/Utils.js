@@ -213,21 +213,29 @@ var Utils = ( function () {
 
             var replica = JSON.parse( JSON.stringify( data ) );
 
-            replica.sort( function ( a, b ) {
+            var min = data[ 0 ][ valueKey ];
+            var max = data[ 0 ][ valueKey ];
+            
+            data.forEach( function ( country ) {
 
-                return a[ valueKey ] - b[ valueKey ];
+                if (country[ valueKey ] < min) 
+                {
+                    min = country[ valueKey ];
+                }
+                else if (country[ valueKey ] > max) 
+                {
+                    max = country[ valueKey ];
+                }
 
             } );
 
-            var min = replica[ 0 ][ valueKey ];
-            var max = replica[ replica.length - 1 ][ valueKey ];
+            data.forEach( function ( country ) {
 
-            for ( var i = 0; i < data.length; i ++ ) {
+                var v = country[ valueKey ];
+                country[ valueKey ] = ( v - min ) * ( definedMax - definedMin ) / ( max - min ) + definedMin;
 
-                var v = data[ i ][ valueKey ];
-                data[ i ][ valueKey ] = ( v - min ) * ( definedMax - definedMin ) / ( max - min ) + definedMin;
+            } );
 
-            }
 
         },
 

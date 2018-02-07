@@ -545,21 +545,12 @@ var Utils = ( function () {
 
             var replica = JSON.parse( JSON.stringify( data ) );
 
-            var min = data[ 0 ][ valueKey ];
-            var max = data[ 0 ][ valueKey ];
-            
-            data.forEach( function ( country ) {
+            var values = replica.map(function(countryData){
+                return countryData[valueKey];
+            });
 
-                if (country[ valueKey ] < min) 
-                {
-                    min = country[ valueKey ];
-                }
-                else if (country[ valueKey ] > max) 
-                {
-                    max = country[ valueKey ];
-                }
-
-            } );
+            var min = Math.min.apply(null, values);
+            var max = Math.max.apply(null, values);
 
             data.forEach( function ( country ) {
 
@@ -567,7 +558,6 @@ var Utils = ( function () {
                 country[ valueKey ] = ( v - min ) * ( definedMax - definedMin ) / ( max - min ) + definedMin;
 
             } );
-
 
         },
 

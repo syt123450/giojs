@@ -99,17 +99,19 @@ var Utils = ( function () {
 
     return {
 
-        wrap: function ( value, min, rangeSize ) {
+        // temporarily constrain value to ( -Math.PI, Math.PI )
 
-            rangeSize -= min;
+        wrap: function ( value, min, range ) {
+
+            range -= min;
 
             while ( value < min ) {
 
-                value += rangeSize;
+                value += range;
 
             }
 
-            return value % rangeSize;
+            return value % range;
 
         },
 

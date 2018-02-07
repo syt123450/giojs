@@ -5,12 +5,11 @@
 
 #introduce {
 
-    min-height: 90%;
+    min-height: 95%;
     width: 100%;
-    background-color: #fff;
     box-sizing: border-box;
-    border-bottom: 1px solid #000;
     padding-top: 60px;
+    background: linear-gradient(to top right, white, #d0f9ff);
 
 }
 
@@ -19,16 +18,23 @@
     padding-right: 80px;
 }
 
-#introduce > div > img {
+#imgWrapper {
+
+    height: 300px;
+    width: 300px;
+    float: left;
+}
+
+#imgWrapper > img {
     padding: 50px;
     box-sizing: border-box;
-    width: 300px;
+    height: 100%;
     float: left;
 }
 
 #description {
     width: 60%;
-    height: 300px;
+    min-height: 300px;
     float: left;
 }
 
@@ -36,7 +42,8 @@
 
     margin-top: 40px;
     width: 100%;
-    font-size: 40px;
+    font-size: 35px;
+    font-family: DINAlternateBold, serif;
 
 }
 
@@ -57,17 +64,12 @@
     width: 150px;
     height: 45px;
     line-height: 45px;
-    border: 1px solid #000;
     border-radius: 22px;
     cursor: pointer;
 }
 
 #description > div > div > div > img {
 
-    height: 40px;
-    margin-left: 5px;
-    margin-top: 2px;
-    margin-right: 15px;
     float: left;
 }
 
@@ -77,12 +79,51 @@
     float: left;
 }
 
+#toStart {
+
+    color: white;
+    background: linear-gradient(to right, #0071bc, #29abe2);
+}
+
+#toStart > img {
+
+    height: 20px;
+    margin-left: 13px;
+    margin-top: 13px;
+    margin-right: 5px;
+}
+
+#toPlayground {
+    color: #4d4d4d;
+    border: 1px solid #29A6DD;
+}
+
+#toPlayground > img {
+
+    height: 30px;
+    margin-left: 12px;
+    margin-top: 7px;
+    margin-right: 8px;
+}
+
+#toGithub {
+    background-color: #f2f2f2;
+}
+
+#toGithub > img {
+
+    height: 40px;
+    margin-left: 5px;
+    margin-top: 2px;
+    margin-right: 20px;
+}
+
 #explanation {
 
     width: 100%;
-    height: 200px;
-    background-color: red;
+    min-height: 200px;
     float: left;
+    clear: both;
 }
 
 #explanation > div {
@@ -90,21 +131,23 @@
     width: 33%;
     height: 100%;
     float: left;
-    border-right: 1px solid #000;
 }
 
 #explanation > div > p {
 
     text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #0071bc;
 }
 
 #start {
 
     height: 90%;
+    min-height: 90%;
     width: 100%;
-    background-color: #fff;
+    background-color: #e6e6e6;
     box-sizing: border-box;
-    border-bottom: 1px solid #000;
     padding-top: 60px;
     padding-bottom: 60px;
 }
@@ -127,15 +170,21 @@
     line-height: 50px;
     font-size: 30px;
     margin-bottom: 20px;
+    font-family: DINAlternateBold, serif;
+}
+
+#globeArea {
+    height: 100%;
+    width: 100%;
 }
 
 #download {
 
     height: 90%;
     width: 100%;
+    min-height: 90%;
     background-color: #fff;
     box-sizing: border-box;
-    border-bottom: 1px solid #000;
     padding-top: 60px;
     padding-bottom: 60px;
 }
@@ -149,6 +198,10 @@
     float: left;
 }
 
+#download > div > div:first-child {
+    text-align: center;
+}
+
 #download > div > div > img {
     width: 100%;
 }
@@ -159,6 +212,7 @@
     line-height: 50px;
     font-size: 30px;
     margin-bottom: 20px;
+    font-family: DINAlternateBold, serif;
 
 }
 
@@ -169,27 +223,147 @@
     font-size: 20px;
     margin-top: 20px;
     margin-bottom: 10px;
+    font-weight: bold;
 }
 
 #download > div > div > div.code {
 
     width: 100%;
     height: 35px;
+    color: #0071bc;
     line-height: 35px;
-    border: 1px solid #000;
+    border: 1px solid #0071bc;
     border-radius: 5px;
     box-sizing: border-box;
     padding-left: 15px;
-    background-color: #f2f2f2;
+    background-color: #e6e6e6;
+    font-family: AmericanTypewriterRegular, serif;
 }
 
 footer {
 
-    height: 80px;
+    height: 50px;
     width: 100%;
-    font-size: 18px;
-    line-height: 80px;
+    font-size: 16px;
+    color: #fff;
+    line-height: 50px;
     box-sizing: border-box;
-    background-color: #fff;
+    background-color: #333;
     text-align: center;
+    clear: both;
+}
+
+@media (max-width: 995px) {
+
+    #imgWrapper {
+
+        width: 100%;
+        height: 240px;
+        text-align: center;
+    }
+
+    #imgWrapper > img {
+
+        float: none;
+        padding: 20px;
+    }
+
+    #description {
+
+        width: 100%;
+        min-height: 200px;
+    }
+
+    #description > p {
+
+        margin-top: 10px;
+        text-align: center;
+        font-size: 30px;
+    }
+
+    #explanation > div {
+        width: 100%;
+    }
+
+    #start {
+        height: 180%;
+    }
+
+    #start > div > div {
+        width: 100%;
+        height: 50%;
+    }
+
+    #start > div > div > header {
+        text-align: center;
+    }
+
+    #download > div > div {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    #download > div > div > header {
+        margin-top: -10px;
+    }
+
+    #download > div > div > img {
+
+        width: 300px;
+    }
+
+    #download > div > div > header {
+        text-align: center;
+    }
+
+    #globeWrapper {
+        padding: 50px;
+    }
+}
+
+@media (max-width: 650px) {
+
+    #description > div > #button1, #description > div > #button2 {
+        width: 50%;
+        margin-bottom: 20px;
+        text-align: center;
+        float: left;
+    }
+
+    #description > div > #button3 {
+
+        width: 100%;
+        margin-bottom: 20px;
+        text-align: center;
+        float: left;
+
+    }
+
+    #description > div > div > div {
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+}
+
+@media (max-width: 490px) {
+
+    #description > p {
+        font-size: 25px;
+    }
+
+    #description > div > div > div {
+        width: 100px;
+    }
+
+    #description > div > div > div > img {
+        display: none;
+    }
+
+    #description > div > div > div > p {
+        width: 100%;
+        text-align: center;
+    }
+
 }

@@ -210,24 +210,13 @@ var Utils = ( function () {
         flattenCountryData: function ( data, valueKey, definedMin, definedMax ) {
             if ( data.length === 0 )
                 return;
-            
-            var replica = JSON.parse( JSON.stringify( data ) );
-            
-            replica.sort( function ( a, b ) {
 
-                return a[ valueKey ] - b[ valueKey ];
+            data.forEach( function ( country ) {
+
+                var v = country[ valueKey ];
+                country[ valueKey ] = ( v - min ) * ( definedMax - definedMin ) / ( max - min ) + definedMin;
 
             } );
-
-            var min = replica[ 0 ][ valueKey ];
-            var max = replica[ replica.length - 1 ][ valueKey ];
-            
-            for ( var i = 0; i < data.length; i ++ ) {
-
-                var v = data[ i ][ valueKey ];
-                data[ i ][ valueKey ] = ( v - min ) * ( definedMax - definedMin ) / ( max - min ) + definedMin;
-
-            }
 
         },
 

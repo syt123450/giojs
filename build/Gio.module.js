@@ -7,7 +7,7 @@
 /**
  * @author syt123450 / https://github.com/syt123450
  */
-
+var THREE = require('three');
 /**
  * The StyleFactory will persist all pre-defined style, and return style object to ConfigureHandler by a given name
  */

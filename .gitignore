@@ -1,6 +1,5 @@
 .idea
 node_modules/
-package-lock.json
 coverage/
 test/build
 .DS_Store

@@ -7,7 +7,9 @@
     "example": "examples",
     "test": "tests"
   },
-  "dependencies": {},
+  "dependencies": {
+    "three": "^0.89.0"
+  },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",

@@ -19,8 +19,8 @@ function WheelHandler ( controller ) {
 
             // if no zoom in or zoom out wheel page
 
-            document.body.scrollTop += delta * 5;
-            document.documentElement.scrollTop += delta * 5;
+            // document.body.scrollTop += delta * 5;
+            // document.documentElement.scrollTop += delta * 5;
 
         } else {
 

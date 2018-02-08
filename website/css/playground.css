@@ -1,3 +1,29 @@
+nav
+{
+	z-index: 1; /* make sure that nav is not covered by globe area */
+}
+
+#wrapper
+{
+
+    height: 100%;
+    width: 100%;
+    padding: 60px 0 0 0;
+    box-sizing: border-box;
+
+}
+
+#globalArea
+{
+	z-index: 0;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+
+}
+
 #controlPanel
 {
 	position: fixed;

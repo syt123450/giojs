@@ -211,8 +211,7 @@ var Utils = ( function () {
             if ( data.length === 0 )
                 return;
     
-            var replica = JSON.parse( JSON.stringify( data ) );
-            var values = replica.map( function ( countryData ) {
+            var values = data.map( function ( countryData ) {
                 return countryData[ valueKey ];
             });
             var min = Math.min.apply( null, values );

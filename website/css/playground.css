@@ -50,22 +50,45 @@ nav
 	clear: both;
 }
 
-#controlPanel .ctl-panel-item-name
+.ctl-panel-header > h3
+{
+	color: #20abe2;
+	display: inline-block;
+}
+
+.ctl-panel-header > img
+{
+	width: 32px;
+	height: 16px;
+	display: inline-block;
+	position: relative;
+    left: 10px;
+    bottom: 5px;
+}
+
+.ctl-panel-item
+{
+	height: 30px;
+}
+
+.ctl-panel-item-name
 {
 	float: left;
 	clear: both;
 	width: 150px;
 }
 
-#controlPanel .ctl-panel-item-content
+.ctl-panel-item-content
 {
 	float: left;
 	margin-left: 10px;
 }
 
-#controlPanel .ctl-color-picker
+.ctl-color-picker
 {
-	width: 100px;
+	width: 120px;
+	border-radius: 30px;
+	border-style: 1px solid #cccccc;
 }
 
 #panelBtns

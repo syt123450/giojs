@@ -27,6 +27,24 @@ var GIO;
 
                 // control panel
 
+                $(document).on("click", ".ctl-panel-header", function(){
+
+                    // toggle fold / drop status
+
+                    if($(this).attr("isFold") === "true")
+                    {
+                        $(this).siblings("ul").children(".ctl-panel-item").show();
+                        $(this).attr("isFold", "false");
+                        // $(this).children("img").
+                    }
+                    else
+                    {
+                        $(this).siblings("ul").children(".ctl-panel-item").hide();
+                        $(this).attr("isFold", "true");
+                    }
+
+                });
+
                 $(document).on("click", "#ctlInOnly", function(){
 
                     if($(this).prop("checked"))

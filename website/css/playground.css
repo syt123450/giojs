@@ -33,17 +33,23 @@ nav
 	color: #eee;
 }
 
+#controlPanelOperations
+{
+	overflow: auto;
+    max-height: 550px;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}
+
 #controlPanel ul
 {
 	padding: 0;
-	overflow: auto;
-    max-height: 550px;
+	
 }
 
 #controlPanel li
 {
 	list-style: none;
-	display: block;
 	min-height: 20px;
 }
 
@@ -72,6 +78,7 @@ nav
 .ctl-panel-item
 {
 	height: 30px;
+	display: none;
 }
 
 .ctl-panel-item-name

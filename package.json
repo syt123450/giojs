@@ -2,7 +2,7 @@
   "name": "gio.js",
   "version": "0.0.1",
   "description": "",
-  "main": "build/three.js",
+  "main": "build/Gio.module.js",
   "directories": {
     "doc": "docs",
     "example": "examples",

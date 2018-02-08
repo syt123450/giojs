@@ -378,12 +378,10 @@ var Utils = ( function () {
 
         var actualTop = element.offsetTop;
         var current = element.offsetParent;
-
+    
         while ( current !== null ) {
-
-            actualTop += current.offsetTop;
-            current = current.offsetParent;
-
+                actualTop += current.offsetTop;
+                current = current.offsetParent;
         }
 
         var elementScrollTop;
@@ -406,7 +404,7 @@ var Utils = ( function () {
 
         var actualLeft = element.offsetLeft;
         var current = element.offsetParent;
-
+        
         while ( current !== null ) {
 
             actualLeft += current.offsetLeft;
@@ -433,17 +431,19 @@ var Utils = ( function () {
 
     return {
 
-        wrap: function ( value, min, rangeSize ) {
+        // temporarily constrain value to ( -Math.PI, Math.PI )
 
-            rangeSize -= min;
+        wrap: function ( value, min, range ) {
+
+            range -= min;
 
             while ( value < min ) {
 
-                value += rangeSize;
+                value += range;
 
             }
 
-            return value % rangeSize;
+            return value % range;
 
         },
 
@@ -540,18 +540,15 @@ var Utils = ( function () {
         */
 
         flattenCountryData: function ( data, valueKey, definedMin, definedMax ) {
-
-            if ( data.length === 0 ) return;
-
-            var replica = JSON.parse( JSON.stringify( data ) );
-
-            var values = replica.map(function(countryData){
-                return countryData[valueKey];
+            if ( data.length === 0 )
+                return;
+    
+            var values = data.map( function ( countryData ) {
+                return countryData[ valueKey ];
             });
-
-            var min = Math.min.apply(null, values);
-            var max = Math.max.apply(null, values);
-
+            var min = Math.min.apply( null, values );
+            var max = Math.max.apply( null, values );
+            
             data.forEach( function ( country ) {
 
                 var v = country[ valueKey ];
@@ -883,8 +880,8 @@ function WheelHandler ( controller ) {
 
             // if no zoom in or zoom out wheel page
 
-            document.body.scrollTop += delta * 5;
-            document.documentElement.scrollTop += delta * 5;
+            // document.body.scrollTop += delta * 5;
+            // document.documentElement.scrollTop += delta * 5;
 
         } else {
 
@@ -1652,12 +1649,23 @@ var ObjectUtils = ( function () {
         container.style.backgroundColor = "#ffffff";
 
         var sceneArea = document.createElement( "canvas" );
-        sceneArea.width = container.width;
-        sceneArea.height = container.height;
+
+        // the scene's height and width only fit the div's actual height and width
+
+        var cs = getComputedStyle( container );
+
+        var paddingX = parseFloat( cs.paddingLeft ) + parseFloat( cs.paddingRight );
+        var paddingY = parseFloat( cs.paddingTop ) + parseFloat( cs.paddingBottom );
+
+        var borderX = parseFloat( cs.borderLeftWidth ) + parseFloat( cs.borderRightWidth );
+        var borderY = parseFloat( cs.borderTopWidth ) + parseFloat( cs.borderBottomWidth );
+
+        sceneArea.width = container.clientWidth - paddingX - borderX;
+        sceneArea.height = container.clientHeight - paddingY - borderY;
         sceneArea.style.backgroundColor = "#ffffff";
 
         var renderer = new THREE.WebGLRenderer( { canvas: sceneArea, antialias: false } );
-        renderer.setSize( container.clientWidth, container.clientHeight );
+        renderer.setSize( sceneArea.width, sceneArea.height );
         renderer.autoClear = false;
         renderer.sortObjects = false;
         renderer.generateMipmaps = false;

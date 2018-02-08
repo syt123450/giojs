@@ -1,13 +1,16 @@
 {
-  "name": "Gio.js",
-  "version": "0.0.1",
+  "name": "gio.js",
+  "version": "0.0.4",
   "description": "",
+  "main": "build/Gio.module.js",
   "directories": {
     "doc": "docs",
     "example": "examples",
     "test": "tests"
   },
-  "dependencies": {},
+  "dependencies": {
+    "three": "^0.89.0"
+  },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",

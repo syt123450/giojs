@@ -99,17 +99,19 @@ var Utils = ( function () {
 
     return {
 
-        wrap: function ( value, min, rangeSize ) {
+        // temporarily constrain value to ( -Math.PI, Math.PI )
 
-            rangeSize -= min;
+        wrap: function ( value, min, range ) {
+
+            range -= min;
 
             while ( value < min ) {
 
-                value += rangeSize;
+                value += range;
 
             }
 
-            return value % rangeSize;
+            return value % range;
 
         },
 
@@ -209,8 +211,7 @@ var Utils = ( function () {
             if ( data.length === 0 )
                 return;
     
-            var replica = JSON.parse( JSON.stringify( data ) );
-            var values = replica.map( function ( countryData ) {
+            var values = data.map( function ( countryData ) {
                 return countryData[ valueKey ];
             });
             var min = Math.min.apply( null, values );

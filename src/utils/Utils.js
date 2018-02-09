@@ -46,12 +46,10 @@ var Utils = ( function () {
 
         var actualTop = element.offsetTop;
         var current = element.offsetParent;
-
+    
         while ( current !== null ) {
-
-            actualTop += current.offsetTop;
-            current = current.offsetParent;
-
+                actualTop += current.offsetTop;
+                current = current.offsetParent;
         }
 
         var elementScrollTop;
@@ -74,7 +72,7 @@ var Utils = ( function () {
 
         var actualLeft = element.offsetLeft;
         var current = element.offsetParent;
-
+        
         while ( current !== null ) {
 
             actualLeft += current.offsetLeft;
@@ -101,17 +99,19 @@ var Utils = ( function () {
 
     return {
 
-        wrap: function ( value, min, rangeSize ) {
+        // temporarily constrain value to ( -Math.PI, Math.PI )
 
-            rangeSize -= min;
+        wrap: function ( value, min, range ) {
+
+            range -= min;
 
             while ( value < min ) {
 
-                value += rangeSize;
+                value += range;
 
             }
 
-            return value % rangeSize;
+            return value % range;
 
         },
 
@@ -208,26 +208,21 @@ var Utils = ( function () {
         */
 
         flattenCountryData: function ( data, valueKey, definedMin, definedMax ) {
+            if ( data.length === 0 )
+                return;
+    
+            var values = data.map( function ( countryData ) {
+                return countryData[ valueKey ];
+            });
+            var min = Math.min.apply( null, values );
+            var max = Math.max.apply( null, values );
+            
+            data.forEach( function ( country ) {
 
-            if ( data.length === 0 ) return;
-
-            var replica = JSON.parse( JSON.stringify( data ) );
-
-            replica.sort( function ( a, b ) {
-
-                return a[ valueKey ] - b[ valueKey ];
+                var v = country[ valueKey ];
+                country[ valueKey ] = ( v - min ) * ( definedMax - definedMin ) / ( max - min ) + definedMin;
 
             } );
-
-            var min = replica[ 0 ][ valueKey ];
-            var max = replica[ replica.length - 1 ][ valueKey ];
-
-            for ( var i = 0; i < data.length; i ++ ) {
-
-                var v = data[ i ][ valueKey ];
-                data[ i ][ valueKey ] = ( v - min ) * ( definedMax - definedMin ) / ( max - min ) + definedMin;
-
-            }
 
         },
 

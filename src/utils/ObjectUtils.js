@@ -75,12 +75,23 @@ var ObjectUtils = ( function () {
         container.style.backgroundColor = "#ffffff";
 
         var sceneArea = document.createElement( "canvas" );
-        sceneArea.width = container.width;
-        sceneArea.height = container.height;
+
+        // the scene's height and width only fit the div's actual height and width
+
+        var cs = getComputedStyle( container );
+
+        var paddingX = parseFloat( cs.paddingLeft ) + parseFloat( cs.paddingRight );
+        var paddingY = parseFloat( cs.paddingTop ) + parseFloat( cs.paddingBottom );
+
+        var borderX = parseFloat( cs.borderLeftWidth ) + parseFloat( cs.borderRightWidth );
+        var borderY = parseFloat( cs.borderTopWidth ) + parseFloat( cs.borderBottomWidth );
+
+        sceneArea.width = container.clientWidth - paddingX - borderX;
+        sceneArea.height = container.clientHeight - paddingY - borderY;
         sceneArea.style.backgroundColor = "#ffffff";
 
         var renderer = new THREE.WebGLRenderer( { canvas: sceneArea, antialias: false } );
-        renderer.setSize( container.clientWidth, container.clientHeight );
+        renderer.setSize( sceneArea.width, sceneArea.height );
         renderer.autoClear = false;
         renderer.sortObjects = false;
         renderer.generateMipmaps = false;

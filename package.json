@@ -1,7 +1,8 @@
 {
-  "name": "Gio.js",
-  "version": "1.0.0",
+  "name": "giojs",
+  "version": "0.0.5",
   "description": "",
+  "main": "build/Gio.module.js",
   "directories": {
     "doc": "docs",
     "example": "examples",

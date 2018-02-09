@@ -32,8 +32,8 @@ export default [
 
             }
 
-        ]
-
+        ],
+        intro: 'global.THREE = require("three");'
     }
 
 ];

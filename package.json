@@ -3,6 +3,34 @@
   "version": "0.0.5",
   "description": "",
   "main": "build/Gio.module.js",
+  "author": "syt123450 && BoTime",
+  "contributors": [
+    {
+      "name": "syt123450",
+      "email": "yuntian.shen@sjsu.edu",
+      "url": "https://github.com/syt123450"
+    },
+    {
+      "name": "BoTime",
+      "email": "bo.liu@sjsu.edu",
+      "url": "https://github.com/BoTime"
+    },
+    {
+      "name": "manymeeting",
+      "email": "mutian.wang@sjsu.edu",
+      "url": "https://github.com/manymeeting"
+    },
+    {
+      "name": "zchholmes",
+      "email": "zhu.chenhua@sjsu.edu",
+      "url": "https://github.com/zchholmes"
+    },
+    {
+      "name": "lq3297401",
+      "email": "qi.liu01@sjsu.edu",
+      "url": "https://github.com/lq3297401"
+    }
+  ],
   "directories": {
     "doc": "docs",
     "example": "examples",
@@ -31,7 +59,6 @@
     "type": "git",
     "url": "git+https://github.com/syt123450/Gio.js.git"
   },
-  "author": "syt123450 && BoTime",
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/syt123450/Gio.js/issues"

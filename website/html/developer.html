@@ -88,93 +88,92 @@
 
         <div id="explanation">
             <div id="navigation1">
-                <div id="goSetup">
-                    <img src="../assets/images/goSetup.png">
-                    <p><a herf="#">Development Setup</a></p>
-                </div>
+                <img src="../assets/images/goSetup.png">
+                <p>Development Setup</p>
             </div>
             <div id="navigation2">
-                <div>
-                    <img src="../assets/images/goStructure.png">
-                    <p>Project Structure</p>
-                </div>
+                <img src="../assets/images/goStructure.png">
+                <p>Project Structure</p>
             </div>
             <div id="navigation3">
-                <div>
-                    <img src="../assets/images/goPullRequest.png">
-                    <p>Pull Request Guidelines</p>
-                </div>
+                <img src="../assets/images/goPullRequest.png">
+                <p>Pull Request Guidelines</p>
             </div>
         </div>
     </div>
 </div>
 
-<div id="mainContent">
-    <div class="container">
-        <div id="setup">
-            <h6 class="contentTitle">Development Setup</h6>
-            <hr>
-            <img class="mainContentImg" src="../assets/images/developer_setup.png">
-            Node.js (version) is required.
-            <ul class="mainContentList">
-                <li><span class="code">Fork</span> the repo.</li>
-                <li>Clone your own Github repo to your local machine.</li>
-                <span class="code">git clone git@github.com:xxxxxxxxx/Gio.js.git</span>
-                <li>Install dev tools/libs</li>
-                <span class="code">npm install # yarn support is not here yet</span>
-            </ul>
-        </div>
-
-        <div id="structure">
-            <h6 class="contentTitle">Project Structure</h6>
-            <hr>
-            <img class="mainContentImg" src="../assets/images/developer_structure.png">
-            <ul class="mainContentList">
-                <li><span class="code">assets </span>:</li>
-                <p>Static resource and production dependencies (stat.min.js & three.min.js)</p>
-                <li><span class="code">build </span>:</li>
-                <p>Contains files for distribution. This folder will only be updated if there is a new release. Latest development is reflected in branches.</p>
-                <li><span class="code">examples </span>:</li>
-                <p>Carefully selected examples to illustrate major functionalities of the API.</p>
-                <li><span class="code">src </span>:</li>
-                <p>Source code.</p>
-                <li><span class="code">test </span>:</li>
-                <p>Unit tests.</p>
-                <li><span class="code">website </span>:</li>
-                <p>Source code for the official website of Gio.js.</p>
-            </ul>
-        </div>
-
-        <div id="pullRequest">
-            <h6 class="contentTitle">Pull Request Guidelines</h6>
-            <hr>
-            <img class="mainContentImg" src="../assets/images/developer_pullRequest.png">
-            <ul class="mainContentList">
-                <li>Refactor/Optimization/Bug fix</li>
-                <ul>
-                    <li>Add <span class="code">(fix #xxxx[,#xxx])</span> (#xxxx is the issue id) in your PR title for a better release log,</li>
-                        <p>e.g. <span class="code">update entities encoding/decoding (fix #3899)</span>.</p>
-                    <li>Provide detailed description in the PR.</li>
-                    <li>Add relevant tests.</li>
-                    <li>Run tests. Make sure newly added code does not break existing functionalities.</li>
-                    <span class="code">npm test</span>
-                </ul>
-                <li>New feature</li>
-                <ul>
-                    <li>"Provide convincing reason to add this feature. Ideally you should open a suggestion issue first and have it greenlighted before working on it."</li>
-                    <li>Create a new branch</li>
-                    <span class="code">git checkout -b my-new-feature</span><br>
-                    <span class="code">git commit -am 'Description for new feature'</span><br>
-                    <span class="code">git push origin my-new-feature</span>
-                    <li>Add test cases</li>
-                    <li>Don't forget to submit a pull request :P (This only contains simplest, copy from <a href="https://markvis.js.org/#/?id=motivation">https://markvis.js.org/#/?id=motivation</a>, we may add more to this page)</li>
-                </ul>
-
-            </ul>
-
-        </div>
+<div id="mainContent" class="container">
+    <div id="setup">
+        <h6 class="contentTitle">Development Setup</h6>
+        <hr>
+        <img class="mainContentImg" src="../assets/images/developer_setup.png">
+        <ul class="mainContentList">
+            <li>1. <span class="code inline">Fork</span> the repo.</li>
+            <li>2. Clone your own Github repo to your local machine.</li>
+            <div class="code">git clone https://github.com/syt123450/Gio.js.git</div>
+            <li>3. Install dev tools/libs</li>
+            <div class="code">npm install # yarn support is not here yet</div>
+        </ul>
     </div>
 
+    <div id="structure">
+        <h6 class="contentTitle">Project Structure</h6>
+        <hr>
+        <img class="mainContentImg" src="../assets/images/developer_structure.png">
+        <ul class="mainContentList">
+            <li><span class="code codeTitle">1. assets </span></li>
+            <p>Static resource and production dependencies (stat.min.js & three.min.js)</p>
+            <li><span class="code codeTitle">2. build </span></li>
+            <p>Contains files for distribution. This folder will only be updated if there is a new release. Latest
+                development is reflected in branches.</p>
+            <li><span class="code codeTitle">3. examples </span></li>
+            <p>Carefully selected examples to illustrate major functionalities of the API.</p>
+            <li><span class="code codeTitle">4. src </span></li>
+            <p>Source code.</p>
+            <li><span class="code codeTitle">5. test </span></li>
+            <p>Unit tests.</p>
+            <li><span class="code codeTitle">6. website </span></li>
+            <p>Source code for the official website of Gio.js.</p>
+        </ul>
+    </div>
+
+    <div id="pullRequest">
+        <h6 class="contentTitle">Pull Request Guidelines</h6>
+        <hr>
+        <img class="mainContentImg" src="../assets/images/developer_pullRequest.png">
+        <ul class="mainContentList">
+            <li>1. Refactor/Optimization/Bug fix</li>
+            <ul>
+                <li>Add <span class="code inline">(fix #xxxx[,#xxx])</span> (#xxxx is the issue id) in your PR title for
+                    a
+                    better release log,
+                </li>
+                <p>e.g. <span class="code inline">update entities encoding/decoding (fix #3899)</span>.</p>
+                <li>Provide detailed description in the PR.</li>
+                <li>Add relevant tests.</li>
+                <li>Run tests. Make sure newly added code does not break existing functionalities.</li>
+                <span class="code">npm test</span>
+            </ul>
+            <li>2. New feature</li>
+            <ul>
+                <li>"Provide convincing reason to add this feature. Ideally you should open a suggestion issue first and
+                    have it greenlighted before working on it."
+                </li>
+                <li>Create a new branch</li>
+                <span class="code">git checkout -b my-new-feature</span>
+                <span class="code">git commit -am 'Description for new feature'</span>
+                <span class="code">git push origin my-new-feature</span>
+                <li>Add test cases</li>
+                <li>Don't forget to submit a pull request :P (This only contains simplest, copy from <a
+                        href="https://markvis.js.org/#/?id=motivation">https://markvis.js.org/#/?id=motivation</a>, we
+                    may add more to this page)
+                </li>
+            </ul>
+
+        </ul>
+
+    </div>
 </div>
 
 <footer>

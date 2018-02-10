@@ -4,11 +4,12 @@
 }
 
 #introduce {
+
     min-height: 95%;
     width: 100%;
     box-sizing: border-box;
     padding-top: 60px;
-    background: linear-gradient(to top right, white, #d0f9ff);
+    background: linear-gradient(to top, white, #d0f9ff);
 
 }
 
@@ -18,9 +19,9 @@
 }
 
 #imgWrapper {
-    margin: 20px auto;
-    height: 300px;
-    width: 300px;
+    margin: 40px auto;
+    height: 200px;
+    width: 200px;
 }
 
 #imgWrapper > img {
@@ -36,6 +37,7 @@
 
 #title {
     margin-top: 20px;
+    margin-bottom: 30px;
     width: 100%;
     font-size: 35px;
     font-family: DINAlternateBold, serif;
@@ -46,6 +48,7 @@
     width: 100%;
     font-size: 120%;
     text-align: center;
+    margin-bottom: 20px;
     color:#808080;
 }
 
@@ -68,7 +71,11 @@
     float: left;
 }
 
-#explanation > div > div > p {
+#explanation > div {
+    cursor: pointer;
+}
+
+#explanation > div > p {
     text-align: center;
     margin-top: 20px;
     font-size: 20px;
@@ -76,28 +83,21 @@
     color: #0071bc;
 }
 
-#explanation > div > div > img {
+#explanation > div > img {
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 40%;
 }
 
-
-#mainContent {
-    min-height: 95%;
-    width: 100%;
-    box-sizing: border-box;
-    background-color: white;
-    padding: 10px 10% 60px;
-}
-
-#mainContent > div > div {
+#mainContent > div {
     padding-top:20px;
 }
 
 .contentTitle {
     margin-top: 30px;
+    padding-top: 20px;
+    box-sizing: border-box;
     width: 100%;
     font-size: 35px;
     font-family: DINAlternateBold, serif;
@@ -112,7 +112,7 @@ hr {
     color:#e6e6e6;
 }
 
-#mainContent > div > div > p {
+#mainContent > div > p {
     text-align: left;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -120,11 +120,11 @@ hr {
     color: #4d4d4d;
 }
 
-
 .mainContentImg {
     display: block;
     margin: 20px auto;
     width: 100%;
+    height: 400px;
 }
 
 .mainContentList {
@@ -133,6 +133,9 @@ hr {
     margin-bottom: 20px;
     font-size: 20px;
     color: #4d4d4d;
+    list-style: none;
+    padding-left: 0;
+    box-sizing: border-box;
 }
 
 ul.mainContentList li {
@@ -142,7 +145,7 @@ ul.mainContentList li {
 
 .code {
     /*width: 50%;*/
-    height: 35px;
+    min-height: 35px;
     color: #0071bc;
     line-height: 35px;
     border: 1px solid #0071bc;
@@ -154,6 +157,21 @@ ul.mainContentList li {
     background-color: #e6e6e6;
     font-size: 20px;
     font-family: AmericanTypewriterRegular, serif;
+    display: block;
+    overflow: hidden;
+}
+
+.inline {
+
+    display: inline-block;
+    margin-top: 2px;
+    margin-bottom: -5px;
+}
+
+.codeTitle {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: inline-block;
 }
 
 br {
@@ -191,14 +209,13 @@ footer {
     #description {
 
         width: 100%;
-        min-height: 200px;
+        min-height: 100px;
     }
 
     #description > p {
 
         margin-top: 10px;
         text-align: center;
-        font-size: 30px;
     }
 
     #explanation > div {
@@ -239,6 +256,10 @@ footer {
     #globeWrapper {
         padding: 50px;
     }
+
+    #explanation > div > p {
+        margin-bottom: 20px;
+    }
 }
 
 @media (max-width: 650px) {
@@ -269,7 +290,16 @@ footer {
 
 @media (max-width: 490px) {
 
-    #description > p {
+    .code {
+        min-height: 15px;
+        padding: 0 10px;
+    }
+
+    .contentTitle {
+        font-size: 25px;
+    }
+
+    #description > #title {
         font-size: 25px;
     }
 
@@ -284,6 +314,14 @@ footer {
     #description > div > div > div > p {
         width: 100%;
         text-align: center;
+    }
+
+    .mainContentList {
+        font-size: 15px;
+    }
+
+    .mainContentImg {
+        height: 150px;
     }
 
 }

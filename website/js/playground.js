@@ -205,6 +205,8 @@ var GIO;
                     }
 
                 } );  
+
+                Playground.controller = controller;
                 
             }
 
@@ -243,7 +245,6 @@ var GIO;
 
             // expose
 
-            Playground.controller = controller;
             Playground.initilize = initilize;
             Playground.registerListeners = registerListeners;
             Playground.colorPickerListener = colorPickerListener;
@@ -261,6 +262,12 @@ $(function() {
 
     GIO.Website.Playground.initilize();
     GIO.Website.Playground.registerListeners();
+
+    // set initial styles
+
+    GIO.Website.Playground.controller.setSurfaceColor(GIO.Website.Util.formatColor('#' + "1A9CB0"));
+    GIO.Website.Playground.controller.setSelectedColor(GIO.Website.Util.formatColor('#' + "20ABE2"));
+    GIO.Website.Playground.controller.setExportColor(GIO.Website.Util.formatColor('#' + "20ABE2"));
 
 });
 

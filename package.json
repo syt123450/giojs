@@ -27,7 +27,8 @@
     "cover": "babel-node ./node_modules/.bin/isparta cover _mocha",
     "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls",
     "build-beautify": "rollup -c",
-    "build-uglify": "rollup -c && uglifyjs build/Gio.js -cm --preamble \"// https://github.com/syt123450/Gio.js/blob/master/LICENSE\" --output build/Gio.min.js"
+    "build-uglify": "rollup -c && uglifyjs build/Gio.js -cm --preamble \"// https://github.com/syt123450/Gio.js/blob/master/LICENSE\" --output build/Gio.min.js",
+    "build-react-node": "babel -w build/Gio.react.js -d build/Gio.react.node.js -s"
   },
   "repository": {
     "type": "git",

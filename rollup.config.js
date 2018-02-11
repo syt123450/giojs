@@ -34,6 +34,20 @@ export default [
 
         ],
         intro: 'global.THREE = require("three");'
+    }, {
+        
+        input: 'src/Gio.js',
+        output: [
+            
+            {
+                file: 'build/Gio.react.js',
+                name: "GIO",
+                format: 'es'
+            }
+        
+        ],
+        intro: 'import * as THREE from "three";\n import Stats from "stats.js";\n window.THREE = THREE;'
+        
     }
 
 ];

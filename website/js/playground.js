@@ -33,13 +33,13 @@ var GIO;
 
                     if($(this).attr("isFold") === "true")
                     {
-                        $(this).siblings("ul").children(".ctl-panel-item").show();
+                        $(this).siblings("ul").slideToggle();
                         $(this).attr("isFold", "false");
                         // $(this).children("img").
                     }
                     else
                     {
-                        $(this).siblings("ul").children(".ctl-panel-item").hide();
+                        $(this).siblings("ul").slideToggle();
                         $(this).attr("isFold", "true");
                     }
 

@@ -75,10 +75,14 @@ nav
     bottom: 5px;
 }
 
+.ctl-panel-item-holder
+{
+	display: none;
+}
+
 .ctl-panel-item
 {
 	height: 30px;
-	display: none;
 }
 
 .ctl-panel-item-name

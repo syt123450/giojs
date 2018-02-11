@@ -31,7 +31,6 @@ export default [
                 name: "GIO-umd"
 
             }
-
         ],
         intro: 'global.THREE = require("three");'
     }, {

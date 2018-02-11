@@ -35,12 +35,15 @@ var GIO;
                     {
                         $(this).siblings("ul").slideToggle();
                         $(this).attr("isFold", "false");
-                        // $(this).children("img").
+                        // rotate icon
+                        $(this).children("img").rotate(180);
                     }
                     else
                     {
                         $(this).siblings("ul").slideToggle();
                         $(this).attr("isFold", "true");
+                        // rotate icon
+                        $(this).children("img").rotate(0);
                     }
 
                 });

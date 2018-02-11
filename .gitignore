@@ -1,5 +1,4 @@
 .idea
 node_modules/
 coverage/
-test/build
 .DS_Store

@@ -1,27 +1,148 @@
+nav
+{
+	z-index: 1; /* make sure that nav is not covered by globe area */
+}
+
+#wrapper
+{
+
+    height: 100%;
+    width: 100%;
+    padding: 60px 0 0 0;
+    box-sizing: border-box;
+
+}
+
+#globalArea
+{
+	z-index: 0;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+
+}
+
 #controlPanel
 {
 	position: fixed;
-	width: 250px;
+	width: 320px;
 	top: 60px;
 	right: 0;
 	color: #eee;
 }
 
-#controlPanel li
+#controlPanelOperations
 {
-	list-style: none;
+	overflow: auto;
+    max-height: 550px;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}
+
+#controlPanel ul
+{
+	padding: 0;
 	
 }
 
-#controlPanel li > span
+#controlPanel li
+{
+	list-style: none;
+	min-height: 20px;
+}
+
+.ctl-panel-header
+{
+	clear: both;
+	cursor: pointer;
+}
+
+.ctl-panel-header > h3
+{
+	color: #20abe2;
+	display: inline-block;
+}
+
+.ctl-panel-header > img
+{
+	width: 32px;
+	height: 16px;
+	display: inline-block;
+	position: relative;
+    left: 10px;
+    bottom: 5px;
+}
+
+.ctl-panel-item-holder
+{
+	display: none;
+}
+
+.ctl-panel-item
+{
+	height: 30px;
+}
+
+.ctl-panel-item-name
 {
 	float: left;
 	clear: both;
-	width: 80%;
+	width: 150px;
 }
 
-#controlPanel li > div
+.ctl-panel-item-content
 {
 	float: left;
 	margin-left: 10px;
+}
+
+.ctl-color-picker
+{
+	width: 120px;
+	border-radius: 30px;
+	border-style: 1px solid #cccccc;
+}
+
+#panelBtns
+{
+	clear: both;
+	margin-top: 20px;
+	color: black;
+}
+
+.ctl-button {
+	width: 80px;
+	height: 30px;
+	margin-right: 15px;
+	line-height: 8px;
+	border-radius: 30px;
+	color: #20abe2;
+	background-image: none;
+	background-color: transparent;
+	border-color: #20abe2;
+}
+
+.ctl-button:hover {
+	color: #fff;
+	background-color: #20abe2;
+	border-color: #20abe2;
+}
+
+.ctl-button:focus, .ctl-button.focus {
+ 	-webkit-box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.5);
+    box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.5);
+}
+
+.ctl-button.disabled, .ctl-button:disabled {
+	color: #20abe2;
+	background-color: transparent;
+}
+
+.ctl-button:active, .ctl-button.active,
+.show > .btn-outline-primary.dropdown-toggle {
+	color: #fff;
+	background-color: #20abe2;
+	border-color: #20abe2;
 }

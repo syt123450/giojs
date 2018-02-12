@@ -4,33 +4,26 @@
     <meta charset="UTF-8">
     <title>Playground</title>
 
+    <script src="../assets/jsLib/stats.min.js"></script>
     <meta name="description" content="Playground page of Gio.js">
     <meta name="author" content="manymeeting / https://github.com/manymeeting">
     <meta name="author" content="syt123450 / https://github.com/syt123450">
     <meta name="viewport" content="width = device-width, initial-scale =1.0, maximum-scale = 1.0, user-scalable = no">
     <link rel='icon' href='../assets/images/logoTitle.ico' type=‘image/x-ico’>
-
     <script src="../assets/jsLib/jquery.min.js"></script>
     <link rel="stylesheet" href="../assets/cssLib/bootstrap.min.css">
     <script src="../assets/jsLib/bootstrap.min.js"></script>
 
     <script src="../assets/jsLib/three.min.js"></script>
+    <script src="../assets/jsLib/jscolor.js"></script>
     <script src="../../build/Gio.js"></script>
 
+    <script src="../js/websiteUtil.js"></script>
     <script src="../js/playground.js"></script>
+
 
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/playground.css">
-    <style>
-
-        #globalArea {
-            height: 100%;
-            width: 100%;
-            margin: 0;
-            padding: 0;
-        }
-
-    </style>
 </head>
 <body>
 
@@ -62,6 +55,7 @@
                 </svg>
             </a>
 
+
         </ul>
 
     </div>
@@ -81,88 +75,137 @@
 
 </nav>
 
-<div id="globalArea"></div>
+<div id="wrapper">
+    <div id="globalArea"></div>
+</div>
+
+
 
 <div id="controlPanel">
+    <div id="controlPanelOperations">
+        <div>
+            <div class="ctl-panel-header" isFold="true">
+                <h3>Control</h3>
+                <img src="../assets/images/playground_fold_icon.png">
+            </div>
+            <ul class="ctl-panel-item-holder">
+                <li class="ctl-panel-item">
+                    <span class="ctl-panel-item-name">Show Stats</span>
+                    <div class="ctl-panel-item-content"><input type="checkbox" id="ctlShowStats"></div>
+                </li>
+                <li class="ctl-panel-item">
+                    <span class="ctl-panel-item-name">Disable Unmentioned</span>
+                    <div class="ctl-panel-item-content"><input type="checkbox" id="ctlDisableInactives"></div>
+                </li>
+                <li class="ctl-panel-item">
+                    <span class="ctl-panel-item-name">Lighten Mentioned</span>
+                    <div class="ctl-panel-item-content"><input type="checkbox" id="ctlLightenActives"></div>
+                </li>
+                <li class="ctl-panel-item">
+                    <span class="ctl-panel-item-name">In Only</span>
+                    <div class="ctl-panel-item-content"><input type="checkbox"  id="ctlInOnly"></div>
+                </li>
+                <li class="ctl-panel-item">
+                    <span class="ctl-panel-item-name">Out Only</span>
+                    <div class="ctl-panel-item-content"><input type="checkbox" id="ctlOutOnly"></div>
+                </li>
+                <li class="ctl-panel-item">
+                    <span class="ctl-panel-item-name">Halo</span>
+                    <div class="ctl-panel-item-content"><input type="checkbox" id="ctlHalo" checked="checked"></div>
+                </li>
+            </ul>
+        </div>
+        
+        <div>
+            <div class="ctl-panel-header" isFold="true">
+                <h3>Color</h3>
+                <img src="../assets/images/playground_fold_icon.png">
+            </div>
+            <ul class="ctl-panel-item-holder">
+                <li class="ctl-panel-item">
+                    <span class="ctl-panel-item-name">Surface</span>
+                    <div class="ctl-panel-item-content">
+                        <input class="jscolor ctl-color-picker" onchange="GIO.Website.Playground.colorPickerListener(this)" id="ctlSurfaceColor" value="1a9cb0">
+                    </div>
+                </li>
+                <li class="ctl-panel-item">
+                    <span class="ctl-panel-item-name">Selected Country</span>
+                    <div class="ctl-panel-item-content">
+                        <input class="jscolor ctl-color-picker" onchange="GIO.Website.Playground.colorPickerListener(this)" id="ctlSelectedColor" value="20abe2">
+                    </div>
+                </li>
+                <li class="ctl-panel-item">
+                    <span class="ctl-panel-item-name">In Line</span>
+                    <div class="ctl-panel-item-content">
+                        <input class="jscolor ctl-color-picker" onchange="GIO.Website.Playground.colorPickerListener(this)" id="ctlInputLineColor" value="ffffff">
+                    </div>
+                </li>
+                <li class="ctl-panel-item">
+                    <span class="ctl-panel-item-name">Out Line</span>
+                    <div class="ctl-panel-item-content">
+                        <input class="jscolor ctl-color-picker" onchange="GIO.Website.Playground.colorPickerListener(this)" id="ctlOutputLineColor" value="20abe2">
+                    </div>
+                </li>
+                <li class="ctl-panel-item">
+                    <span class="ctl-panel-item-name">Halo</span>
+                    <div class="ctl-panel-item-content">
+                        <input class="jscolor ctl-color-picker" onchange="GIO.Website.Playground.colorPickerListener(this)" id="ctlHaloColor" value="ffffff">
+                    </div>
+                </li>
+                <li class="ctl-panel-item">
+                    <span class="ctl-panel-item-name">Background</span>
+                    <div class="ctl-panel-item-content">
+                        <input class="jscolor ctl-color-picker" onchange="GIO.Website.Playground.colorPickerListener(this)" id="ctlBackgroundColor" value="ffffff">
+                    </div>
+                </li>
+            </ul>
+        </div>
+        
+        
+        <div>
+            <div class="ctl-panel-header" isFold="true">
+                <h3>Brightness</h3>
+                <img src="../assets/images/playground_fold_icon.png">        
+            </div>
+            <ul class="ctl-panel-item-holder">
+                <li class="ctl-panel-item">
+                    <span class="ctl-panel-item-name">Ocean</span>
+                    <div class="ctl-panel-item-content">
+                      <input type="range" min="0" max="100" value="50" class="ctl-slider" id="ctlOceanBrightness">
+                    </div>
+                </li>
+                <li class="ctl-panel-item">
+                    <span class="ctl-panel-item-name">Mentioned</span>
+                    <div class="ctl-panel-item-content">
+                      <input type="range" min="0" max="100" value="50" class="ctl-slider" id="ctlActiveBrightness">
+                    </div>
+                </li>
+                <li class="ctl-panel-item">
+                    <span class="ctl-panel-item-name">Related</span>
+                    <div class="ctl-panel-item-content">
+                      <input type="range" min="0" max="100" value="50" class="ctl-slider" id="ctlRelatedBrightness">
+                    </div>
+                </li>    
+            </ul>
+        </div>
+        
+    </div>
     
-    <ul>
-        <li class="ctl-panel-header">
-            <h3>Control</h3>
-        </li>
-        <li class="ctl-panel-item">
-            <span>Show Stats</span>
-            <div><input type="checkbox" checked="checked"></div>
-        </li>
-        <li class="ctl-panel-item">
-            <span>Disable Inactives</span>
-            <div><input type="checkbox" checked="checked"></div>
-        </li>
-        <li class="ctl-panel-item">
-            <span>Lighten Actives</span>
-            <div><input type="checkbox" checked="checked"></div>
-        </li>
-        <li class="ctl-panel-item">
-            <span>In Only</span>
-            <div><input type="checkbox" checked="checked"></div>
-        </li>
-        <li class="ctl-panel-item">
-            <span>Out Only</span>
-            <div><input type="checkbox" checked="checked"></div>
-        </li>
-        <li class="ctl-panel-item">
-            <span>Halo</span>
-            <div><input type="checkbox" checked="checked"></div>
-        </li>
-    </ul>
+
+
+    <div id="panelBtns">
+        <button type="button" class="btn ctl-button">Generate</button>
+        <button type="button" class="btn ctl-button">Help</button>
+    </div>
 </div>
+
+
 
 
 </body>
 
 <script>
 
-    $(function() {
-        $("#more").click(function() {
-            $("#nav-collapse").slideToggle();
-        });
-
-        $("#logo").click(function() {
-            window.location.href = "../index.html";
-        });
-    });
-
-
-    // get the container to hold the IO globe
-
-    var container = document.getElementById( "globalArea" );
-
-    // create controller for the IO globe, input the container as the parameter
-
-    var controller = new GIO.Controller( container );
-
-    // ask a file for the JSON data, using AJAX to load the data
-
-    $.ajax( {
-
-        url: "../assets/data/countryData.json",
-        type: "GET",
-        contentType: "application/json; charset=utf-8",
-        async: true,
-        dataType: "json",
-        success: function ( inputData ) {
-
-            // if received the data, use addData() API to add the the data to the controller
-
-            controller.addData( inputData );
-
-            // call the init() API to show the IO globe in the browser
-
-            controller.init();
-
-        }
-
-    } );  
-    
 
 </script>
 

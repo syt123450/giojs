@@ -48,6 +48,19 @@ $(function () {
     var container = document.getElementById("globeArea");
     var controller = new GIO.Controller(container);
 
+    controller.configure({
+        color: {
+
+            surface: 0xFBFFF,
+            selected: 0X05ffff,
+            in: 0xFF8000,
+            out: 0x03FF70,
+            halo: 0x0D9EFF,
+            background: 0x02223D
+        }
+
+    });
+
     $.ajax({
 
         url: "assets/data/countryData.json",

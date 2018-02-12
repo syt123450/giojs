@@ -81,6 +81,8 @@ function SurfaceHandler ( controller ) {
 
     function highlightCountry ( code ) {
 
+        var i;
+
         // clear the surface
 
         var ctx = controller.earthSurfaceShader.lookupCanvas.getContext( '2d' );
@@ -99,7 +101,7 @@ function SurfaceHandler ( controller ) {
                 Utils.transformBrightness( controller.configure.brightness.mentioned, mentionedMin, mentionedMax )
             );
 
-            for ( var i in controller.mentionedCountryCodes ) {
+            for ( i in controller.mentionedCountryCodes ) {
 
                 ctx.fillRect( controller.mentionedCountryCodes[ i ], 0, 1, 1 );
 
@@ -113,7 +115,7 @@ function SurfaceHandler ( controller ) {
             Utils.transformBrightness( controller.configure.brightness.related, relatedMin, relatedMax )
         );
 
-        for ( var i in controller.relatedCountries ) {
+        for ( i in controller.relatedCountries ) {
 
             ctx.fillRect( controller.relatedCountries[ i ].colorCode, 0, 1, 1 );
 

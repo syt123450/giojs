@@ -203,7 +203,9 @@
 }
 
 #download > div > div > img {
-    width: 100%;
+    width: 60%;
+    margin-left: 10%;
+    margin-top: 10%;
 }
 
 #download > div > div > header {

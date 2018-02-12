@@ -266,8 +266,11 @@ $(function() {
     // set initial styles
 
     GIO.Website.Playground.controller.setSurfaceColor(GIO.Website.Util.formatColor('#' + "1A9CB0"));
+    GIO.Website.Playground.controller.setImportColor(GIO.Website.Util.formatColor('#' + "FFFFFF"));
     GIO.Website.Playground.controller.setSelectedColor(GIO.Website.Util.formatColor('#' + "20ABE2"));
     GIO.Website.Playground.controller.setExportColor(GIO.Website.Util.formatColor('#' + "20ABE2"));
+    GIO.Website.Playground.controller.setHaloColor(GIO.Website.Util.formatColor('#' + "20ABE2"));
+    // GIO.Website.Playground.controller.setBackgroundColor(GIO.Website.Util.formatColor('#' + "FFFFFF"));
 
 });
 

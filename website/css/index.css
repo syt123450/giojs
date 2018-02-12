@@ -14,6 +14,7 @@
 }
 
 #introduce > div {
+    margin-top: 30px;
     padding-left: 80px;
     padding-right: 80px;
 }
@@ -138,18 +139,30 @@
     text-align: center;
     font-size: 20px;
     font-weight: bold;
+    margin-top: 20px;
     color: #0071bc;
+}
+
+#explanation > div > div {
+    margin-top: 40px;
+    font-size: 18px;
+    padding: 0 60px 0 70px;
+    margin-bottom: 20px;
 }
 
 #start {
 
-    height: 90%;
-    min-height: 90%;
+    height: 110%;
+    min-height: 110%;
     width: 100%;
     background-color: #e6e6e6;
     box-sizing: border-box;
     padding-top: 60px;
     padding-bottom: 60px;
+}
+
+#start h4 {
+    font-family: DINAlternateBold, serif;
 }
 
 #start > div {
@@ -164,6 +177,10 @@
     float: left;
 }
 
+#start .description {
+    width: 90%;
+}
+
 #start > div > div > header {
 
     height: 50px;
@@ -171,6 +188,21 @@
     font-size: 30px;
     margin-bottom: 20px;
     font-family: DINAlternateBold, serif;
+}
+
+#start .code {
+    width: 80%;
+    min-height: 20px;
+    color: #0071bc;
+    line-height: 20px;
+    border: 1px solid #0071bc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding-left: 15px;
+    background-color: #e6e6e6;
+    font-family: AmericanTypewriterRegular, serif;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 #globeArea {
@@ -300,9 +332,18 @@ footer {
         text-align: center;
     }
 
+    #start .description {
+        width: 100%;
+    }
+
+    #start .code {
+        width: 100%;
+    }
+
     #download > div > div {
         width: 100%;
         margin-bottom: 20px;
+        padding: 0 30px;
     }
 
     #download > div > div > header {
@@ -311,6 +352,7 @@ footer {
 
     #download > div > div > img {
 
+        margin-left: 0;
         width: 300px;
     }
 
@@ -347,6 +389,14 @@ footer {
         margin-right: auto;
     }
 
+    #explanation > div > div {
+
+        font-size: 16px;
+        margin-top: 10px;
+        padding: 0;
+
+    }
+
 }
 
 @media (max-width: 490px) {
@@ -367,5 +417,22 @@ footer {
         width: 100%;
         text-align: center;
     }
+
+    #start {
+        height: 150%;
+    }
+
+    #start > div > div {
+        height: 70%;
+    }
+
+    #globeWrapper {
+        padding: 30px;
+    }
+
+    #start #globeWrapper {
+        height: 30%;
+    }
+
 
 }

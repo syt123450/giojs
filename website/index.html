@@ -105,14 +105,15 @@
         <div id="explanation">
             <div>
                 <p>Simplicity</p>
-                <div></div>
+                <div>Create a 3D global data visualization model with your own data in just four lines of javascript code</div>
             </div>
             <div>
                 <p>Customization</p>
-                <div></div>
+                <div>Design your own globe style with easy to use APIs in Gio.js</div>
             </div>
             <div>
                 <p>Interaction</p>
+                <div>Build a fully interactive, rich 3D frontend application using Gio.js</div>
             </div>
         </div>
 
@@ -125,6 +126,30 @@
     <div class="container">
         <div>
             <header>Get Started</header>
+            <h4>1. Install</h4>
+            <div class="description">Include the library and dependency in the <span class="span_code">&lt;head&gt;</span> section of your web page as shown below:</div>
+            <div class="code">&lt;script src="three.min.js"&gt;&lt;/script&gt;<br>
+                &lt;script src="gio.min.js"&gt;&lt;/script&gt;</div>
+            <h4>2. Create</h4>
+            <div class="description">
+                With Threejs and Giojs included in your webpage, you are ready to create your first Gio Globe. We will start off by creating a globe in basic style.
+            </div>
+            <div class="description">
+                Create a <span class="span_code">&lt;div&gt;</span> where the globe will be rendered:
+            </div>
+            <div class="code">&lt;div id="globeArea" style="width: 200px; height: 200px"&gt;&lt;/div&gt;</div>
+            <div class="description">Add the following four lines of javascript code to the body of you html page:</div>
+            <div class="code">
+                &lt;script&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var container = document.getElementById( "globalArea" );<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var controller = new GIO.Controller( container );<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;controller.addData( data );<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;controller.init();<br>
+                &lt;/script&gt;
+            </div>
+            <h4>3. Customize</h4>
+            <div class="description">Read the <a href="html/document.html">API document</a> you can easily create a globe in your own style, the globe in the right shows how a Gio.js globe look like.</div>
+
         </div>
         <div id="globeWrapper">
             <div id="globeArea"></div>
@@ -146,17 +171,16 @@
 
             <header>Download</header>
 
-            <div>The Gio.js library runs fine on Chrome, Firefox, Opera, Safari, IE9+,
-                and most mobile browsers (with full touch support). This site contains documentation, downloads and live
+            <div>The Gio.js library runs fine on Chrome, we are working hard to solve cross browser issue now. This site contains documentation, downloads and live
                 examples of Gio.js. The sourcecode of Gio.js is available at Github. For questions, issues, and
                 suggestions please use the issues section of the Github project.
             </div>
 
             <p class="sub-title">Install with NPM</p>
-            <div class="code">npm install giojs</div>
+            <div class="code">npm install gio.js</div>
 
             <p class="sub-title">Install with Yarn</p>
-            <div class="code">yarn add giojs</div>
+            <div class="code">yarn add gio.js</div>
 
             <p class="sub-title">Download</p>
             <div>

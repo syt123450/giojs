@@ -270,7 +270,7 @@ $(function() {
     GIO.Website.Playground.controller.setSelectedColor(GIO.Website.Util.formatColor('#' + "20ABE2"));
     GIO.Website.Playground.controller.setExportColor(GIO.Website.Util.formatColor('#' + "20ABE2"));
     GIO.Website.Playground.controller.setHaloColor(GIO.Website.Util.formatColor('#' + "20ABE2"));
-    // GIO.Website.Playground.controller.setBackgroundColor(GIO.Website.Util.formatColor('#' + "FFFFFF"));
+    GIO.Website.Playground.controller.setBackgroundColor(GIO.Website.Util.formatColor('#' + "000000"));
 
 });
 

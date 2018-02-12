@@ -40,7 +40,7 @@ function InitHandler ( controller ) {
         
         // bind events to the dom
 
-        ( new SceneEventManager ).bindEvent( controller );
+        ( new SceneEventManager() ).bindEvent( controller );
 
         // now the creation is finished, append the 3D object to the dom
 
@@ -129,7 +129,7 @@ function InitHandler ( controller ) {
 
         if ( controller.configure.control.stats ) {
 
-            controller.stats = ObjectUtils.createStats( container );
+            controller.stats = ObjectUtils.createStats( controller.container );
             controller.container.appendChild( controller.stats.dom );
 
         }

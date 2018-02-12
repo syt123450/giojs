@@ -14,11 +14,13 @@ function ConfigureHandler ( controller ) {
 
         // the configure process in nature is set the controller.configure with a given JSON
 
+        var attribute;
+
         if ( configure instanceof Object ) {
 
             if ( configure.control !== undefined ) {
 
-                for ( var attribute in configure.control ) {
+                for ( attribute in configure.control ) {
 
                     controller.configure.control[ attribute ] = configure.control[ attribute ];
 
@@ -28,7 +30,7 @@ function ConfigureHandler ( controller ) {
 
             if ( configure.color !== undefined ) {
 
-                for ( var attribute in configure.color ) {
+                for ( attribute in configure.color ) {
 
                     controller.configure.color[ attribute ] = configure.color[ attribute ];
 
@@ -44,7 +46,7 @@ function ConfigureHandler ( controller ) {
 
             if ( configure.brightness !== undefined ) {
 
-                for ( var attribute in configure.brightness ) {
+                for ( attribute in configure.brightness ) {
 
                     controller.configure.brightness[ attribute ] = configure.brightness[ attribute ];
 
@@ -54,7 +56,7 @@ function ConfigureHandler ( controller ) {
 
             if (configure.resource !== undefined ) {
 
-                for ( var attribute in configure.resource ) {
+                for ( attribute in configure.resource ) {
 
                     controller.configure.resource[ attribute ] = configure.resource[ attribute ];
 

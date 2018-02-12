@@ -21,7 +21,7 @@ export default [
 
     }, {
 
-        input: 'src/Gio.module.js',
+        input: 'src/Gio.js',
         output: [
 
             {

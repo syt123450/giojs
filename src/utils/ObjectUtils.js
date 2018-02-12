@@ -224,8 +224,8 @@ var ObjectUtils = ( function () {
 
             var set = inputData[ i ];
 
-            if ( controller.configure.control.inOnly && set.i !== CountryColorMap[ selectedCountry.colorCode ] ||
-                controller.configure.control.outOnly && set.e !== CountryColorMap[ selectedCountry.colorCode ] ) {
+            if ( ( controller.configure.control.inOnly && set.i !== CountryColorMap[ selectedCountry.colorCode ] ) ||
+                ( controller.configure.control.outOnly && set.e !== CountryColorMap[ selectedCountry.colorCode ] ) ) {
 
                 continue;
 
@@ -268,7 +268,7 @@ var ObjectUtils = ( function () {
 
                 var lastColor;
 
-                for ( s in set.lineGeometry.vertices ) {
+                for ( var s in set.lineGeometry.vertices ) {
 
                     lineColors.push( lineColor );
                     lastColor = lineColor;
@@ -283,7 +283,7 @@ var ObjectUtils = ( function () {
                 particleCount = Utils.constrain( particleCount, 1, 100 );
                 var particleSize = set.lineGeometry.size;
 
-                for ( var s = 0; s < particleCount; s++ ) {
+                for ( s = 0; s < particleCount; s++ ) {
 
                     var desiredIndex = s / particleCount * points.length;
 

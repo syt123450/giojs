@@ -106,7 +106,7 @@ function SceneEventManager () {
 
     }
 
-    function onClick () {
+    function onClick ( event ) {
 
         //	if the click is drag, do nothing
 
@@ -151,8 +151,8 @@ function SceneEventManager () {
 
         if ( CountryColorMap[ pickColorIndex ] !== undefined &&
              pickColorIndex !== 0 &&
-             ( controller.configure.control.disableUnmentioned &&
-                 controller.mentionedCountryCodes.indexOf( pickColorIndex ) !== -1 ||
+             ( ( controller.configure.control.disableUnmentioned &&
+                 controller.mentionedCountryCodes.indexOf( pickColorIndex ) !== -1 ) ||
                  !controller.configure.control.disableUnmentioned ) ) {
 
             controller.switchCountryHandler.executeSwitch( pickColorIndex )

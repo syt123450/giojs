@@ -102,8 +102,63 @@ main > div {
 
     display: none;
     overflow: auto;
-    text-align: center;
+    width: 100%;
 
+}
+
+main > div > header {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    font-size: 25px;
+    font-family:DINAlternateBold, serif;
+    color: #4d4d4d;
+    text-align: center;
+}
+
+main > div > div {
+    padding: 0 50px;
+    font-size: 18px;
+}
+
+main > div > div > ul {
+    list-style-type: circle;
+    list-style-position: inside;
+    padding: 0;
+    margin-top: 30px;
+    color: #29abe2;
+}
+
+main > div > div > ul > li {
+    width: auto;
+    padding-left: 20px;
+    height: 30px;
+    line-height: 30px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+main > div > div > ul > li > a {
+    color: #29abe2;
+}
+
+main > div > div > ul > li > a:hover {
+    border-bottom: 1px solid #29abe2;
+}
+
+.content {
+    width: 90%;
+    height: 50px;
+    line-height: 50px;
+    margin-left: 5%;
+    margin-top: 20px;
+    font-size: 20px;
+    color: #999999;
+    font-weight: bold;
+    border-bottom: 1px solid #e6e6e6;
+    box-sizing: border-box;
 }
 
 footer {

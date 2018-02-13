@@ -75,6 +75,94 @@
     <span class="glyphicon glyphicon-list"></span>
 </div>
 
+<div id="hideNav">
+
+    <img id="ContentLogo" src="../assets/images/logo_white.png">
+
+    <header>Gio.js</header>
+
+    <div id="startLabelS">
+        Getting Start<img src="../assets/images/document_arrow.png">
+    </div>
+    <ul id="startS">
+        <li id="requirementNavS">System Requirements</li>
+        <li id="installNavS">Install</li>
+        <li id="firstGlobeNavS">Your First Globe</li>
+        <li id="explainLastNavS">Other Resources</li>
+    </ul>
+    <div id="basicLabelS">
+        Basic Elements<img src="../assets/images/document_arrow.png">
+    </div>
+    <ul id="basicS">
+        <li id="countryNavS">Country</li>
+        <li id="surfaceNavS">Surface</li>
+        <li id="lineNavS">Line</li>
+        <li id="backgroundNavS">Background</li>
+        <li id="haloNavS">Halo</li>
+        <li id="oceanNavS">Ocean</li>
+    </ul>
+    <div id="configureLabelS">
+        Configuration<img src="../assets/images/document_arrow.png">
+    </div>
+    <ul id="configureS">
+        <li id="constructorConfigureNavS">Constructor Configure</li>
+        <li id="configureAPINavS">Configure API</li>
+    </ul>
+    <div id="designLabelS">
+        Object Design API<img src="../assets/images/document_arrow.png">
+    </div>
+    <ul id="designS">
+        <li id="setInitCountryNavS">setInitCountry</li>
+        <li id="lightenMentionedNavS">lightenMentioned</li>
+        <li id="disableUnmentionedNavS">disableUnmentioned</li>
+        <li id="showOnlyNavS">showInOnly / showOutOnly</li>
+        <li id="controlHaloNavS">addHalo / removeHalo</li>
+        <li id="controlStatsNavS">enableStats / disableStats</li>
+    </ul>
+    <div id="colorLabelS">
+        Color and Style API<img src="../assets/images/document_arrow.png">
+    </div>
+    <ul id="colorS">
+        <li id="setStyleNavS">setStyle</li>
+        <li id="setSurfaceColorNavS">setSurfaceColor</li>
+        <li id="setSelectedColorNavS">setSelectedColor</li>
+        <li id="setExportColorNavS">setExportColor</li>
+        <li id="setImportColorNavS">setImportColor</li>
+        <li id="setHaloColorNavS">setHaloColor</li>
+        <li id="setBackgroundColorNavS">setBackgroundColor</li>
+        <li id="adjustOceanBrightnessNavS">adjustOceanBrightness</li>
+        <li id="adjustRelatedBrightnessNavS">adjustRelatedBrightness</li>
+        <li id="adjustMentionedBrightnessNavS">adjustMentionedBrightness</li>
+    </ul>
+    <div id="dataLabelS">
+        Working with Data<img src="../assets/images/document_arrow.png">
+    </div>
+    <ul id="dataS">
+        <li id="addDataNavS">addData</li>
+        <li id="addDataAsyncNavS">addDataAsync</li>
+        <li id="liveLoadNavS">liveLoad</li>
+        <li id="setDataColorNavS">set line color from data</li>
+    </ul>
+    <div id="callbackLabelS">
+        Callback<img src="../assets/images/document_arrow.png">
+    </div>
+    <ul id="callbackS">
+        <li id="onCountryPickedNavS">onCountryPicked</li>
+    </ul>
+    <div id="advancedLabelS">
+        Advanced Feature<img src="../assets/images/document_arrow.png">
+    </div>
+    <ul id="advancedS">
+        <li id="functionChainNavS">function chain</li>
+        <li id="switchCountryNavS">switchCountry</li>
+    </ul>
+
+    <img id="close" src="../assets/images/close.png">
+
+</div>
+
+<div id="curtain"></div>
+
 <div id="documentArea" class="container">
 
     <aside>
@@ -83,21 +171,21 @@
         </div>
         <ul id="start">
             <li id="requirementNav">System Requirements</li>
-            <li id="installNav">Install</li>
-            <li id="firstGlobeNav">Your First Globe</li>
-            <li id="explainLastNav">Explanation Last Document</li>
+            <li id="installNav">Installation</li>
+            <li id="firstGlobeNav">Gio.js Hello World</li>
+            <li id="explainLastNav">Other Resources</li>
         </ul>
         <div id="basicLabel">
-            Basic Concept<img src="../assets/images/document_arrow.png">
+            Basic Elements<img src="../assets/images/document_arrow.png">
         </div>
         <ul id="basic">
-            <li id="globeNav">Globe</li>
+            <li id="countryNav">Country</li>
             <li id="surfaceNav">Surface</li>
             <li id="lineNav">Line</li>
             <li id="backgroundNav">Background</li>
             <li id="haloNav">Halo</li>
-            <li id="countryNav">Country</li>
             <li id="oceanNav">Ocean</li>
+            <li id="statsNav">Stats</li>
         </ul>
         <div id="configureLabel">
             Configuration<img src="../assets/images/document_arrow.png">
@@ -163,7 +251,7 @@
         </div>
 
         <div id="startGuide">
-            <header>Your First Gio Globe</header>
+            <header>Getting Start</header>
             <div>In this chapter, we will introduce the environment requirements, how to install Gio, a quick start to
                 your first Gio globe (the 3D globe for data visualization), and explanation of the last document
                 together with how to use it.
@@ -179,61 +267,308 @@
                     <li><a id="explainContent">Explain Last Document</a></li>
                 </ul>
             </div>
-
         </div>
+
         <div id="requirement">
             <header>System requirements</header>
             <div>Gio.js is solely based on Three.js and does not require other libraries. It has been tested with
                 Three.js V1.1.1 on the following browsers.
             </div>
         </div>
+
         <div id="install">
-            <header>Install</header>
+            <header>Installation</header>
+            <div>You can install the Gio from two ways:</div>
+            <div class="sub-title">Option 1: <span class="span_code">&lt;script&gt;</span> tag</div>
+            <div>Include the library and dependency in the <span class="span_code">&lt;head&gt;</span> section of your
+                web page as shown below:
+            </div>
+            <div class="code">
+                &lt;script src="three.min.js"&gt;&lt;/script&gt;<br>
+                &lt;script src="gio.min.js"&gt;&lt;/script&gt;
+            </div>
+            <div>Note: Please make sure you import the three.js file first before the Gio.js.</div>
+            <div class="sub-title">Option 2: JavaScript Package Manager</div>
+            <div class="sub-title">NPM</div>
+            <div>Install Gio.js and save the dependency to package.json</div>
+            <div class="code">npm install giojs --save</div>
+            <div>Import Gio.js module</div>
+            <div class="code">var Gio = require('giojs');</div>
+            <div class="sub-title">Yarn</div>
+            <div>In command line</div>
+            <div class="code">yarn add giojs</div>
+            <div>Import Gio.js module</div>
+            <div class="code">var Gio = require('giojs');</div>
+            <div>Now you are ready to write you first Gio Hello World example!</div>
         </div>
+
         <div id="firstGlobe">
-            <header>Your first globe</header>
+            <header>Gio.js Hello World</header>
+            <div>With Threejs and Giojs included in your webpage, you are ready to create your first Gio Globe. We will
+                start off by creating a globe in basic style.
+            </div>
+            <div>1. Create a <span class="span_code">&lt;div&gt;</span> where the globe will be rendered.</div>
+            <div class="code">
+                &lt;div id="globeArea" style="width: 200px; height: 200px"&gt;&lt;/div&gt;
+            </div>
+            <div>2. Add the following code snippet to the body of you html page.</div>
+            <div class="code">
+                &lt;script&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(function () {<br><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Get
+                the container to hold the IO globe<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var
+                container = document.getElementById( "globalArea" );<br><br>
+
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//
+                Create Gio.controller<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var
+                controller = new GIO.Controller( container );<br><br>
+
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Add
+                data<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;controller.addData(
+                data );<br><br>
+
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//
+                Initialize and render the globe<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;controller.init();<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});<br>
+                &lt;/script&gt;
+            </div>
+            <div>Tip: We can also use JQuery or onReady handler to load data.</div>
+            <div>3. Now you should be able to see the 3D globe on your webpage like this</div>
         </div>
         <div id="explainLast">
-            <header>Explanation for last document</header>
+            <header>Other Resources</header>
+            <ul class="more-content-ul">
+                <li>To get start, see Getting Started</li>
+                <li>To learn more about the Basic Concepts</li>
+                <li>To see the full API document in Markdown format, see APIs</li>
+                <li>To contribute to Gio.js's code base, read Developer Guide</li>
+            </ul>
         </div>
 
         <div id="conceptGuide">
-            <header>Basic Concept</header>
+            <header>Basic Elements</header>
+            <div>In order to create your own Gio globe, let's learn some basic elements first. Below is an image
+                describing the basic concepts in a globe.
+            </div>
+            <img class="tag-img" src="https://www.highcharts.com/images/docs/understanding_highcharts.png">
             <div class="content">
                 Content
             </div>
             <div>
                 <ul>
-                    <li><a id="globeContent">Globe</a></li>
-                    <li><a id="surfaceContent">Surface</a></li>
-                    <li><a id="lineContent">Line</a></li>
-                    <li><a id="backgroundContent">Background</a></li>
-                    <li><a id="haloContent">Halo</a></li>
-                    <li><a id="countryContent">Country</a></li>
-                    <li><a id="oceanContent">Ocean</a></li>
+                    <li>
+                        <a id="surfaceContent">Surface</a>
+                        <div>The whole surface of the globe.</div>
+                    </li>
+                    <li>
+                        <a id="lineContent">Line</a>
+                        <div>The curve that connects two countries which related by some data.</div>
+                    </li>
+                    <li>
+                        <a id="backgroundContent">Background</a>
+                        <div>The background which behind the globe.</div>
+                    </li>
+                    <li>
+                        <a id="haloContent">Halo</a>
+                        <div>The circle of light around the globe.</div>
+                    </li>
+                    <li>
+                        <a id="countryContent">Country</a>
+                        <div>The area on the surface which represents one specific country.</div>
+                    </li>
+                    <li>
+                        <a id="oceanContent">Ocean</a>
+                        <div>The area on the surface which represents the ocean of the earth.</div>
+                    </li>
+                    <li>
+                        <a id="statsContent">Stats</a>
+                        <div>The small window that monitors the performance of Three.js.</div>
+                    </li>
                 </ul>
             </div>
         </div>
-        <div id="globe">
-            <header>Globe</header>
-        </div>
+
         <div id="surface">
             <header>Surface</header>
+            <img class="tag-img" src="https://www.highcharts.com/images/docs/understanding_highcharts.png">
+            <div>The surface including Country and Ocean. The default color scheme is 0xffffff. The color scheme can be
+                set through configure() as shown in the example below:
+            </div>
+            <div class="code">
+                controller.configure(<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;surface:
+                0xff0000<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                );
+            </div>
+            <div>Or it can be changed dynamically using setSurfaceColor().</div>
         </div>
-        <div id="line">
-            <header>Line</header>
-        </div>
-        <div id="background">
-            <header>Background</header>
-        </div>
-        <div id="halo">
-            <header>Halo</header>
-        </div>
+
         <div id="country">
             <header>Country</header>
+            <img class="tag-img" src="https://www.highcharts.com/images/docs/understanding_highcharts.png">
+            <div>Each Country corresponds to a specific code in CountryData. Depending on data availability and user
+                activity, a Country can be in the following states:
+            </div>
+            <div class="sub-title">Selected</div>
+            <div>When the user clicks on a Country, it is highlighted and becomes selected. The country is called a
+                selected country.
+            </div>
+            <div>The color of Selected country can be set through configure() as follows:</div>
+            <div class="code">
+                controller.configure(<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;selected:
+                0xff0000<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                );
+            </div>
+            <div>Or it can be changed dynamically with setSelectedColor().</div>
+            <div class="sub-title">Related</div>
+            <div>Those countries connected to the selected country through 'in line' or 'out line' are called related
+                countries.
+            </div>
+            <div>The brightness of related countries can be set through configure() as follows:</div>
+            <div class="code">
+                controller.configure(<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;brightness: {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;related:
+                0.8<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                );
+            </div>
+            <div>Or it can be changed dynamically with adjustRelatedBrightness(). Default value: 0.5</div>
+            <div class="sub-title">Mentioned</div>
+            <div>All other countries appear in the input dataset but are not 'selected' or 'related' are called
+                'mentioned'.
+            </div>
+            <div>The Color of Mentioned country can be set to be brighter than Unmentioned country with
+                ligtenMentioned(true); to disable this feature use ligtenMentioned(false).
+            </div>
+            <div>The brightness of Mentioned country can be set through [configure()] as follow:</div>
+            <div class="code">
+                controller.configure(<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mentioned:
+                0.8<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                );
+            </div>
+            <div>Or it can be modified dynamically with adjustMentionedBrightness() when ligtenMentioned(true) is
+                called. Default value: 0.5
+            </div>
+            <div class="sub-title">Unmentioned</div>
+            <div>Countries in CountryData but not in the input data are called 'Unmentioned'.</div>
+            <div class="sub-title">Unclickable</div>
+            <div>When a country is set to unclickable, it will be not highlighted when clicked and it will be cause the
+                globe to rotate. (Normally after a country has been clicked, the globe will turn and let the clicked
+                country facing the user.).
+            </div>
+            <div>Unmentioned countries can be set to 'unclickable' through disableUnmentioned(true). To disable this
+                feature call disableUnmentioned(false).
+            </div>
         </div>
+
+        <div id="line">
+            <header>Line</header>
+            <img class="tag-img" src="https://www.highcharts.com/images/docs/understanding_highcharts.png">
+            <div>Line is used to visualize the data flow between two countries. For Selected country, the line with data
+                flow into it is called in line and the line with data flow out of it is called out line. The default
+                color of in line is in-line 0x154492 and the default color of out line is out-line 0xdd380c.
+            </div>
+            <div>The color of lines can be set through configure API as follow:</div>
+            <div class="code">
+                controller.configure(<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in:
+                0xff0000,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;out:
+                0x00ff00<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                );
+            </div>
+            <div>Or it can be modified dynamically with setInLineColor() and setOutLineColor().</div>
+            <div>Can we use different colors for different lines? The answer is yes. This can be done by modifying the
+                json input data as follow:
+            </div>
+            <div class="code">
+                {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"e": "CN",<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"i": "US",<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"v": 100000,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"inColor": "#0000ff",<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"outColor": "#00ff00"<br>
+                }
+            </div>
+            <div>However this needs to be done before controller.init() is called. See working with data for details.
+            </div>
+        </div>
+
+        <div id="background">
+            <header>Background</header>
+            <img class="tag-img" src="https://www.highcharts.com/images/docs/understanding_highcharts.png">
+            <div>The background is the area "behind" the earth. The default color of the background is background
+                0x000000.
+            </div>
+            <div>Background color can be set through configure() as follow:</div>
+            <div class="code">
+                controller.configure(<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;background:
+                0x0000ff<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                );
+            </div>
+            <div>Or it can be modified dynamically with setBackgroundColor().</div>
+        </div>
+
+        <div id="halo">
+            <header>Halo</header>
+            <img class="tag-img" src="https://www.highcharts.com/images/docs/understanding_highcharts.png">
+            <div>Halo is the circle of light around the earth. The default color of halo is halo 0xffffff.</div>
+            <div>The color can be set through configure() as follow:</div>
+            <div class="code">
+                controller.configure(<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;halo:
+                0xff0000<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                );
+            </div>
+            <div>Or it can be modified dynamically by setHaloColor().</div>
+        </div>
+
         <div id="ocean">
             <header>Ocean</header>
+            <img class="tag-img" src="https://www.highcharts.com/images/docs/understanding_highcharts.png">
+            <div>The ocean object is the ocean area on the earth, the ocean is the most dart area on the earth. The
+                default brightness of the ocean is 0.5.
+            </div>
+            <div>The brightness of the ocean through configure() as follow:</div>
+            <div class="code">
+                controller.configure(<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;brightness: {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ocean:
+                0.8<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                );
+            </div>
+            <div>or adjustOceanBrightness API.</div>
+        </div>
+
+        <div id="stats">
+            <header>Stats</header>
+            <img class="tag-img" src="https://www.highcharts.com/images/docs/understanding_highcharts.png">
+            <div>The "stats" is a performance monitor for Three.js, if you are interested in it, you can see more
+                information about stats from its github. As our Gio globe is an open source library based on Three.js,
+                so you may be want to add stats to your scene, you can use the enableStats() to add the stats panel in
+                the left-top corner.
+            </div>
         </div>
 
         <div id="configureGuide">
@@ -248,11 +583,17 @@
                 </ul>
             </div>
         </div>
+
         <div id="constructorConfigure">
             <header>Constructor Configure</header>
+            <div style="text-align: center;margin-bottom: 20px;">We are working hard to write it ~~~</div>
+            <img class="working" src="../assets/images/working.jpg">
         </div>
+
         <div id="configureAPI">
             <header>Configure API</header>
+            <div style="text-align: center;margin-bottom: 20px;">We are working hard to write it ~~~</div>
+            <img class="working" src="../assets/images/working.jpg">
         </div>
 
         <div id="designGuide">
@@ -271,23 +612,41 @@
                 </ul>
             </div>
         </div>
+
         <div id="setInitCountry">
             <header>setInitCountry</header>
+            <div style="text-align: center;margin-bottom: 20px;">We are working hard to write it ~~~</div>
+            <img class="working" src="../assets/images/working.jpg">
         </div>
+
         <div id="lightenMentioned">
             <header>lightenMentioned</header>
+            <div style="text-align: center;margin-bottom: 20px;">We are working hard to write it ~~~</div>
+            <img class="working" src="../assets/images/working.jpg">
         </div>
+
         <div id="disableUnmentioned">
             <header>disableUnmentioned</header>
+            <div style="text-align: center;margin-bottom: 20px;">We are working hard to write it ~~~</div>
+            <img class="working" src="../assets/images/working.jpg">
         </div>
+
         <div id="showOnly">
             <header>showInOnly / showOutOnly</header>
+            <div style="text-align: center;margin-bottom: 20px;">We are working hard to write it ~~~</div>
+            <img class="working" src="../assets/images/working.jpg">
         </div>
+
         <div id="controlHalo">
             <header>addHalo / removeHalo</header>
+            <div style="text-align: center;margin-bottom: 20px;">We are working hard to write it ~~~</div>
+            <img class="working" src="../assets/images/working.jpg">
         </div>
+
         <div id="controlStats">
             <header>enableStats / disableStats</header>
+            <div style="text-align: center;margin-bottom: 20px;">We are working hard to write it ~~~</div>
+            <img class="working" src="../assets/images/working.jpg">
         </div>
 
         <div id="colorGuide">
@@ -310,35 +669,65 @@
                 </ul>
             </div>
         </div>
+
         <div id="setStyle">
             <header>setStyle</header>
+            <div style="text-align: center;margin-bottom: 20px;">We are working hard to write it ~~~</div>
+            <img class="working" src="../assets/images/working.jpg">
         </div>
+
         <div id="setSurfaceColor">
             <header>setSurfaceColor</header>
+            <div style="text-align: center;margin-bottom: 20px;">We are working hard to write it ~~~</div>
+            <img class="working" src="../assets/images/working.jpg">
         </div>
+
         <div id="setSelectedColor">
             <header>setSelectedColor</header>
+            <div style="text-align: center;margin-bottom: 20px;">We are working hard to write it ~~~</div>
+            <img class="working" src="../assets/images/working.jpg">
         </div>
+
         <div id="setExportColor">
             <header>setExportColor</header>
+            <div style="text-align: center;margin-bottom: 20px;">We are working hard to write it ~~~</div>
+            <img class="working" src="../assets/images/working.jpg">
         </div>
+
         <div id="setImportColor">
             <header>setImportColor</header>
+            <div style="text-align: center;margin-bottom: 20px;">We are working hard to write it ~~~</div>
+            <img class="working" src="../assets/images/working.jpg">
         </div>
+
         <div id="setHaloColor">
             <header>setHaloColor</header>
+            <div style="text-align: center;margin-bottom: 20px;">We are working hard to write it ~~~</div>
+            <img class="working" src="../assets/images/working.jpg">
         </div>
+
         <div id="setBackgroundColor">
             <header>setBackgroundColor</header>
+            <div style="text-align: center;margin-bottom: 20px;">We are working hard to write it ~~~</div>
+            <img class="working" src="../assets/images/working.jpg">
         </div>
+
         <div id="adjustOceanBrightness">
             <header>adjustOceanBrightness</header>
+            <div style="text-align: center;margin-bottom: 20px;">We are working hard to write it ~~~</div>
+            <img class="working" src="../assets/images/working.jpg">
         </div>
+
         <div id="adjustRelatedBrightness">
             <header>adjustRelatedBrightness</header>
+            <div style="text-align: center;margin-bottom: 20px;">We are working hard to write it ~~~</div>
+            <img class="working" src="../assets/images/working.jpg">
         </div>
+
         <div id="adjustMentionedBrightness">
             <header>adjustMentionedBrightness</header>
+            <div style="text-align: center;margin-bottom: 20px;">We are working hard to write it ~~~</div>
+            <img class="working" src="../assets/images/working.jpg">
         </div>
 
         <div id="dataGuide">
@@ -355,17 +744,29 @@
                 </ul>
             </div>
         </div>
+
         <div id="addData">
             <header>addData</header>
+            <div style="text-align: center;margin-bottom: 20px;">We are working hard to write it ~~~</div>
+            <img class="working" src="../assets/images/working.jpg">
         </div>
+
         <div id="addDataAsync">
             <header>addDataAsync</header>
+            <div style="text-align: center;margin-bottom: 20px;">We are working hard to write it ~~~</div>
+            <img class="working" src="../assets/images/working.jpg">
         </div>
+
         <div id="liveLoad">
             <header>liveLoad</header>
+            <div style="text-align: center;margin-bottom: 20px;">We are working hard to write it ~~~</div>
+            <img class="working" src="../assets/images/working.jpg">
         </div>
+
         <div id="setFromData">
             <header>set line color from data</header>
+            <div style="text-align: center;margin-bottom: 20px;">We are working hard to write it ~~~</div>
+            <img class="working" src="../assets/images/working.jpg">
         </div>
 
         <div id="callbackGuide">
@@ -379,8 +780,11 @@
                 </ul>
             </div>
         </div>
+
         <div id="onCountryPicked">
             <header>onCountryPicked</header>
+            <div style="text-align: center;margin-bottom: 20px;">We are working hard to write it ~~~</div>
+            <img class="working" src="../assets/images/working.jpg">
         </div>
 
         <div id="advancedGuide">
@@ -395,11 +799,17 @@
                 </ul>
             </div>
         </div>
+
         <div id="functionChain">
             <header>function chain</header>
+            <div style="text-align: center;margin-bottom: 20px;">We are working hard to write it ~~~</div>
+            <img class="working" src="../assets/images/working.jpg">
         </div>
+
         <div id="switchCountry">
             <header>switchCountry</header>
+            <div style="text-align: center;margin-bottom: 20px;">We are working hard to write it ~~~</div>
+            <img class="working" src="../assets/images/working.jpg">
         </div>
 
     </main>
@@ -408,95 +818,6 @@
 <footer>
     Copyright © 2018 Gio.js. All rights reserved
 </footer>
-
-<div id="hideNav">
-
-    <img id="ContentLogo" src="../assets/images/logo_white.png">
-
-    <header>Gio.js</header>
-
-    <div id="startLabelS">
-        Getting Start<img src="../assets/images/document_arrow.png">
-    </div>
-    <ul id="startS">
-        <li id="requirementNavS">System Requirements</li>
-        <li id="installNavS">Install</li>
-        <li id="firstGlobeNavS">Your First Globe</li>
-        <li id="explainLastNavS">Explanation Last Document</li>
-    </ul>
-    <div id="basicLabelS">
-        Basic Concept<img src="../assets/images/document_arrow.png">
-    </div>
-    <ul id="basicS">
-        <li id="globeNavS">Globe</li>
-        <li id="surfaceNavS">Surface</li>
-        <li id="lineNavS">Line</li>
-        <li id="backgroundNavS">Background</li>
-        <li id="haloNavS">Halo</li>
-        <li id="countryNavS">Country</li>
-        <li id="oceanNavS">Ocean</li>
-    </ul>
-    <div id="configureLabelS">
-        Configuration<img src="../assets/images/document_arrow.png">
-    </div>
-    <ul id="configureS">
-        <li id="constructorConfigureNavS">Constructor Configure</li>
-        <li id="configureAPINavS">Configure API</li>
-    </ul>
-    <div id="designLabelS">
-        Object Design API<img src="../assets/images/document_arrow.png">
-    </div>
-    <ul id="designS">
-        <li id="setInitCountryNavS">setInitCountry</li>
-        <li id="lightenMentionedNavS">lightenMentioned</li>
-        <li id="disableUnmentionedNavS">disableUnmentioned</li>
-        <li id="showOnlyNavS">showInOnly / showOutOnly</li>
-        <li id="controlHaloNavS">addHalo / removeHalo</li>
-        <li id="controlStatsNavS">enableStats / disableStats</li>
-    </ul>
-    <div id="colorLabelS">
-        Color and Style API<img src="../assets/images/document_arrow.png">
-    </div>
-    <ul id="colorS">
-        <li id="setStyleNavS">setStyle</li>
-        <li id="setSurfaceColorNavS">setSurfaceColor</li>
-        <li id="setSelectedColorNavS">setSelectedColor</li>
-        <li id="setExportColorNavS">setExportColor</li>
-        <li id="setImportColorNavS">setImportColor</li>
-        <li id="setHaloColorNavS">setHaloColor</li>
-        <li id="setBackgroundColorNavS">setBackgroundColor</li>
-        <li id="adjustOceanBrightnessNavS">adjustOceanBrightness</li>
-        <li id="adjustRelatedBrightnessNavS">adjustRelatedBrightness</li>
-        <li id="adjustMentionedBrightnessNavS">adjustMentionedBrightness</li>
-    </ul>
-    <div id="dataLabelS">
-        Working with Data<img src="../assets/images/document_arrow.png">
-    </div>
-    <ul id="dataS">
-        <li id="addDataNavS">addData</li>
-        <li id="addDataAsyncNavS">addDataAsync</li>
-        <li id="liveLoadNavS">liveLoad</li>
-        <li id="setDataColorNavS">set line color from data</li>
-    </ul>
-    <div id="callbackLabelS">
-        Callback<img src="../assets/images/document_arrow.png">
-    </div>
-    <ul id="callbackS">
-        <li id="onCountryPickedNavS">onCountryPicked</li>
-    </ul>
-    <div id="advancedLabelS">
-        Advanced Feature<img src="../assets/images/document_arrow.png">
-    </div>
-    <ul id="advancedS">
-        <li id="functionChainNavS">function chain</li>
-        <li id="switchCountryNavS">switchCountry</li>
-    </ul>
-
-    <img id="close" src="../assets/images/close.png">
-
-</div>
-
-<div id="curtain"></div>
 
 </body>
 

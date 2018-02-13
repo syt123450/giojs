@@ -96,22 +96,22 @@ function bindStartChapter() {
 function bindConceptChapter() {
 
     bindChapterHelper("#basicLabel", "#basic", "#conceptGuide");
-    bindSectionHelper("#globeNav", "#globe");
     bindSectionHelper("#surfaceNav", "#surface");
     bindSectionHelper("#lineNav", "#line");
     bindSectionHelper("#backgroundNav", "#background");
     bindSectionHelper("#haloNav", "#halo");
     bindSectionHelper("#countryNav", "#country");
     bindSectionHelper("#oceanNav", "#ocean");
+    bindSectionHelper("#statsNav", "#stats");
 
     bindChapterHelper("#basicLabelS", "#basicS", "#conceptGuide");
-    bindSmallSectionHelper("#globeNavS", "#globe");
     bindSmallSectionHelper("#surfaceNavS", "#surface");
     bindSmallSectionHelper("#lineNavS", "#line");
     bindSmallSectionHelper("#backgroundNavS", "#background");
     bindSmallSectionHelper("#haloNavS", "#halo");
     bindSmallSectionHelper("#countryNavS", "#country");
     bindSmallSectionHelper("#oceanNavS", "#ocean");
+    bindSmallSectionHelper("#statsNavS", "#stats");
 }
 
 function bindConfigureChapter() {
@@ -235,6 +235,8 @@ function bindChapterHelper(chapterLabel, chapterSelection, chapterGuideArea) {
 
         if (selectedChapter !== chapterSelection) {
 
+            $(selectedSectionNav).removeClass("nowLabel");
+
             if (selectedChapter !== null) {
                 $(selectedChapter).slideUp();
             }
@@ -246,10 +248,11 @@ function bindChapterHelper(chapterLabel, chapterSelection, chapterGuideArea) {
             $(selectedArea).hide();
             selectedArea = chapterGuideArea;
             $(selectedArea).show();
+            $("main").animate({ scrollTop: 0 }, "fast");
 
         } else {
 
-
+            $(selectedSectionNav).removeClass("nowLabel");
             selectedChapter = null;
 
             $(chapterSelection).slideUp();
@@ -258,6 +261,8 @@ function bindChapterHelper(chapterLabel, chapterSelection, chapterGuideArea) {
             selectedArea = "#helloDocument";
             selectedSectionNav = null;
             $(selectedArea).show();
+            $("main").animate({ scrollTop: 0 }, "fast");
+
         }
 
     });
@@ -280,6 +285,7 @@ function bindSectionHelper(sectionNav, sectionArea) {
             $(selectedArea).hide();
             selectedArea = sectionArea;
             $(selectedArea).show();
+            $("main").animate({ scrollTop: 0 }, "fast");
 
         }
 
@@ -305,6 +311,7 @@ function bindSmallSectionHelper(sectionNav, sectionArea) {
 
             selectedArea = sectionArea;
             $(selectedArea).show();
+            $("main").animate({ scrollTop: 0 }, "fast");
 
         }
 
@@ -333,13 +340,13 @@ function bindStartContent() {
 }
 
 function bindConceptContent() {
-    bindSectionContent("#globeContent", "#globeNav", "#globe");
     bindSectionContent("#surfaceContent", "#surfaceNav", "#surface");
     bindSectionContent("#lineContent", "#lineNav", "#line");
     bindSectionContent("#backgroundContent", "#backgroundNav", "#background");
     bindSectionContent("#haloContent", "#haloNav", "#halo");
     bindSectionContent("#countryContent", "#countryNav", "#country");
     bindSectionContent("#oceanContent", "#oceanNav", "#ocean");
+    bindSectionContent("#statsContent", "#statsNav", "#stats");
 }
 
 function bindConfigureContent() {

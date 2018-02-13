@@ -45,6 +45,24 @@ $(function () {
         window.location.href = "index.html";
     });
 
+    $("#toStart").hover(function() {
+        $("#toStart img").attr("src", "assets/images/getStart_hover.png");
+    }, function() {
+        $("#toStart img").attr("src", "assets/images/startIcon.png");
+    });
+
+    $("#toPlayground").hover(function() {
+        $("#toPlayground img").attr("src", "assets/images/playground_hover.png");
+    }, function() {
+        $("#toPlayground img").attr("src", "assets/images/playgroundIcon.png");
+    });
+
+    $("#toGithub").hover(function() {
+        $("#toGithub img").attr("src", "assets/images/github_hover.png");
+    }, function() {
+        $("#toGithub img").attr("src", "assets/images/github.png");
+    });
+
     var container = document.getElementById("globeArea");
     var controller = new GIO.Controller(container);
 

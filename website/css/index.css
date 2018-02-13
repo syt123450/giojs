@@ -45,6 +45,8 @@
     width: 100%;
     font-size: 35px;
     font-family: DINAlternateBold, serif;
+    padding: 0 40px;
+    box-sizing: border-box;
 
 }
 
@@ -86,6 +88,14 @@
     background: linear-gradient(to right, #0071bc, #29abe2);
 }
 
+#toStart:hover {
+
+    color: #4d4d4d;
+    background:transparent;
+    border: 1px solid #29A6DD;
+
+}
+
 #toStart > img {
 
     height: 20px;
@@ -99,6 +109,12 @@
     border: 1px solid #29A6DD;
 }
 
+#toPlayground:hover {
+    color: white;
+    background: linear-gradient(to right, #0071bc, #29abe2);
+    border: 0;
+}
+
 #toPlayground > img {
 
     height: 30px;
@@ -110,6 +126,12 @@
 #toGithub {
     background-color: #f2f2f2;
 }
+
+#toGithub:hover {
+    background: #999999;
+    color: #fff;
+}
+
 
 #toGithub > img {
 
@@ -138,9 +160,9 @@
 
     text-align: center;
     font-size: 20px;
-    font-weight: bold;
     margin-top: 20px;
     color: #0071bc;
+    font-family: DINAlternateBold, serif;
 }
 
 #explanation > div > div {
@@ -148,26 +170,31 @@
     font-size: 18px;
     padding: 0 60px 0 70px;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 #start {
 
-    height: 110%;
+    height: 115%;
     min-height: 110%;
     width: 100%;
     background-color: #e6e6e6;
     box-sizing: border-box;
     padding-top: 60px;
     padding-bottom: 60px;
+    font-size: 18px;
 }
 
 #start h4 {
     font-family: DINAlternateBold, serif;
+    font-size: 18px;
+    margin-top: 15px;
 }
 
 #start > div {
 
     height: 100%;
+
 }
 
 #start > div > div {
@@ -191,7 +218,7 @@
 }
 
 #start .code {
-    width: 80%;
+    width: 90%;
     min-height: 20px;
     color: #0071bc;
     line-height: 20px;
@@ -199,15 +226,17 @@
     border-radius: 5px;
     box-sizing: border-box;
     padding-left: 15px;
-    background-color: #e6e6e6;
+    background-color: #f2f2f2;
     font-family: AmericanTypewriterRegular, serif;
     margin-top: 5px;
     margin-bottom: 5px;
+    font-size: 16px;
 }
 
 #globeArea {
-    height: 100%;
+    height: 84%;
     width: 100%;
+    margin-top: 7%;
 }
 
 #download {
@@ -219,6 +248,7 @@
     box-sizing: border-box;
     padding-top: 60px;
     padding-bottom: 60px;
+    font-size: 18px;
 }
 
 #download > div {
@@ -237,7 +267,7 @@
 #download > div > div > img {
     width: 60%;
     margin-left: 10%;
-    margin-top: 10%;
+    margin-top: 15%;
 }
 
 #download > div > div > header {
@@ -313,6 +343,7 @@ footer {
         margin-top: 10px;
         text-align: center;
         font-size: 30px;
+        padding: 0;
     }
 
     #explanation > div {
@@ -353,6 +384,7 @@ footer {
     #download > div > div > img {
 
         margin-left: 0;
+        margin-top: 5%;
         width: 300px;
     }
 
@@ -420,10 +452,11 @@ footer {
 
     #start {
         height: 150%;
+        font-size: 16px;
     }
 
     #start > div > div {
-        height: 70%;
+        height: 75%;
     }
 
     #globeWrapper {
@@ -432,6 +465,10 @@ footer {
 
     #start #globeWrapper {
         height: 30%;
+    }
+
+    #download {
+        font-size: 16px;
     }
 
 

@@ -170,6 +170,31 @@ var GIO;
                     controller.adjustRelatedBrightness(sliderValue);
                 });
 
+                // register button listeners
+
+                $(document).on("click", "#ctlGenerateBtn", function(){
+
+                    // show current conig in JSON format in pop up
+
+                    var config = controller.getConfig();
+
+                    var playgroundConfig = {};
+
+                    playgroundConfig.control = config.control;
+                    playgroundConfig.color = config.color;
+                    playgroundConfig.brightness = config.brightness;
+
+                    alert(JSON.stringify(playgroundConfig));
+
+                });
+
+                $(document).on("click", "#ctlHelpBtn", function(){
+
+                    // TODO: show help instructions
+
+                });
+
+
 
             }
 

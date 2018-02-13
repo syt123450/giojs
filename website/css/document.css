@@ -1,3 +1,8 @@
+.working {
+    width: 40%;
+    margin-left: 30%;
+}
+
 body {
     background: linear-gradient(to top right, white, #d0f9ff);
 }
@@ -96,14 +101,127 @@ main {
     height: 100%;
     background-color: #fff;
     overflow: auto;
+    padding-bottom: 30px;
 }
 
 main > div {
 
     display: none;
-    overflow: auto;
-    text-align: center;
+    overflow: scroll;
+    width: 100%;
 
+}
+
+main > div > header {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    font-size: 25px;
+    font-family:DINAlternateBold, serif;
+    color: #4d4d4d;
+    text-align: center;
+}
+
+main > div > div {
+    padding: 0 50px;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+main > div > div > ul {
+    list-style-type: circle;
+    list-style-position: inside;
+    padding: 0;
+    margin-top: 30px;
+    color: #29abe2;
+}
+
+main > div > div > ul > li {
+    width: auto;
+    padding-left: 20px;
+    min-height: 30px;
+    line-height: 30px;
+    box-sizing: border-box;
+}
+
+main > div > div > ul > li > a {
+    color: #29abe2;
+}
+
+main > div > div > ul > li > a:hover {
+    border-bottom: 1px solid #29abe2;
+    cursor: pointer;
+}
+
+main > div > div > ul > li > div {
+    padding-left: 30px;
+    color: #4d4d4d;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.tag-img {
+    width: 80%;
+    margin-left: 10%;
+}
+
+.span_code {
+
+    font-family: AmericanTypewriterRegular, serif;
+
+}
+
+.span_bold {
+
+    font-family: DINAlternateBold, serif;
+
+}
+
+.content {
+    width: 90%;
+    height: 50px;
+    line-height: 50px;
+    margin-left: 5%;
+    margin-top: 20px;
+    font-size: 20px;
+    color: #999999;
+    font-weight: bold;
+    border-bottom: 1px solid #e6e6e6;
+    box-sizing: border-box;
+    font-family: DINAlternateBold, serif;
+}
+
+.more-content-ul {
+    margin-top: 60px;
+    margin-left: 50px;
+    font-size: 18px;
+}
+
+.more-content-ul > li {
+    height: 40px;
+    line-height: 40px;
+
+}
+
+.code {
+    background-color: #e6e6e6;
+    color: #0071bc;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 80%;
+    margin-left: 5%;
+    border-radius: 10px;
+    font-family: AmericanTypewriterRegular, serif;
+    padding: 10px 30px;
+}
+
+.sub-title {
+
+    font-family: DINAlternateBold, serif;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 footer {

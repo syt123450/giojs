@@ -1,6 +1,10 @@
+// record the label id to show the hidden ul
 var selectedLabel = null;
+// record the ul id for each chapter
 var selectedChapter = null;
+// record the area id for area shown in main area
 var selectedArea = "#helloDocument";
+// record the nav id for section area
 var selectedSectionNav = null;
 
 $(function() {
@@ -23,6 +27,7 @@ $(function() {
     });
 
     bindDocumentEvent();
+    bindContentNav();
 
     $("#helloDocument").show();
 
@@ -91,22 +96,22 @@ function bindStartChapter() {
 function bindConceptChapter() {
 
     bindChapterHelper("#basicLabel", "#basic", "#conceptGuide");
-    bindSectionHelper("#globeNav", "#globe");
     bindSectionHelper("#surfaceNav", "#surface");
     bindSectionHelper("#lineNav", "#line");
     bindSectionHelper("#backgroundNav", "#background");
     bindSectionHelper("#haloNav", "#halo");
     bindSectionHelper("#countryNav", "#country");
     bindSectionHelper("#oceanNav", "#ocean");
+    bindSectionHelper("#statsNav", "#stats");
 
     bindChapterHelper("#basicLabelS", "#basicS", "#conceptGuide");
-    bindSmallSectionHelper("#globeNavS", "#globe");
     bindSmallSectionHelper("#surfaceNavS", "#surface");
     bindSmallSectionHelper("#lineNavS", "#line");
     bindSmallSectionHelper("#backgroundNavS", "#background");
     bindSmallSectionHelper("#haloNavS", "#halo");
     bindSmallSectionHelper("#countryNavS", "#country");
     bindSmallSectionHelper("#oceanNavS", "#ocean");
+    bindSmallSectionHelper("#statsNavS", "#stats");
 }
 
 function bindConfigureChapter() {
@@ -230,6 +235,8 @@ function bindChapterHelper(chapterLabel, chapterSelection, chapterGuideArea) {
 
         if (selectedChapter !== chapterSelection) {
 
+            $(selectedSectionNav).removeClass("nowLabel");
+
             if (selectedChapter !== null) {
                 $(selectedChapter).slideUp();
             }
@@ -241,9 +248,11 @@ function bindChapterHelper(chapterLabel, chapterSelection, chapterGuideArea) {
             $(selectedArea).hide();
             selectedArea = chapterGuideArea;
             $(selectedArea).show();
+            $("main").animate({ scrollTop: 0 }, "fast");
 
         } else {
 
+            $(selectedSectionNav).removeClass("nowLabel");
             selectedChapter = null;
 
             $(chapterSelection).slideUp();
@@ -252,6 +261,8 @@ function bindChapterHelper(chapterLabel, chapterSelection, chapterGuideArea) {
             selectedArea = "#helloDocument";
             selectedSectionNav = null;
             $(selectedArea).show();
+            $("main").animate({ scrollTop: 0 }, "fast");
+
         }
 
     });
@@ -274,6 +285,7 @@ function bindSectionHelper(sectionNav, sectionArea) {
             $(selectedArea).hide();
             selectedArea = sectionArea;
             $(selectedArea).show();
+            $("main").animate({ scrollTop: 0 }, "fast");
 
         }
 
@@ -299,8 +311,102 @@ function bindSmallSectionHelper(sectionNav, sectionArea) {
 
             selectedArea = sectionArea;
             $(selectedArea).show();
+            $("main").animate({ scrollTop: 0 }, "fast");
 
         }
 
     });
+}
+
+function bindContentNav() {
+
+    bindStartContent();
+    bindConceptContent();
+    bindConfigureContent();
+    bindDesignContent();
+    bindColorContent();
+    bindDataContent();
+    bindCallbackContent();
+    bindAdvancedContent();
+}
+
+function bindStartContent() {
+
+    bindSectionContent("#requireContent", "#requirementNav", "#requirement");
+    bindSectionContent("#installContent", "#installNav", "#install");
+    bindSectionContent("#firstGlobeContent", "#firstGlobeNav", "#firstGlobe");
+    bindSectionContent("#explainContent", "#explainLastNav", "#explainLast");
+
+}
+
+function bindConceptContent() {
+    bindSectionContent("#surfaceContent", "#surfaceNav", "#surface");
+    bindSectionContent("#lineContent", "#lineNav", "#line");
+    bindSectionContent("#backgroundContent", "#backgroundNav", "#background");
+    bindSectionContent("#haloContent", "#haloNav", "#halo");
+    bindSectionContent("#countryContent", "#countryNav", "#country");
+    bindSectionContent("#oceanContent", "#oceanNav", "#ocean");
+    bindSectionContent("#statsContent", "#statsNav", "#stats");
+}
+
+function bindConfigureContent() {
+    bindSectionContent("#constructorConfigureContent", "#constructorConfigureNav", "#constructorConfigure");
+    bindSectionContent("#configureAPIContent", "#configureAPINav", "#configureAPI");
+}
+
+function bindDesignContent() {
+    bindSectionContent("#setInitCountryContent", "#setInitCountryNav", "#setInitCountry");
+    bindSectionContent("#lightenMentionedContent", "#lightenMentionedNav", "#lightenMentioned");
+    bindSectionContent("#disableUnmentionedContent", "#disableUnmentionedNav", "#disableUnmentioned");
+    bindSectionContent("#showOnlyContent", "#showOnlyNav", "#showOnly");
+    bindSectionContent("#controlHaloContent", "#controlHaloNav", "#controlHalo");
+    bindSectionContent("#controlStatsContent", "#controlStatsNav", "#controlStats");
+}
+
+function bindColorContent() {
+
+    bindSectionContent("#setStyleContent", "#setStyleNav", "#setStyle");
+    bindSectionContent("#setSurfaceColorContent", "#setSurfaceColorNav", "#setSurfaceColor");
+    bindSectionContent("#setSelectedColorContent", "#setSelectedColorNav", "#setSelectedColor");
+    bindSectionContent("#setExportColorContent", "#setExportColorNav", "#setExportColor");
+    bindSectionContent("#setImportColorContent", "#setImportColorNav", "#setImportColor");
+    bindSectionContent("#setHaloColorContent", "#setHaloColorNav", "#setHaloColor");
+    bindSectionContent("#setBackgroundColorContent", "#setBackgroundColorNav", "#setBackgroundColor");
+    bindSectionContent("#adjustOceanBrightnessContent", "#adjustOceanBrightnessNav", "#adjustOceanBrightness");
+    bindSectionContent("#adjustRelatedBrightnessContent", "#adjustRelatedBrightnessNav", "#adjustRelatedBrightness");
+    bindSectionContent("#adjustMentionedBrightnessContent", "#adjustMentionedBrightnessNav", "#adjustMentionedBrightness");
+}
+
+function bindDataContent() {
+
+    bindSectionContent("#addDataContent", "#addDataNav", "#addData");
+    bindSectionContent("#addDataAsyncContent", "#addDataAsyncNav", "#addDataAsync");
+    bindSectionContent("#liveLoadContent", "#liveLoadNav", "#liveLoad");
+    bindSectionContent("#setFromDataContent", "#setDataColorNav", "#setFromData");
+}
+
+function bindCallbackContent() {
+
+    bindSectionContent("#onCountryPickedContent", "#onCountryPickedNav", "#onCountryPicked");
+}
+
+function bindAdvancedContent() {
+
+    bindSectionContent("#functionChainContent", "#functionChainNav", "#functionChain");
+    bindSectionContent("#switchCountryContent", "#switchCountryNav", "#switchCountry");
+}
+
+
+function bindSectionContent(contentNav, sectionNav, sectionArea) {
+
+    $(contentNav).click(function() {
+
+        selectedSectionNav = sectionNav;
+        $(sectionNav).addClass("nowLabel");
+        $(selectedArea).hide();
+        selectedArea = sectionArea;
+        $(selectedArea).show();
+
+    });
+
 }

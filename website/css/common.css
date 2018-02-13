@@ -1,5 +1,5 @@
 @font-face {
-    font-family: DINLightRegular;
+    font-family: "DINLightRegular";
     src: url('../fonts/DINLightRegular.otf')
 }
 
@@ -30,6 +30,12 @@ p {
 
 body {
     font-family: DINLightRegular, serif;
+}
+
+.span_code {
+
+    font-family: AmericanTypewriterRegular, serif;
+
 }
 
 body > nav {

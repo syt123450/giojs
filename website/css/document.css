@@ -173,6 +173,12 @@ main > div > div > ul > li > div {
 
 }
 
+.span_bold {
+
+    font-family: DINAlternateBold, serif;
+
+}
+
 .content {
     width: 90%;
     height: 50px;
@@ -184,6 +190,7 @@ main > div > div > ul > li > div {
     font-weight: bold;
     border-bottom: 1px solid #e6e6e6;
     box-sizing: border-box;
+    font-family: DINAlternateBold, serif;
 }
 
 .more-content-ul {

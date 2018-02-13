@@ -94,12 +94,13 @@
         Basic Elements<img src="../assets/images/document_arrow.png">
     </div>
     <ul id="basicS">
-        <li id="countryNavS">Country</li>
         <li id="surfaceNavS">Surface</li>
+        <li id="countryNavS">Country</li>
         <li id="lineNavS">Line</li>
         <li id="backgroundNavS">Background</li>
         <li id="haloNavS">Halo</li>
         <li id="oceanNavS">Ocean</li>
+        <li id="statsNavS">Stats</li>
     </ul>
     <div id="configureLabelS">
         Configuration<img src="../assets/images/document_arrow.png">
@@ -179,8 +180,8 @@
             Basic Elements<img src="../assets/images/document_arrow.png">
         </div>
         <ul id="basic">
-            <li id="countryNav">Country</li>
             <li id="surfaceNav">Surface</li>
+            <li id="countryNav">Country</li>
             <li id="lineNav">Line</li>
             <li id="backgroundNav">Background</li>
             <li id="haloNav">Halo</li>
@@ -252,8 +253,12 @@
 
         <div id="startGuide">
             <header>Getting Start</header>
-            <div>In this chapter, we will introduce the environment requirements, how to install Gio, a quick start to
-                your first Gio globe (the 3D globe for data visualization), and explanation of the last document
+            <div>In this chapter, we will introduce the
+                <span class="span_bold">environment requirements</span>,
+                <span class="span_bold">how to install Gio</span>,
+                <span class="span_bold">a quick start to your first Gio globe</span>(the 3D globe for data
+                visualization), and
+                <span class="span_bold">explanation of the last document</span>
                 together with how to use it.
             </div>
             <div class="content">
@@ -279,7 +284,7 @@
         <div id="install">
             <header>Installation</header>
             <div>You can install the Gio from two ways:</div>
-            <div class="sub-title">Option 1: <span class="span_code">&lt;script&gt;</span> tag</div>
+            <div><span class="span_bold">Option 1:</span> <span class="span_code">&lt;script&gt;</span> tag</div>
             <div>Include the library and dependency in the <span class="span_code">&lt;head&gt;</span> section of your
                 web page as shown below:
             </div>
@@ -287,8 +292,11 @@
                 &lt;script src="three.min.js"&gt;&lt;/script&gt;<br>
                 &lt;script src="gio.min.js"&gt;&lt;/script&gt;
             </div>
-            <div>Note: Please make sure you import the three.js file first before the Gio.js.</div>
-            <div class="sub-title">Option 2: JavaScript Package Manager</div>
+            <div><span class="span_bold">Note</span>: Please make sure you import the <a
+                    href="../index.html">three.js</a> file first before the
+                <a href="../index.html">Gio.js</a>.
+            </div>
+            <div><span class="span_bold">Option 2:</span> JavaScript Package Manager</div>
             <div class="sub-title">NPM</div>
             <div>Install Gio.js and save the dependency to package.json</div>
             <div class="code">npm install giojs --save</div>
@@ -337,15 +345,16 @@
                 &lt;/script&gt;
             </div>
             <div>Tip: We can also use JQuery or onReady handler to load data.</div>
-            <div>3. Now you should be able to see the 3D globe on your webpage like this</div>
+            <div>3. Now you should be able to see the 3D globe on your webpage like <a href="../index.html">this</a>
+            </div>
         </div>
         <div id="explainLast">
             <header>Other Resources</header>
             <ul class="more-content-ul">
-                <li>To get start, see Getting Started</li>
-                <li>To learn more about the Basic Concepts</li>
-                <li>To see the full API document in Markdown format, see APIs</li>
-                <li>To contribute to Gio.js's code base, read Developer Guide</li>
+                <li>To get start, see <a href="../index.html">Getting Started</a></li>
+                <li>To learn more about the <a href="../index.html">Basic Elements</a></li>
+                <li>To see the full API document in Markdown format, see <a href="../index.html">APIs</a></li>
+                <li>To contribute to Gio.js's code base, read <a href="../index.html">Developer Guide</a></li>
             </ul>
         </div>
 
@@ -365,6 +374,10 @@
                         <div>The whole surface of the globe.</div>
                     </li>
                     <li>
+                        <a id="countryContent">Country</a>
+                        <div>The area on the surface which represents one specific country.</div>
+                    </li>
+                    <li>
                         <a id="lineContent">Line</a>
                         <div>The curve that connects two countries which related by some data.</div>
                     </li>
@@ -375,10 +388,6 @@
                     <li>
                         <a id="haloContent">Halo</a>
                         <div>The circle of light around the globe.</div>
-                    </li>
-                    <li>
-                        <a id="countryContent">Country</a>
-                        <div>The area on the surface which represents one specific country.</div>
                     </li>
                     <li>
                         <a id="oceanContent">Ocean</a>
@@ -395,104 +404,116 @@
         <div id="surface">
             <header>Surface</header>
             <img class="tag-img" src="https://www.highcharts.com/images/docs/understanding_highcharts.png">
-            <div>The surface including Country and Ocean. The default color scheme is 0xffffff. The color scheme can be
-                set through configure() as shown in the example below:
+            <div>The surface including <a href="../index.html">Country</a> and <a href="../index.html">Ocean</a>. The
+                default color scheme is 0xffffff. The color scheme can be set through <a href="../index.html">configure()</a>
+                as shown in the example below:
             </div>
             <div class="code">
-                controller.configure(<br>
+                controller.configure({<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: {<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;surface:
                 0xff0000<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-                );
+                });
             </div>
-            <div>Or it can be changed dynamically using setSurfaceColor().</div>
+            <div>Or it can be changed dynamically using <a href="../index.html">setSurfaceColor()</a>.</div>
         </div>
 
         <div id="country">
             <header>Country</header>
             <img class="tag-img" src="https://www.highcharts.com/images/docs/understanding_highcharts.png">
-            <div>Each Country corresponds to a specific code in CountryData. Depending on data availability and user
-                activity, a Country can be in the following states:
+            <div>Each Country corresponds to a specific code in <a href="../index.html">CountryData</a>. Depending on
+                data availability and user activity, a Country can be in the following states:
             </div>
             <div class="sub-title">Selected</div>
             <div>When the user clicks on a Country, it is highlighted and becomes selected. The country is called a
                 selected country.
             </div>
-            <div>The color of Selected country can be set through configure() as follows:</div>
+            <div>The color of Selected country can be set through <a href="../index.html">configure()</a> as follows:
+            </div>
             <div class="code">
-                controller.configure(<br>
+                controller.configure({<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: {<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;selected:
                 0xff0000<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-                );
+                });
             </div>
-            <div>Or it can be changed dynamically with setSelectedColor().</div>
+            <div>Or it can be changed dynamically with <a href="../index.html">setSelectedColor()</a> .</div>
             <div class="sub-title">Related</div>
             <div>Those countries connected to the selected country through 'in line' or 'out line' are called related
                 countries.
             </div>
-            <div>The brightness of related countries can be set through configure() as follows:</div>
+            <div>The brightness of related countries can be set through <a href="../index.html">configure()</a> as
+                follows:
+            </div>
             <div class="code">
-                controller.configure(<br>
+                controller.configure({<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;brightness: {<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;related:
                 0.8<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-                );
+                });
             </div>
-            <div>Or it can be changed dynamically with adjustRelatedBrightness(). Default value: 0.5</div>
+            <div>Or it can be changed dynamically with <a href="../index.html">adjustRelatedBrightness()</a>. Default
+                value: 0.5
+            </div>
             <div class="sub-title">Mentioned</div>
             <div>All other countries appear in the input dataset but are not 'selected' or 'related' are called
                 'mentioned'.
             </div>
             <div>The Color of Mentioned country can be set to be brighter than Unmentioned country with
-                ligtenMentioned(true); to disable this feature use ligtenMentioned(false).
+                <a href="../index.html">ligtenMentioned(true)</a>; to disable this feature use <a href="../index.html">ligtenMentioned(false)</a>.
             </div>
             <div>The brightness of Mentioned country can be set through [configure()] as follow:</div>
             <div class="code">
-                controller.configure(<br>
+                controller.configure({<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: {<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mentioned:
                 0.8<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-                );
+                });
             </div>
-            <div>Or it can be modified dynamically with adjustMentionedBrightness() when ligtenMentioned(true) is
-                called. Default value: 0.5
+            <div>Or it can be modified dynamically with <a href="../index.html">adjustMentionedBrightness()</a> when <a
+                    href="../index.html">ligtenMentioned(true)</a> is called. Default value: 0.5
             </div>
             <div class="sub-title">Unmentioned</div>
-            <div>Countries in CountryData but not in the input data are called 'Unmentioned'.</div>
+            <div>Countries in <a href="../index.html">CountryData</a> but not in the input data are called
+                'Unmentioned'.
+            </div>
             <div class="sub-title">Unclickable</div>
             <div>When a country is set to unclickable, it will be not highlighted when clicked and it will be cause the
                 globe to rotate. (Normally after a country has been clicked, the globe will turn and let the clicked
                 country facing the user.).
             </div>
-            <div>Unmentioned countries can be set to 'unclickable' through disableUnmentioned(true). To disable this
-                feature call disableUnmentioned(false).
+            <div>Unmentioned countries can be set to 'unclickable' through <a href="../index.html">disableUnmentioned(true)</a>.
+                To disable this
+                feature call <a href="../index.html">disableUnmentioned(false)</a>.
             </div>
         </div>
 
         <div id="line">
             <header>Line</header>
             <img class="tag-img" src="https://www.highcharts.com/images/docs/understanding_highcharts.png">
-            <div>Line is used to visualize the data flow between two countries. For Selected country, the line with data
-                flow into it is called in line and the line with data flow out of it is called out line. The default
-                color of in line is in-line 0x154492 and the default color of out line is out-line 0xdd380c.
+            <div>Line is used to visualize the data flow between two countries. For <a href="../index.html">Selected</a>
+                country, the line with data flow into it is called in line and the line with data flow out of it is
+                called out line. The default color of in line is in-line 0x154492 and the default color of out line is
+                out-line 0xdd380c.
             </div>
-            <div>The color of lines can be set through configure API as follow:</div>
+            <div>The color of lines can be set through <a href="../index.html">configure</a> API as follow:</div>
             <div class="code">
-                controller.configure(<br>
+                controller.configure({<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: {<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in:
                 0xff0000,<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;out:
                 0x00ff00<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-                );
+                });
             </div>
-            <div>Or it can be modified dynamically with setInLineColor() and setOutLineColor().</div>
+            <div>Or it can be modified dynamically with <a href="../index.html">setInLineColor()</a> and <a
+                    href="../index.html">setOutLineColor()</a>.
+            </div>
             <div>Can we use different colors for different lines? The answer is yes. This can be done by modifying the
                 json input data as follow:
             </div>
@@ -505,7 +526,8 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"outColor": "#00ff00"<br>
                 }
             </div>
-            <div>However this needs to be done before controller.init() is called. See working with data for details.
+            <div>However this needs to be done before controller.init() is called. See <a href="../index.html">working
+                with data</a> for details.
             </div>
         </div>
 
@@ -515,32 +537,32 @@
             <div>The background is the area "behind" the earth. The default color of the background is background
                 0x000000.
             </div>
-            <div>Background color can be set through configure() as follow:</div>
+            <div>Background color can be set through <a href="../index.html">configure()</a> as follow:</div>
             <div class="code">
-                controller.configure(<br>
+                controller.configure({<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: {<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;background:
                 0x0000ff<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-                );
+                });
             </div>
-            <div>Or it can be modified dynamically with setBackgroundColor().</div>
+            <div>Or it can be modified dynamically with <a href="../index.html">setBackgroundColor()</a>.</div>
         </div>
 
         <div id="halo">
             <header>Halo</header>
             <img class="tag-img" src="https://www.highcharts.com/images/docs/understanding_highcharts.png">
             <div>Halo is the circle of light around the earth. The default color of halo is halo 0xffffff.</div>
-            <div>The color can be set through configure() as follow:</div>
+            <div>The color can be set through <a href="../index.html">configure()</a> as follow:</div>
             <div class="code">
-                controller.configure(<br>
+                controller.configure({<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: {<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;halo:
                 0xff0000<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-                );
+                });
             </div>
-            <div>Or it can be modified dynamically by setHaloColor().</div>
+            <div>Or it can be modified dynamically by <a href="../index.html">setHaloColor()</a>.</div>
         </div>
 
         <div id="ocean">
@@ -549,25 +571,25 @@
             <div>The ocean object is the ocean area on the earth, the ocean is the most dart area on the earth. The
                 default brightness of the ocean is 0.5.
             </div>
-            <div>The brightness of the ocean through configure() as follow:</div>
+            <div>The brightness of the ocean through <a href="../index.html">configure()</a> as follow:</div>
             <div class="code">
-                controller.configure(<br>
+                controller.configure({<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;brightness: {<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ocean:
                 0.8<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-                );
+                });
             </div>
-            <div>or adjustOceanBrightness API.</div>
+            <div>or <a href="../index.html">adjustOceanBrightness</a> API.</div>
         </div>
 
         <div id="stats">
             <header>Stats</header>
             <img class="tag-img" src="https://www.highcharts.com/images/docs/understanding_highcharts.png">
             <div>The "stats" is a performance monitor for Three.js, if you are interested in it, you can see more
-                information about stats from its github. As our Gio globe is an open source library based on Three.js,
-                so you may be want to add stats to your scene, you can use the enableStats() to add the stats panel in
-                the left-top corner.
+                information about stats from its <a href="../index.html">github</a>. As our Gio globe is an open source
+                library based on Three.js, so you may be want to add stats to your scene, you can use the <a
+                        href="../index.html">enableStats()</a> to add the stats panel in the left-top corner.
             </div>
         </div>
 

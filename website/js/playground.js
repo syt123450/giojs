@@ -12,6 +12,9 @@ var GIO;
 
             var sliderHandlerDict = {};
 
+            const MODAL_HELP_MODE = "HELP";
+            const MODAL_CONFIG_MODE = "CONFIG";
+
             function registerListeners()
             {
 
@@ -175,37 +178,65 @@ var GIO;
                 $(document).on("click", "#ctlGenerateBtn", function(){
 
                     // show current conig in JSON format in pop up
-
-                    var config = controller.getConfig();
-
-                    var playgroundConfig = {};
-
-                    playgroundConfig.control = config.control;
-                    playgroundConfig.color = config.color;
-                    playgroundConfig.brightness = config.brightness;
-
-
-                    toggleModal();
-
-                    // alert(JSON.stringify(playgroundConfig));
+                    showModal(MODAL_CONFIG_MODE);
 
                 });
+
+                // click anywhere outside the modal box to dismiss the modal
+
+                // $(document).on("click", body, function() {
+
+                //     modal.classList.remove("plg-show-modal");
+                // })
 
                 $(document).on("click", "#ctlHelpBtn", function(){
 
-                    // TODO: show help instructions
-                    toggleModal();
+                    showModal(MODAL_HELP_MODE);
+
                 });
 
                 $(document).on("click", ".plg-close-button", function(){
-                    toggleModal();
+                    closeModal();
                 });
 
 
-                function toggleModal()
+                function closeModal()
                 {
                     var modal = document.querySelector(".plg-modal");
-                    modal.classList.toggle("plg-show-modal");
+                    
+                    $(modal).children(".plg-modal-content").each(function(index) {
+                        $(this).get(0).classList.remove("plg-show-modal-content");
+                    })
+
+                    modal.classList.remove("plg-show-modal");
+                }
+
+                function showModal(mode)
+                {
+                    var modal = document.querySelector(".plg-modal");
+
+                    switch(mode)
+                    {
+                        case MODAL_HELP_MODE:
+                            var $configJSONHolder = $("#helperTextHolder");
+                            $configJSONHolder.get(0).classList.add("plg-show-modal-content");
+                            break;
+                        case MODAL_CONFIG_MODE:
+                            var config = controller.getConfig();
+                            var playgroundConfig = {};
+
+                            playgroundConfig.control = config.control;
+                            playgroundConfig.color = config.color;
+                            playgroundConfig.brightness = config.brightness;
+
+                            var $configJSONHolder = $("#configJSONHolder");
+                            $configJSONHolder.find(".plg-modal-text").text(JSON.stringify(playgroundConfig));
+                            $configJSONHolder.get(0).classList.add("plg-show-modal-content");
+                            break;
+
+                    }
+
+                    modal.classList.add("plg-show-modal");
                 }
 
             }
@@ -277,10 +308,6 @@ var GIO;
                 var handler = sliderHandlerDict[id];
 
                 handler(sliderValue);
-
-            }
-
-            function toggleModal() {
 
             }
 

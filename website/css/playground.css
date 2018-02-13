@@ -159,3 +159,50 @@ nav
 	/*background-color: #20abe2;*/
 	border-color: #20abe2;
 }
+
+.plg-modal {
+	z-index: 2;
+	position: fixed;
+    left: calc(50% - 300px);
+    top: calc(50% - 260px);
+    width: 600px;
+    height: 520px;
+    background: linear-gradient(to right, #0071bc, #20abe2); 
+    visibility: hidden;
+    transform: scaleX(1.1) scaleY(1.1);
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+
+}
+
+.plg-modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: ;
+    padding: 1rem 1.5rem;
+    width: 24rem;
+    border-radius: 0.5rem;
+    color: #ffffff;
+}
+
+.plg-close-button {
+    float: right;
+    color: #ffffff;
+    width: 3rem;
+    line-height: 3rem;
+    text-align: center;
+    cursor: pointer;
+    background-color: #428bca;
+}
+
+.plg-close-button:hover {
+    background-color: #256286;
+}
+
+.plg-show-modal {
+    opacity: 0.9;
+    visibility: visible;
+    transform: scaleX(1.0) scaleY(1.0);
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}

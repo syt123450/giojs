@@ -184,17 +184,29 @@ var GIO;
                     playgroundConfig.color = config.color;
                     playgroundConfig.brightness = config.brightness;
 
-                    alert(JSON.stringify(playgroundConfig));
+
+                    toggleModal();
+
+                    // alert(JSON.stringify(playgroundConfig));
 
                 });
 
                 $(document).on("click", "#ctlHelpBtn", function(){
 
                     // TODO: show help instructions
+                    toggleModal();
+                });
 
+                $(document).on("click", ".plg-close-button", function(){
+                    toggleModal();
                 });
 
 
+                function toggleModal()
+                {
+                    var modal = document.querySelector(".plg-modal");
+                    modal.classList.toggle("plg-show-modal");
+                }
 
             }
 
@@ -265,6 +277,10 @@ var GIO;
                 var handler = sliderHandlerDict[id];
 
                 handler(sliderValue);
+
+            }
+
+            function toggleModal() {
 
             }
 

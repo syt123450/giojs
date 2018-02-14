@@ -2291,6 +2291,8 @@ function SceneEventManager () {
 
         }
 
+        console.log(333);
+
         event.returnValue = false;
 
     }
@@ -2372,6 +2374,7 @@ function SceneEventManager () {
         controller.renderer.domElement.addEventListener( 'mouseup', onDocumentMouseUp, false );
         controller.renderer.domElement.addEventListener( 'click', onClick, true );
         controller.renderer.domElement.addEventListener( 'mousewheel', onMouseWheel, false );
+        controller.renderer.domElement.addEventListener( 'DOMMouseScroll', onMouseWheel, false );
 
         window.addEventListener( 'resize', onResize, false );
 

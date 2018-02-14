@@ -283,7 +283,6 @@ var CountryColorMap = ( function () {
         '177': 'MU',
         '178': 'FO',
         '179': 'ST',
-        '180': 'AN',
         '181': 'DM',
         '182': 'TO',
         '183': 'KI',
@@ -319,7 +318,6 @@ var CountryColorMap = ( function () {
         '213': 'SH',
         '214': 'JE',
         '215': 'AI',
-        '216': 'MF_1_',
         '217': 'GG',
         '218': 'SM',
         '219': 'BM',
@@ -557,7 +555,10 @@ var Utils = ( function () {
             data.forEach( function ( country ) {
 
                 var v = country[ valueKey ];
-                country[ valueKey ] = ( v - min ) * ( definedMax - definedMin ) / ( max - min ) + definedMin;
+
+                if (( max - min ) !== 0) {
+                    country[ valueKey ] = ( v - min ) * ( definedMax - definedMin ) / ( max - min ) + definedMin;
+                }
 
             } );
 
@@ -1313,7 +1314,6 @@ var CountryData = ( function () {
         AT: { colorCode: 35, name: 'AUSTRIA', lat: 47.3333, lon: 13.3333 },
         AU: { colorCode: 51, name: 'AUSTRALIA', lat: -27, lon: 133 },
         AW: { colorCode: 210, name: 'ARUBA', lat: 12.5, lon: -69.9667 },
-        AX: { colorCode: -1, name: 'ÅLAND ISLANDS' },
         AZ: { colorCode: 106, name: 'AZERBAIJAN', lat: 40.5, lon: 47.5 },
         BA: { colorCode: 94, name: 'BOSNIA AND HERZEGOVINA', lat: 44, lon: 18 },
         BB: { colorCode: 191, name: 'BARBADOS', lat: 13.1667, lon: -59.5333 },
@@ -1328,16 +1328,13 @@ var CountryData = ( function () {
         BM: { colorCode: 219, name: 'BERMUDA', lat: 32.3333, lon: -64.75 },
         BN: { colorCode: 170, name: 'BRUNEI DARUSSALAM', lat: 4.5, lon: 114.6667 },
         BO: { colorCode: 10, name: 'BOLIVIA, PLURINATIONAL STATE OF', lat: -17, lon: -65 },
-        BQ: { colorCode: -1, name: 'BONAIRE, SINT EUSTATIUS AND SABA' },
         BR: { colorCode: 24, name: 'BRAZIL', lat: -10, lon: -55 },
         BS: { colorCode: 161, name: 'BAHAMAS', lat: 24.25, lon: -76 },
         BT: { colorCode: 156, name: 'BHUTAN', lat: 27.5, lon: 90.5 },
-        BV: { colorCode: -1, name: 'BOUVET ISLAND', lat: -54.4333, lon: 3.4 },
         BW: { colorCode: 16, name: 'BOTSWANA', lat: -22, lon: 24 },
         BY: { colorCode: 5, name: 'BELARUS', lat: 53, lon: 28 },
         BZ: { colorCode: 23, name: 'BELIZE', lat: 17.25, lon: -88.75 },
         CA: { colorCode: 97, name: 'CANADA', lat: 60, lon: -95 },
-        CC: { colorCode: -1, name: 'COCOS (KEELING) ISLANDS', lat: -12.5, lon: 96.8333 },
         CD: { colorCode: 27, name: 'CONGO, THE DEMOCRATIC REPUBLIC OF THE', lat: 0, lon: 25 },
         CF: { colorCode: 132, name: 'CENTRAL AFRICAN REPUBLIC', lat: 7, lon: 21 },
         CG: { colorCode: 110, name: 'CONGO', lat: -1, lon: 15 },
@@ -1351,8 +1348,6 @@ var CountryData = ( function () {
         CR: { colorCode: 78, name: 'COSTA RICA', lat: 10, lon: -84 },
         CU: { colorCode: 42, name: 'CUBA', lat: 21.5, lon: -80 },
         CV: { colorCode: 172, name: 'CAPE VERDE', lat: 16, lon: -24 },
-        CW: { colorCode: -1, name: 'CURAÇAO' },
-        CX: { colorCode: -1, name: 'CHRISTMAS ISLAND', lat: -10.5, lon: 105.6667 },
         CY: { colorCode: 167, name: 'CYPRUS', lat: 35, lon: 33 },
         CZ: { colorCode: 67, name: 'CZECH REPUBLIC', lat: 49.75, lon: 15.5 },
         DE: { colorCode: 48, name: 'GERMANY', lat: 51, lon: 9 },
@@ -1378,23 +1373,18 @@ var CountryData = ( function () {
         GB: { colorCode: 77, name: 'UNITED KINGDOM', lat: 54, lon: -2 },
         GD: { colorCode: 197, name: 'GRENADA', lat: 12.1167, lon: -61.6667 },
         GE: { colorCode: 89, name: 'GEORGIA', lat: 42, lon: 43.5 },
-        GF: { colorCode: -1, name: 'FRENCH GUIANA', lat: 4, lon: -53 },
         GG: { colorCode: 217, name: 'GUERNSEY', lat: 49.5, lon: -2.56 },
         GH: { colorCode: 34, name: 'GHANA', lat: 8, lon: -2 },
         GI: { colorCode: 222, name: 'GIBRALTAR', lat: 36.1833, lon: -5.3667 },
         GL: { colorCode: 55, name: 'GREENLAND', lat: 72, lon: -40 },
         GM: { colorCode: 164, name: 'GAMBIA', lat: 13.4667, lon: -16.5667 },
         GN: { colorCode: 80, name: 'GUINEA', lat: 11, lon: -10 },
-        GP: { colorCode: -1, name: 'GUADELOUPE', lat: 16.25, lon: -61.5833 },
         GQ: { colorCode: 101, name: 'EQUATORIAL GUINEA', lat: 2, lon: 10 },
         GR: { colorCode: 140, name: 'GREECE', lat: 39, lon: 22 },
-        GS: { colorCode: -1, name: 'SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS', lat: -54.5, lon: -37 },
         GT: { colorCode: 64, name: 'GUATEMALA', lat: 15.5, lon: -90.25 },
         GU: { colorCode: 227, name: 'GUAM', lat: 13.4667, lon: 144.7833 },
         GW: { colorCode: 33, name: 'GUINEA-BISSAU', lat: 12, lon: -15 },
         GY: { colorCode: 99, name: 'GUYANA', lat: 5, lon: -59 },
-        HK: { colorCode: -1, name: 'HONG KONG', lat: 22.25, lon: 114.1667 },
-        HM: { colorCode: -1, name: 'HEARD ISLAND AND MCDONALD ISLANDS', lat: -53.1, lon: 72.5167 },
         HN: { colorCode: 125, name: 'HONDURAS', lat: 15, lon: -86.5 },
         HR: { colorCode: 54, name: 'CROATIA', lat: 45.1667, lon: 15.5 },
         HT: { colorCode: 93, name: 'HAITI', lat: 19, lon: -72.4167 },
@@ -1404,7 +1394,6 @@ var CountryData = ( function () {
         IL: { colorCode: 137, name: 'ISRAEL', lat: 31.5, lon: 34.75 },
         IM: { colorCode: 226, name: 'ISLE OF MAN', lat: 54.23, lon: -4.55 },
         IN: { colorCode: 95, name: 'INDIA', lat: 20, lon: 77 },
-        IO: { colorCode: -1, name: 'BRITISH INDIAN OCEAN TERRITORY', lat: -6, lon: 71.5 },
         IQ: { colorCode: 53, name: 'IRAQ', lat: 33, lon: 44 },
         IR: { colorCode: 61, name: 'IRAN, ISLAMIC REPUBLIC OF', lat: 32, lon: 53 },
         IS: { colorCode: 126, name: 'ICELAND', lat: 65, lon: -18 },
@@ -1439,16 +1428,13 @@ var CountryData = ( function () {
         MC: { colorCode: 224, name: 'MONACO', lat: 43.7333, lon: 7.4 },
         MD: { colorCode: 146, name: 'MOLDOVA, REPUBLIC OF', lat: 47, lon: 29 },
         ME: { colorCode: 112, name: 'MONTENEGRO', lat: 42, lon: 19 },
-        MF: { colorCode: -1, name: 'SAINT MARTIN (FRENCH PART)' },
         MG: { colorCode: 9, name: 'MADAGASCAR', lat: -20, lon: 47 },
         MH: { colorCode: 209, name: 'MARSHALL ISLANDS', lat: 9, lon: 168 },
         MK: { colorCode: 15, name: 'MACEDONIA, THE FORMER YUGOSLAV REPUBLIC OF', lat: 41.8333, lon: 22 },
         ML: { colorCode: 26, name: 'MALI', lat: 17, lon: -4 },
         MM: { colorCode: 62, name: 'MYANMAR', lat: 22, lon: 98 },
         MN: { colorCode: 155, name: 'MONGOLIA', lat: 46, lon: 105 },
-        MO: { colorCode: -1, name: 'MACAO', lat: 22.1667, lon: 113.55 },
         MP: { colorCode: 187, name: 'NORTHERN MARIANA ISLANDS', lat: 15.2, lon: 145.75 },
-        MQ: { colorCode: -1, name: 'MARTINIQUE', lat: 14.6667, lon: -61 },
         MR: { colorCode: 46, name: 'MAURITANIA', lat: 20, lon: -12 },
         MS: { colorCode: 202, name: 'MONTSERRAT', lat: 16.75, lon: -62.2 },
         MT: { colorCode: 198, name: 'MALTA', lat: 35.8333, lon: 14.5833 },
@@ -1461,7 +1447,6 @@ var CountryData = ( function () {
         NA: { colorCode: 85, name: 'NAMIBIA', lat: -22, lon: 17 },
         NC: { colorCode: 157, name: 'NEW CALEDONIA', lat: -21.5, lon: 165.5 },
         NE: { colorCode: 56, name: 'NIGER', lat: 16, lon: 8 },
-        NF: { colorCode: -1, name: 'NORFOLK ISLAND', lat: -29.0333, lon: 167.95 },
         NG: { colorCode: 82, name: 'NIGERIA', lat: 10, lon: 8 },
         NI: { colorCode: 127, name: 'NICARAGUA', lat: 13, lon: -85 },
         NL: { colorCode: 131, name: 'NETHERLANDS', lat: 52.5, lon: 5.75 },
@@ -1486,7 +1471,6 @@ var CountryData = ( function () {
         PW: { colorCode: 188, name: 'PALAU', lat: 7.5, lon: 134.5 },
         PY: { colorCode: 79, name: 'PARAGUAY', lat: -23, lon: -58 },
         QA: { colorCode: 165, name: 'QATAR', lat: 25.5, lon: 51.25 },
-        RE: { colorCode: -1, name: 'RÉUNION', lat: -21.1, lon: 55.6 },
         RO: { colorCode: 59, name: 'ROMANIA', lat: 46, lon: 25 },
         RS: { colorCode: 111, name: 'SERBIA', lat: 44, lon: 21 },
         RU: { colorCode: 92, name: 'RUSSIAN FEDERATION', lat: 60, lon: 100 },
@@ -1499,26 +1483,21 @@ var CountryData = ( function () {
         SG: { colorCode: 228, name: 'SINGAPORE', lat: 1.3667, lon: 103.8 },
         SH: { colorCode: 213, name: 'SAINT HELENA, ASCENSION AND TRISTAN DA CUNHA', lat: -15.9333, lon: -5.7 },
         SI: { colorCode: 144, name: 'SLOVENIA', lat: 46, lon: 15 },
-        SJ: { colorCode: -1, name: 'SVALBARD AND JAN MAYEN', lat: 78, lon: 20 },
         SK: { colorCode: 133, name: 'SLOVAKIA', lat: 48.6667, lon: 19.5 },
         SL: { colorCode: 25, name: 'SIERRA LEONE', lat: 8.5, lon: -11.5 },
         SM: { colorCode: 218, name: 'SAN MARINO', lat: 43.7667, lon: 12.4167 },
         SN: { colorCode: 116, name: 'SENEGAL', lat: 14, lon: -14 },
         SO: { colorCode: 29, name: 'SOMALIA', lat: 10, lon: 49 },
         SR: { colorCode: 65, name: 'SURINAME', lat: 4, lon: -56 },
-        SS: { colorCode: -1, name: 'SOUTH SUDAN' },
         ST: { colorCode: 179, name: 'SAO TOME AND PRINCIPE', lat: 1, lon: 7 },
         SV: { colorCode: 98, name: 'EL SALVADOR', lat: 13.8333, lon: -88.9167 },
-        SX: { colorCode: -1, name: 'SINT MAARTEN (DUTCH PART)' },
         SY: { colorCode: 71, name: 'SYRIAN ARAB REPUBLIC', lat: 35, lon: 38 },
         SZ: { colorCode: 153, name: 'SWAZILAND', lat: -26.5, lon: 31.5 },
         TC: { colorCode: 192, name: 'TURKS AND CAICOS ISLANDS', lat: 21.75, lon: -71.5833 },
         TD: { colorCode: 68, name: 'CHAD', lat: 15, lon: 19 },
-        TF: { colorCode: -1, name: 'FRENCH SOUTHERN TERRITORIES', lat: -43, lon: 67 },
         TG: { colorCode: 117, name: 'TOGO', lat: 8, lon: 1.1667 },
         TH: { colorCode: 50, name: 'THAILAND', lat: 15, lon: 100 },
         TJ: { colorCode: 122, name: 'TAJIKISTAN', lat: 39, lon: 71 },
-        TK: { colorCode: -1, name: 'TOKELAU', lat: -9, lon: -172 },
         TL: { colorCode: 160, name: 'TIMOR-LESTE', lat: -8.55, lon: 125.5167 },
         TM: { colorCode: 141, name: 'TURKMENISTAN', lat: 40, lon: 60 },
         TN: { colorCode: 83, name: 'TUNISIA', lat: 34, lon: 9 },
@@ -1530,7 +1509,6 @@ var CountryData = ( function () {
         TZ: { colorCode: 88, name: 'TANZANIA, UNITED REPUBLIC OF', lat: -6, lon: 35 },
         UA: { colorCode: 17, name: 'UKRAINE', lat: 49, lon: 32 },
         UG: { colorCode: 38, name: 'UGANDA', lat: 1, lon: 32 },
-        UM: { colorCode: -1, name: 'UNITED STATES MINOR OUTLYING ISLANDS', lat: 19.2833, lon: 166.6 },
         US: { colorCode: 150, name: 'UNITED STATES', lat: 38, lon: -97 },
         UY: { colorCode: 109, name: 'URUGUAY', lat: -33, lon: -56 },
         UZ: { colorCode: 154, name: 'UZBEKISTAN', lat: 41, lon: 64 },
@@ -1994,7 +1972,11 @@ var ObjectUtils = ( function () {
                 var nextPoint = path[ particle.nextIndex ];
 
                 particle.copy( currentPoint );
-                particle.lerp( nextPoint, particle.lerpN );
+                if ( nextPoint !== undefined && particle !== undefined) {
+
+                    particle.lerp( nextPoint, particle.lerpN );
+
+                }
 
                 this.geometry.attributes.position.array[ 3 * i ] = particle.x;
                 this.geometry.attributes.position.array[ 3 * i + 1 ] = particle.y;
@@ -2500,6 +2482,14 @@ DefaultDataPreprocessor.prototype.processDetail = function ( controller ) {
 
         var dataSet = inputData[ i ];
 
+        if (CountryData[ dataSet.i ] === undefined) {
+            return;
+        }
+
+        if (CountryData[ dataSet.e ] === undefined) {
+            return;
+        }
+
         var importCountryCode = CountryData[ dataSet.i ].colorCode;
         var exportCountryCode = CountryData[ dataSet.e ].colorCode;
 
@@ -2598,7 +2588,10 @@ GeometryDataProcessor.prototype.processDetail = function ( controller ) {
         points.push( vec3_origin );
 
         var val = value * 0.0003;
+
         var size = ( 10 + Math.sqrt( val ) );
+
+
         size = Utils.constrain( size, 0.1, 60 );
 
         var curveGeometry = new THREE.Geometry();
@@ -3382,7 +3375,7 @@ function Controller ( container, configureObject ) {
     this.halo = null;
     this.haloShader = null;
     this.inputData = null;
-    this.inputValueKey = "v";
+    // this.inputValueKey = "v";
 
     this.mentionedCountryCodes = [];
     this.relatedCountries = [];
@@ -3604,6 +3597,11 @@ function Controller ( container, configureObject ) {
 
             return controller.stats;
 
+        },
+
+        getConfig: function () {
+
+            return controller.configure;
         },
 
         adjustRelatedBrightness: function ( brightness ) {

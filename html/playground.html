@@ -86,7 +86,7 @@
         <div>
             <div class="ctl-panel-header" isFold="true">
                 <h3>Control</h3>
-                <img src="../assets/images/playground_fold_icon.png">
+                <img src="../assets/images/playground_open_icon.png">
             </div>
             <ul class="ctl-panel-item-holder">
                 <li class="ctl-panel-item">
@@ -119,7 +119,7 @@
         <div>
             <div class="ctl-panel-header" isFold="true">
                 <h3>Color</h3>
-                <img src="../assets/images/playground_fold_icon.png">
+                <img src="../assets/images/playground_open_icon.png">
             </div>
             <ul class="ctl-panel-item-holder">
                 <li class="ctl-panel-item">
@@ -155,7 +155,7 @@
                 <li class="ctl-panel-item">
                     <span class="ctl-panel-item-name">Background</span>
                     <div class="ctl-panel-item-content">
-                        <input class="jscolor ctl-color-picker" onchange="GIO.Website.Playground.colorPickerListener(this)" id="ctlBackgroundColor" value="ffffff">
+                        <input class="jscolor ctl-color-picker" onchange="GIO.Website.Playground.colorPickerListener(this)" id="ctlBackgroundColor" value="000000">
                     </div>
                 </li>
             </ul>
@@ -165,7 +165,7 @@
         <div>
             <div class="ctl-panel-header" isFold="true">
                 <h3>Brightness</h3>
-                <img src="../assets/images/playground_fold_icon.png">        
+                <img src="../assets/images/playground_open_icon.png">        
             </div>
             <ul class="ctl-panel-item-holder">
                 <li class="ctl-panel-item">
@@ -194,13 +194,47 @@
 
 
     <div id="panelBtns">
-        <button type="button" class="btn ctl-button">Generate</button>
-        <button type="button" class="btn ctl-button">Help</button>
+        <div type="button" class="btn ctl-button" id="ctlGenerateBtn"><img src="../assets/images/playground_generate_icon.png"><span>Generate</span></div>
+        <div type="button" class="btn ctl-button" id="ctlHelpBtn"><img src="../assets/images/playground_help_icon.png"><span>Help</span></div>
     </div>
 </div>
 
 
-
+<div class="plg-modal">
+    <span class="plg-close-button">&times;</span>
+    <div class="plg-modal-content" id="configJSONHolder">
+        <h1>Config</h1>
+        <p class="plg-modal-text"></p>
+    </div>
+    <div class="plg-modal-content" id="helperTextHolder">
+        <h1>Instruction</h1>
+        <p class="plg-modal-text">GIO Playground is a fast and convinient tool for you to customize your own GIO globe. There are three different aspects of settings that you can control, please follwo the instructions listed below.</p>
+        <h3>Control</h3>
+        <ul>
+            <li>Show Stats: Show a stats panel on the top left corner</li>
+            <li>Disable Unmentioned: Make unmentioned countries not clickable</li>
+            <li>Lighten Mentioned: Lighten the surface color of mentioned countries</li>
+            <li>In Only: Only show lines toward selected country</li>
+            <li>Out Only: Only show lines go out of selected country</li>
+            <li>Halo: Show halo</li>
+        </ul>
+        <h3>Color</h3>
+        <ul>
+            <li>Surface: Pick a color for globe surface (without selected country)</li>
+            <li>Selected Country: Pick a color for selected country</li>
+            <li>In Line: Pick a color for lines toward selected country</li>
+            <li>Out Line: Pick a color for lines go out of selected country</li>
+            <li>Halo: Pick a color for halo surrounding globe</li>
+            <li>Background: Pick a color for background</li>
+        </ul>
+        <h3>Brightness</h3>
+        <ul>
+            <li>Ocean: Adjust brightness for ocean area</li>
+            <li>Ocean: Adjust brightness for mentioned countries</li>
+            <li>Ocean: Adjust brightness for related countries</li>
+        </ul>
+    </div>
+</div>
 
 </body>
 

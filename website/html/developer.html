@@ -110,25 +110,24 @@
         <hr>
         <img class="mainContentImg" src="../assets/images/developer_pullRequest.png">
         <ul class="mainContentList">
-        <!--<ul>-->
-            <p><b>Dont's:</b></p>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;1. DO NOT submit PR against master branch.</p>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;2. DO NOT check int <span class="code codeTitle"> build </span> folder in commits.</p><br>
-
             <p><b>Do's:</b></p>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;1. Checkout a new branch from a relevant branch for development.</p>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;2. Run <span class="code codeTitle"> npm test </span> and make sure all tests pass before submitting a PR.</p><br>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;1. Checkout a new branch from the relevant branch for development</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;2. Run <span class="code codeTitle"> npm test </span> and make sure all tests pass before submitting a PR</p><br>
+
+            <p><b>Don'ts:</b></p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;1. DO NOT submit PR against master branch</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;2. DO NOT check into <span class="code codeTitle"> build </span> folder in commits</p><br>
 
             <p><b>If you are going to:</b></p>
-            <li>Refactor/Optimization/Bug fix</li>
+            <li>Fix a bug / Optimize or refactor code</li>
             <ul>
-                <li>Put <span class="code codeTitle">(&lt;title&gt; fix #&lt;issue-id&gt;)</span> in your PR title for a better release log, e.g. <span class="code codeTitle">update entities encoding/decoding (fix #3899)</span>.</li>
-                <li>Provide detailed description in the PR.</li>
-                <li>Add relevant tests.</li>
-                <li>Run tests. Make sure newly added code does not break existing functionalities</li>
+                <li>Put <span class="code codeTitle">&lt;title&gt; (#&lt;issue-id&gt;)</span> in your PR title for a better release log, e.g. <span class="code codeTitle">update entities encoding/decoding (#3899)</span></li>
+                <li>Provide detailed description in the PR</li>
+                <li>Add relevant tests</li>
+                <li>Run tests. Make sure newly added code does not break existing functionality</li>
                 <p class="code codeTitle">git checkout -b i-found-a-bug<br>
-                    # ... fix the bug ...<br>
-                    # only continue to next step if all tests passed<br>
+                    # ... fix the bug ..<br>
+                    # only continue to next step if all tests pass<br>
                     npm test<br>
                     git add &lt;relevant-files-that-have-been-modified&gt;<br>
                     git commit -m 'update entities encoding/decoding'<br>
@@ -136,12 +135,12 @@
                 </p>
                 <li>Don't forget to submit a pull request :P</li>
             </ul>
-            <li>New feature</li>
+            <li>Add a new feature</li>
             <ul>
-                <li>"Provide convincing reason to add this feature. Ideally you should open a suggestion issue first and have it greenlighted before working on it."</li>
+                <li>Provide convincing reason to add this feature. Ideally you should open a suggestion issue first and have it greenlighted before working on it</li>
                 <li>Create a new branch</li>
-                <li>Add test cases</li>
-                <li>Submit pull request</li>
+                <li>Add relevant tests</li>
+                <li>Submit PR</li>
             </ul>
         </ul>
     </div>
@@ -155,15 +154,13 @@
             <p>Static resource and production dependencies (stat.min.js & three.min.js)</p>
             <li><span class="code codeTitle">build </span> :</li>
             <p>Contains files for distribution. This folder will only be updated if there is a new release.
-                <br>Latest development is reflected in branches.</p>
+                <br>Latest development is reflected in branches</p>
             <li><span class="code codeTitle">examples </span> :</li>
-            <p>Carefully selected examples to illustrate major functionalities of the API.</p>
+            <p>Carefully selected examples to illustrate major functionality of the APIs</p>
             <li><span class="code codeTitle">src </span> :</li>
-            <p>Source code.</p>
+            <p>Source code</p>
             <li><span class="code codeTitle">test </span> :</li>
-            <p>Unit tests for each module of the source file. Help NEEDED here.</p>
-            <li><span class="code codeTitle">website </span> :</li>
-            <p>Source code for the official website of Gio.js.</p>
+            <p>Unit tests for each module of the source file. Help NEEDED here</p>
         </ul>
     </div>
 
@@ -172,13 +169,13 @@
         <hr>
         <img class="mainContentImg" src="../assets/images/developer_setup.png">
         <ul class="mainContentList">
-            <p>Node.js (version) is required.</p>
-            <p>1. <span class="code codeTitle">Fork</span> the repo.</p><br>
-            <p>2. Clone your own Github repo to your local machine.</p>
+            <p>Node.js (version) is required</p>
+            <p>1. <span class="code codeTitle">Fork</span> the repo</p><br>
+            <p>2. Clone your own Github repo to your local machine</p>
             <p class="code codeTitle">git clone https://github.com/&lt;your-github-id&gt;/Gio.js.git</p><br><br>
             <p>3. Install dev tools/libs</p>
             <li>Option 1: npm</li>
-            <p class="code codeTitle">npm install </p>
+            <p class="code codeTitle">npm install</p>
             <li>Option 2: yarn</li>
             <p class="code codeTitle">yarn install</p>
         </ul>

@@ -1,4 +1,4 @@
-<p align="center"><a href="https://vuejs.org" target="_blank"><img width="100" src="https://vuejs.org/images/logo.png" alt="Vue logo"></a></p>
+<p align="center"><a href="https://vuejs.org" target="_blank"><img width="100" src="https://github.com/syt123450/Gio.js/blob/master/assets/readme/logo.png" alt="Vue logo"></a></p>
 
 <h1 align="center">Gio.js</h1>
 
@@ -16,7 +16,7 @@
 
 <!-- [START screenshot] -->
 <p align="center">
-  <a href=""><img src="http://via.placeholder.com/400x300"/></a>
+  <a href=""><img src="https://github.com/syt123450/Gio.js/blob/master/assets/readme/Gio.png"/></a>
 </p>
 <!-- [END screenshot] -->
 
@@ -48,7 +48,7 @@ yarn add giojs
 ```
 ### Usage
 
-After including "three.min.js" and "gio.min.hs" in your html, create a `div` to render the 3D Gio globe:
+After including "three.min.js" and "gio.min.js" in your html, create a `div` to render the 3D Gio globe:
 
 ```html
 <!DOCTYPE HTML>

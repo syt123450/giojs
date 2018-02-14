@@ -182,17 +182,8 @@ var GIO;
 
                 });
 
-                // click anywhere outside the modal box to dismiss the modal
-
-                // $(document).on("click", body, function() {
-
-                //     modal.classList.remove("plg-show-modal");
-                // })
-
                 $(document).on("click", "#ctlHelpBtn", function(){
-
                     showModal(MODAL_HELP_MODE);
-
                 });
 
                 $(document).on("click", ".plg-close-button", function(){

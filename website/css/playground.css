@@ -171,6 +171,7 @@ nav
     visibility: hidden;
     transform: scaleX(1.1) scaleY(1.1);
     transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+    border: 1px solid #29abe2;
 
 }
 

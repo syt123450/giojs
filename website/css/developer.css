@@ -105,14 +105,6 @@
 }
 
 
-#explanation > div > p:hover {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 23px;
-    font-weight: bold;
-    color: #29abe2;
-}
-
 #explanation > div > img {
     display: block;
     margin-left: auto;
@@ -163,8 +155,8 @@ hr {
     margin-bottom: 20px;
     font-size: 20px;
     color: #4d4d4d;
-    list-style: none;
-    padding-left: 0;
+    /*list-style: none;*/
+    padding-left: 20px;
     box-sizing: border-box;
 }
 
@@ -175,7 +167,7 @@ ul.mainContentList li {
 
 .code {
     /*width: 50%;*/
-    min-height: 35px;
+    min-height: 30px;
     color: #0071bc;
     line-height: 35px;
     border: 1px solid #0071bc;
@@ -183,9 +175,9 @@ ul.mainContentList li {
     box-sizing: border-box;
     margin-top: 15px;
     margin-bottom: 15px;
-    padding: 5px 10px;
+    padding: 0px 10px;
     background-color: #e6e6e6;
-    font-size: 20px;
+    font-size: 18px;
     font-family: AmericanTypewriterRegular, serif;
     display: block;
     overflow: hidden;
@@ -200,7 +192,7 @@ ul.mainContentList li {
 
 .codeTitle {
     margin-top: 5px;
-    margin-bottom: 5px;
+    margin-bottom: -10px;
     display: inline-block;
 }
 

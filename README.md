@@ -1,6 +1,6 @@
 <p align="center"><a href="https://vuejs.org" target="_blank"><img width="100" src="https://vuejs.org/images/logo.png" alt="Vue logo"></a></p>
 
-<h2 align="center">Gio.js</h2>
+<h1 align="center">Gio.js</h1>
 
 <p align="center">
   <a href=""><img src="https://img.shields.io/badge/npm-v0.0.5-orange.svg" alt="npm badge"></a>
@@ -10,7 +10,7 @@
   <a href=""><img src="https://coveralls.io/repos/github/syt123450/Gio.js/badge.svg?branch=master" alt="coverage"></a>
 </p>
 
-**Gio.js** is an open source library for data visualization library based on a 3D globe. This library is inspired by the [Arms Trade Visualization](http://armsglobe.chromeexperiments.com/) project developed Michael Chang and presented during Google Ideas INFO 2012. What makes Gio.js different is that it is fully customizable for users and friendly to future developers.
+**Gio.js** is an open source library for data visualization library based on a 3D globe. This library is inspired by the [Arms Trade Visualization](http://armsglobe.chromeexperiments.com/) project developed by Michael Chang and presented during Google Ideas INFO 2012. See [original post](http://mflux.tumblr.com/post/28367579774/armstradeviz). What makes Gio.js different is that it is fully customizable for users and friendly to future developers.
 
 
 

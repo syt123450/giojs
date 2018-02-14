@@ -292,6 +292,11 @@ function Controller ( container, configureObject ) {
 
         },
 
+        getConfig: function () {
+
+            return controller.configure;
+        },
+
         adjustRelatedBrightness: function ( brightness ) {
 
             controller.configure.brightness.related = brightness;

@@ -12,6 +12,9 @@ var GIO;
 
             var sliderHandlerDict = {};
 
+            const MODAL_HELP_MODE = "HELP";
+            const MODAL_CONFIG_MODE = "CONFIG";
+
             function registerListeners()
             {
 
@@ -170,6 +173,62 @@ var GIO;
                     controller.adjustRelatedBrightness(sliderValue);
                 });
 
+                // register button listeners
+
+                $(document).on("click", "#ctlGenerateBtn", function(){
+
+                    // show current conig in JSON format in pop up
+                    showModal(MODAL_CONFIG_MODE);
+
+                });
+
+                $(document).on("click", "#ctlHelpBtn", function(){
+                    showModal(MODAL_HELP_MODE);
+                });
+
+                $(document).on("click", ".plg-close-button", function(){
+                    closeModal();
+                });
+
+
+                function closeModal()
+                {
+                    var modal = document.querySelector(".plg-modal");
+                    
+                    $(modal).children(".plg-modal-content").each(function(index) {
+                        $(this).get(0).classList.remove("plg-show-modal-content");
+                    })
+
+                    modal.classList.remove("plg-show-modal");
+                }
+
+                function showModal(mode)
+                {
+                    var modal = document.querySelector(".plg-modal");
+
+                    switch(mode)
+                    {
+                        case MODAL_HELP_MODE:
+                            var $configJSONHolder = $("#helperTextHolder");
+                            $configJSONHolder.get(0).classList.add("plg-show-modal-content");
+                            break;
+                        case MODAL_CONFIG_MODE:
+                            var config = controller.getConfig();
+                            var playgroundConfig = {};
+
+                            playgroundConfig.control = config.control;
+                            playgroundConfig.color = config.color;
+                            playgroundConfig.brightness = config.brightness;
+
+                            var $configJSONHolder = $("#configJSONHolder");
+                            $configJSONHolder.find(".plg-modal-text").text(JSON.stringify(playgroundConfig));
+                            $configJSONHolder.get(0).classList.add("plg-show-modal-content");
+                            break;
+
+                    }
+
+                    modal.classList.add("plg-show-modal");
+                }
 
             }
 
@@ -266,8 +325,11 @@ $(function() {
     // set initial styles
 
     GIO.Website.Playground.controller.setSurfaceColor(GIO.Website.Util.formatColor('#' + "1A9CB0"));
+    GIO.Website.Playground.controller.setImportColor(GIO.Website.Util.formatColor('#' + "FFFFFF"));
     GIO.Website.Playground.controller.setSelectedColor(GIO.Website.Util.formatColor('#' + "20ABE2"));
     GIO.Website.Playground.controller.setExportColor(GIO.Website.Util.formatColor('#' + "20ABE2"));
+    GIO.Website.Playground.controller.setHaloColor(GIO.Website.Util.formatColor('#' + "20ABE2"));
+    GIO.Website.Playground.controller.setBackgroundColor(GIO.Website.Util.formatColor('#' + "000000"));
 
 });
 

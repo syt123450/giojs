@@ -49,6 +49,7 @@
     "uglify-js": "^2.4.11"
   },
   "scripts": {
+    "start": "babel-node ./src/countryInfo/test.js",
     "test": "mocha",
     "cover": "babel-node ./node_modules/.bin/isparta cover _mocha",
     "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls",

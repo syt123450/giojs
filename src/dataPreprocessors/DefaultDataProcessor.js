@@ -26,6 +26,14 @@ DefaultDataPreprocessor.prototype.processDetail = function ( controller ) {
 
         var dataSet = inputData[ i ];
 
+        if (CountryData[ dataSet.i ] === undefined) {
+            return;
+        }
+
+        if (CountryData[ dataSet.e ] === undefined) {
+            return;
+        }
+
         var importCountryCode = CountryData[ dataSet.i ].colorCode;
         var exportCountryCode = CountryData[ dataSet.e ].colorCode;
 

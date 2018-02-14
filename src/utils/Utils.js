@@ -220,7 +220,10 @@ var Utils = ( function () {
             data.forEach( function ( country ) {
 
                 var v = country[ valueKey ];
-                country[ valueKey ] = ( v - min ) * ( definedMax - definedMin ) / ( max - min ) + definedMin;
+
+                if (( max - min ) !== 0) {
+                    country[ valueKey ] = ( v - min ) * ( definedMax - definedMin ) / ( max - min ) + definedMin;
+                }
 
             } );
 

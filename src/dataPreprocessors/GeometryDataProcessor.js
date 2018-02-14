@@ -79,7 +79,10 @@ GeometryDataProcessor.prototype.processDetail = function ( controller ) {
         points.push( vec3_origin );
 
         var val = value * 0.0003;
+
         var size = ( 10 + Math.sqrt( val ) );
+
+
         size = Utils.constrain( size, 0.1, 60 );
 
         var curveGeometry = new THREE.Geometry();

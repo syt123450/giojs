@@ -1,13 +1,14 @@
-<p align="center"><a href="https://vuejs.org" target="_blank"><img width="100" src="https://github.com/syt123450/Gio.js/blob/master/assets/readme/logo.png" alt="Vue logo"></a></p>
+
+<p align="center"><a href="https://vuejs.org" target="_blank"><img width="100" src="https://rawgit.com/syt123450/Gio.js/master/assets/readme/logo.png" alt="Gio logo"></a></p>
 
 <h1 align="center">Gio.js</h1>
 
 <p align="center">
-  <a href=""><img src="https://img.shields.io/badge/npm-v0.0.5-orange.svg" alt="npm badge"></a>
-  <a href=""><img src="https://img.shields.io/badge/license-Apache--2.0-green.svg" alt="license badge"></a>
-  <a href=""><img src="https://img.shields.io/badge/dependencies-Three.js-brightgreen.svg" alt="dependencies badge"></a>
-  <a href=""><img src="https://travis-ci.org/syt123450/Gio.js.svg?branch=master" alt="build"></a>
-  <a href=""><img src="https://coveralls.io/repos/github/syt123450/Gio.js/badge.svg?branch=master" alt="coverage"></a>
+  <a href="https://www.npmjs.com/package/giojs"><img src="https://img.shields.io/npm/v/giojs.svg" alt="npm version" height="18"></a>
+  <a href="https://github.com/syt123450/Gio.js/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-green.svg" alt="license badge"></a>
+  <a href="https://github.com/mrdoob/three.js/"><img src="https://img.shields.io/badge/dependencies-Three.js-brightgreen.svg" alt="dependencies badge"></a>
+  <a href="https://travis-ci.org/syt123450/Gio.js"><img src="https://travis-ci.org/syt123450/Gio.js.svg" alt="build"></a>
+  <a href="https://coveralls.io/github/syt123450/Gio.js?branch=master"><img src="https://coveralls.io/repos/github/syt123450/Gio.js/badge.svg" alt="coverage"></a>
 </p>
 
 **Gio.js** is an open source library for data visualization library based on a 3D globe. This library is inspired by the [Arms Trade Visualization](http://armsglobe.chromeexperiments.com/) project developed by Michael Chang and presented during Google Ideas INFO 2012. See [original post](http://mflux.tumblr.com/post/28367579774/armstradeviz). What makes Gio.js different is that it is fully customizable for users and friendly to future developers.
@@ -16,7 +17,7 @@
 
 <!-- [START screenshot] -->
 <p align="center">
-  <a href=""><img src="https://github.com/syt123450/Gio.js/blob/master/assets/readme/Gio.png"/></a>
+  <a href=""><img src="https://rawgit.com/syt123450/Gio.js/master/assets/readme/Gio.png"/></a>
 </p>
 <!-- [END screenshot] -->
 
@@ -36,7 +37,7 @@ Include local Gio.js library
 ```
 or through CDN
 ```html
-<script src="https://gio-js-cdn-link"></script>
+<script src="https://rawgit.com/syt123450/Gio.js/master/build/gio.min.js"></script>
 ```
 - Option 2: npm
 ```bash
@@ -58,7 +59,7 @@ After including "three.min.js" and "gio.min.js" in your html, create a `div` to 
   <!-- must include three.min.js library-->
   <script src="three.min.js"></script>
 
-  <!-- must include Gio.min.js library-->
+  <!-- must include gio.min.js library-->
   <script src="gio.min.js"></script>
 
 </head>

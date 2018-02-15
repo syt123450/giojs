@@ -101,7 +101,7 @@ If everything goes well, you should see [this](http://giojs.org/examples/00_hell
 - To learn more about the [Basic Elements](https://github.com/syt123450/Gio.js/blob/master/docs/Basic%20Elements.md)
 - To see the full API document in Markdown format, see [APIs](https://github.com/syt123450/Gio.js/blob/master/docs/APIs.md)
 - To contribute to Gio.js's code base, read [Developer Guide](https://github.com/syt123450/Gio.js/blob/master/docs/Developer%20Guide.md)
-- See Gio's [offical website giojs.org](http://giojs.org) for everything above and plus lots of live examples
+- See Gio's offical website [giojs.org](http://giojs.org) for everything above and plus lots of live examples
 <!-- [END documentation] -->
 
 

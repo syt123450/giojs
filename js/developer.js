@@ -8,13 +8,22 @@ function scrollFunction() {
     }
 }
 
-
-function topFunction() {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
-}
-
 $(function() {
+
+    $("#myBtn").click(function() {
+
+        var scrollTop;
+        if ( document.body.scrollTop >= 0 ) {
+            scrollTop = document.body.scrollTop;
+        } else {
+            scrollTop = document.documentElement.scrollTop;
+        }
+
+        $('html, body').animate({
+            scrollTop: scrollTop
+        }, 1000);
+    });
+
     $("#more").click(function() {
         $("#nav-collapse").slideToggle();
     });
@@ -27,22 +36,7 @@ $(function() {
         $('html, body').animate({
             scrollTop: $("#pullRequest").offset().top
         }, 1000);
-    });
-
-    $("#navigation2").click(function () {
-        $('html, body').animate({
-            scrollTop: $("#structure").offset().top
-        }, 1000);
-    });
-
-    $("#navigation3").click(function () {
-        $('html, body').animate({
-            scrollTop: $("#setup").offset().top
-        }, 1000);
-    });
-
-
-    $("#navigation1").hover(
+    }).hover(
         function() {
             $("#navigation1 img").attr("src", "../assets/images/goPullRequest_hover.png");
             $("#navigation1 p").css({color:'#29abe2'});
@@ -53,7 +47,11 @@ $(function() {
         }
     );
 
-    $("#navigation2").hover(
+    $("#navigation2").click(function () {
+        $('html, body').animate({
+            scrollTop: $("#structure").offset().top
+        }, 1000);
+    }).hover(
         function() {
             $("#navigation2 img").attr("src", "../assets/images/goStructure_hover.png");
             $("#navigation2 p").css({color:'#29abe2'});
@@ -64,7 +62,11 @@ $(function() {
         }
     );
 
-    $("#navigation3").hover(
+    $("#navigation3").click(function () {
+        $('html, body').animate({
+            scrollTop: $("#setup").offset().top
+        }, 1000);
+    }).hover(
         function() {
             $("#navigation3 img").attr("src", "../assets/images/goSetup_hover.png");
             $("#navigation3 p").css({color:'#29abe2'});

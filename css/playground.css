@@ -190,6 +190,10 @@ nav
     display: none;
 }
 
+.plg-modal-text {
+	white-space: pre;
+}
+
 .plg-close-button {
     float: right;
     color: #ffffff;

@@ -221,7 +221,7 @@ var GIO;
                             playgroundConfig.brightness = config.brightness;
 
                             var $configJSONHolder = $("#configJSONHolder");
-                            $configJSONHolder.find(".plg-modal-text").text(JSON.stringify(playgroundConfig));
+                            $configJSONHolder.find(".plg-modal-text").text(JSON.stringify(playgroundConfig, null, "\t"));
                             $configJSONHolder.get(0).classList.add("plg-show-modal-content");
                             break;
 

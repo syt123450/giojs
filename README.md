@@ -1,4 +1,5 @@
-<p align="center"><a href="https://vuejs.org" target="_blank"><img width="100" src="https://github.com/syt123450/Gio.js/blob/master/assets/readme/logo.png" alt="Vue logo"></a></p>
+
+<p align="center"><a href="https://vuejs.org" target="_blank"><img width="100" src="https://rawgit.com/syt123450/Gio.js/master/assets/readme/logo.png" alt="Gio logo"></a></p>
 
 <h1 align="center">Gio.js</h1>
 
@@ -16,7 +17,7 @@
 
 <!-- [START screenshot] -->
 <p align="center">
-  <a href=""><img src="https://github.com/syt123450/Gio.js/blob/master/assets/readme/Gio.png"/></a>
+  <a href=""><img src="https://rawgit.com/syt123450/Gio.js/master/assets/readme/Gio.png"/></a>
 </p>
 <!-- [END screenshot] -->
 
@@ -36,7 +37,7 @@ Include local Gio.js library
 ```
 or through CDN
 ```html
-<script src="https://gio-js-cdn-link"></script>
+<script src="https://rawgit.com/syt123450/Gio.js/master/build/gio.min.js"></script>
 ```
 - Option 2: npm
 ```bash
@@ -58,7 +59,7 @@ After including "three.min.js" and "gio.min.js" in your html, create a `div` to 
   <!-- must include three.min.js library-->
   <script src="three.min.js"></script>
 
-  <!-- must include Gio.min.js library-->
+  <!-- must include gio.min.js library-->
   <script src="gio.min.js"></script>
 
 </head>

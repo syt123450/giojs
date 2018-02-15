@@ -39,7 +39,7 @@ var GIO;
                         $(this).siblings("ul").slideToggle();
                         $(this).attr("isFold", "false");
                         // rotate icon
-                        $(this).children("img").rotate(180);
+                        $(this).children("img").rotate(90);
                     }
                     else
                     {

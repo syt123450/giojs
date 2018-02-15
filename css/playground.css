@@ -57,6 +57,7 @@ nav
 {
 	clear: both;
 	cursor: pointer;
+	padding-right: 40%;
 }
 
 .ctl-panel-header > h3
@@ -67,12 +68,10 @@ nav
 
 .ctl-panel-header > img
 {
-	width: 32px;
-	height: 16px;
+	float: right;
+	margin-top: 25px;
+	height: 20px;
 	display: inline-block;
-	position: relative;
-    left: 10px;
-    bottom: 5px;
 }
 
 .ctl-panel-item-holder

@@ -179,20 +179,6 @@ main > div > div > ul > li > div {
 
 }
 
-.content {
-    width: 90%;
-    height: 50px;
-    line-height: 50px;
-    margin-left: 5%;
-    margin-top: 20px;
-    font-size: 20px;
-    color: #999999;
-    font-weight: bold;
-    border-bottom: 1px solid #e6e6e6;
-    box-sizing: border-box;
-    font-family: DINAlternateBold, serif;
-}
-
 .more-content-ul {
     margin-top: 60px;
     margin-left: 50px;
@@ -214,7 +200,8 @@ main > div > div > ul > li > div {
     margin-left: 5%;
     border-radius: 10px;
     font-family: AmericanTypewriterRegular, serif;
-    padding: 10px 30px;
+    padding: 0px 30px;
+    white-space: pre;
 }
 
 .sub-title {

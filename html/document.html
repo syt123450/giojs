@@ -106,8 +106,9 @@
         Configuration<img src="../assets/images/document_arrow.png">
     </div>
     <ul id="configureS">
-        <li id="constructorConfigureNavS">Constructor Configure</li>
+        <li id="constructorConfigureNavS">Through Constructor</li>
         <li id="configureAPINavS">Configure API</li>
+        <li id="configureParameterNavS">Full Parameter List</li>
     </ul>
     <div id="designLabelS">
         Object Design API<img src="../assets/images/document_arrow.png">
@@ -192,8 +193,9 @@
             Configuration<img src="../assets/images/document_arrow.png">
         </div>
         <ul id="configure">
-            <li id="constructorConfigureNav">Constructor Configure</li>
+            <li id="constructorConfigureNav">Through Constructor</li>
             <li id="configureAPINav">Configure API</li>
+            <li id="configureParameterNav">Full Parameter List</li>
         </ul>
         <div id="designLabel">
             Object Design API<img src="../assets/images/document_arrow.png">
@@ -261,9 +263,6 @@
                 <span class="span_bold">explanation of the last document</span>
                 together with how to use it.
             </div>
-            <div class="content">
-                Content
-            </div>
             <div>
                 <ul>
                     <li><a id="requireContent">Environment Requirements</a></li>
@@ -288,10 +287,7 @@
             <div>Include the library and dependency in the <span class="span_code">&lt;head&gt;</span> section of your
                 web page as shown below:
             </div>
-            <div class="code">
-                &lt;script src="three.min.js"&gt;&lt;/script&gt;<br>
-                &lt;script src="gio.min.js"&gt;&lt;/script&gt;
-            </div>
+            <div class="code">&lt;script src="three.min.js"&gt;&lt;/script&gt;<br>&lt;script src="gio.min.js"&gt;&lt;/script&gt;</div>
             <div><span class="span_bold">Note</span>: Please make sure you import the <a
                     href="../index.html">three.js</a> file first before the
                 <a href="../index.html">Gio.js</a>.
@@ -316,38 +312,30 @@
                 start off by creating a globe in basic style.
             </div>
             <div>1. Create a <span class="span_code">&lt;div&gt;</span> where the globe will be rendered.</div>
-            <div class="code">
-                &lt;div id="globeArea" style="width: 200px; height: 200px"&gt;&lt;/div&gt;
-            </div>
+            <div class="code">&lt;div id="globeArea" style="width: 200px; height: 200px"&gt;&lt;/div&gt;</div>
             <div>2. Add the following code snippet to the body of you html page.</div>
             <div class="code">
-                &lt;script&gt;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(function () {<br><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Get
-                the container to hold the IO globe<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var
-                container = document.getElementById( "globalArea" );<br><br>
+                &lt;script&gt;
+                        $(function () {
+                                // Get the container to hold the IO globe
+                                var container = document.getElementById( "globalArea" );
 
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//
-                Create Gio.controller<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var
-                controller = new GIO.Controller( container );<br><br>
+                                // Create Gio.controller
+                                var controller = new GIO.Controller( container );
 
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Add
-                data<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;controller.addData(
-                data );<br><br>
+                                // Add data
+                                controller.addData( data );
 
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//
-                Initialize and render the globe<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;controller.init();<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});<br>
+                                // Initialize and render the globe
+                                controller.init();
+                        });
                 &lt;/script&gt;
             </div>
             <div>Tip: We can also use JQuery or onReady handler to load data.</div>
             <div>3. Now you should be able to see the 3D globe on your webpage like <a href="../index.html">this</a>
             </div>
         </div>
+
         <div id="explainLast">
             <header>Other Resources</header>
             <ul class="more-content-ul">
@@ -364,9 +352,6 @@
                 describing the basic concepts in a globe.
             </div>
             <img class="tag-img" src="https://www.highcharts.com/images/docs/understanding_highcharts.png">
-            <div class="content">
-                Content
-            </div>
             <div>
                 <ul>
                     <li>
@@ -409,11 +394,10 @@
                 as shown in the example below:
             </div>
             <div class="code">
-                controller.configure({<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;surface:
-                0xff0000<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                controller.configure({
+                        color: {
+                                surface:0xff0000
+                        }
                 });
             </div>
             <div>Or it can be changed dynamically using <a href="../index.html">setSurfaceColor()</a>.</div>
@@ -432,11 +416,10 @@
             <div>The color of Selected country can be set through <a href="../index.html">configure()</a> as follows:
             </div>
             <div class="code">
-                controller.configure({<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;selected:
-                0xff0000<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                controller.configure({
+                        color: {
+                                selected:0xff0000
+                        }
                 });
             </div>
             <div>Or it can be changed dynamically with <a href="../index.html">setSelectedColor()</a> .</div>
@@ -448,11 +431,10 @@
                 follows:
             </div>
             <div class="code">
-                controller.configure({<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;brightness: {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;related:
-                0.8<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                controller.configure({
+                        brightness: {
+                                related:0.8
+                        }
                 });
             </div>
             <div>Or it can be changed dynamically with <a href="../index.html">adjustRelatedBrightness()</a>. Default
@@ -467,11 +449,10 @@
             </div>
             <div>The brightness of Mentioned country can be set through [configure()] as follow:</div>
             <div class="code">
-                controller.configure({<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mentioned:
-                0.8<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                controller.configure({
+                        color: {
+                                mentioned:0.8
+                        }
                 });
             </div>
             <div>Or it can be modified dynamically with <a href="../index.html">adjustMentionedBrightness()</a> when <a
@@ -502,13 +483,11 @@
             </div>
             <div>The color of lines can be set through <a href="../index.html">configure</a> API as follow:</div>
             <div class="code">
-                controller.configure({<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in:
-                0xff0000,<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;out:
-                0x00ff00<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                controller.configure({
+                        color: {
+                                in:0xff0000,
+                                out:0x00ff00
+                        }
                 });
             </div>
             <div>Or it can be modified dynamically with <a href="../index.html">setInLineColor()</a> and <a
@@ -539,11 +518,10 @@
             </div>
             <div>Background color can be set through <a href="../index.html">configure()</a> as follow:</div>
             <div class="code">
-                controller.configure({<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;background:
-                0x0000ff<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                controller.configure({
+                        color: {
+                                background:0x0000ff
+                        }
                 });
             </div>
             <div>Or it can be modified dynamically with <a href="../index.html">setBackgroundColor()</a>.</div>
@@ -555,11 +533,10 @@
             <div>Halo is the circle of light around the earth. The default color of halo is halo 0xffffff.</div>
             <div>The color can be set through <a href="../index.html">configure()</a> as follow:</div>
             <div class="code">
-                controller.configure({<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;halo:
-                0xff0000<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                controller.configure({
+                        color: {
+                                halo:0xff0000
+                        }
                 });
             </div>
             <div>Or it can be modified dynamically by <a href="../index.html">setHaloColor()</a>.</div>
@@ -573,11 +550,10 @@
             </div>
             <div>The brightness of the ocean through <a href="../index.html">configure()</a> as follow:</div>
             <div class="code">
-                controller.configure({<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;brightness: {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ocean:
-                0.8<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                controller.configure({
+                        brightness: {
+                                ocean:0.8
+                        }
                 });
             </div>
             <div>or <a href="../index.html">adjustOceanBrightness</a> API.</div>
@@ -595,34 +571,182 @@
 
         <div id="configureGuide">
             <header>Configuration</header>
-            <div class="content">
-                Content
+            <div>Using Gio.js, you can easily create a customized 3D globe for data visualization. Before you start to
+                create your own globe, it is important to know the full parameter list how to configure the globe.
+                Basically, there are two ways to set the customized configurations, you can click the link below to see
+                the detailed information:
             </div>
             <div>
                 <ul>
-                    <li><a id="constructorConfigureContent">Constructor Configure</a></li>
-                    <li><a id="configureAPIContent">Configure API</a></li>
+                    <li><a id="constructorConfigureContent">Through controller constructor</a></li>
+                    <li><a id="configureAPIContent">Through configure() API</a></li>
+                    <li><a id="configureParameterContent">Full Parameter List</a></li>
                 </ul>
             </div>
         </div>
 
         <div id="constructorConfigure">
-            <header>Constructor Configure</header>
-            <div style="text-align: center;margin-bottom: 20px;">We are working hard to write it ~~~</div>
-            <img class="working" src="../assets/images/working.jpg">
+            <header>Through Constructor</header>
+            <div>When creating a controller for the 3D globe, you can pass the configurations of the globe to the
+                controller as a constructor parameter as follows:
+            </div>
+            <div class="code">
+                var configs = {
+                        color: {
+                                surface:0xFF0000
+                        }
+                };
+                var globe = new Gio.controller(container, configs);
+            </div>
         </div>
 
         <div id="configureAPI">
             <header>Configure API</header>
-            <div style="text-align: center;margin-bottom: 20px;">We are working hard to write it ~~~</div>
-            <img class="working" src="../assets/images/working.jpg">
+            <div>You can use configure API to configure the controller, the basic usage of the configure API is as shown
+                below:
+            </div>
+            <div class="code">
+                controller.configure(configs);
+            </div>
+            <div>the parameter of the configure API is the same as the parameter of the constructor function, see more
+                information about the parameter in <a href="../index.html">constructor parameter</a>.
+            </div>
+        </div>
+
+        <div id="configureParameter">
+            <header>Full Parameter List</header>
+            <div class="code">
+                var configs = {
+                        control: {
+                                stats: false,
+                                disableUnmentioned: false,
+                                lightenMentioned: false,
+                                inOnly: false,
+                                outOnly: false,
+                                initCountry: "CN",
+                                halo: true
+                        },
+                        color: {
+                                surface: 0xFFFFFF,
+                                selected: null,
+                                in: 0x154492,
+                                out: 0xDD380C,
+                                halo: 0xFFFFFF,
+                                background: null
+                        },
+                        brightness: {
+                                ocean: 0.5,
+                                mentioned: 0.5,
+                                related: 0.5
+                        },
+                        resource: {
+                                loading: null
+                        }
+                }
+            </div>
+            <div>
+                <table class="table table-bordered">
+                    <caption>Table of parameters:</caption>
+                    <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Default Value/ Range</th>
+                        <th>Description</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>control.stats</td>
+                        <td>false</td>
+                        <td>True means to turn on the performance monitor for Three.js.</td>
+                    </tr>
+                    <tr>
+                        <td>control.disableUnmentioned	</td>
+                        <td>false</td>
+                        <td>True means tp set unmentioned country unclickable.</td>
+                    </tr>
+                    <tr>
+                        <td>control.lightenMentioned</td>
+                        <td>false</td>
+                        <td>True means to set mentioned country brighter than unmentioned country.</td>
+                    </tr>
+                    <tr>
+                        <td>control.inOnly</td>
+                        <td>false</td>
+                        <td>True means to only display data going into the destination country.</td>
+                    </tr>
+                    <tr>
+                        <td>control.outOnly</td>
+                        <td>false</td>
+                        <td>True means to only display data going out the origination country.</td>
+                    </tr>
+                    <tr>
+                        <td>control.initCountry</td>
+                        <td>"CN"</td>
+                        <td>A country displayed at the center of the screen when the globe has been initialized.</td>
+                    </tr>
+                    <tr>
+                        <td>control.halo</td>
+                        <td>true</td>
+                        <td>True means to turn on the halo.</td>
+                    </tr>
+                    <tr>
+                        <td>color.surface</td>
+                        <td>0xFFFFFF or "#FFFFFF"</td>
+                        <td>The color scheme of land and ocean area.</td>
+                    </tr>
+                    <tr>
+                        <td>color.selected</td>
+                        <td>null</td>
+                        <td>Color of selected country.</td>
+                    </tr>
+                    <tr>
+                        <td>color.in</td>
+                        <td>0x154492 or "#154492"</td>
+                        <td>Color of line going into the destination.</td>
+                    </tr>
+                    <tr>
+                        <td>color.out</td>
+                        <td>0xDD380C or "#DD380C"</td>
+                        <td>Color of the line going out of the origination country.</td>
+                    </tr>
+                    <tr>
+                        <td>color.halo</td>
+                        <td>0xFFFFFF or "#FFFFFF"</td>
+                        <td>Color of the halo.</td>
+                    </tr>
+                    <tr>
+                        <td>color.background</td>
+                        <td>null</td>
+                        <td>Color of the background.</td>
+                    </tr>
+                    <tr>
+                        <td>brightness.ocean</td>
+                        <td>0.5 [0.0, 1.0]</td>
+                        <td>Brightness of the ocean.</td>
+                    </tr>
+                    <tr>
+                        <td>brightness.mentioned</td>
+                        <td>0.5 [0.0, 1.0]</td>
+                        <td>Brightness of the mentioned country.</td>
+                    </tr>
+                    <tr>
+                        <td>brightness.related</td>
+                        <td>0.5 [0.0, 1.0]</td>
+                        <td>Brightness of the related country.</td>
+                    </tr>
+                    <tr>
+                        <td>resource.loading</td>
+                        <td>null</td>
+                        <td>The path of the loading icon relative to "index.html".</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
         <div id="designGuide">
             <header>Object Design API</header>
-            <div class="content">
-                Content
-            </div>
             <div>
                 <ul>
                     <li><a id="setInitCountryContent">setInitCountry</a></li>
@@ -673,9 +797,6 @@
 
         <div id="colorGuide">
             <header>Color and Style API</header>
-            <div class="content">
-                Content
-            </div>
             <div>
                 <ul>
                     <li><a id="setStyleContent">setStyle</a></li>
@@ -754,9 +875,6 @@
 
         <div id="dataGuide">
             <header>Working With Data</header>
-            <div class="content">
-                Content
-            </div>
             <div>
                 <ul>
                     <li><a id="addDataContent">addData</a></li>
@@ -793,9 +911,6 @@
 
         <div id="callbackGuide">
             <header>Callback</header>
-            <div class="content">
-                Content
-            </div>
             <div>
                 <ul>
                     <li><a id="onCountryPickedContent">onCountryPicked</a></li>
@@ -811,9 +926,6 @@
 
         <div id="advancedGuide">
             <header>Advanced</header>
-            <div class="content">
-                Content
-            </div>
             <div>
                 <ul>
                     <li><a id="functionChainContent">function chain</a></li>

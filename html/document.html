@@ -250,7 +250,8 @@
     <main>
 
         <div id="helloDocument">
-            <header>Hello Document</header>
+            <header>Gio.js Document</header>
+            <img class="tag-img" src="../assets/images/Gio.png">
         </div>
 
         <div id="startGuide">
@@ -312,23 +313,25 @@
                 start off by creating a globe in basic style.
             </div>
             <div>1. Create a <span class="span_code">&lt;div&gt;</span> where the globe will be rendered.</div>
-            <div class="code">&lt;div id="globeArea" style="width: 200px; height: 200px"&gt;&lt;/div&gt;</div>
+            <div class="code">
+                &lt;div id="globeArea" style="width: 200px; height: 200px"&gt;&lt;/div&gt;
+            </div>
             <div>2. Add the following code snippet to the body of you html page.</div>
             <div class="code">
-                &lt;script&gt;
-                        $(function () {
-                                // Get the container to hold the IO globe
-                                var container = document.getElementById( "globalArea" );
+                &lt;script&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(function () {<br><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Get the container to hold the IO globe<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var container = document.getElementById( "globalArea" );<br><br>
 
-                                // Create Gio.controller
-                                var controller = new GIO.Controller( container );
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Create Gio.controller<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var controller = new GIO.Controller( container );<br><br>
 
-                                // Add data
-                                controller.addData( data );
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Add data<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;controller.addData( data );<br><br>
 
-                                // Initialize and render the globe
-                                controller.init();
-                        });
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Initialize and render the globe<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;controller.init();<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});<br>
                 &lt;/script&gt;
             </div>
             <div>Tip: We can also use JQuery or onReady handler to load data.</div>
@@ -351,7 +354,7 @@
             <div>In order to create your own Gio globe, let's learn some basic elements first. Below is an image
                 describing the basic concepts in a globe.
             </div>
-            <img class="tag-img" src="https://www.highcharts.com/images/docs/understanding_highcharts.png">
+            <img class="tag-img" src="../assets/images/elements/all.png">
             <div>
                 <ul>
                     <li>
@@ -388,16 +391,16 @@
 
         <div id="surface">
             <header>Surface</header>
-            <img class="tag-img" src="https://www.highcharts.com/images/docs/understanding_highcharts.png">
+            <img class="tag-img" src="../assets/images/elements/surface.png">
             <div>The surface including <a href="../index.html">Country</a> and <a href="../index.html">Ocean</a>. The
                 default color scheme is 0xffffff. The color scheme can be set through <a href="../index.html">configure()</a>
                 as shown in the example below:
             </div>
             <div class="code">
-                controller.configure({
-                        color: {
-                                surface:0xff0000
-                        }
+                controller.configure({<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;surface:0xff0000<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
                 });
             </div>
             <div>Or it can be changed dynamically using <a href="../index.html">setSurfaceColor()</a>.</div>
@@ -405,7 +408,7 @@
 
         <div id="country">
             <header>Country</header>
-            <img class="tag-img" src="https://www.highcharts.com/images/docs/understanding_highcharts.png">
+            <img class="tag-img" src="../assets/images/elements/country.png">
             <div>Each Country corresponds to a specific code in <a href="../index.html">CountryData</a>. Depending on
                 data availability and user activity, a Country can be in the following states:
             </div>
@@ -416,10 +419,10 @@
             <div>The color of Selected country can be set through <a href="../index.html">configure()</a> as follows:
             </div>
             <div class="code">
-                controller.configure({
-                        color: {
-                                selected:0xff0000
-                        }
+                controller.configure({<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;selected:0xff0000<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
                 });
             </div>
             <div>Or it can be changed dynamically with <a href="../index.html">setSelectedColor()</a> .</div>
@@ -431,10 +434,10 @@
                 follows:
             </div>
             <div class="code">
-                controller.configure({
-                        brightness: {
-                                related:0.8
-                        }
+                controller.configure({<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;brightness: {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;related:0.8<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
                 });
             </div>
             <div>Or it can be changed dynamically with <a href="../index.html">adjustRelatedBrightness()</a>. Default
@@ -449,10 +452,10 @@
             </div>
             <div>The brightness of Mentioned country can be set through [configure()] as follow:</div>
             <div class="code">
-                controller.configure({
-                        color: {
-                                mentioned:0.8
-                        }
+                controller.configure({<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mentioned:0.8<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
                 });
             </div>
             <div>Or it can be modified dynamically with <a href="../index.html">adjustMentionedBrightness()</a> when <a
@@ -475,7 +478,7 @@
 
         <div id="line">
             <header>Line</header>
-            <img class="tag-img" src="https://www.highcharts.com/images/docs/understanding_highcharts.png">
+            <img class="tag-img" src="../assets/images/elements/line.png">
             <div>Line is used to visualize the data flow between two countries. For <a href="../index.html">Selected</a>
                 country, the line with data flow into it is called in line and the line with data flow out of it is
                 called out line. The default color of in line is in-line 0x154492 and the default color of out line is
@@ -483,11 +486,11 @@
             </div>
             <div>The color of lines can be set through <a href="../index.html">configure</a> API as follow:</div>
             <div class="code">
-                controller.configure({
-                        color: {
-                                in:0xff0000,
-                                out:0x00ff00
-                        }
+                controller.configure({<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in:0xff0000,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;out:0x00ff00<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
                 });
             </div>
             <div>Or it can be modified dynamically with <a href="../index.html">setInLineColor()</a> and <a
@@ -512,16 +515,16 @@
 
         <div id="background">
             <header>Background</header>
-            <img class="tag-img" src="https://www.highcharts.com/images/docs/understanding_highcharts.png">
+            <img class="tag-img" src="../assets/images/elements/background.png">
             <div>The background is the area "behind" the earth. The default color of the background is background
                 0x000000.
             </div>
             <div>Background color can be set through <a href="../index.html">configure()</a> as follow:</div>
             <div class="code">
-                controller.configure({
-                        color: {
-                                background:0x0000ff
-                        }
+                controller.configure({<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;background:0x0000ff<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
                 });
             </div>
             <div>Or it can be modified dynamically with <a href="../index.html">setBackgroundColor()</a>.</div>
@@ -529,14 +532,14 @@
 
         <div id="halo">
             <header>Halo</header>
-            <img class="tag-img" src="https://www.highcharts.com/images/docs/understanding_highcharts.png">
+            <img class="tag-img" src="../assets/images/elements/halo.png">
             <div>Halo is the circle of light around the earth. The default color of halo is halo 0xffffff.</div>
             <div>The color can be set through <a href="../index.html">configure()</a> as follow:</div>
             <div class="code">
-                controller.configure({
-                        color: {
-                                halo:0xff0000
-                        }
+                controller.configure({<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;halo:0xff0000<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
                 });
             </div>
             <div>Or it can be modified dynamically by <a href="../index.html">setHaloColor()</a>.</div>
@@ -544,16 +547,16 @@
 
         <div id="ocean">
             <header>Ocean</header>
-            <img class="tag-img" src="https://www.highcharts.com/images/docs/understanding_highcharts.png">
+            <img class="tag-img" src="../assets/images/elements/ocean.png">
             <div>The ocean object is the ocean area on the earth, the ocean is the most dart area on the earth. The
                 default brightness of the ocean is 0.5.
             </div>
             <div>The brightness of the ocean through <a href="../index.html">configure()</a> as follow:</div>
             <div class="code">
-                controller.configure({
-                        brightness: {
-                                ocean:0.8
-                        }
+                controller.configure({<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;brightness: {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ocean:0.8<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
                 });
             </div>
             <div>or <a href="../index.html">adjustOceanBrightness</a> API.</div>
@@ -561,7 +564,7 @@
 
         <div id="stats">
             <header>Stats</header>
-            <img class="tag-img" src="https://www.highcharts.com/images/docs/understanding_highcharts.png">
+            <img class="tag-img" src="../assets/images/elements/stats.png">
             <div>The "stats" is a performance monitor for Three.js, if you are interested in it, you can see more
                 information about stats from its <a href="../index.html">github</a>. As our Gio globe is an open source
                 library based on Three.js, so you may be want to add stats to your scene, you can use the <a
@@ -591,11 +594,11 @@
                 controller as a constructor parameter as follows:
             </div>
             <div class="code">
-                var configs = {
-                        color: {
-                                surface:0xFF0000
-                        }
-                };
+                var configs = {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;surface:0xFF0000<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                };<br>
                 var globe = new Gio.controller(container, configs);
             </div>
         </div>
@@ -616,32 +619,32 @@
         <div id="configureParameter">
             <header>Full Parameter List</header>
             <div class="code">
-                var configs = {
-                        control: {
-                                stats: false,
-                                disableUnmentioned: false,
-                                lightenMentioned: false,
-                                inOnly: false,
-                                outOnly: false,
-                                initCountry: "CN",
-                                halo: true
-                        },
-                        color: {
-                                surface: 0xFFFFFF,
-                                selected: null,
-                                in: 0x154492,
-                                out: 0xDD380C,
-                                halo: 0xFFFFFF,
-                                background: null
-                        },
-                        brightness: {
-                                ocean: 0.5,
-                                mentioned: 0.5,
-                                related: 0.5
-                        },
-                        resource: {
-                                loading: null
-                        }
+                var configs = {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;control: {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stats: false,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;disableUnmentioned: false,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lightenMentioned: false,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inOnly: false,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;outOnly: false,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;initCountry: "CN",<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;halo: true<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;surface: 0xFFFFFF,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;selected: null,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in: 0x154492,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;out: 0xDD380C,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;halo: 0xFFFFFF,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;background: null<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;brightness: {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ocean: 0.5,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mentioned: 0.5,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;related: 0.5<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;resource: {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;loading: null<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
                 }
             </div>
             <div>

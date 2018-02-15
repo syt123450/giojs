@@ -200,8 +200,7 @@ main > div > div > ul > li > div {
     margin-left: 5%;
     border-radius: 10px;
     font-family: AmericanTypewriterRegular, serif;
-    padding: 0px 30px;
-    white-space: pre;
+    padding: 0 30px;
 }
 
 .sub-title {

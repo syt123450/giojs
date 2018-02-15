@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>API enableStats() and disableStats() / Gio.js</title>
+
+    <script src="js/three.min.js"></script>
+
+    <!-- the stats.js library must be included first-->
+
+    <script src="js/stats.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+
+    <script src="js/Gio.min.js"></script>
+
+    <link rel="stylesheet" href="css/common.css">
+
+    <style>
+
+        #globalArea {
+
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+
+            /* if you want to add a stats, you need to set the position of the area of the globe */
+
+            position: relative;
+
+        }
+
+        #enable, #disable {
+
+            position: absolute;
+            left: 100px;
+            width: 150px;
+            height: 40px;
+            color: #cbcbcb;
+            text-align: center;
+            line-height: 40px;
+            cursor: pointer;
+            user-select: none;
+            box-sizing: border-box;
+            transition: 1s;
+            border-radius: 5px;
+            background-color: rgba(110, 110, 110, 0.8);
+
+        }
+
+        #enable:hover, #disable:hover {
+
+            color: #fff;
+            background-color: #929292;
+
+        }
+
+        #enable {
+
+            top: 200px;
+
+        }
+
+        #disable {
+
+            top: 300px;
+
+        }
+
+    </style>
+
+</head>
+<body>
+
+<header>API enableStats() and disableStats() can be used to open or close stats for performance monitor</header>
+
+<div id="globalArea"></div>
+
+<div id="enable">Enable Stats</div>
+<div id="disable">Disable Stats</div>
+
+<div class="view_source">
+    <a href="https://github.com/syt123450/Gio.js/blob/master/examples/18_API_enableStats(disableStats).html">View Source</a>
+</div>
+
+<script>
+
+    var container = document.getElementById( "globalArea" );
+    var controller = new GIO.Controller( container );
+
+    // use the enableStats() and disableStats() API to show or hide stats panel
+
+    controller.enableStats();
+
+    $.ajax( {
+
+        url: "data/sampleData.json",
+        type: "GET",
+        contentType: "application/json; charset=utf-8",
+        async: true,
+        dataType: "json",
+        success: function ( inputData ) {
+
+            controller.addData( inputData );
+            controller.init();
+
+        }
+
+    } );
+
+    // in this demo, bind the enableStats() API to "enable" button
+
+    $( "#enable" ).click( function () {
+
+        controller.enableStats();
+
+    } );
+
+    // in this demo, bind the disableStats() API to "disable" button
+
+    $( "#disable" ).click( function () {
+
+        controller.disableStats();
+
+    } );
+
+</script>
+
+</body>
+</html>

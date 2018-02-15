@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>API switchCountry() / Gio.js</title>
+
+    <script src="js/three.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+
+    <script src="js/Gio.min.js"></script>
+
+    <link rel="stylesheet" href="css/common.css">
+
+    <style>
+
+        #globalArea {
+
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+
+        }
+
+        #china, #russia, #america {
+
+            position: absolute;
+            left: 100px;
+            width: 100px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            color: #cbcbcb;
+            cursor: pointer;
+            user-select: none;
+            box-sizing: border-box;
+            transition: 1s;
+            background-color: rgba(110, 110, 110, 0.8);
+
+        }
+
+        #china:hover, #russia:hover, #america:hover {
+
+            color: #fff;
+            background-color: #929292;
+
+        }
+
+        #china {
+
+            top: 200px;
+
+        }
+
+        #russia {
+
+            top: 280px;
+
+        }
+
+        #america {
+
+            top: 360px;
+
+        }
+
+    </style>
+
+</head>
+<body>
+
+<header>Use switchCountry() API to set highlight country without click the country area on the globe</header>
+
+<div id="china">China</div>
+<div id="russia">Russia</div>
+<div id="america">America</div>
+
+<div id="globalArea"></div>
+
+<div class="view_source">
+    <a href="https://github.com/syt123450/Gio.js/blob/master/examples/20_API_switchCountry.html">View Source</a>
+</div>
+
+<script>
+
+    var container = document.getElementById( "globalArea" );
+    var controller = new GIO.Controller( container );
+
+    $.ajax( {
+
+        url: "data/sampleData.json",
+        type: "GET",
+        contentType: "application/json; charset=utf-8",
+        async: true,
+        dataType: "json",
+        success: function ( inputData ) {
+
+            controller.addData( inputData );
+            controller.init();
+
+        }
+
+    } );
+
+    $( "#china" ).click( function () {
+
+        // use the switchCountry() API to directly change the clicked country without clicked on the surface
+
+        controller.switchCountry( "CN" );
+
+    } );
+
+    $( "#russia" ).click( function () {
+
+        controller.switchCountry( "RU" );
+
+    } );
+
+    $( "#america" ).click( function () {
+
+        controller.switchCountry( "US" );
+
+    } );
+
+</script>
+
+</body>
+</html>

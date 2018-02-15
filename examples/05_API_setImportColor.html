@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>API setImportColor() / Gio.js</title>
+
+    <script src="js/three.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+
+    <script src="js/Gio.min.js"></script>
+
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/compare.css">
+
+</head>
+<body>
+
+<div class="originalTitle">The Basic Globe</div>
+<div id="originalArea"></div>
+
+<div class="changedTitle">Use the setImportColor() API to set the import line color</div>
+<div id="changedArea"></div>
+
+<div class="view_source">
+    <a href="https://github.com/syt123450/Gio.js/blob/master/examples/05_API_setImportColor.html">View Source</a>
+</div>
+
+<script>
+
+    var containerOriginal = document.getElementById( "originalArea" );
+    var containerChanged = document.getElementById( "changedArea" );
+
+    var controllerOriginal = new GIO.Controller( containerOriginal );
+    var controllerChanged = new GIO.Controller( containerChanged );
+
+    // use the setImportColor() API to change the export line's color
+
+    controllerChanged.setImportColor( 0xffffff );
+
+    // the parameter's style of the setImportColor() can be 0x000000 or "#000000"
+
+//    controllerChanged.setImportColor( "#ffffff" );
+
+    $.ajax( {
+
+        url: "data/sampleData.json",
+        type: "GET",
+        contentType: "application/json; charset=utf-8",
+        async: true,
+        dataType: "json",
+        success: function ( inputData ) {
+
+            controllerOriginal.addData( inputData );
+            controllerOriginal.init();
+            controllerChanged.addData( inputData );
+            controllerChanged.init();
+
+        }
+
+    } );
+
+</script>
+
+</body>
+</html>

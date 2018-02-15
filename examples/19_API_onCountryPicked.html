@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>API onCountryPicked() / Gio.js</title>
+
+    <script src="js/three.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+
+    <script src="js/Gio.min.js"></script>
+
+    <link rel="stylesheet" href="css/common.css">
+
+    <style>
+
+        #globalArea {
+
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+
+        }
+
+        #infoBoard {
+
+            position: absolute;
+            left: 35%;
+            top: 40%;
+            width: 400px;
+            height: 100px;
+            line-height: 50px;
+            text-align: center;
+            color: white;
+            font-size: 20px;
+            background-color: rgba(106, 107, 111, 0.6);
+            display: none;
+
+        }
+
+        #countryArea {
+
+            width: 100%;
+            height: 50%;
+
+        }
+
+        #explanation {
+
+            width: 100%;
+            height: 50%;
+            font-size: 16px;
+
+        }
+
+    </style>
+
+</head>
+<body>
+
+<header>Use onCountryPicked() API to set callback function when a new country is clicked</header>
+
+<div id="globalArea"></div>
+
+<div class="view_source">
+    <a href="https://github.com/syt123450/Gio.js/blob/master/examples/19_API_onCountryPicked.html">View Source</a>
+</div>
+
+<div id="infoBoard">
+    <div id="countryArea"></div>
+    <div id="explanation">Get country name from callback</div>
+</div>
+
+<script>
+
+    var container = document.getElementById( "globalArea" );
+    var controller = new GIO.Controller( container );
+
+    // use the onCountryPicked() to set callback when clicked country changed
+
+    controller.onCountryPicked( callback );
+
+    // the callback function can get parameter contains some country data, the detailed of the parameter can be found in the API document
+
+    function callback ( selectedCountry ) {
+
+        $( "#countryArea" ).text( selectedCountry.name + " picked!" );
+        $( "#infoBoard" ).fadeIn( 1000 );
+
+        setTimeout( function () {
+
+            $( "#infoBoard" ).fadeOut( 1000 );
+
+        }, 3000 );
+
+    }
+
+    $.ajax( {
+
+        url: "data/sampleData.json",
+        type: "GET",
+        contentType: "application/json; charset=utf-8",
+        async: true,
+        dataType: "json",
+        success: function ( inputData ) {
+
+            controller.addData( inputData );
+            controller.init();
+
+        }
+
+    } );
+
+</script>
+
+</body>
+</html>

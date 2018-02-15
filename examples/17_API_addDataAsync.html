@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>API addDataAsync() / Gio.js</title>
+
+    <script src="js/three.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+
+    <script src="js/Gio.min.js"></script>
+
+    <link rel="stylesheet" href="css/common.css">
+
+    <style>
+
+        #globalArea {
+
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+
+        }
+
+    </style>
+
+</head>
+<body>
+
+<header>Use addDataAsync() API to asynchronous load data from a given url, set callback to execute when onload of the
+    data
+</header>
+
+<div id="globalArea"></div>
+
+<div class="view_source">
+    <a href="https://github.com/syt123450/Gio.js/blob/master/examples/17_API_addDataAsync.html">View Source</a>
+</div>
+
+<script>
+
+    var container = document.getElementById( "globalArea" );
+    var controller = new GIO.Controller( container );
+
+    var url = "data/sampleData.json";
+
+    // use the addDataAsync() API to asynchronous load the data from a given URL.
+    // callback function can be set, this callback will be executed when data is loaded
+
+    controller.addDataAsync( url, asyncLoadCallback );
+
+    function asyncLoadCallback () {
+
+        controller.init();
+
+    }
+
+</script>
+
+</body>
+</html>

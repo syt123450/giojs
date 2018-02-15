@@ -1,0 +1,79 @@
+#originalArea {
+
+    width: 50%;
+    height: 100%;
+    float: left;
+    border-right: 1px #626262 solid;
+    box-sizing: border-box;
+
+}
+
+#changedArea {
+
+    width: 50%;
+    height: 100%;
+    float: left;
+
+}
+
+.originalTitle {
+
+    top: 0;
+    color: white;
+    line-height: 40px;
+    width: 50%;
+    position: fixed;
+    box-sizing: border-box;
+    padding-left: 20px;
+
+}
+
+.changedTitle {
+
+    top:0;
+    left: 50%;
+    color: white;
+    line-height: 40px;
+    width: 50%;
+    position: fixed;
+    box-sizing: border-box;
+    padding-left: 20px;
+
+}
+
+#enable, #disable {
+
+    position: absolute;
+    left: 52%;
+    width: 100px;
+    height: 40px;
+    color: #cbcbcb;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    user-select: none;
+    box-sizing: border-box;
+    transition: 1s;
+    border-radius: 5px;
+    background-color: rgba(110, 110, 110, 0.8);
+
+}
+
+#enable:hover, #disable:hover {
+
+    color: #fff;
+    background-color: #929292;
+
+}
+
+#enable {
+
+    top: 50px;
+
+}
+
+#disable {
+
+    top: 100px;
+
+}

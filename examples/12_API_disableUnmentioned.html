@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>API disableUnmentioned() / Gio.js</title>
+
+    <script src="js/three.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+
+    <script src="js/Gio.min.js"></script>
+
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/compare.css">
+
+</head>
+<body>
+
+<div class="originalTitle">The Basic Globe</div>
+<div id="originalArea"></div>
+
+<div class="changedTitle">Use the disableUnmentioned() API to let unmentioned countries unclickable</div>
+<div id="changedArea"></div>
+
+<div class="view_source">
+    <a href="https://github.com/syt123450/Gio.js/blob/master/examples/12_API_disableUnmentioned.html">View Source</a>
+</div>
+
+<div id="enable">Enable</div>
+<div id="disable">Disable</div>
+
+<script>
+
+    // the data is not quite representative, we may need to create a new data set to show this feature
+
+    var containerOriginal = document.getElementById( "originalArea" );
+    var containerChanged = document.getElementById( "changedArea" );
+
+    var controllerOriginal = new GIO.Controller( containerOriginal );
+    var controllerChanged = new GIO.Controller( containerChanged );
+
+    // use the disableUnmentioned() API to let the unmentioned countries unclickable
+
+    controllerChanged.disableUnmentioned( true );
+
+    $.ajax( {
+
+        url: "data/sampleData.json",
+        type: "GET",
+        contentType: "application/json; charset=utf-8",
+        async: true,
+        dataType: "json",
+        success: function ( inputData ) {
+
+            controllerOriginal.addData( inputData );
+            controllerOriginal.init();
+            controllerChanged.addData( inputData );
+            controllerChanged.init();
+
+        }
+
+    } );
+
+    // click the "enable" button to enable the function
+
+    $( "#enable" ).click( function () {
+
+        controllerChanged.disableUnmentioned( true );
+
+    } );
+
+    // click the "disable" button to change back to the original globe
+
+    $( "#disable" ).click( function () {
+
+        controllerChanged.disableUnmentioned( false );
+
+    } );
+
+</script>
+
+</body>
+</html>

@@ -119,10 +119,12 @@ function bindConfigureChapter() {
     bindChapterHelper("#configureLabel", "#configure", "#configureGuide");
     bindSectionHelper("#constructorConfigureNav", "#constructorConfigure");
     bindSectionHelper("#configureAPINav", "#configureAPI");
+    bindSectionHelper("#configureParameterNav", "#configureParameter");
 
     bindChapterHelper("#configureLabelS", "#configureS", "#configureGuide");
     bindSmallSectionHelper("#constructorConfigureNavS", "#constructorConfigure");
     bindSmallSectionHelper("#configureAPINavS", "#configureAPI");
+    bindSmallSectionHelper("#configureParameterNavS", "#configureParameter");
 }
 
 function bindDesignChapter() {
@@ -352,6 +354,7 @@ function bindConceptContent() {
 function bindConfigureContent() {
     bindSectionContent("#constructorConfigureContent", "#constructorConfigureNav", "#constructorConfigure");
     bindSectionContent("#configureAPIContent", "#configureAPINav", "#configureAPI");
+    bindSectionContent("#configureParameterContent", "#configureParameterNav", "#configureParameter");
 }
 
 function bindDesignContent() {

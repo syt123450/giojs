@@ -60,7 +60,15 @@ var Utils = ( function () {
 
         } else {
 
-            elementScrollTop = document.documentElement.scrollTop;
+            if ( document.documentElement.scrollTop === 0 ) {
+
+                elementScrollTop = document.body.scrollTop;
+
+            } else {
+
+                elementScrollTop = document.documentElement.scrollTop;
+
+            }
 
         }
 
@@ -88,7 +96,15 @@ var Utils = ( function () {
 
         } else {
 
-            elementScrollLeft = document.documentElement.scrollLeft;
+            if ( document.documentElement.scrollTop === 0 ) {
+
+                elementScrollLeft = document.body.scrollLeft;
+
+            } else {
+
+                elementScrollLeft = document.documentElement.scrollLeft;
+
+            }
 
         }
 

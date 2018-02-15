@@ -377,31 +377,35 @@ var Utils = ( function () {
 
         var actualTop = element.offsetTop;
         var current = element.offsetParent;
+
+        var elementScrollTop = 0;
     
         while ( current !== null ) {
                 actualTop += current.offsetTop;
+            elementScrollTop += current.scrollTop;
                 current = current.offsetParent;
-        }
-
-        var elementScrollTop;
-
-        if ( document.compatMode === "BackCompat" ) {
-
-            elementScrollTop = document.body.scrollTop;
-
-        } else {
-
-            if ( document.documentElement.scrollTop === 0 ) {
-
-                elementScrollTop = document.body.scrollTop;
-
-            } else {
-
-                elementScrollTop = document.documentElement.scrollTop;
-
-            }
 
         }
+
+        // var elementScrollTop;
+        //
+        // if ( document.compatMode === "BackCompat" ) {
+        //
+        //     elementScrollTop = document.body.scrollTop;
+        //
+        // } else {
+        //
+        //     if ( document.documentElement.scrollTop === 0 ) {
+        //
+        //         elementScrollTop = document.body.scrollTop;
+        //
+        //     } else {
+        //
+        //         elementScrollTop = document.documentElement.scrollTop;
+        //
+        //     }
+        //
+        // }
 
         return actualTop - elementScrollTop;
 

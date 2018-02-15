@@ -413,3 +413,8 @@ function bindSectionContent(contentNav, sectionNav, sectionArea) {
     });
 
 }
+
+function inDocumentLink(chapterLabel, chapterSelection, sectionNav, sectionArea) {
+
+    
+}

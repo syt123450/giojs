@@ -39,7 +39,7 @@ var GIO;
                         $(this).siblings("ul").slideToggle();
                         $(this).attr("isFold", "false");
                         // rotate icon
-                        $(this).children("img").rotate(180);
+                        $(this).children("img").rotate(90);
                     }
                     else
                     {
@@ -221,7 +221,7 @@ var GIO;
                             playgroundConfig.brightness = config.brightness;
 
                             var $configJSONHolder = $("#configJSONHolder");
-                            $configJSONHolder.find(".plg-modal-text").text(JSON.stringify(playgroundConfig));
+                            $configJSONHolder.find(".plg-modal-text").text(JSON.stringify(playgroundConfig, null, "\t"));
                             $configJSONHolder.get(0).classList.add("plg-show-modal-content");
                             break;
 

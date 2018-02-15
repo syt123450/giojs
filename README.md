@@ -91,7 +91,7 @@ To initialize and render the 3D Gio globe:
 
 </script>
 ```
-If everything goes well, you should see [this](jsfiddle-link).
+If everything goes well, you should see [this](http://giojs.org/examples/00_hello_world(simplest).html).
 
 <!-- [END getstarted] -->
 

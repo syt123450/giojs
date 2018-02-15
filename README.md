@@ -4,11 +4,11 @@
 <h1 align="center">Gio.js</h1>
 
 <p align="center">
-  <a href=""><img src="https://img.shields.io/badge/npm-v0.0.5-orange.svg" alt="npm badge"></a>
-  <a href=""><img src="https://img.shields.io/badge/license-Apache--2.0-green.svg" alt="license badge"></a>
-  <a href=""><img src="https://img.shields.io/badge/dependencies-Three.js-brightgreen.svg" alt="dependencies badge"></a>
-  <a href=""><img src="https://travis-ci.org/syt123450/Gio.js.svg?branch=master" alt="build"></a>
-  <a href=""><img src="https://coveralls.io/repos/github/syt123450/Gio.js/badge.svg?branch=master" alt="coverage"></a>
+  <a href="https://www.npmjs.com/package/giojs"><img src="https://img.shields.io/badge/npm-v0.0.5-orange.svg" alt="npm badge"></a>
+  <a href="https://github.com/syt123450/Gio.js/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-green.svg" alt="license badge"></a>
+  <a href="https://github.com/mrdoob/three.js/"><img src="https://img.shields.io/badge/dependencies-Three.js-brightgreen.svg" alt="dependencies badge"></a>
+  <a href="https://travis-ci.org/syt123450/Gio.js"><img src="https://travis-ci.org/syt123450/Gio.js.svg?branch=master" alt="build"></a>
+  <a href="https://coveralls.io/github/syt123450/Gio.js?branch=master"><img src="https://coveralls.io/repos/github/syt123450/Gio.js/badge.svg" alt="coverage"></a>
 </p>
 
 **Gio.js** is an open source library for data visualization library based on a 3D globe. This library is inspired by the [Arms Trade Visualization](http://armsglobe.chromeexperiments.com/) project developed by Michael Chang and presented during Google Ideas INFO 2012. See [original post](http://mflux.tumblr.com/post/28367579774/armstradeviz). What makes Gio.js different is that it is fully customizable for users and friendly to future developers.

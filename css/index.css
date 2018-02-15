@@ -5,7 +5,7 @@
 
 #introduce {
 
-    min-height: 95%;
+    min-height: 680px;
     width: 100%;
     box-sizing: border-box;
     padding-top: 60px;
@@ -175,8 +175,8 @@
 
 #start {
 
-    height: 115%;
-    min-height: 110%;
+    height: 825px;
+    min-height: 825px;
     width: 100%;
     background-color: #e6e6e6;
     box-sizing: border-box;
@@ -241,9 +241,9 @@
 
 #download {
 
-    height: 90%;
+    height: 650px;
     width: 100%;
-    min-height: 90%;
+    min-height: 650px;
     background-color: #fff;
     box-sizing: border-box;
     padding-top: 60px;
@@ -351,7 +351,7 @@ footer {
     }
 
     #start {
-        height: 180%;
+        height: 1290px;
     }
 
     #start > div > div {
@@ -451,7 +451,7 @@ footer {
     }
 
     #start {
-        height: 150%;
+        height: 1080px;
         font-size: 16px;
     }
 

@@ -2796,7 +2796,12 @@ function InitHandler ( controller ) {
 
         // halo must be add after adding the rotating object
 
-        controller.scene.add( controller.halo );
+        if ( controller.configure.control.halo === true ) {
+
+            controller.scene.add( controller.halo );
+
+        }
+
     }
 
     // pre-process the data

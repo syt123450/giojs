@@ -1,11 +1,14 @@
 // record the label id to show the hidden ul
 var selectedLabel = null;
+
 // record the ul id for each chapter
 var selectedChapter = null;
+
+// record the nav id for section area (specific section in chapter)
+var selectedSectionNav = null;
+
 // record the area id for area shown in main area
 var selectedArea = "#helloDocument";
-// record the nav id for section area
-var selectedSectionNav = null;
 
 $(function() {
 
@@ -416,5 +419,31 @@ function bindSectionContent(contentNav, sectionNav, sectionArea) {
 
 function inDocumentLink(chapterLabel, chapterSelection, sectionNav, sectionArea) {
 
-    
+    $(selectedSectionNav).removeClass("nowLabel");
+
+    if (selectedChapter !== null) {
+        $(selectedChapter).slideUp();
+    }
+
+    if (selectedSectionNav !== null ) {
+        $(selectedSectionNav).removeClass("nowLabel");
+    }
+
+    selectedChapter = null;
+
+    $(chapterSelection).slideUp();
+
+    $(selectedArea).hide();
+    selectedArea = "#helloDocument";
+    selectedSectionNav = null;
+    $(selectedArea).show();
+    $("main").animate({ scrollTop: 0 }, "fast");
+}
+
+function hideSelected() {
+
+}
+
+function showSelection() {
+
 }

@@ -313,7 +313,8 @@
             <div>Include the library and dependency in the <span class="span_code">&lt;head&gt;</span> section of your
                 web page as shown below:
             </div>
-            <div class="code">&lt;script src="three.min.js"&gt;&lt;/script&gt;<br>&lt;script src="gio.min.js"&gt;&lt;/script&gt;</div>
+            <div class="code">&lt;script src="three.min.js"&gt;&lt;/script&gt;<br>&lt;script src="gio.min.js"&gt;&lt;/script&gt;
+            </div>
             <div><span class="span_bold">Note</span>: Please make sure you import the <a
                     href="https://github.com/mrdoob/three.js">three.js</a> file first before the
                 <a href="https://github.com/syt123450/Gio.js">Gio.js</a>.
@@ -345,22 +346,30 @@
             <div class="code">
                 &lt;script&gt;<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(function () {<br><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Get the container to hold the IO globe<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var container = document.getElementById( "globalArea" );<br><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Get
+                the container to hold the IO globe<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var
+                container = document.getElementById( "globalArea" );<br><br>
 
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Create Gio.controller<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var controller = new GIO.Controller( container );<br><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//
+                Create Gio.controller<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var
+                controller = new GIO.Controller( container );<br><br>
 
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Add data<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;controller.addData( data );<br><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Add
+                data<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;controller.addData(
+                data );<br><br>
 
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Initialize and render the globe<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//
+                Initialize and render the globe<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;controller.init();<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});<br>
                 &lt;/script&gt;
             </div>
             <div>Tip: We can also use JQuery or onReady handler to load data.</div>
-            <div>3. Now you should be able to see the 3D globe on your webpage like <a href="../examples/00_hello_world(simplest).html">this</a>
+            <div>3. Now you should be able to see the 3D globe on your webpage like <a
+                    href="../examples/00_hello_world(simplest).html">this</a>
             </div>
         </div>
 
@@ -368,7 +377,8 @@
             <header>Other Resources</header>
             <ul class="more-content-ul">
                 <li>To learn more about the <a href="../index.html">Basic Elements</a></li>
-                <li>To see the full API document in Markdown format, see <a href="https://github.com/syt123450/Gio.js/blob/master/docs/APIs.md">APIs</a></li>
+                <li>To see the full API document in Markdown format, see <a
+                        href="https://github.com/syt123450/Gio.js/blob/master/docs/APIs.md">APIs</a></li>
                 <li>To contribute to Gio.js's code base, read <a href="developer.html">Developer Guide</a></li>
             </ul>
         </div>
@@ -645,29 +655,46 @@
             <div class="code">
                 var configs = {<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;control: {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stats: false,<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;disableUnmentioned: false,<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lightenMentioned: false,<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inOnly: false,<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;outOnly: false,<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;initCountry: "CN",<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;halo: true<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stats:
+                false,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;disableUnmentioned:
+                false,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lightenMentioned:
+                false,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inOnly:
+                false,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;outOnly:
+                false,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;initCountry:
+                "CN",<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;halo:
+                true<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;surface: 0xFFFFFF,<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;selected: null,<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in: 0x154492,<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;out: 0xDD380C,<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;halo: 0xFFFFFF,<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;background: null<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;surface:
+                0xFFFFFF,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;selected:
+                null,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in:
+                0x154492,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;out:
+                0xDD380C,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;halo:
+                0xFFFFFF,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;background:
+                null<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;brightness: {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ocean: 0.5,<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mentioned: 0.5,<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;related: 0.5<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ocean:
+                0.5,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mentioned:
+                0.5,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;related:
+                0.5<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;resource: {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;loading: null<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;loading:
+                null<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
                 }
             </div>
@@ -688,7 +715,7 @@
                         <td>True means to turn on the performance monitor for Three.js.</td>
                     </tr>
                     <tr>
-                        <td>control.disableUnmentioned	</td>
+                        <td>control.disableUnmentioned</td>
                         <td>false</td>
                         <td>True means tp set unmentioned country unclickable.</td>
                     </tr>
@@ -774,6 +801,10 @@
 
         <div id="designGuide">
             <header>Object Design API</header>
+            <div>The Object Design APIs are a group of APIs used to control the object (show or hide). Together with the
+                documentation, we provide live demos and jsfiddle online editor for you to understand and try each API.
+                Click the link below to see the detailed explanation of each API.
+            </div>
             <div>
                 <ul>
                     <li><a id="setInitCountryContent">setInitCountry</a></li>
@@ -788,38 +819,117 @@
 
         <div id="setInitCountry">
             <header>setInitCountry</header>
-            <div style="text-align: center;margin-bottom: 20px;">We are working hard to write it ~~~</div>
-            <img class="working" src="../assets/images/working.jpg">
+            <div>Sets the <a href="../index.html">country</a> initially selected. Once the 3D globe finishes
+                initialization, it will rotate and
+                bring this country to the front. The default value is "CN" (China).
+            </div>
+            <div><a href="../examples/03_API_setInitCountry.html">Live Demo</a></div>
+            <div>Default:</div>
+            <img class="tag-img" src="../assets/images/documentSS/basic.png">
+            <div class="code">
+                // change the init country to the United States<br>
+                controller.setInitCountry("US");
+            </div>
+            <img class="tag-img" src="../assets/images/documentSS/setInitCountry.png">
         </div>
 
         <div id="lightenMentioned">
             <header>lightenMentioned</header>
-            <div style="text-align: center;margin-bottom: 20px;">We are working hard to write it ~~~</div>
-            <img class="working" src="../assets/images/working.jpg">
+            <div>Makes the <a href="../index.html">mentioned country</a> brighter than those not mentioned in the input
+                dataset. By default, mentioned country has the same brightness as the unmentioned country.
+            </div>
+            <div><a href="../examples/11_API_lightenMentioned.html">Live Demo</a></div>
+            <div class="code">
+                controller.lightenMentioned(true);
+            </div>
+            <img class="tag-img" src="../assets/images/documentSS/basic.png">
+            <div class="code">
+                controller.lightenMentioned(false);
+            </div>
+            <img class="tag-img" src="../assets/images/documentSS/lightenMentioned.png">
         </div>
 
         <div id="disableUnmentioned">
             <header>disableUnmentioned</header>
-            <div style="text-align: center;margin-bottom: 20px;">We are working hard to write it ~~~</div>
-            <img class="working" src="../assets/images/working.jpg">
+            <div>Disables an <a href="../index.html">unmentioned country</a> and makes it unselectable. A disabled
+                country will not trigger any
+                mouse click event. By default, unmentioned country is NOT disabled.
+            </div>
+            <div><a href="../examples/12_API_disableUnmentioned.html">Live Demo</a></div>
+            <div class="code">
+                controller.disableUnmentioned(true);
+            </div>
+            <div>The country in the image which is not mentioned in data set will become unclickable, try it in live
+                demo.
+            </div>
+            <img class="tag-img" src="../assets/images/documentSS/basic.png">
+            <div class="code">
+                controller.disableUnmentioned(false);
+            </div>
+            <div>disable this function.</div>
         </div>
 
         <div id="showOnly">
             <header>showInOnly / showOutOnly</header>
-            <div style="text-align: center;margin-bottom: 20px;">We are working hard to write it ~~~</div>
-            <img class="working" src="../assets/images/working.jpg">
+            <div>Displays only the <a href="../index.html">line</a> with data flowing into the <a href="../index.html">selected country</a> or with
+                data flowing out of the
+                selected country.
+            </div>
+            <div><a href="../examples/13_API_showInOnly.html">Live Demo1</a></div>
+            <div><a href="../examples/14_API_showOutOnly.html">Live Demo2</a></div>
+            <div class="code">
+                controller.showInOnly(true);
+            </div>
+            <img class="tag-img" src="../assets/images/documentSS/showInOnly.png">
+            <div class="code">
+                controller.showInOnly(false);
+            </div>
+            <img class="tag-img" src="../assets/images/documentSS/basic.png">
+            <div class="code">
+                controller.showOutOnly(true);
+            </div>
+            <img class="tag-img" src="../assets/images/documentSS/showOutOnly.png">
+            <div class="code">
+                controller.showOutOnly(false);
+            </div>
+            <img class="tag-img" src="../assets/images/documentSS/basic.png">
         </div>
 
         <div id="controlHalo">
             <header>addHalo / removeHalo</header>
-            <div style="text-align: center;margin-bottom: 20px;">We are working hard to write it ~~~</div>
-            <img class="working" src="../assets/images/working.jpg">
+            <div>Enables/Disables the <a href="../index.html">halo</a> around the earth. When enabling halo, the color of halo also needs to be
+                specified. By default halo is enabled.
+            </div>
+            <div><a href="../examples/25_API_addHalo(removeHalo).html">Live Demo</a></div>
+            <div class="code">
+                controller.addHalo(0xFF0000);
+            </div>
+            <img class="tag-img" src="../assets/images/documentSS/addHalo.png">
+            <div class="code">
+                controller.removeHalo();
+            </div>
+            <img class="tag-img" src="../assets/images/documentSS/removeHalo.png">
         </div>
 
         <div id="controlStats">
             <header>enableStats / disableStats</header>
-            <div style="text-align: center;margin-bottom: 20px;">We are working hard to write it ~~~</div>
-            <img class="working" src="../assets/images/working.jpg">
+            <div>Displays/hides <a href="../index.html">stats</a> on the upper-left corner of the scene. To use this API, stats.min.js must be
+                included in the &lt;header&gt; tag of your html page.
+            </div>
+            <div><a href="../examples/18_API_enableStats(disableStats).html">Live Demo</a></div>
+            <div class="code">
+                &lt;header&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;script src="stats.min.js"&gt;&lt;/script&gt;<br>
+                &lt;/header&gt;
+            </div>
+            <div class="code">
+                controller.enableStats();
+            </div>
+            <img class="tag-img" src="../assets/images/documentSS/stats.png">
+            <div class="code">
+                controller.disableStats();
+            </div>
+            <img class="tag-img" src="../assets/images/documentSS/basic.png">
         </div>
 
         <div id="colorGuide">

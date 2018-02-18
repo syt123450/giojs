@@ -1,5 +1,5 @@
 # Gio.js
-**Gio.js** is an open source library for data visualization library based on a 3D globe. This library is inspired by the [Arms Trade Visualization](http://armsglobe.chromeexperiments.com/) project developed Michael Chang and presented during Google Ideas INFO 2012. What makes Gio.js different is that it is fully customizable for user and friendly to future developers.
+**Gio.js** is an open source library for data visualization on a 3D globe. This library is inspired by the [Arms Trade Visualization](http://armsglobe.chromeexperiments.com/) project developed by Michael Chang and presented during Google Ideas INFO 2012. What makes Gio.js different is that it is fully customizable for user and friendly to future developers.
 
 <!-- [START screenshot] -->
 <p>

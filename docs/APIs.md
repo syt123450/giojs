@@ -4,7 +4,7 @@
 
 ## Configuration
 
-Using Gio.js, you can easily create a customized 3D globe for data visualization. Before you start to create your own globe, it is important to know the full parameter list how to configure the globe. Basically, there are two ways to set the customized configurations, you can click the link below to see the detailed information:
+Using Gio.js, you can easily create a customized 3D globe for data visualization. Before you start, it is important to know the full parameter list of configuring the globe. There are two ways to set the customized configurations, you can click the links below to see detailed information:
 
 * [Through controller constructor](#through-constructor)
 * [Through configure() API](#configure-api)
@@ -29,16 +29,16 @@ When creating a controller for the 3D globe, you can pass the configurations of 
 You can use configure API to configure the controller, the basic usage of the configure API is as shown below:
 
     controller.configure(configs)
-    
+
 the parameter of the configure API is the same as the parameter of the constructor function, see more information about the parameter in [constructor paramater](#constructor-configure).
 
 ---
 ### Full Parameter List
 ```javascript
     var configs = {
-    
+
         control: {
-    
+
             stats: false,
             disableUnmentioned: false,
             lightenMentioned: false,
@@ -46,41 +46,41 @@ the parameter of the configure API is the same as the parameter of the construct
             outOnly: false,
             initCountry: "CN",
             halo: true
-            
+
         },
-    
+
         color: {
-    
+
             surface: 0xFFFFFF,
             selected: null,
             in: 0x154492,
             out: 0xDD380C,
             halo: 0xFFFFFF,
             background: null
-    
+
         },
-    
+
         brightness: {
-        
+
             ocean: 0.5,
             mentioned: 0.5,
             related: 0.5
-    
+
         },
-    
+
         resource: {
-        
+
             loading: null
-    
+
         }
-        
+
     }
 ```
 Table of parameters:
 
 | Parameter | Default Value/ Range | Description |
-|  ------------- | ------------- |  ------------- | 
-| control.stats | false  | True means to turn on the performance monitor for Three.js. | 
+|  ------------- | ------------- |  ------------- |
+| control.stats | false  | True means to turn on the performance monitor for Three.js. |
 | control.disableUnmentioned  | false  | True means tp set unmentioned country unclickable. |
 | control.lightenMentioned | false | True means to set mentioned country brighter than unmentioned country. |
 | control.inOnly | false | True means to only display data going into the destination country.|
@@ -102,7 +102,7 @@ Table of parameters:
 
 ## Object Design APIs
 
-The Object Design APIs are a group of APIs used to control the object (show or hide). Together with the documentation, we implement live demo and provide jsfiddle online editor for you to understand and try for each API, you can click the link below to see the detail explanation of each API. To help you understand how the APIs work, live demos and jsfiddle examples are provided.
+The Object Design APIs are a group of APIs used to control the object (show or hide). Together with the documentation, we implemented a live demo and provided a jsfiddle online editor for you to learn and try out each API. You can click the link below to see the detailed explanation of each API.
 
 * [setInitCountry](#setinitcountry)
 * [lightenMentioned](#lightenmentioned)
@@ -146,7 +146,7 @@ The basic usage of this API is as shown below:
 You can also close this function by setting the parameter to false:
 
     controller.lightenMentioned(false);
-    
+
 From the screen shots below, you can see the effect of  lightenMentioned(true) and lightenMentioned(false). The compare effect and source code can also be seen in live demo.
 
 // insert lightenMentioned(true) picture here
@@ -161,7 +161,7 @@ lightenMentioned(false)
 
 ### disableUnmentioned
 
-Through this API, you can set the [unmentioned country](#country) can not be selected, the unmentioned country can be selected as default. It means that if you set this attribute, when click the  unmentioned country, it will not trigger the click event(the country will not become selected and the globe will not rotate to that country). 
+Through this API, you can set the [unmentioned country](#country) can not be selected, the unmentioned country can be selected as default. It means that if you set this attribute, when click the  unmentioned country, it will not trigger the click event(the country will not become selected and the globe will not rotate to that country).
 
 The basic usage of this API is as shown below:
 
@@ -182,7 +182,7 @@ Through these two API, you can let the globe show only in [lines or  out lines](
 The basic usage of the showInOnly API is as shown below:
 
     controller.showInOnly(true);
-    
+
 You can coose this function by setting the parameter to false:
 
     controller.showInOnly(false);
@@ -246,11 +246,11 @@ Through these two API, you can show or hide the [stats](#stats) object. The glob
 The enableStats() API will be used like this:
 
     controller.enableStats();
-    
+
 The disableStats() API will be used like this:
 
     controller.disableStats();
-    
+
 From the screen shots below, you can see the effect of these two API. The compare effect can alse been seen in live demo.
 
 // insert enableStats picture here
@@ -260,7 +260,7 @@ enableStats()
 // insert disasbleStats / default picture here
 
 disableStats()
-    
+
 ---
 
 ## Color and Style API
@@ -391,7 +391,7 @@ The basic usage of setHaloColor is as shown below:
     // the parameter can be a string like "#FF0000" or a hex number 0xFF0000
     controller.setHaloColor("#FF0000")
     //controller.setHaloColor(0xFF0000);
-    
+
 From the screen shots below, you can see the effect of the setHaloColor API, you can also see these in live demo and try this API in jsfiddle.
 
 // insert basic style globe picture

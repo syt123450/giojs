@@ -5,8 +5,7 @@ class Gio extends Component {
     render() {
 
         return (
-            <div className="globe">Hello Gio
-            </div>
+            <div className="globe">Hello Gio</div>
         );
     }
 }

@@ -1,0 +1,8 @@
+# test build output
+test/build
+
+# example build output
+examples/*/build
+
+# node_modules
+node_modules

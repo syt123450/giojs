@@ -163,8 +163,8 @@ main > div > div > ul > li > div {
 }
 
 .tag-img {
-    width: 80%;
-    margin-left: 10%;
+    width:90%;
+    margin-left: 5%;
     margin-top: 10px;
     margin-bottom: 10px;
 }
@@ -198,7 +198,7 @@ main > div > div > ul > li > div {
     color: #0071bc;
     margin-top: 10px;
     margin-bottom: 10px;
-    width: 80%;
+    width: 90%;
     margin-left: 5%;
     border-radius: 10px;
     font-family: AmericanTypewriterRegular, serif;

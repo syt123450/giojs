@@ -8,12 +8,9 @@
     "test": "test"
   },
   "dependencies": {
-    "D": "^1.0.0",
     "giojs": "^0.0.8",
     "react": "16.2.0",
-    "react-dom": "16.2.0",
-    "stats.js": "^0.17.0",
-    "three": "^0.90.0"
+    "react-dom": "16.2.0"
   },
   "devDependencies": {
     "babel-core": "6.26.0",

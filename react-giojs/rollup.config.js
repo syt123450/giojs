@@ -60,11 +60,13 @@ export default {
                 'node_modules/object-assign/**',
                 'node_modules/react/**',
                 'node_modules/react-dom/**',
-                'node_modules/prop-types/**'
+                'node_modules/prop-types/**',
+                'node_modules/stats.js/**'
             ],
             namedExports: {
                 'node_modules/react/index.js': ['Children', 'Component', 'PropTypes', 'createElement'],
-                'node_modules/react-dom/index.js': ['render']
+                'node_modules/react-dom/index.js': ['render'],
+                'node_modules/stats.js/src/stats.min.js': ['default']
             }
         }),
         globals(),

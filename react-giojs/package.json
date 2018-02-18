@@ -8,11 +8,12 @@
     "test": "test"
   },
   "dependencies": {
+    "D": "^1.0.0",
+    "giojs": "^0.0.8",
     "react": "16.2.0",
     "react-dom": "16.2.0",
-    "giojs": "^0.0.8",
-    "three": "^0.90.0",
-    "stats.js": "^0.17.0"
+    "stats.js": "^0.17.0",
+    "three": "^0.90.0"
   },
   "devDependencies": {
     "babel-core": "6.26.0",
@@ -25,6 +26,7 @@
     "rollup-plugin-commonjs": "8.2.6",
     "rollup-plugin-node-globals": "1.1.0",
     "rollup-plugin-node-resolve": "3.0.0",
+    "rollup-plugin-postcss": "^1.2.8",
     "rollup-plugin-replace": "2.0.0"
   },
   "scripts": {

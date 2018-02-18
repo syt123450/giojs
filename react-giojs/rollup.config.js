@@ -3,6 +3,7 @@ import cjs from 'rollup-plugin-commonjs'
 import globals from 'rollup-plugin-node-globals'
 import replace from 'rollup-plugin-replace'
 import resolve from 'rollup-plugin-node-resolve'
+import postcss from 'rollup-plugin-postcss'
 
 var inputPath = process.argv[4];
 var outputPath = function( inputPath ) {
@@ -40,6 +41,9 @@ export default {
         format: 'iife'
     },
     plugins: [
+        postcss({
+           extensions: [ '.css' ],
+         }),
         babel({
             babelrc: false,
             exclude: 'node_modules/**',
@@ -50,7 +54,9 @@ export default {
                 ],
                 'react'
             ],
-            plugins: [ 'external-helpers' ]
+            plugins: [
+                'external-helpers',
+            ]
         }),
         cjs({
             exclude: 'node_modules/process-es6/**',

@@ -5,28 +5,35 @@ import replace from 'rollup-plugin-replace'
 import resolve from 'rollup-plugin-node-resolve'
 
 var inputPath = process.argv[4];
-var outputPath = function(inputPath) {
-    var array = inputPath.split("/");
-    var lastElement = array[array.length - 1];
-    var parameters = lastElement.split(".");
+var outputPath = function( inputPath ) {
+
+    var array = inputPath.split( "/" );
+    var lastElement = array[ array.length - 1 ];
+    var parameters = lastElement.split( "." );
     
     var output = "";
-    for (var i = 0; i < array.length - 1; i++) {
+    for ( var i = 0; i < array.length - 1; i++ ) {
+
         output += (array[i] + "/");
+
     }
     
-    output += ("build" + "/");
+    output += ( "build" + "/" );
     
-    for (var i = 0; i < parameters.length - 1; i ++) {
-        output += (parameters[i] + ".");
+    for ( var i = 0; i < parameters.length - 1; i++ ) {
+
+        output += ( parameters[i] + "." );
+
     }
     
     output += "min.js";
     
     return output;
-}
+
+};
 
 export default {
+
     input: inputPath,
     output: {
         file: outputPath(inputPath),
@@ -68,4 +75,5 @@ export default {
         })
     ],
     sourcemap: true
+
 }

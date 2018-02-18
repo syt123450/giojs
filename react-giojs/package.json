@@ -1,7 +1,7 @@
 {
   "name": "react-giojs",
-  "version": "1.0.0",
-  "description": "",
+  "description": "3D Globe Info Graphic Javascript Library -- React Version",
+  "version": "0.0.1",
   "main": "index.js",
   "directories": {
     "example": "examples",
@@ -9,7 +9,8 @@
   },
   "dependencies": {
     "react": "16.2.0",
-    "react-dom": "16.2.0"
+    "react-dom": "16.2.0",
+    "giojs": "^0.0.7"
   },
   "devDependencies": {
     "babel-core": "6.26.0",
@@ -29,6 +30,6 @@
     "build-example": "rollup -c",
     "build-test": "./node_modules/rollup/bin/rollup -c --input test/test.js"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "syt123450 && BoTime",
+  "license": "Apache-2.0"
 }

@@ -18,6 +18,11 @@ var GIO;
             function registerListeners()
             {
 
+                // onload
+                $(document).ready(function(){
+                    showModal(MODAL_HELP_MODE);
+                })
+
                 // navigation
 
                 $("#more").click(function() {

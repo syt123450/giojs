@@ -49,6 +49,12 @@ $(function() {
     }).click(function() {
         moveOutHiddenContent();
     });
+
+    $(".live-demo").hover(function() {
+        $(this).attr("src", "../assets/images/liveDemoButton_hover.png");
+    }, function() {
+        $(this).attr("src", "../assets/images/liveDemoButton.png");
+    });
 });
 
 function moveInHiddenContent() {

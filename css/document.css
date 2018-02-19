@@ -212,6 +212,11 @@ main > div > div > ul > li > div {
     margin-bottom: 10px;
 }
 
+.live-demo {
+    width: 100px;
+    height: 30px;
+}
+
 footer {
 
     position: fixed;

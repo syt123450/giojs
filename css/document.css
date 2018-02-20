@@ -217,6 +217,11 @@ main > div > div > ul > li > div {
     height: 30px;
 }
 
+.live-explanation {
+    display: inline-block;
+    color: #29abe2;
+}
+
 footer {
 
     position: fixed;

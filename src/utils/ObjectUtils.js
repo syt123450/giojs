@@ -413,7 +413,11 @@ var ObjectUtils = ( function () {
                 var nextPoint = path[ particle.nextIndex ];
 
                 particle.copy( currentPoint );
-                particle.lerp( nextPoint, particle.lerpN );
+                if ( nextPoint !== undefined && particle !== undefined) {
+
+                    particle.lerp( nextPoint, particle.lerpN );
+
+                }
 
                 this.geometry.attributes.position.array[ 3 * i ] = particle.x;
                 this.geometry.attributes.position.array[ 3 * i + 1 ] = particle.y;

@@ -5,7 +5,7 @@
     <title>Development Test</title>
     <script src="../assets/dependence/three.min.js"></script>
     <script src="../assets/dependence/stats.min.js"></script>
-    <script src="../build/Gio.js"></script>
+    <script src="../build/gio.js"></script>
     <style>
 
         html, body {
@@ -13,6 +13,17 @@
             width: 100%;
             margin: 0;
             padding: 0;
+            overflow: hidden;
+        }
+
+        #wrapper {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: scroll;
+
         }
 
         #globalArea {
@@ -24,13 +35,17 @@
             position: relative;
             border: 1px solid red;
             box-sizing: border-box;
+            margin-top: 500px;
+            margin-left: 50px;
         }
 
     </style>
 </head>
 <body>
 
-<div id="globalArea"></div>
+<div id="wrapper">
+    <div id="globalArea"></div>
+</div>
 
 <script>
 

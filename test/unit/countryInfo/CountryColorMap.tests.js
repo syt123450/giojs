@@ -9,7 +9,7 @@ describe('Test CountryColorMap', function () {
                 count++;
             }
         }
-        let totalNumOfCountry = 228;
+        let totalNumOfCountry = 226;
         chai.expect(count).to.equal(totalNumOfCountry);
     });
 });

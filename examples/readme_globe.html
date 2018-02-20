@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Color Scheme of README.md  / Gio.js</title>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/three.min.js"></script>
+    <script src="../build/gio.min.js"></script>
+
+    <link rel="stylesheet" href="css/common.css">
+
+    <style>
+
+        #globalArea {
+
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+
+        }
+
+    </style>
+
+</head>
+<body>
+
+<div id="globalArea"></div>
+
+<script>
+
+    var container = document.getElementById( "globalArea" );
+    var controller = new GIO.Controller( container );
+
+    controller.configure({
+        color: {
+            surface: 0x48C12,
+            selected: 0xF17F49,
+            in: 0x0091FF,
+            out: 0xFF8000,
+            halo: 0X2C4247,
+            background: 0x1A2029
+        }
+    });
+
+    $.ajax( {
+
+        url: "data/sampleData.json",
+        type: "GET",
+        contentType: "application/json; charset=utf-8",
+        async: true,
+        dataType: "json",
+        success: function ( inputData ) {
+
+            controller.addData( inputData );
+            controller.init();
+
+        }
+
+    } );
+
+</script>
+
+</body>
+</html>

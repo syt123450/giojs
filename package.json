@@ -1,8 +1,48 @@
 {
   "name": "giojs",
-  "version": "0.0.5",
-  "description": "",
-  "main": "build/Gio.module.js",
+  "version": "0.0.8",
+  "description": "3D Globe Info Graphic Javascript Library",
+  "main": "build/gio.module.js",
+  "directories": {
+    "assets": "static resource",
+    "doc": "document",
+    "example": "examples showing how to use Gio.js",
+    "test": "test scripts",
+    "build": "release files",
+    "src": "source code"
+  },
+  "dependencies": {
+    "three": "^0.90.0",
+    "stats.js": "^0.17.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "chai": "^4.1.2",
+    "coveralls": "^3.0.0",
+    "isparta": "^4.0.0",
+    "mocha": "^4.1.0",
+    "rollup": "^0.53.4",
+    "uglify-js": "^2.4.11"
+  },
+  "scripts": {
+    "start": "babel-node ./src/countryInfo/test.js",
+    "test": "mocha",
+    "cover": "babel-node ./node_modules/.bin/isparta cover _mocha",
+    "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls",
+    "build-beautify": "rollup -c",
+    "build-uglify": "rollup -c && uglifyjs build/gio.js -cm --preamble \"// https://github.com/syt123450/Gio.js/blob/master/LICENSE\" --output build/gio.min.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/syt123450/Gio.js.git"
+  },
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/syt123450/Gio.js/labels/bug"
+  },
+  "homepage": "https://github.com/syt123450/Gio.js#readme",
   "author": "syt123450 && BoTime",
   "contributors": [
     {
@@ -30,38 +70,5 @@
       "email": "qi.liu01@sjsu.edu",
       "url": "https://github.com/lq3297401"
     }
-  ],
-  "directories": {
-    "doc": "docs",
-    "example": "examples",
-    "test": "tests"
-  },
-  "dependencies": {},
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.0",
-    "babel-preset-es2015": "^6.24.1",
-    "chai": "^4.1.2",
-    "coveralls": "^3.0.0",
-    "isparta": "^4.0.0",
-    "mocha": "^4.1.0",
-    "rollup": "^0.53.4",
-    "uglify-js": "^2.4.11"
-  },
-  "scripts": {
-    "test": "mocha",
-    "cover": "babel-node ./node_modules/.bin/isparta cover _mocha",
-    "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls",
-    "build-beautify": "rollup -c",
-    "build-uglify": "rollup -c && uglifyjs build/Gio.js -cm --preamble \"// https://github.com/syt123450/Gio.js/blob/master/LICENSE\" --output build/Gio.min.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/syt123450/Gio.js.git"
-  },
-  "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/syt123450/Gio.js/issues"
-  },
-  "homepage": "https://github.com/syt123450/Gio.js#readme"
+  ]
 }

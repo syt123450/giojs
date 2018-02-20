@@ -12,7 +12,7 @@ export default [
             {
 
                 format: 'iife',
-                file: 'build/Gio.js',
+                file: 'build/gio.js',
                 name: "GIO"
 
             }
@@ -27,8 +27,8 @@ export default [
             {
 
                 format: 'umd',
-                file: 'build/Gio.module.js',
-                name: "GIO-umd"
+                file: 'build/gio.module.js',
+                name: "GIO"
 
             }
 
@@ -41,7 +41,7 @@ export default [
         output: [
             
             {
-                file: 'build/Gio.react.js',
+                file: 'build/gio.react.js',
                 name: "GIO",
                 format: 'es'
             }

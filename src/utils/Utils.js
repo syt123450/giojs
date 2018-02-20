@@ -46,21 +46,13 @@ var Utils = ( function () {
 
         var actualTop = element.offsetTop;
         var current = element.offsetParent;
+        var elementScrollTop = 0;
     
         while ( current !== null ) {
-                actualTop += current.offsetTop;
-                current = current.offsetParent;
-        }
 
-        var elementScrollTop;
-
-        if ( document.compatMode === "BackCompat" ) {
-
-            elementScrollTop = document.body.scrollTop;
-
-        } else {
-
-            elementScrollTop = document.documentElement.scrollTop;
+            actualTop += current.offsetTop;
+            elementScrollTop += current.scrollTop;
+            current = current.offsetParent;
 
         }
 
@@ -72,23 +64,13 @@ var Utils = ( function () {
 
         var actualLeft = element.offsetLeft;
         var current = element.offsetParent;
+        var elementScrollLeft = 0;
         
         while ( current !== null ) {
 
             actualLeft += current.offsetLeft;
+            elementScrollLeft += current.scrollLeft;
             current = current.offsetParent;
-
-        }
-
-        var elementScrollLeft;
-
-        if ( document.compatMode === "BackCompat" ) {
-
-            elementScrollLeft = document.body.scrollLeft;
-
-        } else {
-
-            elementScrollLeft = document.documentElement.scrollLeft;
 
         }
 
@@ -220,7 +202,10 @@ var Utils = ( function () {
             data.forEach( function ( country ) {
 
                 var v = country[ valueKey ];
-                country[ valueKey ] = ( v - min ) * ( definedMax - definedMin ) / ( max - min ) + definedMin;
+
+                if (( max - min ) !== 0) {
+                    country[ valueKey ] = ( v - min ) * ( definedMax - definedMin ) / ( max - min ) + definedMin;
+                }
 
             } );
 

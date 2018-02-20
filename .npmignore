@@ -3,14 +3,13 @@
 
 #test
 test
-tests
 
 #sensitive for now
 assets
 examples
 src
-website
 .babelrc
 .travis.yml
 rollup.config.js
+react-giojs
 

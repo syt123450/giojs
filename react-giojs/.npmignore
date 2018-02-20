@@ -1,0 +1,10 @@
+#IDE settings
+.idea
+
+#test
+test
+
+#sensitive for now
+examples
+rollup.config.js
+

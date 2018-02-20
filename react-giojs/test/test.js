@@ -1,12 +1,36 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Gio from '../src/Gio.js'
-import './test.css';
+import './css/test.css';
 
-const root = document.querySelector('main');
+const root = document.getElementById('root');
 
-ReactDOM.render(
-    <div styleName='body'>
-        <Gio />
-    </div>,
-    root);
+var data = [
+    {
+        "e": "CN",
+        "i": "US",
+        "v": 3300000
+    },
+    {
+        "e": "CN",
+        "i": "RU",
+        "v": 10000
+    },
+    {
+        "e": "RU",
+        "i": "US",
+        "v": 3123
+    },
+    {
+        "e": "FR",
+        "i": "CN",
+        "v": 2
+    },
+    {
+        "e": "US",
+        "i": "FR",
+        "v": 5
+    }
+];
+
+ReactDOM.render(<Gio data={data}/>, root);

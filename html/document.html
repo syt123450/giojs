@@ -844,7 +844,7 @@
             </div>
             <div>
                 <a href="../examples/11_API_lightenMentioned.html" target="_blank">
-                <img class="live-demo" src="../assets/images/liveDemoButton.png">
+                    <img class="live-demo" src="../assets/images/liveDemoButton.png">
                 </a>
             </div>
             <div class="code">
@@ -965,6 +965,12 @@
 
         <div id="colorGuide">
             <header>Color and Style API</header>
+            <div>The color and style APIs are used to set the style (color and brightness) of Gio globe. You can
+                customize almost everything of Gio globe, such as <a>surface</a>, <a>country</a>, <a>line</a>,
+                <a>halo</a>, <a>background</a>, <a>ocean</a>, and etc. Together with documentation, we provide live
+                demos and jsfiddle online editor for you to understand and try each API. Click the link below to see the
+                detailed explanation of each API.
+            </div>
             <div>
                 <ul>
                     <li><a id="setStyleContent">setStyle</a></li>
@@ -983,102 +989,185 @@
 
         <div id="setStyle">
             <header>setStyle</header>
-            <div>See <a href="../examples/10_API_setStyle.html" target="_blank"><img class="live-demo"
-                                                                                     src="../assets/images/liveDemoButton.png"></a>
-                First
+            <div>
+                Sets the color scheme of the 3D globe by name. Gio.js has some pre-defined styles. For example we want
+                to
+                change from default style
             </div>
-            <div style="text-align: center;margin-bottom: 20px;">We are working hard to write it ~~~</div>
-            <img class="working" src="../assets/images/working.jpg">
+            <div>
+                <a href="../examples/10_API_setStyle.html" target="_blank">
+                    <img class="live-demo" src="../assets/images/liveDemoButton.png">
+                </a>
+            </div>
+            <img class="tag-img" src="../assets/images/documentSS/basic.png">
+            <div>to style called "magic":</div>
+            <div class="code">
+                controller.setStyle("magic");
+            </div>
+            <img class="tag-img" src="../assets/images/color/setStyle.png">
         </div>
 
         <div id="setSurfaceColor">
             <header>setSurfaceColor</header>
-            <div>See <a href="../examples/01_API_setSurfaceColor.html" target="_blank"><img class="live-demo"
-                                                                                            src="../assets/images/liveDemoButton.png"></a>
-                First
+            <div>Sets the color of the <a>surface</a> the 3D globe. The default color is #FFFFFF:</div>
+            <div>
+                <a href="../examples/01_API_setSurfaceColor.html" target="_blank">
+                    <img class="live-demo" src="../assets/images/liveDemoButton.png">
+                </a>
             </div>
-            <div style="text-align: center;margin-bottom: 20px;">We are working hard to write it ~~~</div>
-            <img class="working" src="../assets/images/working.jpg">
+            <img class="tag-img" src="../assets/images/documentSS/basic.png">
+            <div class="code">
+                // the parameter can be a string like "#FF0000" or a hex number 0xFF0000<br>
+                controller.setSurfaceColor("#FF0000");<br>
+                //controller.setSurfaceColor(0xFF0000);
+            </div>
+            <img class="tag-img" src="../assets/images/color/setSurfaceColor.png">
         </div>
 
         <div id="setSelectedColor">
             <header>setSelectedColor</header>
-            <div>See <a href="../examples/02_API_setSelectedColor.html" target="_blank"><img class="live-demo"
-                                                                                             src="../assets/images/liveDemoButton.png"></a>
-                First
+            <div>Sets color of the <a>country</a> in selected state. The default color of the selected country is the
+                same as the surface but brighter.
             </div>
-            <div style="text-align: center;margin-bottom: 20px;">We are working hard to write it ~~~</div>
-            <img class="working" src="../assets/images/working.jpg">
+            <div>
+                <a href="../examples/02_API_setSelectedColor.html" target="_blank">
+                    <img class="live-demo" src="../assets/images/liveDemoButton.png">
+                </a>
+            </div>
+            <div>Default:</div>
+            <img class="tag-img" src="../assets/images/documentSS/basic.png">
+            <div class="code">
+                // the parameter can be a string like "#FF0000" or a hex number 0xFF0000<br>
+                controller.setSelectedColor("#FF0000");<br>
+                //controller.setSelectedColor(0xFF0000);
+            </div>
+            <img class="tag-img" src="../assets/images/color/setSelectedColor.png">
         </div>
 
         <div id="setExportColor">
             <header>setExportColor</header>
-            <div>See <a href="../examples/04_API_setExportColor.html" target="_blank"><img class="live-demo"
-                                                                                           src="../assets/images/liveDemoButton.png"></a>
-                First
+            <div>Sets the color of out line. Definition of <a>out line</a>.</div>
+            <div>
+                <a href="../examples/04_API_setExportColor.html" target="_blank">
+                    <img class="live-demo" src="../assets/images/liveDemoButton.png">
+                </a>
             </div>
-            <div style="text-align: center;margin-bottom: 20px;">We are working hard to write it ~~~</div>
-            <img class="working" src="../assets/images/working.jpg">
+            <div>The default color of out line is 0xDD380C:</div>
+            <img class="tag-img" src="../assets/images/documentSS/basic.png">
+            <div class="code">
+                // the parameter can be a string like "#FEF504" or a hex number 0xFEF504<br>
+                controller.setExportColor("#FEF504");<br>
+                //controller.setExportColor(0xFEF504);
+            </div>
+            <img class="tag-img" src="../assets/images/color/setExportColor.png">
         </div>
 
         <div id="setImportColor">
             <header>setImportColor</header>
-            <div>See <a href="../examples/05_API_setImportColor.html" target="_blank"><img class="live-demo"
-                                                                                           src="../assets/images/liveDemoButton.png"></a>
-                First
+            <div>Sets the color of in line. Definition of <a>in line</a>.</div>
+            <div>
+                <a href="../examples/05_API_setImportColor.html" target="_blank">
+                    <img class="live-demo" src="../assets/images/liveDemoButton.png">
+                </a>
             </div>
-            <div style="text-align: center;margin-bottom: 20px;">We are working hard to write it ~~~</div>
-            <img class="working" src="../assets/images/working.jpg">
+            <div>The default color of out line is 0x154492:</div>
+            <img class="tag-img" src="../assets/images/documentSS/basic.png">
+            <div class="code">
+                // the parameter can be a string like "#00FF00" or a hex number 0x00FF00<br>
+                controller.setImportColor("#00FF00");<br>
+                //controller.setImportColor(0x00FF00);
+            </div>
+            <img class="tag-img" src="../assets/images/color/setImportColor.png">
         </div>
 
         <div id="setHaloColor">
             <header>setHaloColor</header>
-            <div>See <a href="../examples/24_API_setHaloColor.html" target="_blank"><img class="live-demo"
-                                                                                         src="../assets/images/liveDemoButton.png"></a>
-                First
+            <div>Sets the color of the <a>Halo</a>.</div>
+            <div>
+                <a href="../examples/24_API_setHaloColor.html" target="_blank">
+                    <img class="live-demo" src="../assets/images/liveDemoButton.png">
+                </a>
             </div>
-            <div style="text-align: center;margin-bottom: 20px;">We are working hard to write it ~~~</div>
-            <img class="working" src="../assets/images/working.jpg">
+            <div>The default color of halo is 0xFFFFFF:</div>
+            <img class="tag-img" src="../assets/images/documentSS/basic.png">
+            <div class="code">
+                // the parameter can be a string like "#FF0000" or a hex number 0xFF0000<br>
+                controller.setHaloColor("#FF0000");<br>
+                //controller.setHaloColor(0xFF0000);
+            </div>
+            <img class="tag-img" src="../assets/images/color/setHaloColor.png">
         </div>
 
         <div id="setBackgroundColor">
             <header>setBackgroundColor</header>
-            <div>See <a href="../examples/26_API_setBackgroundColor.html" target="_blank"><img class="live-demo"
-                                                                                               src="../assets/images/liveDemoButton.png"></a>
-                First
+            <div>Sets the color of the <a>background</a>. The default is0x000000:</div>
+            <div>
+                <a href="../examples/26_API_setBackgroundColor.html" target="_blank">
+                    <img class="live-demo" src="../assets/images/liveDemoButton.png">
+                </a>
             </div>
-            <div style="text-align: center;margin-bottom: 20px;">We are working hard to write it ~~~</div>
-            <img class="working" src="../assets/images/working.jpg">
+            <img class="tag-img" src="../assets/images/documentSS/basic.png">
+            <div class="code">
+                // the parameter can be a string like "#530000" or a hex number 0x530000<br>
+                controller.setBackgroundColor("#530000);<br>
+                //controller.setBackgroundColor(0x530000);
+            </div>
+            <img class="tag-img" src="../assets/images/color/setBackgroundColor.png">
         </div>
 
         <div id="adjustOceanBrightness">
             <header>adjustOceanBrightness</header>
-            <div>See <a href="../examples/07_API_adjustOceanBrightness.html" target="_blank"><img class="live-demo"
-                                                                                                  src="../assets/images/liveDemoButton.png"></a>
-                First
+            <div>Sets the brightness of the <a>ocean</a>. The range of the brightness is [0, 1] and its default value is
+                0.5:
             </div>
-            <div style="text-align: center;margin-bottom: 20px;">We are working hard to write it ~~~</div>
-            <img class="working" src="../assets/images/working.jpg">
+            <div>
+                <a href="../examples/07_API_adjustOceanBrightness.html" target="_blank">
+                    <img class="live-demo" src="../assets/images/liveDemoButton.png">
+                </a>
+            </div>
+            <img class="tag-img" src="../assets/images/documentSS/basic.png">
+            <div class="code">
+                controller.adjustOceanBrightness(0.8);
+            </div>
+            <img class="tag-img" src="../assets/images/color/adjustOcean.png">
         </div>
 
         <div id="adjustRelatedBrightness">
             <header>adjustRelatedBrightness</header>
-            <div>See <a href="../examples/08_API_adjustRelatedBrightness.html" target="_blank"><img class="live-demo"
-                                                                                                    src="../assets/images/liveDemoButton.png"></a>
-                First
+            <div>Sets the brightness of the <a>related country</a>. The range of the brightness is [0, 1] and its
+                default value is 0.5:
             </div>
-            <div style="text-align: center;margin-bottom: 20px;">We are working hard to write it ~~~</div>
-            <img class="working" src="../assets/images/working.jpg">
+            <div>
+                <a href="../examples/08_API_adjustRelatedBrightness.html" target="_blank">
+                    <img class="live-demo" src="../assets/images/liveDemoButton.png">
+                </a>
+            </div>
+            <img class="tag-img" src="../assets/images/documentSS/basic.png">
+            <div class="code">
+                controller.adjustRelatedBrightness(0.8);
+            </div>
+            <img class="tag-img" src="../assets/images/color/adjustRelated.png">
         </div>
 
         <div id="adjustMentionedBrightness">
             <header>adjustMentionedBrightness</header>
-            <div>See <a href="../examples/09_API_adjustMentionedBrightness.html" target="_blank"><img class="live-demo"
-                                                                                                      src="../assets/images/liveDemoButton.png"></a>
-                First
+            <div>Sets the brightness of the <a>mentioned country</a>. The range of the brightness is [0, 1] and its
+                default value is 0.5:
             </div>
-            <div style="text-align: center;margin-bottom: 20px;">We are working hard to write it ~~~</div>
-            <img class="working" src="../assets/images/working.jpg">
+            <div>
+                <a href="../examples/09_API_adjustMentionedBrightness.html" target="_blank">
+                    <img class="live-demo" src="../assets/images/liveDemoButton.png">
+                </a>
+            </div>
+            <img class="tag-img" src="../assets/images/color/lightenMention.png">
+            <div>By default, mentioned country will not be highlighted. To adjust the brightness,
+                lightenMentioned(true)needs to be called first as follows:
+            </div>
+            <div class="code">
+                controller.lightenMentioned(true);<br>
+                controller.adjustMentionedBrightness(0.8);
+            </div>
+            <img class="tag-img" src="../assets/images/color/mentionedBrightness.png">
         </div>
 
         <div id="dataGuide">

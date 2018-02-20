@@ -4,21 +4,21 @@
 
 // Developer can adjust and define their own style like this, and contribute to our repository
 
-var yellow = ( function () {
+var yuntiansLittleStrawberry = ( function () {
 
     return {
 
         color: {
 
-            surface: 0xCC6600,
+            surface: 0xB066A6,
 
-            selected: 0xFFFF00,
+            selected: 0xE2717C,
 
-            in: 0xF70FFF,
+            in: 0xFFFFFF,
 
-            out: 0xFF0D3D,
+            out: 0xE20000,
 
-            halo: 0xFFFF00,
+            halo: 0xFF5E5E,
 
             background: 0x000000
         },
@@ -36,4 +36,4 @@ var yellow = ( function () {
 
 }() );
 
-export { yellow }
+export { yuntiansLittleStrawberry }

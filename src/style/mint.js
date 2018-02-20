@@ -4,21 +4,21 @@
 
 // Developer can adjust and define their own style like this, and contribute to our repository
 
-var playgroundDefault = ( function () {
+var mint = ( function () {
 
     return {
 
         color: {
 
-            surface: 0x1A9CB0,
+            surface: 0x4BB007,
 
-            selected: 0x20ABE2,
+            selected: 0x59E37D,
 
-            in: 0xFFFFFF,
+            in: 0x7CFC56,
 
-            out: 0x20ABE2,
+            out: 0x2E92AB,
 
-            halo: 0xFFFFFF,
+            halo: 0xBDFFC8,
 
             background: 0x000000
         },
@@ -36,4 +36,4 @@ var playgroundDefault = ( function () {
 
 }() );
 
-export { playgroundDefault }
+export { mint }

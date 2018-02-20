@@ -4,21 +4,21 @@
 
 // Developer can adjust and define their own style like this, and contribute to our repository
 
-var playgroundDefault = ( function () {
+var redBlue = ( function () {
 
     return {
 
         color: {
 
-            surface: 0x1A9CB0,
+            surface: 0x7E0BB0,
 
-            selected: 0x20ABE2,
+            selected: 0xFF8000,
 
-            in: 0xFFFFFF,
+            in: 0xFF0000,
 
-            out: 0x20ABE2,
+            out: 0x0A85CC,
 
-            halo: 0xFFFFFF,
+            halo: 0x0883FF,
 
             background: 0x000000
         },
@@ -36,4 +36,4 @@ var playgroundDefault = ( function () {
 
 }() );
 
-export { playgroundDefault }
+export { redBlue }

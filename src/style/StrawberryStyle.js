@@ -2,9 +2,7 @@
  * @author Qi Liu / https://github.com/lq3297401
  */
 
-// Developer can adjust and define their own style like this, and contribute to our repository
-
-var yuntiansLittleStrawberry = ( function () {
+var StrawberryStyle = ( function () {
 
     return {
 
@@ -36,4 +34,4 @@ var yuntiansLittleStrawberry = ( function () {
 
 }() );
 
-export { yuntiansLittleStrawberry }
+export { StrawberryStyle }

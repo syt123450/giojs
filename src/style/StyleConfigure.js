@@ -8,3 +8,15 @@ import { StyleFactory } from "./StyleFactory.js";
 
 import { MagicStyle } from "./MagicStyle.js";
 StyleFactory.register( "magic", MagicStyle );
+
+import { MintStyle } from "./MintStyle.js";
+StyleFactory.register( "mint", MintStyle );
+
+import { RedBlueStyle } from "./RedBlueStyle.js";
+StyleFactory.register( "redBlue", RedBlueStyle );
+
+import { StrawberryStyle } from "./StrawberryStyle.js";
+StyleFactory.register( "strawberry", StrawberryStyle );
+
+import { SunsetStyle } from "./SunsetStyle.js";
+StyleFactory.register( "sunset", SunsetStyle );

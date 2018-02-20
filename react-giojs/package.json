@@ -8,6 +8,7 @@
     "test": "test"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "giojs": "^0.0.8",
     "react": "16.2.0",
     "react-dom": "16.2.0"
@@ -29,7 +30,7 @@
   "scripts": {
     "start": "node testImport.js",
     "build-example": "rollup -c",
-    "build-test": "./node_modules/rollup/bin/rollup -c --input test/test.js"
+    "build-test": "./node_modules/rollup/bin/rollup -c --input test/js/index.js"
   },
   "author": "syt123450 && BoTime",
   "license": "Apache-2.0"

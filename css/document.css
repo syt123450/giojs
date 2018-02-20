@@ -107,7 +107,7 @@ main {
 main > div {
 
     display: none;
-    overflow: scroll;
+    overflow: auto;
     width: 100%;
 
 }

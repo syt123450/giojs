@@ -90,9 +90,8 @@
 
 #toStart:hover {
 
-    color: #4d4d4d;
-    background:transparent;
-    border: 1px solid #29A6DD;
+    background: linear-gradient(to right, #0c50bc, #299ae2);
+    font-family: DINAlternateBold, serif;
 
 }
 
@@ -110,9 +109,10 @@
 }
 
 #toPlayground:hover {
-    color: white;
-    background: linear-gradient(to right, #0071bc, #29abe2);
-    border: 0;
+
+    border-color: #0c50bc;
+    font-family: DINAlternateBold, serif;
+
 }
 
 #toPlayground > img {
@@ -128,8 +128,9 @@
 }
 
 #toGithub:hover {
-    background: #999999;
-    color: #fff;
+
+    background-color: #e6e6e6;
+    font-family: DINAlternateBold, serif;
 }
 
 

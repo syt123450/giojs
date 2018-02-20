@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import axios from 'axios';
+import axios from 'axios';
 import Gio from '../../src/Gio.js';
 
 var data = [
@@ -32,10 +32,10 @@ var data = [
 
 class App extends Component {
 
-    // componentDidMount() {
-    //     axios.get(`./data/countryData/json`)
-    //         .then(response => console.log(response))
-    // }
+    componentDidMount() {
+        axios.get(`./data/countryData.json`)
+            .then(response => console.log(response.data))
+    }
 
     render() {
         return (

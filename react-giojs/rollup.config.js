@@ -4,6 +4,8 @@ import globals from 'rollup-plugin-node-globals'
 import replace from 'rollup-plugin-replace'
 import resolve from 'rollup-plugin-node-resolve'
 import postcss from 'rollup-plugin-postcss'
+import json from 'rollup-plugin-json'
+import builtins from 'rollup-plugin-node-builtins'
 
 var inputPath = process.argv[4];
 var outputPath = function( inputPath ) {
@@ -69,14 +71,22 @@ export default {
                 'node_modules/prop-types/**',
                 'node_modules/stats.js/**',
                 'node_modules/axios/**',
+                'node_modules/is-buffer/**',
+                'node_modules/follow-redirects/**',
+                'node_modules/ms/**'
             ],
             namedExports: {
                 'node_modules/react/index.js': ['Children', 'Component', 'PropTypes', 'createElement'],
                 'node_modules/react-dom/index.js': ['render'],
-                'node_modules/axios/lib/defaults.js': ['axios'],
-                'node_modules/stats.js/src/stats.min.js': ['default']
-            }
+                'node_modules/axios/dist/axios.js': ['axios'],
+                'node_modules/stats.js/src/stats.min.js': ['default'],
+                'node_modules/is-buffer/index.js': ['default'],
+                'node_modules/follow-redirects/index.js': ['default'],
+                'node_modules/ms/index.js': ['default']
+            },
         }),
+        json(),
+        builtins(),
         globals(),
         replace({ 'process.env.NODE_ENV': JSON.stringify('production') }),
         resolve({

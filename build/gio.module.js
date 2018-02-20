@@ -83,12 +83,164 @@ var MagicStyle = ( function () {
 }() );
 
 /**
+ * @author Qi Liu / https://github.com/lq3297401
+ */
+
+var MintStyle = ( function () {
+
+    return {
+
+        color: {
+
+            surface: 0x4BB007,
+
+            selected: 0x59E37D,
+
+            in: 0x7CFC56,
+
+            out: 0x2E92AB,
+
+            halo: 0xBDFFC8,
+
+            background: 0x000000
+        },
+
+        brightness: {
+
+            ocean: 0.5,
+
+            mentioned: 0.5,
+
+            related: 0.5
+        }
+
+    }
+
+}() );
+
+/**
+ * @author Qi Liu / https://github.com/lq3297401
+ */
+
+var RedBlueStyle = ( function () {
+
+    return {
+
+        color: {
+
+            surface: 0x7E0BB0,
+
+            selected: 0xFF8000,
+
+            in: 0xFF0000,
+
+            out: 0x0A85CC,
+
+            halo: 0x0883FF,
+
+            background: 0x000000
+        },
+
+        brightness: {
+
+            ocean: 0.5,
+
+            mentioned: 0.5,
+
+            related: 0.5
+        }
+
+    }
+
+}() );
+
+/**
+ * @author Qi Liu / https://github.com/lq3297401
+ */
+
+var StrawberryStyle = ( function () {
+
+    return {
+
+        color: {
+
+            surface: 0xB066A6,
+
+            selected: 0xE2717C,
+
+            in: 0xFFFFFF,
+
+            out: 0xE20000,
+
+            halo: 0xFF5E5E,
+
+            background: 0x000000
+        },
+
+        brightness: {
+
+            ocean: 0.5,
+
+            mentioned: 0.5,
+
+            related: 0.5
+        }
+
+    }
+
+}() );
+
+/**
+ * @author Qi Liu / https://github.com/lq3297401
+ */
+
+var SunsetStyle = ( function () {
+
+    return {
+
+        color: {
+
+            surface: 0x9F04B0,
+
+            selected: 0xE3DF62,
+
+            in: 0xFF7803,
+
+            out: 0xE20000,
+
+            halo: 0xFFB60A,
+
+            background: 0x000000
+        },
+
+        brightness: {
+
+            ocean: 0.5,
+
+            mentioned: 0.5,
+
+            related: 0.5
+        }
+
+    }
+
+}() );
+
+/**
  * @author syt123450 / https://github.com/syt123450
  */
 
 // developer need to register their new style to StyleFactory here
 
 StyleFactory.register( "magic", MagicStyle );
+
+StyleFactory.register( "mint", MintStyle );
+
+StyleFactory.register( "redBlue", RedBlueStyle );
+
+StyleFactory.register( "strawberry", StrawberryStyle );
+
+StyleFactory.register( "sunset", SunsetStyle );
 
 /**
  * @author syt123450 / https://github.com/syt123450

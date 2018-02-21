@@ -21,7 +21,6 @@ var GIO;
                 // onload
                 $(document).ready(function(){
                     showModal(MODAL_HELP_MODE);
-                    $("#curtain").show();
                 })
 
                 // navigation
@@ -183,25 +182,21 @@ var GIO;
 
                 $(document).on("click", "#ctlGenerateBtn", function(){
 
-                    // show current conig in JSON format in pop up
+                    // show current config in JSON format in pop up
                     showModal(MODAL_CONFIG_MODE);
-                    $("#curtain").show();
 
                 });
 
                 $(document).on("click", "#ctlHelpBtn", function(){
                     showModal(MODAL_HELP_MODE);
-                    $("#curtain").show();
                 });
 
                 $(document).on("click", ".plg-close-button", function(){
                     closeModal();
-                    $("#curtain").hide();
                 });
 
-                $("#curtain").click(function() {
+                $(document).on("click", "#curtain", function(){
                     closeModal();
-                    $("#curtain").hide();
                 });
 
 
@@ -214,6 +209,9 @@ var GIO;
                     })
 
                     modal.classList.remove("plg-show-modal");
+
+                    // dismiss curtain
+                    $("#curtain").hide();
                 }
 
                 function showModal(mode)
@@ -242,6 +240,9 @@ var GIO;
                     }
 
                     modal.classList.add("plg-show-modal");
+
+                    // show curtain
+                    $("#curtain").show();
                 }
 
             }

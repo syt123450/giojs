@@ -21,6 +21,7 @@ var GIO;
                 // onload
                 $(document).ready(function(){
                     showModal(MODAL_HELP_MODE);
+                    $("#curtain").show();
                 })
 
                 // navigation
@@ -184,15 +185,23 @@ var GIO;
 
                     // show current conig in JSON format in pop up
                     showModal(MODAL_CONFIG_MODE);
+                    $("#curtain").show();
 
                 });
 
                 $(document).on("click", "#ctlHelpBtn", function(){
                     showModal(MODAL_HELP_MODE);
+                    $("#curtain").show();
                 });
 
                 $(document).on("click", ".plg-close-button", function(){
                     closeModal();
+                    $("#curtain").hide();
+                });
+
+                $("#curtain").click(function() {
+                    closeModal();
+                    $("#curtain").hide();
                 });
 
 

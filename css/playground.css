@@ -1,6 +1,6 @@
 nav
 {
-	z-index: 1; /* make sure that nav is not covered by globe area */
+	z-index: 2; /* make sure that nav is not covered by globe area */
 }
 
 #wrapper
@@ -162,7 +162,7 @@ nav
 }
 
 .plg-modal {
-	z-index: 2;
+	z-index: 3;
 	position: fixed;
     left: calc(50% - 300px);
     top: calc(50% - 260px);
@@ -191,7 +191,10 @@ nav
 }
 
 .plg-modal-text {
-	/*white-space: pre;*/
+	white-space: pre;
+}
+
+.plg-modal-p {
 	width: 100%;
 	word-wrap:break-word;
 	font-size: 18px;
@@ -220,4 +223,18 @@ nav
 
 .plg-show-modal-content {
     display: block;
+}
+
+#curtain {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	left: 0;
+	top: 0;
+	box-sizing: border-box;
+	z-index: 1;
+	background-color: #eeeeee;
+	overflow: hidden;
+	opacity: 0.2;
+	display: none;
 }

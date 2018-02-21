@@ -76,7 +76,9 @@ nav
 
 .ctl-panel-item-holder
 {
-	display: none;
+	max-height: 0;
+    transition: max-height 0.3s ease-out;
+	overflow: hidden;
 }
 
 .ctl-panel-item

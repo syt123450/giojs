@@ -41,14 +41,24 @@ var GIO;
 
                     if($(this).attr("isFold") === "true")
                     {
-                        $(this).siblings("ul").slideToggle();
                         $(this).attr("isFold", "false");
                         // rotate icon
                         $(this).children("img").rotate(90);
+                        // scroll into view
+                        // TODO: use actual max height to flatten transition time
+                        $(this).siblings("ul").css("max-height", 200 + "px");
+                        if($(this).get(0) !== $(".ctl-panel-header").first().get(0)) // no scroll need for the 1st list
+                        {
+                            $(this).siblings("ul").one("transitionend", function(){
+                                $(this).children().last().get(0).scrollIntoView();
+                            });
+                        }
+                        
                     }
                     else
                     {
-                        $(this).siblings("ul").slideToggle();
+                        $(this).siblings("ul").css("max-height", "0px");
+
                         $(this).attr("isFold", "true");
                         // rotate icon
                         $(this).children("img").rotate(0);

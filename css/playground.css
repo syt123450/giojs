@@ -101,7 +101,9 @@ nav
 {
 	width: 120px;
 	border-radius: 30px;
-	border-style: 1px solid #cccccc;
+	border: 1px solid #cccccc;
+	text-align: center;
+	cursor: pointer;
 }
 
 #panelBtns
@@ -189,7 +191,10 @@ nav
 }
 
 .plg-modal-text {
-	white-space: pre;
+	/*white-space: pre;*/
+	width: 100%;
+	word-wrap:break-word;
+	font-size: 18px;
 }
 
 .plg-close-button {

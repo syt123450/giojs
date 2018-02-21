@@ -251,7 +251,7 @@ var GIO;
 
                 $.ajax( {
 
-                    url: "../assets/data/countryData.json",
+                    url: "../assets/data/sampleDataLight.json",
                     type: "GET",
                     contentType: "application/json; charset=utf-8",
                     async: true,

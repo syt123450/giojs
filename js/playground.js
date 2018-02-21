@@ -199,6 +199,17 @@ var GIO;
                     closeModal();
                 });
 
+                // register key listeners
+
+                $(document).on("keydown", function(e){
+                    switch(e.which)
+                    {
+                        case 27: // ESC
+                            closeModal();
+                            break;
+                    }
+                })
+
 
                 function closeModal()
                 {

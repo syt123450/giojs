@@ -20,3 +20,17 @@ StyleFactory.register( "strawberry", StrawberryStyle );
 
 import { SunsetStyle } from "./SunsetStyle.js";
 StyleFactory.register( "sunset", SunsetStyle );
+
+import { NearMoonStyle } from "./NearMoonStyle.js";
+StyleFactory.register( "nearMoon", NearMoonStyle );
+
+import { LemonGateStyle } from "./LemonGateStyle.js";
+StyleFactory.register( "lemonGate", LemonGateStyle );
+
+import { JuicyCakeStyle } from "./JuicyCakeStyle.js";
+StyleFactory.register( "juicyCake", JuicyCakeStyle );
+
+import { GorgeousDreamStyle } from "./GorgeousDreamStyle.js";
+StyleFactory.register( "gorgeousDream", GorgeousDreamStyle );
+
+

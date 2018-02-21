@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Controller} from "../node_modules/giojs/build/gio.react";
+import {ControllerManager} from "./ControllerManager";
 
 class Gio extends Component {
 

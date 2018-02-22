@@ -232,7 +232,7 @@ var GIO;
                     modal.classList.remove("plg-show-modal");
 
                     // dismiss curtain
-                    $("#curtain").hide();
+                    $("#curtain").fadeOut(1000);
                 }
 
                 function showModal(mode)
@@ -263,7 +263,7 @@ var GIO;
                     modal.classList.add("plg-show-modal");
 
                     // show curtain
-                    $("#curtain").show();
+                    $("#curtain").fadeIn(1000);
                 }
 
             }

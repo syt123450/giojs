@@ -234,8 +234,8 @@ nav
 	top: 0;
 	box-sizing: border-box;
 	z-index: 1;
-	background-color: #2776be;
+	background-color: #2370b6;
 	overflow: hidden;
-	opacity: 0.2;
+	opacity: 0.5;
 	display: none;
 }

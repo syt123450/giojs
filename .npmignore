@@ -13,6 +13,3 @@ src
 rollup.config.js
 react-giojs
 
-#unignore
-!package-lock.json
-

@@ -189,12 +189,14 @@ function bindDataChapter() {
     bindSectionHelper("#addDataAsyncNav", "#addDataAsync");
     bindSectionHelper("#liveLoadNav", "#liveLoad");
     bindSectionHelper("#setDataColorNav", "#setFromData");
+    bindSectionHelper("#preprocessNav", "#preprocess");
 
     bindChapterHelper("#dataLabelS", "#dataS", "#dataGuide");
     bindSmallSectionHelper("#addDataNavS", "#addData");
     bindSmallSectionHelper("#addDataAsyncNavS", "#addDataAsync");
     bindSmallSectionHelper("#liveLoadNavS", "#liveLoad");
     bindSmallSectionHelper("#setDataColorNavS", "#setFromData");
+    bindSmallSectionHelper("#preprocessNavS", "preprocess");
 }
 
 function bindCallbackChapter() {
@@ -395,6 +397,7 @@ function bindDataContent() {
     bindSectionContent("#addDataAsyncContent", "#addDataAsyncNav", "#addDataAsync");
     bindSectionContent("#liveLoadContent", "#liveLoadNav", "#liveLoad");
     bindSectionContent("#setFromDataContent", "#setDataColorNav", "#setFromData");
+    bindSectionContent("#preprocessContent", "#preprocessNav", "#preprocess");
 }
 
 function bindCallbackContent() {

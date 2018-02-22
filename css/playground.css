@@ -76,8 +76,7 @@ nav
 
 .ctl-panel-item-holder
 {
-	max-height: 0;
-    transition: max-height 0.3s ease-out;
+	display: none;
 	overflow: hidden;
 }
 
@@ -235,8 +234,8 @@ nav
 	top: 0;
 	box-sizing: border-box;
 	z-index: 1;
-	background-color: #2776be;
+	background-color: #2370b6;
 	overflow: hidden;
-	opacity: 0.2;
+	opacity: 0.5;
 	display: none;
 }

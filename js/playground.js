@@ -18,12 +18,12 @@ var GIO;
             function registerListeners()
             {
 
-                // onload
+                /* On load */
                 $(document).ready(function(){
                     showModal(MODAL_HELP_MODE);
                 })
 
-                // navigation
+                /* Navigation */
 
                 $("#more").click(function() {
                     $("#nav-collapse").slideToggle();
@@ -33,35 +33,35 @@ var GIO;
                     window.location.href = "../index.html";
                 });
 
-                // control panel
+                /* Control panel */
 
                 $(document).on("click", ".ctl-panel-header", function(){
 
-                    // toggle fold / drop status
+                    // toggle fold / drop
 
-                    if($(this).attr("isFold") === "true")
+                    $self = $(this);
+
+                    if($self.attr("isFold") === "true")
                     {
-                        $(this).attr("isFold", "false");
-                        // rotate icon
-                        $(this).children("img").rotate(90);
-                        // scroll into view
-                        // TODO: use actual max height to flatten transition time
-                        $(this).siblings("ul").css("max-height", 200 + "px");
-                        if($(this).get(0) !== $(".ctl-panel-header").first().get(0)) // no scroll need for the 1st list
-                        {
-                            $(this).siblings("ul").one("transitionend", function(){
-                                $(this).children().last().get(0).scrollIntoView();
-                            });
-                        }
+                        $self.attr("isFold", "false");
                         
+                        $self.children("img").rotate(90); // rotate icon
+
+                        $self.siblings("ul").slideToggle(300, function(){
+
+                            if($self.get(0) !== $(".ctl-panel-header").first().get(0)) // no scroll need for the 1st list
+                            {
+                                $self.children().last().get(0).scrollIntoView();   
+                            }
+                        });                        
                     }
                     else
                     {
-                        $(this).siblings("ul").css("max-height", "0px");
+                        $self.siblings("ul").slideToggle(300);
 
-                        $(this).attr("isFold", "true");
-                        // rotate icon
-                        $(this).children("img").rotate(0);
+                        $self.attr("isFold", "true");
+
+                        $self.children("img").rotate(0); // rotate icon
                     }
 
                 });
@@ -138,7 +138,7 @@ var GIO;
                     }
                 });
 
-                // register slider event listener
+                /* Register slider event listener */
 
                 $(document).on("input", ".ctl-slider", function(){
 
@@ -147,7 +147,7 @@ var GIO;
                 });
 
 
-                // register color picker handlers
+                /* Register color picker handlers */
 
                 colorPickerHandlerDict["ctlSurfaceColor"] = (function(color){
                     controller.setSurfaceColor(color);
@@ -174,7 +174,7 @@ var GIO;
                 });
 
 
-                // register brightness slider handlers
+                /* Register brightness slider handlers */
 
                 sliderHandlerDict["ctlOceanBrightness"] =  (function(sliderValue){
                     controller.adjustOceanBrightness(sliderValue);
@@ -188,7 +188,7 @@ var GIO;
                     controller.adjustRelatedBrightness(sliderValue);
                 });
 
-                // register button listeners
+                /* Register button handlers */
 
                 $(document).on("click", "#ctlGenerateBtn", function(){
 
@@ -209,7 +209,7 @@ var GIO;
                     closeModal();
                 });
 
-                // register key listeners
+                /* Register key listeners */
 
                 $(document).on("keydown", function(e){
                     switch(e.which)
@@ -220,6 +220,8 @@ var GIO;
                     }
                 })
 
+
+                /* Utilities */
 
                 function closeModal()
                 {

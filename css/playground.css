@@ -79,11 +79,13 @@ nav
 {
 	display: none;
 	overflow: hidden;
+	margin-top: 10px;
 }
 
 .ctl-panel-item
 {
 	height: 30px;
+	margin-left: 10px;
 }
 
 .ctl-panel-item-name
@@ -97,6 +99,11 @@ nav
 {
 	float: left;
 	margin-left: 10px;
+}
+
+input.ctl-control-checker
+{
+	margin-left: 24px;
 }
 
 .ctl-color-picker

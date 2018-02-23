@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Controller} from "../node_modules/giojs/build/gio.react";
 import {ControllerManager} from "./ControllerManager";
-import Constants from '/Users/Tom/Documents/Gio.js/react-giojs/utils/Constants.js';
+import Constants from 'react-giojs/utils/Constants.js';
 
 class Gio extends Component {
 

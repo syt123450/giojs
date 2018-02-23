@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Gio from '../../src/Gio.js';
-import { countryData } from '/Users/Tom/Documents/Gio.js/react-giojs/test/data/TestData.js';
-import Colors from '/Users/Tom/Documents/Gio.js/react-giojs/utils/Colors.js';
+import { countryData } from 'react-giojs/test/data/TestData.js';
+import Colors from 'react-giojs/utils/Colors.js';
 
 // var data = [
 //     {

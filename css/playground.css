@@ -154,6 +154,10 @@ nav
 	background-color: transparent;
 }
 
+.ctl-slider {
+	cursor: pointer;
+}
+
 .ctl-button:active, .ctl-button.active,
 
 .show > .btn-outline-primary.dropdown-toggle {

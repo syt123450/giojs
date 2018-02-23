@@ -265,7 +265,7 @@ var GIO;
                     modal.classList.add("plg-show-modal");
 
                     // show curtain
-                    $("#curtain").fadeIn(1000);
+                    $("#curtain").show();
                 }
 
             }

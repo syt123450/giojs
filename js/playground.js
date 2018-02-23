@@ -228,6 +228,7 @@ var GIO;
                     var modal = document.querySelector(".plg-modal");
                     
                     $(modal).children(".plg-modal-content").each(function(index) {
+                        $(this).scrollTop(0); // reset content scroll position
                         $(this).get(0).classList.remove("plg-show-modal-content");
                     })
 
@@ -235,6 +236,7 @@ var GIO;
 
                     // dismiss curtain
                     $("#curtain").fadeOut(1000);
+
                 }
 
                 function showModal(mode)

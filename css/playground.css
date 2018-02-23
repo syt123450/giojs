@@ -183,7 +183,7 @@ nav
 
 .plg-modal-content {
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     height: 400px;
     width: 500px;
@@ -193,6 +193,11 @@ nav
     color: #ffffff;
     overflow: auto;
     display: none;
+}
+
+.plg-modal-content > h1 {
+	margin-bottom: 30px;
+	font-family: DINAlternateBold, serif;
 }
 
 .plg-modal-text {

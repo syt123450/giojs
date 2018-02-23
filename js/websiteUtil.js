@@ -85,7 +85,7 @@ var GIO;
 })(GIO || (GIO = {}));
 
 
-window.onload = function() {
+$(function(){
     if (window.jQuery) {  
         /**
         * Extend jQuery object to add a function that rotates a DOM element.
@@ -100,5 +100,5 @@ window.onload = function() {
 
             return $(this);
         }  
-    }
-}
+    } 
+});

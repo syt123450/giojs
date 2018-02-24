@@ -3366,6 +3366,12 @@ function JSONLoader () {
 
     function load ( controller, data ) {
 
+        if ( data === undefined || data === null ) {
+
+            data = [];
+
+        }
+
         controller.inputData = JSON.parse( JSON.stringify( data ) );
 
     }

@@ -227,6 +227,150 @@ var SunsetStyle = ( function () {
 }() );
 
 /**
+ * @author Qi Liu / https://github.com/lq3297401
+ */
+
+var NearMoonStyle = ( function () {
+
+    return {
+
+        color: {
+
+            surface: 0x9C63D4,
+
+            selected: 0x913DFF,
+
+            in: 0x8A6AD4,
+
+            out: 0x3486E4,
+
+            halo: 0x3BCBFF,
+
+            background: 0x000000
+        },
+
+        brightness: {
+
+            ocean: 0.5,
+
+            mentioned: 0.5,
+
+            related: 0.5
+        }
+
+    }
+
+}() );
+
+/**
+ * @author Qi Liu / https://github.com/lq3297401
+ */
+
+var LemonGateStyle = ( function () {
+
+    return {
+
+        color: {
+
+            surface: 0x9C63D4,
+
+            selected: 0x913DFF,
+
+            in: 0x8A6AD4,
+
+            out: 0x3486E4,
+
+            halo: 0x3BCBFF,
+
+            background: 0x000000
+        },
+
+        brightness: {
+
+            ocean: 0.5,
+
+            mentioned: 0.5,
+
+            related: 0.5
+        }
+
+    }
+
+}() );
+
+/**
+ * @author Qi Liu / https://github.com/lq3297401
+ */
+
+var JuicyCakeStyle = ( function () {
+
+    return {
+
+        color: {
+
+            surface: 0xCE26D4,
+
+            selected: 0xE8F000,
+
+            in: 0xF7BB2F,
+
+            out: 0xE155AB,
+
+            halo: 0xF9A6FF,
+
+            background: 0x000000
+        },
+
+        brightness: {
+
+            ocean: 0.5,
+
+            mentioned: 0.5,
+
+            related: 0.5
+        }
+
+    }
+
+}() );
+
+/**
+ * @author Qi Liu / https://github.com/lq3297401
+ */
+
+var GorgeousDreamStyle = ( function () {
+
+    return {
+
+        color: {
+
+            surface: 0x7828D4,
+
+            selected: 0x527CF0,
+
+            in: 0xCC208E,
+
+            out: 0x3126D2,
+
+            halo: 0x7A6BFF,
+
+            background: 0x000000
+        },
+
+        brightness: {
+
+            ocean: 0.5,
+
+            mentioned: 0.5,
+
+            related: 0.5
+        }
+
+    }
+
+}() );
+
+/**
  * @author syt123450 / https://github.com/syt123450
  */
 
@@ -241,6 +385,14 @@ StyleFactory.register( "redBlue", RedBlueStyle );
 StyleFactory.register( "strawberry", StrawberryStyle );
 
 StyleFactory.register( "sunset", SunsetStyle );
+
+StyleFactory.register( "nearMoon", NearMoonStyle );
+
+StyleFactory.register( "lemonGate", LemonGateStyle );
+
+StyleFactory.register( "juicyCake", JuicyCakeStyle );
+
+StyleFactory.register( "gorgeousDream", GorgeousDreamStyle );
 
 /**
  * @author syt123450 / https://github.com/syt123450
@@ -3218,6 +3370,12 @@ function JSONLoader () {
 
     function load ( controller, data ) {
 
+        if ( data === undefined || data === null ) {
+
+            data = [];
+
+        }
+
         controller.inputData = JSON.parse( JSON.stringify( data ) );
 
     }
@@ -3960,6 +4118,14 @@ function Controller ( container, configureObject ) {
                 controller.scene.background = new THREE.Color( color );
 
             }
+
+            return this;
+
+        },
+
+        resizeUpdate: function () {
+
+            controller.resizeHandler.resizeScene();
 
             return this;
 

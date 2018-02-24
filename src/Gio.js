@@ -516,6 +516,14 @@ function Controller ( container, configureObject ) {
 
             return this;
 
+        },
+
+        resizeUpdate: function () {
+
+            controller.resizeHandler.resizeScene();
+
+            return this;
+
         }
 
     }

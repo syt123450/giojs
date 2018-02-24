@@ -1,6 +1,0 @@
-
-function ControllerManager () {
-
-}
-
-export { ControllerManager }

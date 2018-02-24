@@ -1,57 +1,85 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import axios from 'axios';
 import Gio from '../../src/Gio.js';
-import { countryData } from 'react-giojs/test/data/TestData.js';
-import Colors from 'react-giojs/utils/Colors.js';
-
-// var data = [
-//     {
-//         "e": "CN",
-//         "i": "US",
-//         "v": 3300000
-//     },
-//     {
-//         "e": "CN",
-//         "i": "RU",
-//         "v": 10000
-//     },
-//     {
-//         "e": "RU",
-//         "i": "US",
-//         "v": 3123
-//     },
-//     {
-//         "e": "FR",
-//         "i": "CN",
-//         "v": 2
-//     },
-//     {
-//         "e": "US",
-//         "i": "FR",
-//         "v": 5
-//     }
-// ];
 
 class App extends Component {
 
     constructor() {
         super();
 
-        this.state = { surfaceColor: Colors.white };
+        this.state = {
+            data: [
+                {
+                    "e": "CN",
+                    "i": "US",
+                    "v": 3300000
+                }
+            ],
+            width: 200,
+            height: 200,
+            surfaceColor: 0xFF0000,
+            selectedColor: null,
+            halo: true
+        };
 
         setTimeout(() => {
-            this.setState({ surfaceColor: Colors.blue });
-        }, 3000)
+            this.setState({
+                data: [
+                    {
+                        "e": "CN",
+                        "i": "US",
+                        "v": 3300000
+                    }
+                ]
+            });
+        }, 3000);
+
+        setTimeout(() => {
+            this.setState({width: 300});
+        }, 3000);
+
+        setTimeout(() => {
+            this.setState({forceSwitchCountry: "US"});
+        }, 5000);
+
+        setTimeout(() => {
+            this.setState({
+                surfaceColor: 0x00FF00,
+                selectedColor: 0x0000FF
+            });
+        }, 5000);
+
+        setTimeout(() => {
+            this.setState({
+                halo: false
+            });
+        }, 7000);
     }
 
-    // componentDidMount() {
-    //     axios.get(`./data/countryData.json`)
-    //         .then(response => console.log(response.data))
-    // }
+    componentDidMount() {
+        axios.get(`./data/countryData.json`)
+            .then(response => this.setState({data: response.data}))
+    }
 
     render() {
+
+        const config = {
+            control: {
+                halo: this.state.halo
+            },
+            color: {
+                surface: this.state.surfaceColor,
+                selected: this.state.selectedColor
+            }
+        };
+
         return (
-            <Gio data={countryData} />
+            <Gio width={this.state.width}
+                 height={this.state.height}
+                 data={this.state.data}
+                 forceSwitchCountry={this.state.forceSwitchCountry}
+                 configs={config}
+            />
         )
     }
 }

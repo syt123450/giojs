@@ -26,6 +26,12 @@ class Gio extends Component {
 
         Gio.initState(this);
 
+        if (this.props.configs !== undefined && this.props.configs !== null) {
+
+            this._controller.configure(this.props.configs);
+
+        }
+
         this._controller.addData(this.props.data);
         this._controller.init();
     }

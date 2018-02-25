@@ -1,5 +1,5 @@
 
-var DefaultGioProps = (function() {
+var DefaultGioProps = ( function () {
 
     return {
 
@@ -8,6 +8,7 @@ var DefaultGioProps = (function() {
         height: "100%",
 
     }
-}());
 
-export {DefaultGioProps}
+}() );
+
+export { DefaultGioProps }

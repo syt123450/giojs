@@ -1,12 +1,12 @@
-import React, {Component} from 'react';
-import {Controller} from "../node_modules/giojs/build/gio.react";
-import {Evaluator} from "./handler/Evaluator";
-import {Reducer} from "./handler/Reducer";
-import {Utils} from "./utils/Utils";
+import React, { Component } from 'react';
+import { Controller } from "../node_modules/giojs/build/gio.react";
+import { Evaluator } from "./handler/Evaluator";
+import { Reducer } from "./handler/Reducer";
+import { Utils } from "./utils/Utils";
 
 class Gio extends Component {
 
-    constructor() {
+    constructor () {
 
         super();
 
@@ -16,56 +16,63 @@ class Gio extends Component {
             height: null
 
         }
+
     }
 
-    componentDidMount() {
+    componentDidMount () {
 
         this._evaluator = new Evaluator();
-        this._controller = new Controller(this.refs.container);
-        this._reducer = new Reducer(this);
+        this._controller = new Controller( this.refs.container );
+        this._reducer = new Reducer( this );
 
-        Gio.initState(this);
+        Gio.initState( this );
 
-        if (this.props.configs !== undefined && this.props.configs !== null) {
+        if ( this.props.configs !== undefined && this.props.configs !== null ) {
 
-            this._controller.configure(this.props.configs);
+            this._controller.configure( this.props.configs );
 
         }
 
-        this._controller.addData(this.props.data);
+        this._controller.addData( this.props.data );
         this._controller.init();
+
     }
 
-    componentWillReceiveProps(nextProps) {
+    componentWillReceiveProps ( nextProps ) {
 
-        var changedProps = this._evaluator.evaluate(this.props, nextProps);
-        this._reducer.update(changedProps);
+        var changedProps = this._evaluator.evaluate( this.props, nextProps );
+        this._reducer.update( changedProps );
 
     }
 
     render() {
 
         const style = {
+
             width: this.state.width,
             height: this.state.height
+
         };
 
         return (
-            <div style={style} ref={'container'}>
+            <div style={ style } ref={ 'container' }>
             </div>
         );
+
     }
 
 }
 
-Gio.initState = function (component) {
+Gio.initState = function ( component ) {
 
-    Gio.initStyle(component);
+    Gio.initStyle( component );
 
 };
 
-Gio.initStyle = function(component) {
-    Utils.setStyle(component, component.props);
+Gio.initStyle = function ( component ) {
+
+    Utils.setStyle( component, component.props );
+
 };
 
 export default Gio;

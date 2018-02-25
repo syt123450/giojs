@@ -3294,12 +3294,6 @@ function ConfigureHandler ( controller ) {
 
                 }
 
-                if ( configure.color.selected === undefined && configure.color.surface !== undefined ) {
-
-                    controller.configure.color.selected = configure.color.surface;
-
-                }
-
             }
 
             if ( configure.brightness !== undefined ) {

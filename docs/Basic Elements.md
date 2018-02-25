@@ -2,7 +2,8 @@
 
 In order to create your own Gio globe, let's learn some basic elements first. Below is an image describing the basic concepts in a globe.
 
-![basic-Elements](http://giojs.org/assets/images/elements/all.png)
+![basic-Elements]
+
 
 - [Surface](#surface)
 
@@ -210,3 +211,5 @@ or [adjustOceanBrightness](#adjustoceanbrightness) API.
 ![basic-concepts](http://giojs.org/assets/images/elements/stats.png)
 
 The "stats" is a performance monitor for Three.js, if you are interested in it, you can see more information about stats from its [github](https://github.com/mrdoob/stats.js/). As our Gio globe is an open source library based on Three.js, so you may be want to add stats to your scene, you can use the [enableStats()](#enablestats) to add the stats panel in the left-top corner.
+
+

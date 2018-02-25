@@ -107,10 +107,12 @@ function Reducer ( component ) {
         }
 
         if (props.configs.color.surface !== null) {
+            console.log("setSurfaceColor");
             component._controller.setSurfaceColor(props.configs.color.surface);
         }
 
         if (props.configs.color.selected !== null) {
+            console.log("setSelectedColor");
             component._controller.setSelectedColor(props.configs.color.selected);
         }
     }

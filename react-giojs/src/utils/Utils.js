@@ -1,4 +1,4 @@
-import {DefaultGioProps} from "../Constants/DefaultGioProps";
+import {DefaultGioProps} from "../constants/DefaultGioProps";
 
 var Utils = (function() {
 

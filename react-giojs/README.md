@@ -1,7 +1,7 @@
 
 <p align="center"><a href="https://giojs.org" target="_blank"><img width="100" src="https://rawgit.com/syt123450/Gio.js/master/assets/readme/logo.png" alt="Gio logo"></a></p>
 
-<h1 align="center">Gio.js</h1>
+<h1 align="center">React-Giojs</h1>
 
 <p align="center">
   <a href="https://www.npmjs.com/package/giojs"><img src="https://img.shields.io/npm/v/giojs.svg" alt="npm version" height="18"></a>
@@ -11,7 +11,7 @@
   <a href="https://coveralls.io/github/syt123450/Gio.js?branch=master"><img src="https://coveralls.io/repos/github/syt123450/Gio.js/badge.svg" alt="coverage"></a>
 </p>
 
-**Gio.js** is an open source library for data visualization library based on a 3D globe. This library is inspired by the [Arms Trade Visualization](http://armsglobe.chromeexperiments.com/) project developed by Michael Chang and presented during Google Ideas INFO 2012. See [original post](http://mflux.tumblr.com/post/28367579774/armstradeviz). What makes Gio.js different is that it is fully customizable for users and friendly to future developers.
+**React-Giojs** is a react version of the open source library **Gio.js**, **Gio.js** is an open source library for data visualization library based on a 3D globe. This library is inspired by the [Arms Trade Visualization](http://armsglobe.chromeexperiments.com/) project developed by Michael Chang and presented during Google Ideas INFO 2012. See [original post](http://mflux.tumblr.com/post/28367579774/armstradeviz). What makes Gio.js different is that it is fully customizable for users and friendly to future developers.
 
 
 
@@ -25,74 +25,56 @@
 ## Getting Started
 
 ### Installation
-- Option 1: \<script\> tag
 
-Include Three.js dependency:
-```html
-<script src="three.min.js"></script>
-```
-Include local Gio.js library
-```html
-<script src="gio.min.js"></script>
-```
-or through CDN
-```html
-<script src="https://rawgit.com/syt123450/Gio.js/master/build/gio.min.js"></script>
-```
-- Option 2: npm
+- Option 1: npm
 ```bash
-npm install giojs --save
+npm install react-giojs --save
 ```
-- Option 3: yarn
+- Option 2: yarn
 ```bash
-yarn add giojs
+yarn add react-giojs
 ```
 ### Usage
 
-After including "three.min.js" and "gio.min.js" in your html, create a `div` to render the 3D Gio globe:
+After install react-giojs, create a `Gio` tag to render the 3D Gio globe:
 
 ```html
-<!DOCTYPE HTML>
-<html>
-<head>
+import React, {Component} from 'react';
+import axios from 'axios';
 
-  <!-- must include three.min.js library-->
-  <script src="three.min.js"></script>
+// import gio component from "react-giojs"
 
-  <!-- must include gio.min.js library-->
-  <script src="gio.min.js"></script>
+import Gio from 'react-giojs';
 
-</head>
-<body>
+class App extends Component {
 
-  <!-- container to draw 3D Gio globe-->
-  <div id="globalArea"></div>
+    constructor() {
+        super();
 
-</body>
-</html>
+        this.state = {
+            data: null
+        };
+    }
 
-```
-To initialize and render the 3D Gio globe:
+    componentDidMount() {
+        axios.get(`../data/sampleData.json`)
+            .then(response => this.setState({data: response.data}))
+    }
 
-```html
+    render() {
 
-<script>
+        return (
+        
+            // add data to "data" attribute, and render <Gio> tag
+        
+            <Gio data={this.state.data} />
+        )
+    }
+}
 
-    // get the container to hold the IO globe
-    var container = document.getElementById( "globalArea" );
-
-    // create controller for the IO globe, input the container as the parameter
-    var controller = new GIO.Controller( container );
-
-    // use addData() API to add the the data to the controller
-    controller.addData( data );
-
-    // call the init() API to show the IO globe in the browser
-    controller.init();
-
-</script>
-```
+export default App;
 If everything goes well, you should see [this](http://giojs.org/examples/00_hello_world(simplest).html).
+```
 
 <!-- [END getstarted] -->
 

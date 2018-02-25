@@ -212,4 +212,4 @@ or [adjustOceanBrightness](#adjustoceanbrightness) API.
 
 The "stats" is a performance monitor for Three.js, if you are interested in it, you can see more information about stats from its [github](https://github.com/mrdoob/stats.js/). As our Gio globe is an open source library based on Three.js, so you may be want to add stats to your scene, you can use the [enableStats()](#enablestats) to add the stats panel in the left-top corner.
 
-
+[basic-Elements]: https://github.com/syt123450/Gio.js/blob/master/assets/images/document/elements/all.png

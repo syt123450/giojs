@@ -7,7 +7,14 @@ import postcss from 'rollup-plugin-postcss'
 import json from 'rollup-plugin-json'
 import builtins from 'rollup-plugin-node-builtins'
 
-var inputPath = process.argv[4];
+var inputPath = process.argv[4];n
+if (inputPath === undefined) {
+    // Set the font color to Magenta for the error message
+    console.error('\x1b[35mBuild Example Failed. Missing input file.\x1b[0m\nExample:');
+    console.error('npm run build-example examples/01_helloworld/helloworld.js\n');
+    process.exit(-1);
+}
+
 var outputPath = function( inputPath ) {
 
     var array = inputPath.split( "/" );

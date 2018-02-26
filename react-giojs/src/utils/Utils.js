@@ -74,4 +74,4 @@ var Utils = ( function () {
 
 }() );
 
-export { Utils
+export { Utils }

@@ -6,8 +6,9 @@ import resolve from 'rollup-plugin-node-resolve'
 import postcss from 'rollup-plugin-postcss'
 import json from 'rollup-plugin-json'
 import builtins from 'rollup-plugin-node-builtins'
+import uglify from 'rollup-plugin-uglify'
 
-var inputPath = process.argv[4];n
+var inputPath = process.argv[4];
 if (inputPath === undefined) {
     // Set the font color to Magenta for the error message
     console.error('\x1b[35mBuild Example Failed. Missing input file.\x1b[0m\nExample:');
@@ -43,7 +44,7 @@ var outputPath = function( inputPath ) {
 };
 
 export default {
-
+    
     input: inputPath,
     output: {
         file: outputPath(inputPath),
@@ -51,15 +52,15 @@ export default {
     },
     plugins: [
         postcss({
-           extensions: [ '.css' ],
-         }),
+            extensions: ['.css'],
+        }),
         babel({
             babelrc: false,
             exclude: 'node_modules/**',
             presets: [
                 [
                     'es2015',
-                    { modules: false }
+                    {modules: false}
                 ],
                 'react'
             ],
@@ -95,12 +96,22 @@ export default {
         json(),
         builtins(),
         globals(),
-        replace({ 'process.env.NODE_ENV': JSON.stringify('production') }),
+        replace({'process.env.NODE_ENV': JSON.stringify('production')}),
         resolve({
             browser: true,
             main: true
-        })
+        }),
+        uglify()
     ],
+    external: [
+        'three',
+        'react',
+        'react-dom'
+    ],
+    globals: {
+        // 'react': 'React',
+        // 'react-dom': 'ReactDOM'
+    },
     sourcemap: true
 
 }

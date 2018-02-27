@@ -104,13 +104,12 @@ export default {
         uglify()
     ],
     external: [
-        'three',
         'react',
         'react-dom'
     ],
     globals: {
-        // 'react': 'React',
-        // 'react-dom': 'ReactDOM'
+        'react': 'React',
+        'react-dom': 'ReactDOM'
     },
     sourcemap: true
 

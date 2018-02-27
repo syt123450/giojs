@@ -32,6 +32,7 @@
     "rollup-plugin-uglify": "^3.0.0"
   },
   "scripts": {
+    "build-src": "./node_modules/rollup/bin/rollup -c --input",
     "build-example": "./node_modules/rollup/bin/rollup -c --input",
     "build-test": "./node_modules/rollup/bin/rollup -c --input test/js/index.js"
   },

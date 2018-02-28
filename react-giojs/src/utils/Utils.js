@@ -1,6 +1,16 @@
 import { DefaultGioProps } from "../constants/DefaultGioProps";
 
+/**
+ * Contain Utils function for react-giojs.
+ * Defined as a singleton.
+ */
+
 var Utils = ( function () {
+
+    /**
+     * Set the attribute of "values" into "vessel".
+     * Only set the attribute when vessel has this attribute ( not undefined )
+     */
 
     function inject ( vessel, values ) {
 
@@ -28,11 +38,21 @@ var Utils = ( function () {
 
     }
 
+    /**
+     * Judge whether the input value is an javascript object (do not include Array)
+     * @returns {boolean}
+     */
+
     function isObject ( value ) {
 
         return ( value instanceof Object ) && !( value instanceof Array );
 
     }
+
+    /**
+     * Set css style (height, width) to a react component
+     * Get the height and width from input props or component.props
+     */
 
     function setStyle ( component, props ) {
 

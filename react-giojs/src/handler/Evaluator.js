@@ -1,6 +1,11 @@
 import { PropsTemplate } from "../component/PropsTemplate";
 import { Utils } from "../utils/Utils";
 
+/**
+ * The Evaluator which props changed, and return a PropsTemplate contain changed props, the unchanged props will be null in the template.
+ * The Evaluator will compare the props now and next Props to get the changed props.
+ */
+
 function Evaluator () {
 
     function evaluate ( props, nextProps ) {

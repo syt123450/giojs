@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import Gio from '../../src/Gio.js';
+// import Gio from '../../src/Gio.js';
+import Gio from "react-giojs";
 
 class App extends Component {
 

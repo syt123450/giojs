@@ -73,8 +73,10 @@ class App extends Component {
 }
 
 export default App;
-If everything goes well, you should see [this](http://giojs.org/examples/00_hello_world(simplest).html).
+
 ```
+
+If everything goes well, you should see [this](http://giojs.org/examples/00_hello_world(simplest).html).
 
 <!-- [END getstarted] -->
 

@@ -1,7 +1,7 @@
 {
   "name": "react-giojs",
   "description": "3D Globe Info Graphic Javascript Library -- React Version",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "main": "build/Gio.min.js",
   "directories": {
     "example": "examples",

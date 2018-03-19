@@ -69,6 +69,8 @@
     line-height: 45px;
     border-radius: 22px;
     cursor: pointer;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
 }
 
 #description > div > div > div > img {
@@ -86,13 +88,12 @@
 
     color: white;
     background: linear-gradient(to right, #0071bc, #29abe2);
+    font-family: DINAlternateBold, serif;
 }
 
 #toStart:hover {
 
     background: linear-gradient(to right, #0c50bc, #299ae2);
-    font-family: DINAlternateBold, serif;
-
 }
 
 #toStart > img {
@@ -106,12 +107,12 @@
 #toPlayground {
     color: #4d4d4d;
     border: 1px solid #29A6DD;
+    font-family: DINAlternateBold, serif;
 }
 
 #toPlayground:hover {
 
     border-color: #0c50bc;
-    font-family: DINAlternateBold, serif;
 
 }
 
@@ -125,12 +126,12 @@
 
 #toGithub {
     background-color: #f2f2f2;
+    font-family: DINAlternateBold, serif;
 }
 
 #toGithub:hover {
 
     background-color: #e6e6e6;
-    font-family: DINAlternateBold, serif;
 }
 
 

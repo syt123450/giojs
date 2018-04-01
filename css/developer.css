@@ -1,7 +1,7 @@
 #myBtn {
     display: none;
     position: fixed;
-    bottom: 50px;
+    bottom: 60px;
     right: 30px;
     z-index: 99;
     border: none;

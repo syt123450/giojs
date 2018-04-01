@@ -281,7 +281,7 @@ var ObjectUtils = ( function () {
                 var points = set.lineGeometry.vertices;
                 var particleCount = Math.floor( set.v / 8000 / set.lineGeometry.vertices.length ) + 1;
                 particleCount = Utils.constrain( particleCount, 1, 100 );
-                var particleSize = set.lineGeometry.size;
+                var particleSize = set.lineGeometry.size * controller.container.clientHeight / 750;
 
                 for ( s = 0; s < particleCount; s++ ) {
 
@@ -413,7 +413,7 @@ var ObjectUtils = ( function () {
                 var nextPoint = path[ particle.nextIndex ];
 
                 particle.copy( currentPoint );
-                if ( nextPoint !== undefined && particle !== undefined) {
+                if ( nextPoint !== undefined && particle !== undefined ) {
 
                     particle.lerp( nextPoint, particle.lerpN );
 

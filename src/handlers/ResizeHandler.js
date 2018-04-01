@@ -13,6 +13,7 @@ function ResizeHandler ( controller ) {
         controller.camera.aspect = controller.container.clientWidth / controller.container.clientHeight;
         controller.camera.updateProjectionMatrix();
         controller.renderer.setSize( controller.container.clientWidth, controller.container.clientHeight );
+        controller.visSystemHandler.update();
 
     }
 

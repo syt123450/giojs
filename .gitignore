@@ -5,3 +5,4 @@ coverage/
 react-giojs/test/js/build/
 package-lock.json
 react-giojs/package-lock.json
+website/

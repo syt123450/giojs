@@ -196,12 +196,13 @@ body > nav > div > ul > li:hover > a {
 
 .language {
     position: absolute;
-    right: 100px;
+    right: 120px;
     top: 15px;
     width: 100px;
     display: block;
     height: 30px;
     line-height: 30px;
+    font-size: 14px;
 }
 
 .language > div {
@@ -213,10 +214,10 @@ body > nav > div > ul > li:hover > a {
 }
 
 .language > div > div {
-    height: 20px;
+    height: 25px;
     width: 30px;
     line-height: 20px;
-    margin-top: 5px;
+    margin-top: 4px;
     margin-left: 10px;
 }
 
@@ -281,5 +282,9 @@ body > nav > div > ul > li:hover > a {
 
     .github-corner .octo-arm {
         animation: octocat-wave 560ms ease-in-out
+    }
+
+    .language {
+        right: 65px;
     }
 }

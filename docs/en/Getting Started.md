@@ -83,10 +83,10 @@ If everything goes well, you should see [this](jsfiddle-link).
 
 <!-- [START documentation] -->
 ## Documentation
-- For quick start, see [Getting Started](https://github.com/syt123450/Gio.js/blob/master/docs/Getting%20Started.md)
-- To learn more about the [Basic Elements](https://github.com/syt123450/Gio.js/blob/master/docs/Basic%20Elements.md)
-- To see the full API document in Markdown format, see [APIs](https://github.com/syt123450/Gio.js/blob/master/docs/APIs.md)
-- To contribute to Gio.js's code base, read [Developer Guide](https://github.com/syt123450/Gio.js/blob/master/docs/Developer%20Guide.md)
+- For quick start, see [Getting Started](https://github.com/syt123450/Gio.js/blob/master/docs/en/Getting%20Started.md)
+- To learn more about the [Basic Elements](https://github.com/syt123450/Gio.js/blob/master/docs/en/Basic%20Elements.md)
+- To see the full API document in Markdown format, see [APIs](https://github.com/syt123450/Gio.js/blob/master/docs/en/APIs.md)
+- To contribute to Gio.js's code base, read [Developer Guide](https://github.com/syt123450/Gio.js/blob/master/docs/en/Developer%20Guide.md)
 - See Gio's [offical website](http://giojs.org) for everything above and plus lots of live examples
 <!-- [END documentation] -->
 

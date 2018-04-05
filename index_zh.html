@@ -92,13 +92,13 @@
                 <div id="button1">
                     <div id="toStart">
                         <img src="assets/images/startIcon.png">
-                        <p>Get Started</p>
+                        <p>开始使用</p>
                     </div>
                 </div>
                 <div id="button2">
                     <div id="toPlayground">
                         <img src="assets/images/playgroundIcon.png">
-                        <p>Playground</p>
+                        <p>游乐场</p>
                     </div>
                 </div>
                 <div id="button3">
@@ -112,18 +112,16 @@
 
         <div id="explanation">
             <div>
-                <p>Simplicity</p>
-                <div>Create a 3D global data visualization model with your own data in just four lines of javascript
-                    code
-                </div>
+                <p>易用性</p>
+                <div>仅使用4行Javascript即可创建3D地球数据可视化模型</div>
             </div>
             <div>
-                <p>Customization</p>
-                <div>Design your own globe style with easy to use APIs in Gio.js</div>
+                <p>定制化</p>
+                <div>使用Gio.js提供的丰富的API来创建自定义样式的3D地球</div>
             </div>
             <div>
-                <p>Interaction</p>
-                <div>Build a fully interactive, rich 3D frontend application using Gio.js</div>
+                <p>交互性</p>
+                <div>基于Gio.js构建高交互的3D前端应用</div>
             </div>
         </div>
 
@@ -135,24 +133,25 @@
 
     <div class="container">
         <div>
-            <header>Get Started</header>
-            <h4>1. Install</h4>
-            <div class="description">Include the library and dependency in the <span
-                    class="span_code">&lt;head&gt;</span> section of your web page as shown below:
+            <header>开始使用</header>
+            <h4>1. 安装</h4>
+            <div class="description">在HTML的<span
+                    class="span_code">&lt;head&gt;</span>中引入Three.js和Gio.js依赖，
+                以下展示了如何使用<span
+                        class="span_code">&lt;script&gt;</span>标签引入依赖:
             </div>
             <div class="code">&lt;script src="three.min.js"&gt;&lt;/script&gt;<br>
                 &lt;script src="gio.min.js"&gt;&lt;/script&gt;
             </div>
-            <h4>2. Create</h4>
+            <h4>2. 创建</h4>
             <div class="description">
-                With Threejs and Giojs included in your webpage, you are ready to create your first Gio Globe. We will
-                start off by creating a globe in basic style.
+                在引入Three.js和Gio.js在页面之后，已经可以创建3D Gio地球了。在此我们将先展示如何创建基础样式的Gio地球。
             </div>
             <div class="description">
-                Create a <span class="span_code">&lt;div&gt;</span> where the globe will be rendered:
+                创建一个<span class="span_code">&lt;div&gt;</span>，Gio地球将会被渲染在这个区域中：
             </div>
             <div class="code">&lt;div id="globeArea" style="width: 200px; height: 200px"&gt;&lt;/div&gt;</div>
-            <div class="description">Add the following four lines of javascript code to the body of you html page:</div>
+            <div class="description">添加一下4行Javascript代码在你的HTML中， 用以创建并渲染：</div>
             <div class="code">
                 &lt;script&gt;<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var container = document.getElementById( "globalArea" );<br>
@@ -161,9 +160,9 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;controller.init();<br>
                 &lt;/script&gt;
             </div>
-            <h4>3. Customize</h4>
-            <div class="description">Read the <a href="html/docs/index_zh.html">API document</a> you can easily create a
-                globe in your own style, the globe in the right shows how a Gio.js globe look like.
+            <h4>3. 定制</h4>
+            <div class="description">阅读<a href="html/docs/index_zh.html">API文档</a>， 你可以简单快速创建自定义的风格的Gio样式，
+                右边的区域展示了一种自定义风格的3D Gio地球。
             </div>
 
         </div>
@@ -185,21 +184,22 @@
         </div>
         <div>
 
-            <header>Download</header>
+            <header>下载</header>
 
-            <div>The Gio.js library runs fine on Chrome, we are working hard to solve cross browser issue now. This site
-                contains documentation, downloads and live examples of Gio.js.<br>
-                The sourcecode of Gio.js is available at Github. For questions, issues, and
-                suggestions please use the issues section of the Github project.
+            <div>
+                Gio.js可以很好地运行在Chrome, safari, firefox浏览器中，同时我们正在努力解决更多的跨浏览器问题。在我们的官网中包含了
+                Giojs文档，文件下载和使用样例。<br><br>
+                Gio.js的源码可以从giojs的<a href="https://github.com/syt123450/Gio.js">Github</a>仓库下载。如果有关于Giojs的
+                使用问题，可以到github上的<a href="https://github.com/syt123450/Gio.js/issues">issue</a>部分提出宝贵意见。
             </div>
 
-            <p class="sub-title">Install with NPM</p>
+            <p class="sub-title">使用NPM下载</p>
             <div class="code">npm install giojs</div>
 
-            <p class="sub-title">Install with Yarn</p>
+            <p class="sub-title">使用Yarn下载</p>
             <div class="code">yarn add giojs</div>
 
-            <p class="sub-title">Download</p>
+            <p class="sub-title">下载</p>
             <div>
                 <a href="assets/zip/Gio.zip">v0.0.16.zip</a>
             </div>

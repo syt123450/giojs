@@ -41,10 +41,6 @@ $(function () {
         }, 2000);
     });
 
-    $("#logo").click(function () {
-        window.location.href = "index.html";
-    });
-
     var container = document.getElementById("globeArea");
     var controller = new GIO.Controller(container);
 

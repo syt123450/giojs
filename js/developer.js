@@ -28,10 +28,6 @@ $(function() {
         $("#nav-collapse").slideToggle();
     });
 
-    $("#logo").click(function() {
-        window.location.href = "../index.html";
-    });
-
     $("#navigation1").click(function () {
         $('html, body').animate({
             scrollTop: $("#pullRequest").offset().top

@@ -29,10 +29,6 @@ var GIO;
                     $("#nav-collapse").slideToggle();
                 });
 
-                $("#logo").click(function() {
-                    window.location.href = "../index.html";
-                });
-
                 /* Control panel */
 
                 $(document).on("click", ".ctl-panel-header", function(){

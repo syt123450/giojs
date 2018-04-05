@@ -94,32 +94,32 @@
     <div id="controlPanelOperations">
         <div>
             <div class="ctl-panel-header" isFold="true">
-                <h3>Control</h3>
+                <h3>控制器</h3>
                 <img src="../assets/images/playground_open_icon.png">
             </div>
             <ul class="ctl-panel-item-holder">
                 <li class="ctl-panel-item">
-                    <span class="ctl-panel-item-name">Show Stats</span>
+                    <span class="ctl-panel-item-name">显示性能监控</span>
                     <div class="ctl-panel-item-content"><input class="ctl-control-checker" type="checkbox" id="ctlShowStats"></div>
                 </li>
                 <li class="ctl-panel-item">
-                    <span class="ctl-panel-item-name">Disable Unmentioned</span>
+                    <span class="ctl-panel-item-name">未提及国家禁止点击</span>
                     <div class="ctl-panel-item-content"><input class="ctl-control-checker" type="checkbox" id="ctlDisableInactives"></div>
                 </li>
                 <li class="ctl-panel-item">
-                    <span class="ctl-panel-item-name">Lighten Mentioned</span>
+                    <span class="ctl-panel-item-name">点亮提及国家</span>
                     <div class="ctl-panel-item-content"><input class="ctl-control-checker" type="checkbox" id="ctlLightenActives"></div>
                 </li>
                 <li class="ctl-panel-item">
-                    <span class="ctl-panel-item-name">In Only</span>
+                    <span class="ctl-panel-item-name">只显示数据进入</span>
                     <div class="ctl-panel-item-content"><input class="ctl-control-checker" type="checkbox"  id="ctlInOnly"></div>
                 </li>
                 <li class="ctl-panel-item">
-                    <span class="ctl-panel-item-name">Out Only</span>
+                    <span class="ctl-panel-item-name">只显示数据输出</span>
                     <div class="ctl-panel-item-content"><input class="ctl-control-checker" type="checkbox" id="ctlOutOnly"></div>
                 </li>
                 <li class="ctl-panel-item">
-                    <span class="ctl-panel-item-name">Halo</span>
+                    <span class="ctl-panel-item-name">显示光晕</span>
                     <div class="ctl-panel-item-content"><input class="ctl-control-checker" type="checkbox" id="ctlHalo" checked="checked"></div>
                 </li>
             </ul>
@@ -127,42 +127,42 @@
 
         <div>
             <div class="ctl-panel-header" isFold="true">
-                <h3>Color</h3>
+                <h3>颜色</h3>
                 <img src="../assets/images/playground_open_icon.png">
             </div>
             <ul class="ctl-panel-item-holder">
                 <li class="ctl-panel-item">
-                    <span class="ctl-panel-item-name">Surface</span>
+                    <span class="ctl-panel-item-name">地球表面</span>
                     <div class="ctl-panel-item-content">
                         <input class="jscolor ctl-color-picker" onchange="GIO.Website.Playground.colorPickerListener(this)" id="ctlSurfaceColor" value="1a9cb0">
                     </div>
                 </li>
                 <li class="ctl-panel-item">
-                    <span class="ctl-panel-item-name">Selected Country</span>
+                    <span class="ctl-panel-item-name">被选中的国家</span>
                     <div class="ctl-panel-item-content">
                         <input class="jscolor ctl-color-picker" onchange="GIO.Website.Playground.colorPickerListener(this)" id="ctlSelectedColor" value="20abe2">
                     </div>
                 </li>
                 <li class="ctl-panel-item">
-                    <span class="ctl-panel-item-name">In Line</span>
+                    <span class="ctl-panel-item-name">数据输入线条</span>
                     <div class="ctl-panel-item-content">
                         <input class="jscolor ctl-color-picker" onchange="GIO.Website.Playground.colorPickerListener(this)" id="ctlInputLineColor" value="ffffff">
                     </div>
                 </li>
                 <li class="ctl-panel-item">
-                    <span class="ctl-panel-item-name">Out Line</span>
+                    <span class="ctl-panel-item-name">数据输出线条</span>
                     <div class="ctl-panel-item-content">
                         <input class="jscolor ctl-color-picker" onchange="GIO.Website.Playground.colorPickerListener(this)" id="ctlOutputLineColor" value="20abe2">
                     </div>
                 </li>
                 <li class="ctl-panel-item">
-                    <span class="ctl-panel-item-name">Halo</span>
+                    <span class="ctl-panel-item-name">光晕</span>
                     <div class="ctl-panel-item-content">
                         <input class="jscolor ctl-color-picker" onchange="GIO.Website.Playground.colorPickerListener(this)" id="ctlHaloColor" value="ffffff">
                     </div>
                 </li>
                 <li class="ctl-panel-item">
-                    <span class="ctl-panel-item-name">Background</span>
+                    <span class="ctl-panel-item-name">背景</span>
                     <div class="ctl-panel-item-content">
                         <input class="jscolor ctl-color-picker" onchange="GIO.Website.Playground.colorPickerListener(this)" id="ctlBackgroundColor" value="000000">
                     </div>
@@ -173,24 +173,24 @@
 
         <div>
             <div class="ctl-panel-header" isFold="true">
-                <h3>Brightness</h3>
+                <h3>亮度</h3>
                 <img src="../assets/images/playground_open_icon.png">
             </div>
             <ul class="ctl-panel-item-holder">
                 <li class="ctl-panel-item">
-                    <span class="ctl-panel-item-name">Ocean</span>
+                    <span class="ctl-panel-item-name">海洋</span>
                     <div class="ctl-panel-item-content">
                         <input type="range" min="0" max="100" value="50" class="ctl-slider" id="ctlOceanBrightness">
                     </div>
                 </li>
                 <li class="ctl-panel-item">
-                    <span class="ctl-panel-item-name">Mentioned</span>
+                    <span class="ctl-panel-item-name">提及国家</span>
                     <div class="ctl-panel-item-content">
                         <input type="range" min="0" max="100" value="50" class="ctl-slider" id="ctlActiveBrightness">
                     </div>
                 </li>
                 <li class="ctl-panel-item">
-                    <span class="ctl-panel-item-name">Related</span>
+                    <span class="ctl-panel-item-name">有关国家</span>
                     <div class="ctl-panel-item-content">
                         <input type="range" min="0" max="100" value="50" class="ctl-slider" id="ctlRelatedBrightness">
                     </div>
@@ -203,8 +203,8 @@
 
 
     <div id="panelBtns">
-        <div type="button" class="btn ctl-button" id="ctlGenerateBtn"><img src="../assets/images/playground_generate_icon.png"><span>Generate</span></div>
-        <div type="button" class="btn ctl-button" id="ctlHelpBtn"><img src="../assets/images/playground_help_icon.png"><span>Help</span></div>
+        <div type="button" class="btn ctl-button" id="ctlGenerateBtn"><img src="../assets/images/playground_generate_icon.png"><span>配置参数</span></div>
+        <div type="button" class="btn ctl-button" id="ctlHelpBtn"><img src="../assets/images/playground_help_icon.png"><span>帮助</span></div>
     </div>
 </div>
 
@@ -212,45 +212,43 @@
 <div class="plg-modal">
     <span class="plg-close-button">&times;</span>
     <div class="plg-modal-content" id="configJSONHolder">
-        <h1>Config</h1>
+        <h1>配置</h1>
         <p class="plg-modal-text"></p>
     </div>
     <div class="plg-modal-content" id="helperTextHolder">
-        <h1>Instruction</h1>
-        <p class="plg-modal-p">GIO Playground is a fast and convenient tool for you to customize your own Gio globe. There are three different aspects of settings that you can control, you can follow the instructions listed below.</p>
-        <h3>Control</h3>
+        <h1>介绍</h1>
+        <p class="plg-modal-p">Gio游乐场是一个可以帮助用户快速、便利定制Gio地球的在线工具。用户可以通过该工具定制自己的Gio样式并通过
+            "配置参数"按钮导出配置，在configure API中使用。目前Gio游乐场主要提供三个方面的配置，具体配置可以根据以下的介绍进行使用。
+            祝在游乐场中玩得开心！
+        </p>
+        <h3>控制器</h3>
         <ul>
-            <li>Show Stats: Show a stats panel on the top left corner</li>
-            <li>Disable Unmentioned: Make unmentioned countries not clickable</li>
-            <li>Lighten Mentioned: Lighten the mentioned countries</li>
-            <li>In Only: Only show lines toward selected country</li>
-            <li>Out Only: Only show lines go out of selected country</li>
-            <li>Halo: Show halo</li>
+            <li>显示性能监控：控制是否显示左上角的性能监控工具</li>
+            <li>未提及国家禁止点击：令未在数据集中提到的国家在3D地球上不可点击</li>
+            <li>点亮提及国家：在3D地球上点亮在数据集中提到的国家</li>
+            <li>只显示数据进入：对于选中的国家，仅显示表示输入数据的线条</li>
+            <li>只显示数据输出：对于选中的国家，仅显示表示输出数据的线条</li>
+            <li>显示光晕：控制是否显示地球周围的光晕</li>
         </ul>
-        <h3>Color</h3>
+        <h3>颜色</h3>
         <ul>
-            <li>Surface: Pick a color for globe surface (without selected country)</li>
-            <li>Selected Country: Pick a color for selected country</li>
-            <li>In Line: Pick a color for lines toward selected country</li>
-            <li>Out Line: Pick a color for lines go out of selected country</li>
-            <li>Halo: Pick a color for halo surrounding globe</li>
-            <li>Background: Pick a color for background</li>
+            <li>地球表面：地球表面的基础颜色（如果设置了选中国家颜色，这个颜色对选中国家不生效）</li>
+            <li>被选中的国家：被鼠标点击选中的国家颜色</li>
+            <li>数据输入线条：对于选中的国家，输入数据的线条的颜色</li>
+            <li>数据输出线条：对于选中的国家，输出数据的线条的颜色</li>
+            <li>光晕：地球周围光晕的颜色</li>
+            <li>背景：地球背景颜色</li>
         </ul>
-        <h3>Brightness</h3>
+        <h3>亮度</h3>
         <ul>
-            <li>Ocean: Adjust brightness for ocean area</li>
-            <li>Mentioned: Adjust brightness for mentioned countries</li>
-            <li>Related: Adjust brightness for related countries</li>
+            <li>海洋：调整3D地球表面海洋亮度</li>
+            <li>提及国家：调整在数据集中提到的国家在地球表面的亮度</li>
+            <li>有关国家：调整和被鼠标点击选中国家有关的国家的亮度</li>
         </ul>
     </div>
 </div>
 
 </body>
-
-<script>
-
-
-</script>
 
 <div id="curtain"></div>
 

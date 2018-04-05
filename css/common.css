@@ -275,6 +275,12 @@ body > nav > div > ul > li:hover > a {
     }
 }
 
+@media (max-width: 820px) {
+    .language {
+        right: 65px;
+    }
+}
+
 @media (max-width: 500px) {
     .github-corner:hover .octo-arm {
         animation: none
@@ -282,9 +288,5 @@ body > nav > div > ul > li:hover > a {
 
     .github-corner .octo-arm {
         animation: octocat-wave 560ms ease-in-out
-    }
-
-    .language {
-        right: 65px;
     }
 }

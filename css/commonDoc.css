@@ -431,16 +431,32 @@ footer {
 
 }
 
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-.column {
+.style-item {
     float: left;
     width: 50%;
     padding: 10px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.style-item > div.code {
+    padding: 10px;
+    width: 100%;
+}
+
+.style-item > img.tag-img {
+    width: 100%;
+}
+
+@media (max-width: 1200px) {
+    .style-item > div.code {
+        font-size: 10px;
+        padding: 5px 5px;
+    }
+
+    main {
+        padding: 10px 20px;
+        font-size: 15px;
+    }
 }
 
 @media (max-width: 995px) {
@@ -459,5 +475,38 @@ footer {
 
     #smallGuide {
         display: block;
+    }
+
+    main > header {
+        font-size: 20px;
+    }
+
+    .code {
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .tag-img {
+        width: 100%;
+    }
+
+    footer {
+        font-size: 14px;
+    }
+
+    .style-item {
+        width: 100%;
+        padding: 0 10px;
+        margin-top: 0;
+    }
+
+    .style-item > div.code {
+        font-size: 14px;
+        padding-left: 10px;
+    }
+
+    .style-item > img.tag-img {
+        margin-top: 0;
     }
 }

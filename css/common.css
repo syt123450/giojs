@@ -20,7 +20,8 @@ html, body {
     width: 100%;
 }
 
-a:hover {
+a:hover,
+a:link {
     text-decoration: none;
 }
 

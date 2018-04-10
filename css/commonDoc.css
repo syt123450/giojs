@@ -431,6 +431,18 @@ footer {
 
 }
 
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+}
+
 @media (max-width: 995px) {
 
     aside {

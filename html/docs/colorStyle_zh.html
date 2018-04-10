@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="../../assets/cssLib/bootstrap.min.css">
     <script src="../../assets/jsLib/bootstrap.min.js"></script>
     <script src="../../js/websiteUtil.js"></script>
-    <script src="../../js/commonDoc.js"></script>
+    <script src="../../js/commonDoc_zh.js"></script>
 
     <link rel="stylesheet" href="../../css/common.css">
     <link rel="stylesheet" href="../../css/commonDoc.css">
@@ -305,15 +305,15 @@
         </div>
     </aside>
 
+
     <main>
-        <header>setStyle</header>
+        <header>设置风格</header>
         <div>
-            Sets the color scheme of the 3D globe by name. Gio.js has some pre-defined styles. For example we want
-            to change from default style to style called "magic":
+            通过设置风格名称来更改3D地球的颜色风格。Gio.js提供一些预设的色彩风格。<br>例如：想将默认风格更改为“magic”风格：
         </div>
         <div>
             <a href="../../examples/10_API_setStyle.html" target="_blank">
-                <img class="live-demo" src="../../assets/images/liveDemoButton.png">
+                <img class="live-demo" src="../../assets/images/liveDemoButton_zh.png">
             </a>
         </div>
         <img class="tag-img" src="../../assets/images/color/setStyle1.jpg">
@@ -321,6 +321,78 @@
             controller.setStyle("magic");
         </div>
         <img class="tag-img" src="../../assets/images/color/setStyle2.jpg">
+
+        <hr>
+        <div class="sub-title">预设风格</div>
+        <div>这里您可以预览我们提供的预设配色模板，您可以通使用风格名称来应用所有的预设颜色风格。例如：如果您想使用名称为“magic”的模板，请按如下代码使用“magic”名称：</div>
+        <div class="code">
+            controller.setStyle("magic");
+        </div>
+        <hr>
+
+        <div class="sub-title">预设风格预览</div>
+        <div class="row">
+            <div class="column">
+                <div class="code">controller.setStyle("blueInk");</div>
+                <img class="tag-img" src="../../assets/images/color/predefinedStyle/BlueInkStyle.jpg"></div>
+            <div class="column">
+                <div class="code">controller.setStyle("earlySpring");</div>
+                <img class="tag-img" src="../../assets/images/color/predefinedStyle/EarlySpringStyle.jpg"></div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="column">
+                <div class="code">controller.setStyle("frozenBerry");</div>
+                <img class="tag-img" src="../../assets/images/color/predefinedStyle/FrozenBerryStyle.jpg"></div>
+            <div class="column">
+                <div class="code">controller.setStyle("gorgeousDream");</div>
+                <img class="tag-img" src="../../assets/images/color/predefinedStyle/GorgeousDreamStyle.jpg"></div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="column">
+                <div class="code">controller.setStyle("juicyCake");</div>
+                <img class="tag-img" src="../../assets/images/color/predefinedStyle/JuicyCakeStyle.jpg"></div>
+            <div class="column">
+                <div class="code">controller.setStyle("lemonGate");</div>
+                <img class="tag-img" src="../../assets/images/color/predefinedStyle/LemonGateStyle.jpg"></div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="column">
+                <div class="code">controller.setStyle("magic");</div>
+                <img class="tag-img" src="../../assets/images/color/predefinedStyle/MagicStyle.jpg"></div>
+            <div class="column">
+                <div class="code">controller.setStyle("mint");</div>
+                <img class="tag-img" src="../../assets/images/color/predefinedStyle/MintStyle.jpg"></div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="column">
+                <div class="code">controller.setStyle("nearMoon");</div>
+                <img class="tag-img" src="../../assets/images/color/predefinedStyle/NearMoonStyle.jpg"></div>
+            <div class="column">
+                <div class="code">controller.setStyle("octoberParty");</div>
+                <img class="tag-img" src="../../assets/images/color/predefinedStyle/OctoberPartyStyle.jpg"></div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="column">
+                <div class="code">controller.setStyle("redBlue");</div>
+                <img class="tag-img" src="../../assets/images/color/predefinedStyle/RedBlueStyle.jpg"></div>
+            <div class="column">
+                <div class="code">controller.setStyle("strawberry");</div>
+                <img class="tag-img" src="../../assets/images/color/predefinedStyle/StrawberryStyle.jpg"></div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="column">
+                <div class="code">controller.setStyle("sunset");</div>
+                <img class="tag-img" src="../../assets/images/color/predefinedStyle/SunsetStyle.jpg"></div>
+            <div class="column"></div>
+        </div>
+        <hr>
+
     </main>
 </div>
 

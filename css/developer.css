@@ -312,8 +312,13 @@ footer {
 
 @media (max-width: 490px) {
 
+    p, li {
+        line-height: 30px;
+    }
+
     .code {
-        min-height: 15px;
+        min-height: 20px;
+        line-height: 25px;
         padding: 0 10px;
     }
 
@@ -344,6 +349,10 @@ footer {
 
     .mainContentImg {
         height: 150px;
+    }
+
+    ul ul {
+        margin-left:-30px;
     }
 
 }

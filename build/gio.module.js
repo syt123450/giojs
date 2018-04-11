@@ -2681,6 +2681,52 @@ function SceneEventManager () {
 
     }
 
+    function onTouchStart ( event ) {
+
+		if ( event.target.className.indexOf( 'noMapDrag' ) !== -1 ) {
+
+			return;
+
+		}
+
+		// set the state to the dragging state
+
+		controller.rotationHandler.setDragging( true );
+		pressX = mouseX;
+		pressY = mouseY;
+		controller.rotationHandler.clearRotateTargetX();
+
+    }
+
+    function onTouchEnd ( event ) {
+
+		// When touch up, the notify the RotatingHandler to set drag false
+
+		controller.rotationHandler.setDragging( false );
+
+    }
+
+    function onTouchMove ( event ) {
+
+		pmouseX = mouseX;
+		pmouseY = mouseY;
+
+		// get clientX and clientY from "event.touches[0]", different with onmousemove event
+
+		mouseX = event.touches[0].clientX - controller.container.clientWidth * 0.5 - Utils.getElementViewLeft( controller.container );
+		mouseY = event.touches[0].clientY - controller.container.clientHeight * 0.5 - Utils.getElementViewTop( controller.container );
+
+		// if it is in a dragging state, let the RotationHandler to handlers the rotation of the globe
+
+		if ( controller.rotationHandler.isDragging() ) {
+
+			controller.rotationHandler.addRotateVY( ( mouseX - pmouseX ) / 2 * Math.PI / 180 * 0.3 );
+			controller.rotationHandler.addRotateVX( ( mouseY - pmouseY ) / 2 * Math.PI / 180 * 0.3 );
+
+		}
+
+    }
+
     /**
      * bind all event handlers to the dom of the scene, the resize event will be bind to window.
      * This function will be called when InitHandler's init() function be called
@@ -2696,6 +2742,10 @@ function SceneEventManager () {
         controller.renderer.domElement.addEventListener( 'click', onClick, true );
         controller.renderer.domElement.addEventListener( 'mousewheel', onMouseWheel, false );
         controller.renderer.domElement.addEventListener( 'DOMMouseScroll', onMouseWheel, false );
+
+		controller.renderer.domElement.ontouchstart = onTouchStart;
+		controller.renderer.domElement.ontouchend = onTouchEnd;
+		controller.renderer.domElement.ontouchmove = onTouchMove;
 
         window.addEventListener( 'resize', onResize, false );
 

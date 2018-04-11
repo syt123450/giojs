@@ -38,6 +38,33 @@
     "build-example": "./node_modules/rollup/bin/rollup -c --input",
     "build-test": "./node_modules/rollup/bin/rollup -c --input test/js/index.js"
   },
-  "author": "syt123450 && BoTime",
-  "license": "Apache-2.0"
+  "author": "syt123450 && BoTime && siriustom",
+  "license": "Apache-2.0",
+  "contributors": [
+    {
+      "name": "syt123450",
+      "email": "yuntian.shen@sjsu.edu",
+      "url": "https://github.com/syt123450"
+    },
+    {
+      "name": "BoTime",
+      "email": "bo.liu@sjsu.edu",
+      "url": "https://github.com/BoTime"
+    },
+    {
+      "name": "siriustom",
+      "email": "xiaoran.lin@sjsu.edu",
+      "url": "https://github.com/siriustom"
+    },
+    {
+      "name": "zchholmes",
+      "email": "zhu.chenhua@sjsu.edu",
+      "url": "https://github.com/zchholmes"
+    },
+    {
+      "name": "leonsaber",
+      "email": "fuyao.zhang@sjsu.edu",
+      "url": "https://github.com/leonsaber"
+    }
+  ]
 }

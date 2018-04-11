@@ -6,6 +6,7 @@
 
     <meta name="description" content="Document page of Gio.js">
     <meta name="author" content="syt123450 / https://github.com/syt123450">
+    <meta name="author" content="lq3297401 / https://github.com/lq3297401">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel='icon' href='../../assets/images/logoTitle.ico' type=‘image/x-ico’>
 
@@ -307,17 +308,16 @@
 
     <main>
         <header>实时加载</header>
-        <div>Loads data to the controller dynamically. Usage:</div>
-        <div>dataSource - In JSON format as specific in <a href="dataAdd_zh.html">addData</a> liveLoadCallback - Callback function to be
-            executed
-            on completion of data loading duration - Minimum duration of data loading time in milliseconds
+        <div>将数据动态地加载到控制器。用法：</div>
+        <div>数据源 - 采用<a href="dataAdd_zh.html">添加数据</a>的liveLoadCallback中指定的JSON格式
+            - 数据持续加载完成后执行的回调函数 - 最小化数据加载时间（以毫秒为单位）
         </div>
         <div class="code">
             var url = "dynamicallyAPI/data";<br><br>
 
-            // Load data from the url with liveLoad() API.<br>
-            // Set callback<br>
-            // Specify loading time<br><br>
+            // 使用liveLoad() API加载URL中的数据。<br>
+            // 设置回调。<br>
+            // 指定加载时间。<br><br>
 
             controller.liveLoad( url, liveLoadCallback, 50000 );<br><br>
 

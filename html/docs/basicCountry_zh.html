@@ -312,7 +312,7 @@
         <div>每个国家都有一个特定的 <a href="https://en.wikipedia.org/wiki/ISO_3166-1">ISO 3166代码</a> 。</div>
         根据输入数据和用户的交互行为，在Gio地球表面的国家可以有以下几种状态：
         <div class="sub-title">1. 被选中的国家</div>
-        <div>当用户点击Gio地球表面，并且这个这个区域代表着某个国家的话，这个国家会被点亮同时会成为"被选中"的状态。这个国家被称为"被选中的国家"。</div>
+        <div>当用户点击Gio地球表面某个国家的区域时，这个国家会以“被选中”的状态点亮。此时这个国家被称为"被选中的国家"。</div>
         <div>可以通过 <a href="configureAPI_zh.html">configure()</a> API来设置被选中国家的颜色，具体设置方法如下所示：</div>
         <div class="code">
             controller.configure({<br>
@@ -335,8 +335,8 @@
         <div>或者可以通过 <a href="colorRelatedBr_zh.html">adjustRelatedBrightness()</a> 来动态改变有关的国家的亮度。</div>
         <div class="sub-title">3. 被提到的国家</div>
         <div>除了"被选中的国家"和"有关的国家"之外，其余所有在数据集中提到的国家被定义为"提到过的国家"。</div>
-        <div>可以通过 <a href="designLightenMen_zh.html">ligtenMentioned(true)</a> 设置"被提到的国家"的亮度使其比地球表面的亮度略高，
-        可以使用 <a href="designLightenMen_zh.html">ligtenMentioned(false)</a> 来关闭改功能，默认该功能是不开启的。</div>
+        <div>可以通过 <a href="designLightenMen_zh.html">ligtenMentioned(true)</a> 设置"被提到的国家"的亮度，使其比地球表面的亮度略高，
+        可以使用 <a href="designLightenMen_zh.html">ligtenMentioned(false)</a> 来关闭该功能，默认设置下该功能不开启。</div>
         <div>可以通过 <a href="configureAPI_zh.html">configure()</a> API来设置"被提到国家"的亮度，默认的亮度是0.5，具体设置方法如下所示：</div>
         <div class="code">
             controller.configure({<br>
@@ -346,11 +346,11 @@
             });
         </div>
         <div>也可以通过 <a href="colorMenBr_zh.html">adjustMentionedBrightness()</a> 来动态设置"被提到国家"的亮度。
-            不过需要注意的是只有使用 <a href="designLightenMen_zh.html">ligtenMentioned(true)</a> 后才可以设置"被提到国家"的亮度。</div>
+            需要注意的是只有使用 <a href="designLightenMen_zh.html">ligtenMentioned(true)</a> 后才可以设置"被提到国家"的亮度。</div>
         <div class="sub-title">4. 未被提到的国家</div>
         <div>那些在数据集中未被提到的国家被称为"未被提到的国家"。</div>
         <div class="sub-title">5. 不可点击的国家</div>
-        <div>可以设置一个国家成为"不可点击的"，当用户点击"不可点击的国家"的时候，这个国家不会被点亮，同时也不会造成地球旋转。
+        <div>可以设置一个国家成为"不可点击的"状态，当用户点击"不可点击的国家"时，这个国家不会被点亮，同时也不会造成地球旋转。
             （在默认情况下，当一个国家被点击时，Gio地球会旋转，使该国家朝向正前方）</div>
         <div>可以通过 <a href="designDisableUnmen_zh.html">disableUnmentioned(true)</a> API来将未在数据集中提到的数据设置为"不可点击的"，
         也可以通过调用 <a href="designDisableUnmen_zh.html">disableUnmentioned(false)</a> API来关闭该设置。</div>

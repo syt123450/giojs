@@ -309,9 +309,9 @@
     <main>
         <header>连接线</header>
         <img class="tag-img" src="../../assets/images/elements/line_zh.jpg">
-        <div>连接线是Gio地球数据可视化的重要部分，两个国家之间的数据会通过数据线以一定的方向移动。对于
-             <a href="basicCountry_zh.html">被选中的国家</a> ，表示流入数据的线条称为"输入线条"，标书流出数据的线条称为"输出线条"。
-            "输入线条"的默认颜色是0x154492，"输出线条"的默认颜色是0xdd380c。
+        <div>连接线是Gio地球数据可视化的重要部分，两个国家之间的数据会通过数据线以流动的方式按照一定的方向移动。对于
+             <a href="basicCountry_zh.html">被选中的国家</a> ，表示流入数据的线条称为"输入线"，表示流出数据的线条称为"输出线"。
+            "输入线"的默认颜色是0x154492，"输出线"的默认颜色是0xdd380c。
         </div>
         <div>可以通过 <a href="configureAPI_zh.html">configure</a> API来设置连接线的颜色，具体设置方法如下所示：</div>
         <div class="code">
@@ -323,7 +323,7 @@
             });
         </div>
         <div>也可以通过 <a href="colorImport_zh.html">setInLineColor()</a> API和 <a
-                href="colorExport_zh.html">setOutLineColor()</a> API来动态改变"输入线条"和"输出线条"的颜色。</div>
+                href="colorExport_zh.html">setOutLineColor()</a> API来动态改变"输入线"和"输出线"的颜色。</div>
         <div>那可不可以设置特定某条连接线的颜色呢？当然是可以的。可以直接修改输入json数据来设置，具体设置方法如下所示：</div>
         <div class="code">
             {<br>

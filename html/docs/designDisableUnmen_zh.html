@@ -306,10 +306,8 @@
     </aside>
 
     <main>
-        <header>disableUnmentioned</header>
-        <div>Disables an <a href="basicCountry_zh.html">unmentioned country</a> and makes it unselectable. A disabled
-            country will not trigger any
-            mouse click event. By default, unmentioned country is NOT disabled.
+        <header>禁用点击未提及国家</header>
+        <div>禁用 <a href="basicCountry_zh.html">未提及的国家</a> 使在数据集中未提到过的国家在3D地球上不会被选中。作为默认设置，这个功能是不开启的。
         </div>
         <div>
             <a href="../../examples/12_API_disableUnmentioned.html" target="_blank">
@@ -319,14 +317,12 @@
         <div class="code">
             controller.disableUnmentioned(true);
         </div>
-        <div>The country in the image which is not mentioned in data set will become unclickable, try it in live
-            demo.
-        </div>
         <img class="tag-img" src="../../assets/images/design/disableUnmentioned.jpg">
         <div class="code">
+            // 关闭改功能 <br>
             controller.disableUnmentioned(false);
         </div>
-        <div>disable this function.</div>
+
     </main>
 </div>
 

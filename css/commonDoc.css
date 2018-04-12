@@ -264,17 +264,17 @@ footer {
     width: 50px;
     line-height: 50px;
     text-align: center;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.3);
     z-index: 10;
     font-size: 30px;
     color: #0071bc;
     cursor: pointer;
-
+    border-radius: 5px;
 }
 
 #smallGuide:hover {
 
-    background-color: #eeeeee;
+    background-color: rgba(238, 238, 238, 0.6);
 }
 
 #hideNav {
@@ -445,6 +445,11 @@ footer {
 
 .style-item > img.tag-img {
     width: 100%;
+}
+
+.cp_embed_wrapper {
+    margin-top: 30px;
+    width: 90%;
 }
 
 @media (max-width: 1200px) {

@@ -110,6 +110,10 @@
     font-family: DINAlternateBold, serif;
 }
 
+#description #toPlayground {
+    line-height: 42px;
+}
+
 #toPlayground:hover {
 
     border-color: #0c50bc;
@@ -317,6 +321,14 @@ footer {
     background-color: #333;
     text-align: center;
     clear: both;
+}
+
+@media (max-width: 1200px) {
+
+    #explanation > div > div {
+        padding: 0 30px;
+    }
+
 }
 
 @media (max-width: 995px) {

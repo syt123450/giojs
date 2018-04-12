@@ -6,6 +6,7 @@
 
     <meta name="description" content="Document page of Gio.js">
     <meta name="author" content="syt123450 / https://github.com/syt123450">
+    <meta name="author" content="lq3297401 / https://github.com/lq3297401">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel='icon' href='../../assets/images/logoTitle.ico' type=‘image/x-ico’>
 
@@ -307,21 +308,15 @@
 
     <main>
         <header>异步添加数据</header>
-        <div>Loads data to the controller of Gio and overrides previous data asynchronously. Data source can be
-            specified through an URL. Data must be in JSON format as specified in <a href="dataAdd_zh.html">addData</a>. The callback
-            function
-            will be executed when the data finishes loading.
-        </div>
-        <div>
-            url - In JSON format as specified in addData asyncLoadCallback - Callback function to be executed on
-            completion of data loading
-        </div>
-        <div>Usage:</div>
+        <div>将数据加载到Gio的控制器并异步覆盖以前的数据。数据源可以通过URL指定。数据必须采用<a href="dataAdd_zh.html">添加数据</a>
+            中指定的JSON格式。回调函数将在数据加载完成时执行。</div>
+        <div>url - 在添加数据asyncLoadCallback中指定的JSON格式 - 完成数据加载时执行的回调函数。</div>
+        <div>用法：</div>
         <div class="code">
             var url = "sampleData.json";<br><br>
 
-            // Use addDataAsync() API to load the data from a URL asynchronously.<br>
-            // The callback will be executed on completion of data loading.<br><br>
+            // 使用addDataAsync() API异步加载URL中的数据。<br>
+            // 回调将在完成数据加载后执行。<br><br>
 
             controller.addDataAsync( url, asyncLoadCallback );<br><br>
 

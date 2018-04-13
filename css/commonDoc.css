@@ -514,4 +514,8 @@ footer {
     .style-item > img.tag-img {
         margin-top: 0;
     }
+
+    .cp_embed_wrapper {
+        width: 100%;
+    }
 }

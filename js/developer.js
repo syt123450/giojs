@@ -8,6 +8,11 @@ function scrollFunction() {
     }
 }
 
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
+
 $(function() {
 
     $("#myBtn").click(function() {
@@ -23,6 +28,7 @@ $(function() {
             scrollTop: scrollTop
         }, 1000);
     });
+
 
     $("#more").click(function() {
         $("#nav-collapse").slideToggle();

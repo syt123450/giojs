@@ -1,35 +1,26 @@
-window.onscroll = function() {scrollFunction()};
+$(document).ready(function(){
+    $("#myBtn").hide();
 
-function scrollFunction() {
-    if (document.body.scrollTop > 650 || document.documentElement.scrollTop > 650) {
-        document.getElementById("myBtn").style.display = "block";
-    } else {
-        document.getElementById("myBtn").style.display = "none";
-    }
-}
+    $(function () {
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 650) {
+                $('#myBtn').fadeIn();
+            } else {
+                $('#myBtn').fadeOut();
+            }
+        });
 
-function topFunction() {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
-}
-
-$(function() {
-
-    $("#myBtn").click(function() {
-
-        var scrollTop;
-        if ( document.body.scrollTop >= 0 ) {
-            scrollTop = document.body.scrollTop;
-        } else {
-            scrollTop = document.documentElement.scrollTop;
-        }
-
-        $('html, body').animate({
-            scrollTop: scrollTop
-        }, 1000);
+        $('#myBtn').click(function () {
+            $('body,html').animate({
+                scrollTop: 0
+            }, 800);
+            return false;
+        });
     });
 
+});
 
+$(function() {
     $("#more").click(function() {
         $("#nav-collapse").slideToggle();
     });

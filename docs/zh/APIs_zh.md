@@ -29,12 +29,15 @@ Gio.js拥有丰富的API，您可以使用这些API来构建和定制3D数据可
 
 你可以在controller创建之后，使用configure API来配置controller，具体使用方式如下所示：
 
+```javascript
     controller.configure(configs)
+```
     
-configure API接受的参数和<a href="through_constructor">构造函数配置</a>一样，可以查看 <a href="#configure_API">配置参数</a> 了解各个配置参数的详细解释。
+configure API接受的参数和<a href="#through_constructor">构造函数配置</a>一样，可以查看 <a href="#parameter_list">配置参数</a> 了解各个配置参数的详细解释。
 
 ---
 ### <div id="parameter_list">配置参数表</div>
+
 ```javascript
     var configs = {
     
@@ -116,7 +119,7 @@ configure API接受的参数和<a href="through_constructor">构造函数配置<
 
 ### <a id="setInitCountry">设置初始国家</a>
 
-设置初始 [被选中国家](https://github.com/syt123450/Gio.js/wiki/2.-Basic-Elements#country) 。当Gio地球完成初始化之后，地球会有一个转动动画，将初始国家转至屏幕正前方。 默认设置下初始国家是"CN"（中国）。
+设置初始 [被选中国家](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#country) 。当Gio地球完成初始化之后，地球会有一个转动动画，将初始国家转至屏幕正前方。 默认设置下初始国家是"CN"（中国）。
 
 <p>
   <a target="_blank" href="http://www.giojs.org/examples/03_API_setInitCountry.html">
@@ -140,7 +143,7 @@ configure API接受的参数和<a href="through_constructor">构造函数配置<
 
 ### <div id="lightenMentioned">点亮提及国家</div>
 
-使Gio地球表面上 [提及国家](https://github.com/syt123450/Gio.js/wiki/2.-Basic-Elements#country) 比 [未提及的国家](https://github.com/syt123450/Gio.js/wiki/2.-Basic-Elements#country) 更亮。 在默认情况下，提及国家和未提及国家的亮度是一样的。
+使Gio地球表面上 [提及国家](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#country) 比 [未提及的国家](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#country) 更亮。 在默认情况下，提及国家和未提及国家的亮度是一样的。
 
 <p>
   <a href="http://giojs.org/examples/11_API_lightenMentioned.html">
@@ -166,7 +169,7 @@ configure API接受的参数和<a href="through_constructor">构造函数配置<
 
 ### <div id="disableUnmentioned">禁用点击未提及国家</div>
 
-禁用 [未提及的国家]() ，这个操作会使在数据集中未提到过的国家在3D地球上不可选。默认设置下此功能不开启。
+禁用 [未提及的国家](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#country) ，这个操作会使在数据集中未提到过的国家在3D地球上不可选。默认设置下此功能不开启。
 
 <p>
   <a href="http://giojs.org/examples/12_API_disableUnmentioned.html">
@@ -190,7 +193,7 @@ configure API接受的参数和<a href="through_constructor">构造函数配置<
 
 ###  <div id="showOnly">只显示输入线/输出线</div>
 
-对于 [被选中的国家]() ，只显示 [输入线]() 或者 [输出线]()。
+对于 [被选中的国家](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#country) ，只显示 [输入线](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#line) 或者 [输出线](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#line)。
 
 ```javascript
     controller.showInOnly(true);
@@ -235,7 +238,7 @@ configure API接受的参数和<a href="through_constructor">构造函数配置<
 
 ### <div id="controlHalo">添加/删除光晕</div>
 
-添加/删除光晕是一组API，可以控制是否在3D地球周围显示 [光晕]() 。 当使用 [addHalo()]() API添加光晕时，可以指定光晕颜色。默认设置下光晕是启用的。
+添加/删除光晕是一组API，可以控制是否在3D地球周围显示 [光晕](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#halo) 。 当使用 addHalo() API添加光晕时，可以指定光晕颜色。默认设置下光晕是启用的。
 
 <p>
   <a href="http://giojs.org/examples/25_API_addHalo(removeHalo).html">
@@ -263,7 +266,7 @@ configure API接受的参数和<a href="through_constructor">构造函数配置<
 
 ### <div id="controlStats">启动/禁用性能监控</div>
 
-显示或隐藏左上角的 [性能监控]() 组件。在使用这个API之前，需要先在HTML页面的 `<header>` 部分引入stats.min.js
+显示或隐藏左上角的 [性能监控](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#stats) 组件。在使用这个API之前，需要先在HTML页面的 `<header>` 部分引入stats.min.js
 
 <p>
   <a href="http://giojs.org/examples/18_API_enableStats(disableStats).html">
@@ -297,7 +300,7 @@ configure API接受的参数和<a href="through_constructor">构造函数配置<
 
 ## Color and Style APIs
 
-颜色风格类API用于设置Gio地球的风格（颜色和亮度）。您可以自定义几乎所有Gio地球的参数，例如 [表面]()， [国家]()， [连接线]()， [光晕]()， [背景]()， [海洋]() 等等。 我们同时在文档中提供在线演示和codepen在线编辑器用于帮助您理解和测试每一个API。 您可以点击以下链接来了解每一个API的定义和使用详情。
+颜色风格类API用于设置Gio地球的风格（颜色和亮度）。您可以自定义几乎所有Gio地球的参数，例如 [表面](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#surface)， [国家](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#country)， [连接线](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#line)， [光晕](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#halo)， [背景](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#background)， [海洋](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#ocean) 等等。 我们同时在文档中提供在线演示和codepen在线编辑器用于帮助您理解和测试每一个API。 您可以点击以下链接来了解每一个API的定义和使用详情。
 
 * <a href="#setStyle">设置风格</a>
 * <a href="#setSurfaceColor">设置表面颜色</a>
@@ -314,7 +317,7 @@ configure API接受的参数和<a href="through_constructor">构造函数配置<
 
 ### <div id="setStyle">设置风格</div>
 
-通过设置风格名称来更改3D地球的颜色风格。Gio.js提供一些预设的色彩风格，查看 [预置样式]() 文档，了解更多样式。
+通过设置风格名称来更改3D地球的颜色风格。Gio.js提供一些预设的色彩风格，查看 [预置样式](https://github.com/syt123450/giojs/blob/master/docs/zh/Predefined_Styles_zh.md) 文档，了解更多样式。
 
 <p>
   <a href="http://giojs.org/examples/10_API_setStyle.html">
@@ -337,7 +340,7 @@ configure API接受的参数和<a href="through_constructor">构造函数配置<
 
 ### <div id="setSurfaceColor">设置表面颜色</div>
 
-您可以设置3D地球的 [表面](#surface) 颜色。默认颜色是 #FFFFFF：
+您可以设置3D地球的 [表面](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#surface) 颜色。默认颜色是 #FFFFFF：
 
 <p>
   <a href="http://giojs.org/examples/01_API_setSurfaceColor.html">
@@ -364,7 +367,7 @@ configure API接受的参数和<a href="through_constructor">构造函数配置<
 
 ### <div id="setSelectedColor">设置选中国家颜色</div>
 
-您可以设置 [选中国家](#country) 颜色。默认的选中国家颜色和表面颜色相同，但亮度稍高一些。
+您可以设置 [选中国家](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#country) 颜色。默认的选中国家颜色和表面颜色相同，但亮度稍高一些。
 
 <p>
   <a href="http://giojs.org/examples/02_API_setSelectedColor.html">
@@ -390,7 +393,7 @@ Default:
 
 ### <div id="setExportColor">设置输出颜色</div>
 
-您可以设置输出线的颜色。关于连接线定义，请参考这里: [连接线](#line)。
+您可以设置输出线的颜色。关于连接线定义，请参考这里: [连接线](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#line)。
 
 <p>
   <a href="http://giojs.org/examples/04_API_setExportColor.html">
@@ -416,7 +419,7 @@ Default:
 
 ### <div id="setImportColor">设置输入颜色</div>
 
-您可以设置输入线的颜色。关于连接线定义，请参考这里: [连接线](#line)。
+您可以设置输入线的颜色。关于连接线定义，请参考这里: [连接线](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#line)。
 
 <p>
   <a href="http://giojs.org/examples/05_API_setImportColor.html">
@@ -444,7 +447,7 @@ Default:
 
 ### <div id="setHaloColor">设置光晕颜色</div>
 
-您可以设置 [光晕](#halo) 的颜色。 
+您可以设置 [光晕](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#halo) 的颜色。 
 
 <p>
   <a href="http://giojs.org/examples/24_API_setHaloColor.html">
@@ -472,7 +475,7 @@ Default:
 
 ### <div id="setBackgroundColor">设置背景颜色</div>
 
-您可以更改 [背景](#background) 的颜色
+您可以更改 [背景](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#background) 的颜色
 <p>
   <a href="http://giojs.org/examples/26_API_setBackgroundColor.html">
     <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton_zh.png" height="30" width="100" />
@@ -499,7 +502,7 @@ Default:
 
 ### <div id="adjustOceanBrightness">设置海洋亮度</div>
 
-您可以设置 [海洋](#ocean) 的亮度。
+您可以设置 [海洋](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#ocean) 的亮度。
 <p>
   <a href="http://giojs.org/examples/07_API_adjustOceanBrightness.html">
     <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton_zh.png" height="30" width="100" />
@@ -524,7 +527,7 @@ Default:
 
 ### <div id="adjustRelatedBrightness">设置相关国家亮度</div>
 
-您可以设置 [相关国家](#country) 的亮度。
+您可以设置 [相关国家](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#country) 的亮度。
 
 <p>
   <a href="http://giojs.org/examples/08_API_adjustRelatedBrightness.html">
@@ -550,7 +553,7 @@ Default:
 
 ### <div id="adjustMentionedBrightness">设置提到国家亮度</div>
 
-您可以设置 [提到国家](#country) 的亮度。
+您可以设置 [提到国家](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#country) 的亮度。
 
 <p>
   <a href="http://giojs.org/examples/09_API_adjustMentionedBrightness.html">
@@ -562,7 +565,7 @@ The range of the brightness is [0, 1] and its default value is `0.5`:
   <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/adjustMentionedBrightness1_zh.jpg"/></a>
 </p>   
 
-默认设置中，提到国家并不会被高亮。要更改提到国家的亮度，首先需要按如下方法调用[lightenMentioned(true)]()：
+默认设置中，提到国家并不会被高亮。要更改提到国家的亮度，首先需要按如下方法调用[lightenMentioned(true)](#lightenMentioned)：
 
 ```javascript
     controller.lightenMentioned(true);
@@ -574,7 +577,7 @@ The range of the brightness is [0, 1] and its default value is `0.5`:
 
 ---
 
-## Working with Data
+## <div id="workWithData">数据处理</div>
 
 Gio.js拥有多种设置数据的方式。最基本的方式是使用 addData API。如果需要异步加载数据，可以使用 addDataAsync API；如果需要周期性加载数据，可以使用 liveLoad API。 为了让数据更具有观赏性，Gio.js会对数据进行预处理。在添加数据时，你可以同时设置数据展示时的颜色。
 
@@ -590,7 +593,9 @@ Gio.js拥有多种设置数据的方式。最基本的方式是使用 addData AP
 
 将数据加载到Gio的控制器并同步覆盖以前的数据。用于可视化的数据集采用JSON格式。数组中的每一个元素都包含一个输入国家(i)，一个输出国家(e)和一个数值(v)。
 
-参数：data -- JSON格式数据
+参数：
+
+data -- JSON格式数据
 
 ```json
 [
@@ -613,7 +618,10 @@ Gio.js拥有多种设置数据的方式。最基本的方式是使用 addData AP
 
 ### <div id="addDataAsync">异步添加数据</div>
 
+ 参数： 
+ 
  *url* - 返回JSON格式数据，数据格式与[添加数据](#addData) 定义的data相同
+ 
  *asyncLoadCallback* - 当加载完成时执行的回调函数
  
 从一个数据源异步加载数据。
@@ -639,8 +647,12 @@ Gio.js拥有多种设置数据的方式。最基本的方式是使用 addData AP
 
 ### <div id="liveLoad">实时加载</div>
 
+参数：
+
  *url* - 返回JSON格式数据，数据格式与[添加数据](#addData) 定义的data相同
+ 
  *liveLoadCallback* - 当加载完成时执行的回调函数
+ 
  *duration* - 周期性数据加载时间（以毫秒为单位）
 
 周期性地从一个数据源加载数据，用法：
@@ -665,7 +677,7 @@ Gio.js拥有多种设置数据的方式。最基本的方式是使用 addData AP
 
 ### <div id="setSingleColor">设置单条线条颜色</div>
 
-正如 [连接线]() 章节所述，连接线分为两种类型：输入线和输出线。 与这两种类型的连接线相对应的颜色称为输入颜色和输出颜色。通过指定输入数据内容可以为这条数据指定一个唯一的颜色，如下所示：
+正如 [连接线](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#line) 章节所述，连接线分为两种类型：输入线和输出线。 与这两种类型的连接线相对应的颜色称为输入颜色和输出颜色。通过指定输入数据内容可以为这条数据指定一个唯一的颜色，如下所示：
 
 ```json
 [
@@ -686,7 +698,7 @@ Gio.js拥有多种设置数据的方式。最基本的方式是使用 addData AP
 ]
 ```
 
-备注：e，i，v与 [添加数据]() 中的定义相同。
+备注：e，i，v与 [添加数据](#addData) 中的定义相同。
 
 ---
 
@@ -742,7 +754,7 @@ controller.setSurfaceColor( "#00FF00" )
 
 ### <div id="switchCountry">切换选中国家</div>
 
-除了通过用户点击地球表面的国家来进行切换以外，Giojs还支持使用 [switchCountry()]() API来直接切换 被选中的国家 ，开发者可以使用这个API来开发具有交互性的应用。 （您也可以点击在线演示，查看应用该API的示例）
+除了通过用户点击地球表面的国家来进行切换以外，Giojs还支持使用 switchCountry() API来直接切换 被选中的国家 ，开发者可以使用这个API来开发具有交互性的应用。 （您也可以点击在线演示，查看应用该API的示例）
 
 参数：countryCode - 在 [ISO 3166](https://en.wikipedia.org/wiki/ISO_3166-1) 标准中的国家代码
 

@@ -28,7 +28,7 @@ You can use configure API to configure the controller, the basic usage of the co
 
     controller.configure(configs)
     
-the parameter of the configure API is the same as the parameter of the constructor function, see more information about the parameter in [constructor paramater](#constructor-configure).
+the parameter of the configure API is the same as the parameter of the constructor function, see more information about the parameter in [constructor paramater](#full-parameter-list).
 
 ---
 ### Full Parameter List
@@ -105,15 +105,15 @@ The Object Design APIs are a group of APIs used to control the object (show or h
 * [setInitCountry](#setinitcountry)
 * [lightenMentioned](#lightenmentioned)
 * [disableUnmentioned](#disableunmentioned)
-* [showInOnly / showOutOnly](#showinonly/showoutonly)
-* [addHalo / removeHalo](#addhalo/removehalo)
-* [enableStats / disableStats](#enablestats/disablestats)
+* <a href="#showOnly">showInOnly / showOutOnly</a>
+* <a href="#controlHalo">addHalo / removeHalo</a>
+* <a href="#controlStats">enableStats / disableStats</a>
 
 ---
 
 ### setInitCountry
 
-Sets the [country](https://github.com/syt123450/Gio.js/wiki/2.-Basic-Elements#country) initially selected. Once the 3D globe finishes initialization, it will rotate and bring this country to the front. The default value is `"CN"` (China). 
+Sets the [country](https://github.com/syt123450/giojs/blob/master/docs/en/Basic_Elements.md#country) initially selected. Once the 3D globe finishes initialization, it will rotate and bring this country to the front. The default value is `"CN"` (China). 
 <p>
   <a target="_blank" href="http://www.giojs.org/examples/03_API_setInitCountry.html">
     <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton.png" height="30" width="100" />
@@ -135,7 +135,7 @@ Default:
 ---
 
 ### lightenMentioned
-Makes the [mentioned country](https://github.com/syt123450/Gio.js/wiki/2.-Basic-Elements#country) brighter than those not mentioned in the input dataset. By default, mentioned country has the same brightness as the unmentioned country.
+Makes the [mentioned country](https://github.com/syt123450/giojs/blob/master/docs/en/Basic_Elements.md#country) brighter than those not mentioned in the input dataset. By default, mentioned country has the same brightness as the unmentioned country.
 <p>
   <a href="http://giojs.org/examples/11_API_lightenMentioned.html">
     <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton.png" height="30" width="100" />
@@ -160,7 +160,7 @@ Makes the [mentioned country](https://github.com/syt123450/Gio.js/wiki/2.-Basic-
 
 ### disableUnmentioned
 
-Disables an [unmentioned country]() and makes it unselectable. A disabled country will not trigger any mouse click event. By default, unmentioned country is NOT disabled.
+Disables an [unmentioned country](https://github.com/syt123450/giojs/blob/master/docs/en/Basic_Elements.md#country) and makes it unselectable. A disabled country will not trigger any mouse click event. By default, unmentioned country is NOT disabled.
 <p>
   <a href="http://giojs.org/examples/12_API_disableUnmentioned.html">
     <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton.png" height="30" width="100" />
@@ -181,9 +181,9 @@ Disables an [unmentioned country]() and makes it unselectable. A disabled countr
 
 ---
 
-###  showInOnly / showOutOnly<a name="showinonly"></a>
+###  <div id="showOnly">showInOnly / showOutOnly</a>
 
-Displays only the line with data flowing into the [selected country]() or with data flowing out of the [selected country]().
+Displays only the line with data flowing into the [selected country](https://github.com/syt123450/giojs/blob/master/docs/en/Basic_Elements.md#country) or with data flowing out of the [selected country](https://github.com/syt123450/giojs/blob/master/docs/en/Basic_Elements.md#country).
 
 ```javascript
     controller.showInOnly(true);
@@ -226,8 +226,8 @@ Displays only the line with data flowing into the [selected country]() or with d
 
 ---
 
-### addHalo / removeHalo
-Enables/Disables the [halo]() around the earth. When enabling halo, the color of halo also needs to be specified. By default halo is enabled.
+### <div id="controlHalo">addHalo / removeHalo</div>
+Enables/Disables the [halo](https://github.com/syt123450/giojs/blob/master/docs/en/Basic_Elements.md#halo) around the earth. When enabling halo, the color of halo also needs to be specified. By default halo is enabled.
 <p>
   <a href="http://giojs.org/examples/25_API_addHalo(removeHalo).html">
     <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton.png" height="30" width="100" />
@@ -252,8 +252,8 @@ Enables/Disables the [halo]() around the earth. When enabling halo, the color of
 
 ---
 
-### enableStats / disableStats
-Displays/hides [stats]() on the upper-left corner of the scene. To use this API, `stats.min.js` must be included in the `<header>` tag of your html page.
+### <div id="controlStats">enableStats / disableStats</div>
+Displays/hides [stats](https://github.com/syt123450/giojs/blob/master/docs/en/Basic_Elements.md#stats) on the upper-left corner of the scene. To use this API, `stats.min.js` must be included in the `<header>` tag of your html page.
 <p>
   <a href="http://giojs.org/examples/18_API_enableStats(disableStats).html">
     <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton.png" height="30" width="100" />
@@ -286,14 +286,14 @@ Displays/hides [stats]() on the upper-left corner of the scene. To use this API,
 
 ## Color and Style APIs
 
-The color and style APIs are used to set the style (color and brightness) of Gio globe. You can customize almost everything of Gio globe, such as [surface](), [country](), [line](), [halo](), [background](), [ocean]() and etc. Together with documentation, we provide live demos and jsfiddle online editor for you to understand and try each API. Click the link below to see the detailed explanation of each API.
+The color and style APIs are used to set the style (color and brightness) of Gio globe. You can customize almost everything of Gio globe, such as [surface](https://github.com/syt123450/giojs/blob/master/docs/en/Basic_Elements.md#surface), [country](https://github.com/syt123450/giojs/blob/master/docs/en/Basic_Elements.md#country), [line](https://github.com/syt123450/giojs/blob/master/docs/en/Basic_Elements.md#line), [halo](https://github.com/syt123450/giojs/blob/master/docs/en/Basic_Elements.md#halo), [background](https://github.com/syt123450/giojs/blob/master/docs/en/Basic_Elements.md#background), [ocean](https://github.com/syt123450/giojs/blob/master/docs/en/Basic_Elements.md#ocean) and etc. Together with documentation, we provide live demos and jsfiddle online editor for you to understand and try each API. Click the link below to see the detailed explanation of each API.
 
 * [setStyle](#setstyle)
 * [setSurfaceColor](#setsurfacecolor)
 * [setSelectedColor](#setselectedcolor)
 * [setExportColor](#setexportcolor)
 * [setImportColor](#setimportcolor)
-* [setImportColor](#setimportcolor)
+* [setHaloColor](#sethalocolor)
 * [setBackgroundColor](#setbackgroundcolor)
 * [adjustOceanBrightness](#adjustoceanbrightness)
 * [adjustRelatedBrightness](#adjustrelatedbrightness)
@@ -304,7 +304,7 @@ The color and style APIs are used to set the style (color and brightness) of Gio
 
 ### setStyle
 
-Sets the color scheme of the 3D globe by name. Check [here](https://github.com/syt123450/Gio.js/wiki/5.-Predefined-Styles) for some predefined styles. 
+Sets the color scheme of the 3D globe by name. Check [here](https://github.com/syt123450/giojs/blob/master/docs/en/Predefined_Styles.md) for some predefined styles. 
 <p>
   <a href="http://giojs.org/examples/10_API_setStyle.html">
     <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton.png" height="30" width="100" />
@@ -327,7 +327,7 @@ to style called `magic`:
 
 ### setSurfaceColor
 
-Sets the color of the [surface](#surface) the 3D globe. The default color is `#FFFFFF`:
+Sets the color of the [surface](https://github.com/syt123450/giojs/blob/master/docs/en/Basic_Elements.md#surface) the 3D globe. The default color is `#FFFFFF`:
 <p>
   <a href="http://giojs.org/examples/01_API_setSurfaceColor.html">
     <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton.png" height="30" width="100" />
@@ -353,7 +353,7 @@ Sets the color of the [surface](#surface) the 3D globe. The default color is `#F
 
 ### setSelectedColor
 
-Sets color of the [country](#country) in selected state. The default color of the selected country is the same as the surface but brighter.
+Sets color of the [country](https://github.com/syt123450/giojs/blob/master/docs/en/Basic_Elements.md#country) in selected state. The default color of the selected country is the same as the surface but brighter.
 <p>
   <a href="http://giojs.org/examples/02_API_setSelectedColor.html">
     <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton.png" height="30" width="100" />
@@ -378,7 +378,7 @@ Default:
 
 ### setExportColor
 
-Sets the color of `out line`. Definition of [out line](#line). 
+Sets the color of `out line`. Definition of [out line](https://github.com/syt123450/giojs/blob/master/docs/en/Basic_Elements.md#line). 
 <p>
   <a href="http://giojs.org/examples/04_API_setExportColor.html">
     <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton.png" height="30" width="100" />
@@ -403,7 +403,7 @@ The default color of out line is `0xDD380C`:
 
 ### setImportColor
 
-Sets the color of `in line`. Definition of [in line](). 
+Sets the color of `in line`. Definition of [in line](https://github.com/syt123450/giojs/blob/master/docs/en/Basic_Elements.md#line). 
 <p>
   <a href="http://giojs.org/examples/05_API_setImportColor.html">
     <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton.png" height="30" width="100" />
@@ -429,7 +429,7 @@ The default color of out line is `0x154492`:
 
 ### setHaloColor
 
-Sets the color of the [Halo](#halo). 
+Sets the color of the [Halo](https://github.com/syt123450/giojs/blob/master/docs/en/Basic_Elements.md#halo). 
 <p>
   <a href="http://giojs.org/examples/24_API_setHaloColor.html">
     <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton.png" height="30" width="100" />
@@ -456,7 +456,7 @@ The default color of halo is `0xFFFFFF`:
 
 ### setBackgroundColor
 
-Sets the color of the [background](#background). 
+Sets the color of the [background](https://github.com/syt123450/giojs/blob/master/docs/en/Basic_Elements.md#background). 
 <p>
   <a href="http://giojs.org/examples/26_API_setBackgroundColor.html">
     <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton.png" height="30" width="100" />
@@ -482,7 +482,7 @@ The default is` 0x000000`:
 
 ### adjustOceanBrightness
 
-Sets the brightness of the [ocean](#ocean). 
+Sets the brightness of the [ocean](https://github.com/syt123450/giojs/blob/master/docs/en/Basic_Elements.md#ocean). 
 <p>
   <a href="http://giojs.org/examples/07_API_adjustOceanBrightness.html">
     <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton.png" height="30" width="100" />
@@ -506,7 +506,7 @@ The range of the brightness is [0, 1] and its default value is `0.5`:
 
 ### adjustRelatedBrightness
 
-Sets the brightness of the [related country](#country). 
+Sets the brightness of the [related country](https://github.com/syt123450/giojs/blob/master/docs/en/Basic_Elements.md#country). 
 <p>
   <a href="http://giojs.org/examples/08_API_adjustRelatedBrightness.html">
     <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton.png" height="30" width="100" />
@@ -530,7 +530,7 @@ The range of the brightness is [0, 1] and its default value is `0.5`:
 
 ### adjustMentionedBrightness
 
-Sets the brightness of the [mentioned country](#country). 
+Sets the brightness of the [mentioned country](https://github.com/syt123450/giojs/blob/master/docs/en/Basic_Elements.md#country). 
 <p>
   <a href="http://giojs.org/examples/09_API_adjustMentionedBrightness.html">
     <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton.png" height="30" width="100" />
@@ -541,7 +541,7 @@ The range of the brightness is [0, 1] and its default value is `0.5`:
   <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/adjustMentionedBrightness1.jpg"/></a>
 </p>   
 
-By default, mentioned country will not be highlighted. To adjust the brightness, [lightenMentioned(true)]()needs to be called first as follows:
+By default, mentioned country will not be highlighted. To adjust the brightness, [lightenMentioned(true)](#lightenmentioned)needs to be called first as follows:
 
 ```javascript
     controller.lightenMentioned(true);
@@ -555,17 +555,17 @@ By default, mentioned country will not be highlighted. To adjust the brightness,
 
 ## Working with Data
 
-There are multiple ways to load data into the controller of Gio.js. The basic way is to use [addData]() API. To load data asynchronously, use [addDataAsync]() API. To refresh the data periodically, you can use [liveLoad]() API. To make a better visualization of data flow, the range of the data is adjusted before used for rendering. To do a fine-grained control over the color of each line that connects two countries, check []();
+There are multiple ways to load data into the controller of Gio.js. The basic way is to use [addData](#adddata) API. To load data asynchronously, use [addDataAsync](adddataasync) API. To refresh the data periodically, you can use [liveLoad](liveload) API. To make a better visualization of data flow, the range of the data is adjusted before used for rendering. To do a fine-grained control over the color of each line that connects two countries, check []();
 
-* [addData()](#adddata)
-* [addDataAsync()](#adddataasync)
-* [liveLoad()](#liveload)
-* [Set Color of Each Line]()
-* [Data Preprocessing]()
+* [addData](#adddata)
+* [addDataAsync](#adddataasync)
+* [liveLoad](#liveload)
+* <a href="#setLineColor">Set Color of Each Line</a>
+* <a href="#dataPreprocessing">Data Preprocessing</a>
 
 ---
 
-### addData()
+### addData
 
 Loads data to the controller of Gio and overrides previous data synchronously. The dataset used for visualization is in JSON format. Each element of the array has an import country (`i`), an export country (`e`) and a value (`v`).
 
@@ -588,8 +588,10 @@ Explanation: The line has a direction and connection two country, the moving par
 
 ---
 
-### addDataAsync()
- *url* - In JSON format as speficied in [addData]()
+### addDataAsync
+
+ *url* - In JSON format as speficied in [addData](#adddata)
+ 
  *asyncLoadCallback* - Callback function to be executed on completion of data loading
  
 Loads data to the controller of Gio and overrides previous data asynchronously. Data source can be specified through an URL. Data must be in JSON format as specified in [addData](). The callback function will be executed when the data finishes loading. 
@@ -613,9 +615,12 @@ Usage:
  
 ---
 
-### liveLoad()
- *dataSource* - In JSON format as speficied in [addData]()
+### liveLoad
+
+ *dataSource* - In JSON format as speficied in [addData](#adddata)
+ 
  *liveLoadCallback* - Callback function to be executed on completion of data loading
+ 
  *duration* - duration of data loading time in milliseconds
 
 Loads data to the controller periodically. Usage:
@@ -638,9 +643,9 @@ Loads data to the controller periodically. Usage:
 
 ---
 
-### Set Color of Each Line
+### <div id="setLineColor">Set Color of Each Line</div>
 
-As mentioned in [line]() section, there are two types of lines: `in line` and `out line`. The colors associated with these two types of lines are called `inColor` and `outColor`. Each line can have a unique color specified through the input data as follows:
+As mentioned in [line](https://github.com/syt123450/giojs/blob/master/docs/en/Basic_Elements.md#line) section, there are two types of lines: `in line` and `out line`. The colors associated with these two types of lines are called `inColor` and `outColor`. Each line can have a unique color specified through the input data as follows:
 
 ```json
 [
@@ -661,11 +666,11 @@ As mentioned in [line]() section, there are two types of lines: `in line` and `o
 ]
 ```
 
-Note: `e`, `i`, and `v` have the same definition as in [addData](). 
+Note: `e`, `i`, and `v` have the same definition as in [addData](#adddata). 
 
 ---
 
-### Data Preprocessing
+### <div id="dataPreprocessing">Data Preprocessing</div>
 
 In the input JSON data, the higher the value of `v` gets, the brighter the particles are and the faster they travel from the country of origin to destination. (Check Michael Chang's [article](http://mflux.tumblr.com/post/28367579774/armstradeviz)  for how he comes up with this idea.) Gio.js library will automatically scale the range of the input data for better visualization. As a developer, you can also define your own way of preprocessing data.
 
@@ -675,11 +680,12 @@ In the input JSON data, the higher the value of `v` gets, the brighter the parti
 
 So far there is only one event to customized. And we are working on it to provide more customized event to make developing with Gio.js easier.
 
-* [onCountryPicked()](#oncountrypicked)
+* [onCountryPicked](#oncountrypicked)
 
 ---
 
-### onCountryPicked( callback )
+### onCountryPicked
+
 Fired when selected country changes. 
 
 **What if the same country if clicked???**
@@ -690,8 +696,8 @@ Fired when selected country changes.
 
 Advanced features aims to help developer implement interactive applications more effectively. 
 
-* [Method Chaining](#methodchaining)
-* [switchCountry()](switchcountry)
+* [Method Chaining](#method-chaining)
+* [switchCountry](#switchcountry)
 
 ---
 
@@ -714,8 +720,10 @@ controller.setSurfaceColor( "#00FF00" )
 
 ---
 
-### switchCountry()
-*countryCode* - Country/area codes that conforms to [ISO 3166](https://en.wikipedia.org/wiki/ISO_3166-1) standards
+### switchCountry
+
+*countryCode* - Country/area codes that conforms to [ISO 3166](https://en.wikipedia.org/wiki/ISO_3166-1) standards.
+
 Instead of mouse click, `swtichCountry()` API can be used to change currently selected country. This gives developer more flexibility.
 
 <p>

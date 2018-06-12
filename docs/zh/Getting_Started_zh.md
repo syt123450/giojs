@@ -92,10 +92,9 @@ yarn add giojs
 
 ## 文档
 
-- 如果想要快速了解如何使用Giojs的话，看看 [开始使用](https://github.com/syt123450/Gio.js/blob/master/docs/en/Getting%20Started.md) 呐~
-- 如果想要了解Giojs的基本组件，看看 [基础组件](https://github.com/syt123450/Gio.js/blob/master/docs/en/Basic%20Elements.md) 哈~
-- 如果你有丰富的第三方组件的使用经验，不妨直接研究一下 [Giojs API 文档](https://github.com/syt123450/Gio.js/blob/master/docs/en/APIs.md) 啦~
-- 如果想要加入我们Giojs的开发，来看看 [开发者文档](https://github.com/syt123450/Gio.js/blob/master/docs/en/Developer%20Guide.md) 吧~
+- 如果想要了解Giojs的基本组件，看看 [基础组件](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md) 哈~
+- 如果你有丰富的第三方组件的使用经验，不妨直接研究一下 [Giojs API 文档](https://github.com/syt123450/giojs/blob/master/docs/zh/APIs_zh.md) 啦~
+- 如果想要加入我们Giojs的开发，来看看 [开发者文档](https://github.com/syt123450/giojs/blob/master/docs/zh/Developer_Guide_zh.md) 吧~
 - 当然如果看不惯Markdown格式的文档，我们也准备了中文版的网站 [官网](http://giojs.org/index_zh.html)
 <!-- [END documentation] -->
 

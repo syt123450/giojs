@@ -54,7 +54,7 @@ controller.configure({
 });
 ```
 
-也可以通过 [setSurfaceColor()](#setSurfaceColor) API来动态修改表面颜色。
+也可以通过 [setSurfaceColor()](https://github.com/syt123450/giojs/blob/master/docs/zh/APIs_zh.md#setSurfaceColor) API来动态修改表面颜色。
 
 
 ---

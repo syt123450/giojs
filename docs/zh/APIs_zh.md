@@ -1,19 +1,20 @@
 
+# Gio.js API 文档
+
+## 配置
+
+Gio.js拥有丰富的API，您可以使用这些API来构建和定制3D数据可视化模型。了解如何配置参数会对之后的开发有很大的帮助。 Gio.js有两种基本的配置参数方式：构造函数配置和配置API。点击以下文档链接了解详细信息：
+
+* <a href="#through_constructor">构造函数配置</a>
+* <a href="#configure_API">配置API</a>
+* <a href="#parameter_list">配置参数表</a>
+
 ---
 
-## Configuration
+### <div id="through_constructor">构造函数配置</div>
 
-Using Gio.js, you can easily create a customized 3D globe for data visualization. Before you start to create your own globe, it is important to know the full parameter list how to configure the globe. Basically, there are two ways to set the customized configurations, you can click the link below to see the detailed information:
+当你创建Gio controller对象的时候，你可以将配置参数传递给controller，具体传递方式如下所示：
 
-* [Through controller constructor](#through-constructor)
-* [Through configure() API](#configure-api)
-* [Full parameter list](#full-parameter-list)
-
----
-
-### Through Constructor
-
-When creating a controller for the 3D globe, you can pass the configurations of the globe to the controller as a constructor parameter as follows:
 ```javascript
     var configs = {
         color: {
@@ -22,17 +23,19 @@ When creating a controller for the 3D globe, you can pass the configurations of 
     };
     var globe = new Gio.controller(container, configs);
 ```
----
-### Configure API
 
-You can use configure API to configure the controller, the basic usage of the configure API is as shown below:
+---
+
+### <div id="configure_API">配置API</div>
+
+你可以在controller创建之后，使用configure API来配置controller，具体使用方式如下所示：
 
     controller.configure(configs)
     
-the parameter of the configure API is the same as the parameter of the constructor function, see more information about the parameter in [constructor paramater](#constructor-configure).
+configure API接受的参数和<a href="through_constructor">构造函数配置</a>一样，可以查看 <a href="#configure_API">配置参数</a> 了解各个配置参数的详细解释。
 
 ---
-### Full Parameter List
+### <div id="parameter_list">配置参数表</div>
 ```javascript
     var configs = {
     
@@ -75,71 +78,74 @@ the parameter of the configure API is the same as the parameter of the construct
         
     }
 ```
-Table of parameters:
+参数表:
 
-| Parameter | Default Value/ Range | Description |
+| 参数名 | 默认值/范围 | 描述 |
 |  ------------- | ------------- |  ------------- | 
-| control.stats | false  | True means to turn on the performance monitor for Three.js. | 
-| control.disableUnmentioned  | false  | True means tp set unmentioned country unclickable. |
-| control.lightenMentioned | false | True means to set mentioned country brighter than unmentioned country. |
-| control.inOnly | false | True means to only display data going into the destination country.|
-| control.outOnly | false | True means to only display data going out the origination country.|
-| control.initCountry | "CN" | A country displayed at the center of the screen when the globe has been initialized.|
-| control.halo | true  | True means to turn on the halo. |
-| color.surface | 0xFFFFFF or "#FFFFFF" | The color scheme of land and ocean area. |
-| color.selected | null | Color of selected country. |
-| color.in| 0x154492 or "#154492" | Color of line going into the destination. |
-| color.out | 0xDD380C or "#DD380C"| Color of the line going out of the origination country. |
-| color.halo | 0xFFFFFF or "#FFFFFF" | Color of the halo. |
-| color.background | null | Color of the background. |
-| brightness.ocean | <p>0.5</p> <p>[0.0, 1.0]| Brightness of the ocean.</p> |
-| brightness.mentioned | <p>0.5</p> <p>[0.0, 1.0]| Brightness of the ocean.</p> | Brightness of the mentioned country. |
-| brightness.related | <p>0.5</p> <p>[0.0, 1.0]| Brightness of the ocean.</p> | Brightness of the countries related to the selected country. |
-| resource.loading | null | The path of the loading icon relative to "index.html".|
+| control.stats | false  | True表示开启性能监控 | 
+| control.disableUnmentioned  | false  | True表示设置"未提到的国家"不可点击 |
+| control.lightenMentioned | false | True表示设置地球表面"提到的国家"比"未提到的国家"更亮 |
+| control.inOnly | false | True表示只显示"输入线条"|
+| control.outOnly | false | True表示只显示"输出线条"|
+| control.initCountry | "CN" | 初始"被选中国家"|
+| control.halo | true  | True表示显示光晕 |
+| color.surface | 0xFFFFFF or "#FFFFFF" |大陆以及海洋颜色 |
+| color.selected | null | 被选中国家颜色 |
+| color.in| 0x154492 or "#154492" | "输入线条"颜色 |
+| color.out | 0xDD380C or "#DD380C"|"输出线条"颜色 |
+| color.halo | 0xFFFFFF or "#FFFFFF" | 光晕颜色 |
+| color.background | null | 背景颜色 |
+| brightness.ocean | <p>0.5</p> <p>[0.0, 1.0]| 海洋亮度</p> |
+| brightness.mentioned | <p>0.5</p> <p>[0.0, 1.0]| 被提到国家亮度</p> | 
+| brightness.related | <p>0.5</p> <p>[0.0, 1.0]| 有关国家亮度</p> |
+| resource.loading | null | loading图片相对路径 |
 
 ---
 
-## Object Design APIs
+## 功能设计型API
 
-The Object Design APIs are a group of APIs used to control the object (show or hide). Together with the documentation, we provide live demos and jsfiddle online editor for you to understand and try each API. Click the link below to see the detailed explanation of each API.
+功能设计型API是一组可以控制Gio元素（呈现或隐藏）的API。除文档外，我们还提供在线演示来帮助您更好地理解这些API。 点击以下链接来查看各个API详细的解释。
 
-* [setInitCountry](#setinitcountry)
-* [lightenMentioned](#lightenmentioned)
-* [disableUnmentioned](#disableunmentioned)
-* [showInOnly / showOutOnly](#showinonly/showoutonly)
-* [addHalo / removeHalo](#addhalo/removehalo)
-* [enableStats / disableStats](#enablestats/disablestats)
+* <a href="#setInitCountry">设置初始国家</a>
+* <a href="#lightenMentioned">点亮提及国家</a>
+* <a href="#disableUnmentioned">禁用点击未提及国家</a>
+* <a href="#showOnly">只显示输入线/输出线</a>
+* <a href="#controlHalo">添加/删除光晕</a>
+* <a href="#controlStats">启动/禁用性能监控</a>
 
 ---
 
-### setInitCountry
+### <a id="setInitCountry">设置初始国家</a>
 
-Sets the [country](https://github.com/syt123450/Gio.js/wiki/2.-Basic-Elements#country) initially selected. Once the 3D globe finishes initialization, it will rotate and bring this country to the front. The default value is `"CN"` (China). 
+设置初始 [被选中国家](https://github.com/syt123450/Gio.js/wiki/2.-Basic-Elements#country) 。当Gio地球完成初始化之后，地球会有一个转动动画，将初始国家转至屏幕正前方。 默认设置下初始国家是"CN"（中国）。
+
 <p>
   <a target="_blank" href="http://www.giojs.org/examples/03_API_setInitCountry.html">
-    <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton.png" height="30" width="100" />
+    <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton_zh.png" height="30" width="100" />
   </a>
 </p>  
-Default:
+默认初始国家：
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/design/setInitCountry_default.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/design/setInitCountry_default_zh.jpg"/></a>
 </p>
 
 ```javascript
-    // change the init country to the United States
+    // 将初始国家改成"美国"
     controller.setInitCountry("US");
 ```
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/design/setInitCountry.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/design/setInitCountry.jpg"/></a>
 </p>
 
 ---
 
-### lightenMentioned
-Makes the [mentioned country](https://github.com/syt123450/Gio.js/wiki/2.-Basic-Elements#country) brighter than those not mentioned in the input dataset. By default, mentioned country has the same brightness as the unmentioned country.
+### <div id="lightenMentioned">点亮提及国家</div>
+
+使Gio地球表面上 [提及国家](https://github.com/syt123450/Gio.js/wiki/2.-Basic-Elements#country) 比 [未提及的国家](https://github.com/syt123450/Gio.js/wiki/2.-Basic-Elements#country) 更亮。 在默认情况下，提及国家和未提及国家的亮度是一样的。
+
 <p>
   <a href="http://giojs.org/examples/11_API_lightenMentioned.html">
-    <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton.png" height="30" width="100" />
+    <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton_zh.png" height="30" width="100" />
   </a>
 </p>  
 
@@ -147,24 +153,25 @@ Makes the [mentioned country](https://github.com/syt123450/Gio.js/wiki/2.-Basic-
     controller.lightenMentioned(true);
 ```
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/design/lightenMentioned_true.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/design/lightenMentioned_true.jpg"/></a>
 </p>
 
 ```javascript
     controller.lightenMentioned(false);
  ```   
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/design/lightenMentioned_true.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/design/lightenMentioned_true.jpg"/></a>
 </p>
 
 ---
 
-### disableUnmentioned
+### <div id="disableUnmentioned">禁用点击未提及国家</div>
 
-Disables an [unmentioned country]() and makes it unselectable. A disabled country will not trigger any mouse click event. By default, unmentioned country is NOT disabled.
+禁用 [未提及的国家]() ，这个操作会使在数据集中未提到过的国家在3D地球上不可选。默认设置下此功能不开启。
+
 <p>
   <a href="http://giojs.org/examples/12_API_disableUnmentioned.html">
-    <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton.png" height="30" width="100" />
+    <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton_zh.png" height="30" width="100" />
   </a>
 </p>  
 
@@ -173,7 +180,7 @@ Disables an [unmentioned country]() and makes it unselectable. A disabled countr
 ```
 
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/design/disableUnmentioned.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/design/disableUnmentioned_zh.jpg"/></a>
 </p>
 
 ```javascript
@@ -182,21 +189,21 @@ Disables an [unmentioned country]() and makes it unselectable. A disabled countr
 
 ---
 
-###  showInOnly / showOutOnly<a name="showinonly"></a>
+###  <div id="showOnly">只显示输入线/输出线</div>
 
-Displays only the line with data flowing into the [selected country]() or with data flowing out of the [selected country]().
+对于 [被选中的国家]() ，只显示 [输入线]() 或者 [输出线]()。
 
 ```javascript
     controller.showInOnly(true);
 ```
 <p>
   <a href="http://giojs.org/examples/13_API_showInOnly.html">
-    <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton.png" height="30" width="100" />
+    <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton_zh.png" height="30" width="100" />
   </a>
 </p>  
 
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/design/showInOnly_true.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/design/showInOnly_true_zh.jpg"/></a>
 </p>
 
 ```javascript
@@ -204,34 +211,36 @@ Displays only the line with data flowing into the [selected country]() or with d
 ```
 <p>
   <a href="http://giojs.org/examples/14_API_showOutOnly.html">
-    <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton.png" height="30" width="100" />
+    <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton_zh.png" height="30" width="100" />
   </a>
 </p>  
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/design/showInOnly_false.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/design/showInOnly_false_zh.jpg"/></a>
 </p>
 
 ```javascript
     controller.showOutOnly(true);
 ```
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/design/showOutOnly_true.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/design/showOutOnly_true_zh.jpg"/></a>
 </p>
 
 ```javascript
     controller.showOutOnly(false);
 ```
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/design/showOutOnly_false.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/design/showOutOnly_false_zh.jpg"/></a>
 </p>
 
 ---
 
-### addHalo / removeHalo
-Enables/Disables the [halo]() around the earth. When enabling halo, the color of halo also needs to be specified. By default halo is enabled.
+### <div id="controlHalo">添加/删除光晕</div>
+
+添加/删除光晕是一组API，可以控制是否在3D地球周围显示 [光晕]() 。 当使用 [addHalo()]() API添加光晕时，可以指定光晕颜色。默认设置下光晕是启用的。
+
 <p>
   <a href="http://giojs.org/examples/25_API_addHalo(removeHalo).html">
-    <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton.png" height="30" width="100" />
+    <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton_zh.png" height="30" width="100" />
   </a>
 </p>  
 
@@ -240,7 +249,7 @@ Enables/Disables the [halo]() around the earth. When enabling halo, the color of
 ```
 
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/design/addHalo.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/design/addHalo_zh.jpg"/></a>
 </p>
 
 ```javascript
@@ -248,16 +257,18 @@ Enables/Disables the [halo]() around the earth. When enabling halo, the color of
 ```
 
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/design/removeHalo.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/design/removeHalo.jpg"/></a>
 </p>
 
 ---
 
-### enableStats / disableStats
-Displays/hides [stats]() on the upper-left corner of the scene. To use this API, `stats.min.js` must be included in the `<header>` tag of your html page.
+### <div id="controlStats">启动/禁用性能监控</div>
+
+显示或隐藏左上角的 [性能监控]() 组件。在使用这个API之前，需要先在HTML页面的 `<header>` 部分引入stats.min.js
+
 <p>
   <a href="http://giojs.org/examples/18_API_enableStats(disableStats).html">
-    <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton.png" height="30" width="100" />
+    <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton_zh.png" height="30" width="100" />
   </a>
 </p>  
 
@@ -272,7 +283,7 @@ Displays/hides [stats]() on the upper-left corner of the scene. To use this API,
 ```    
 
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/design/stats_enable.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/design/stats_enable.jpg"/></a>
 </p>
 
 ```javascript
@@ -280,219 +291,226 @@ Displays/hides [stats]() on the upper-left corner of the scene. To use this API,
 ```    
 
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/design/stats_disable.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/design/stats_disable.jpg"/></a>
 </p>
 
 ---
 
 ## Color and Style APIs
 
-The color and style APIs are used to set the style (color and brightness) of Gio globe. You can customize almost everything of Gio globe, such as [surface](), [country](), [line](), [halo](), [background](), [ocean]() and etc. Together with documentation, we provide live demos and jsfiddle online editor for you to understand and try each API. Click the link below to see the detailed explanation of each API.
+颜色风格类API用于设置Gio地球的风格（颜色和亮度）。您可以自定义几乎所有Gio地球的参数，例如 [表面]()， [国家]()， [连接线]()， [光晕]()， [背景]()， [海洋]() 等等。 我们同时在文档中提供在线演示和codepen在线编辑器用于帮助您理解和测试每一个API。 您可以点击以下链接来了解每一个API的定义和使用详情。
 
-* [setStyle](#setstyle)
-* [setSurfaceColor](#setsurfacecolor)
-* [setSelectedColor](#setselectedcolor)
-* [setExportColor](#setexportcolor)
-* [setImportColor](#setimportcolor)
-* [setImportColor](#setimportcolor)
-* [setBackgroundColor](#setbackgroundcolor)
-* [adjustOceanBrightness](#adjustoceanbrightness)
-* [adjustRelatedBrightness](#adjustrelatedbrightness)
-* [adjustMentionedBrightness](#adjustmentionedbrightness)
-
+* <a href="#setStyle">设置风格</a>
+* <a href="#setSurfaceColor">设置表面颜色</a>
+* <a href="#setSelectedColor">设置选中国家颜色</a>
+* <a href="#setExportColor">设置输出颜色</a>
+* <a href="#setImportColor">设置输入颜色</a>
+* <a href="#setHaloColor">设置光晕颜色</a>
+* <a href="#setBackgroundColor">设置背景颜色</a>
+* <a href="#adjustOceanBrightness">设置海洋亮度</a>
+* <a href="#adjustRelatedBrightness">设置相关国家亮度</a>
+* <a href="#adjustMentionedBrightness">设置提到国家亮度</a>
 
 ---
 
-### setStyle
+### <div id="setStyle">设置风格</div>
 
-Sets the color scheme of the 3D globe by name. Check [here](https://github.com/syt123450/Gio.js/wiki/5.-Predefined-Styles) for some predefined styles. 
+通过设置风格名称来更改3D地球的颜色风格。Gio.js提供一些预设的色彩风格，查看 [预置样式]() 文档，了解更多样式。
+
 <p>
   <a href="http://giojs.org/examples/10_API_setStyle.html">
-    <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton.png" height="30" width="100" />
+    <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton_zh.png" height="30" width="100" />
   </a>
 </p>  
-For example we want to change from default style
+例如：想将默认风格更改为“magic”风格：
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/setStyle1.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/setStyle1_zh.jpg"/></a>
 </p>
 
-to style called `magic`:
 ```javascript
     controller.setStyle("magic");
 ```
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/setStyle2.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/setStyle2_zh.jpg"/></a>
 </p>
 
 ---
 
-### setSurfaceColor
+### <div id="setSurfaceColor">设置表面颜色</div>
 
-Sets the color of the [surface](#surface) the 3D globe. The default color is `#FFFFFF`:
+您可以设置3D地球的 [表面](#surface) 颜色。默认颜色是 #FFFFFF：
+
 <p>
   <a href="http://giojs.org/examples/01_API_setSurfaceColor.html">
-    <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton.png" height="30" width="100" />
+    <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton_zh.png" height="30" width="100" />
   </a>
 </p>  
 <p align="center">
-  <a><img src="hhttp://giojs.org/assets/images/color/setSurfaceColor1.png" />
+  <a><img src="hhttp://giojs.org/assets/images/color/setSurfaceColor1_zh.jpg" />
   </a>
 </p>
 
 
 ```javascript
-    // the parameter can be a string like "#FF0000" or a hex number 0xFF0000
+    // 颜色的参数可以是字符串 "#FF0000" 或者是十六进制数值 0xFF0000
     controller.setSurfaceColor("#FF0000");
     //controller.setSurfaceColor(0xFF0000);
 ```
 
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/setSurfaceColor2.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/setSurfaceColor2.jpg"/></a>
 </p>
 
 ---
 
-### setSelectedColor
+### <div id="setSelectedColor">设置选中国家颜色</div>
 
-Sets color of the [country](#country) in selected state. The default color of the selected country is the same as the surface but brighter.
+您可以设置 [选中国家](#country) 颜色。默认的选中国家颜色和表面颜色相同，但亮度稍高一些。
+
 <p>
   <a href="http://giojs.org/examples/02_API_setSelectedColor.html">
-    <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton.png" height="30" width="100" />
+    <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton_zh.png" height="30" width="100" />
   </a>
 </p>  
 Default:
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/setSelectedColor1.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/setSelectedColor1_zh.jpg"/></a>
 </p>
 
 ```javascript
-    // the parameter can be a string like "#FF0000" or a hex number 0xFF0000
+    // 颜色的参数可以是字符串 "#FF0000" 或者是十六进制数值 0xFF0000
 	controller.setSelectedColor("#FF0000");
     //controller.setSelectedColor(0xFF0000);
 ```
 
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/setSelectedColor2.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/setSelectedColor2.jpg"/></a>
 </p>
 
 ---
 
-### setExportColor
+### <div id="setExportColor">设置输出颜色</div>
 
-Sets the color of `out line`. Definition of [out line](#line). 
+您可以设置输出线的颜色。关于连接线定义，请参考这里: [连接线](#line)。
+
 <p>
   <a href="http://giojs.org/examples/04_API_setExportColor.html">
-    <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton.png" height="30" width="100" />
+    <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton_zh.png" height="30" width="100" />
   </a>
 </p>  
-The default color of out line is `0xDD380C`:
+默认的输出线颜色是 0xDD380C：
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/setExportColor1.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/setExportColor1_zh.jpg"/></a>
 </p>
 
 ```javascript
-	// the parameter can be a string like "#FEF504" or a hex number 0xFEF504
+	//  颜色的参数可以是字符串 "#FEF504" 或者是十六进制数值 0xFEF504
 	controller.setExportColor("#FEF504");
 	//controller.setExportColor(0xFEF504);
 ```
 
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/setExportColor2.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/setExportColor2.jpg"/></a>
 </p>
 
 ---
 
-### setImportColor
+### <div id="setImportColor">设置输入颜色</div>
 
-Sets the color of `in line`. Definition of [in line](). 
+您可以设置输入线的颜色。关于连接线定义，请参考这里: [连接线](#line)。
+
 <p>
   <a href="http://giojs.org/examples/05_API_setImportColor.html">
-    <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton.png" height="30" width="100" />
+    <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton_zh.png" height="30" width="100" />
   </a>
 </p>  
-The default color of out line is `0x154492`:
+
+默认的输入线颜色是 0x154492：
 
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/setImportColor1.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/setImportColor1_zh.jpg"/></a>
 </p>
 
 ```javascript
-    // the parameter can be a string like "#00FF00" or a hex number 0x00FF00
+    // 颜色的参数可以是字符串 "#00FF00" 或者是十六进制数值 0x00FF00
     controller.setImportColor("#00FF00");
 	//controller.setImportColor(0x00FF00);
 ```
 
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/setImportColor2.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/setImportColor2.jpg"/></a>
 </p>
 
 ---
 
-### setHaloColor
+### <div id="setHaloColor">设置光晕颜色</div>
 
-Sets the color of the [Halo](#halo). 
+您可以设置 [光晕](#halo) 的颜色。 
+
 <p>
   <a href="http://giojs.org/examples/24_API_setHaloColor.html">
-    <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton.png" height="30" width="100" />
+    <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton_zh.png" height="30" width="100" />
   </a>
 </p>  
 
-The default color of halo is `0xFFFFFF`:
+光晕的默认颜色是 0xFFFFFF:
 
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/setHaloColor1.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/setHaloColor1_zh.jpg"/></a>
 </p>
 
 ```javascript
-	// the parameter can be a string like "#FF0000" or a hex number 0xFF0000
+	// 颜色的参数可以是字符串 "#FF0000" 或者是十六进制数值 0xFF0000
 	controller.setHaloColor("#FF0000");
 	//controller.setHaloColor(0xFF0000);
 ```
 
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/setHaloColor2.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/setHaloColor2.jpg"/></a>
 </p>       
 
 ---
 
-### setBackgroundColor
+### <div id="setBackgroundColor">设置背景颜色</div>
 
-Sets the color of the [background](#background). 
+您可以更改 [背景](#background) 的颜色
 <p>
   <a href="http://giojs.org/examples/26_API_setBackgroundColor.html">
-    <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton.png" height="30" width="100" />
+    <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton_zh.png" height="30" width="100" />
   </a>
 </p>  
-The default is` 0x000000`:
+
+默认的颜色是 0x000000:
 
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/setBackgroundColor1.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/setBackgroundColor1_zh.jpg"/></a>
 </p>      
 
 ```javascript
-    // the parameter can be a string like "#530000" or a hex number 0x530000
+    // 颜色的参数可以是字符串 "#530000" 或者是十六进制数值 0x530000
 	controller.setBackgroundColor("#530000");
 	//controller.setBackgroundColor(0x530000);
 ```
 
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/setBackgroundColor2.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/setBackgroundColor2.jpg"/></a>
 </p>      
 
 ---
 
-### adjustOceanBrightness
+### <div id="adjustOceanBrightness">设置海洋亮度</div>
 
-Sets the brightness of the [ocean](#ocean). 
+您可以设置 [海洋](#ocean) 的亮度。
 <p>
   <a href="http://giojs.org/examples/07_API_adjustOceanBrightness.html">
-    <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton.png" height="30" width="100" />
+    <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton_zh.png" height="30" width="100" />
   </a>
 </p>  
-The range of the brightness is [0, 1] and its default value is `0.5`:
+
+亮度的数值范围是 [0, 1] ，默认的亮度数值是0.5：
 
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/adjustOceanBrightness1.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/adjustOceanBrightness1_zh.jpg"/></a>
 </p>      
 
 ```javascript
@@ -500,23 +518,25 @@ The range of the brightness is [0, 1] and its default value is `0.5`:
 ```
 
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/adjustOceanBrightness2.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/adjustOceanBrightness2.jpg"/></a>
 </p>   
 
 ---
 
-### adjustRelatedBrightness
+### <div id="adjustRelatedBrightness">设置相关国家亮度</div>
 
-Sets the brightness of the [related country](#country). 
+您可以设置 [相关国家](#country) 的亮度。
+
 <p>
   <a href="http://giojs.org/examples/08_API_adjustRelatedBrightness.html">
-    <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton.png" height="30" width="100" />
+    <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton_zh.png" height="30" width="100" />
   </a>
 </p>  
-The range of the brightness is [0, 1] and its default value is `0.5`:
+
+亮度的数值范围是 [0, 1] ，默认的亮度数值是0.5：
 
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/adjustRelatedBrightness1.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/adjustRelatedBrightness1_zh.jpg"/></a>
 </p>   
 
 ```javascript
@@ -524,51 +544,54 @@ The range of the brightness is [0, 1] and its default value is `0.5`:
 ```
 
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/adjustRelatedBrightness2.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/adjustRelatedBrightness2.jpg"/></a>
 </p>   
 
 ---
 
-### adjustMentionedBrightness
+### <div id="adjustMentionedBrightness">设置提到国家亮度</div>
 
-Sets the brightness of the [mentioned country](#country). 
+您可以设置 [提到国家](#country) 的亮度。
+
 <p>
   <a href="http://giojs.org/examples/09_API_adjustMentionedBrightness.html">
-    <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton.png" height="30" width="100" />
+    <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton_zh.png" height="30" width="100" />
   </a>
 </p>  
 The range of the brightness is [0, 1] and its default value is `0.5`:
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/adjustMentionedBrightness1.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/adjustMentionedBrightness1_zh.jpg"/></a>
 </p>   
 
-By default, mentioned country will not be highlighted. To adjust the brightness, [lightenMentioned(true)]()needs to be called first as follows:
+默认设置中，提到国家并不会被高亮。要更改提到国家的亮度，首先需要按如下方法调用[lightenMentioned(true)]()：
 
 ```javascript
     controller.lightenMentioned(true);
     controller.adjustMentionedBrightness(0.8);
 ```
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/adjustMentionedBrightness2.png" alt="brightness=0.8"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/adjustMentionedBrightness2.jpg" alt="brightness=0.8"/></a>
 </p>   
 
 ---
 
 ## Working with Data
 
-There are multiple ways to load data into the controller of Gio.js. The basic way is to use [addData]() API. To load data asynchronously, use [addDataAsync]() API. To refresh the data periodically, you can use [liveLoad]() API. To make a better visualization of data flow, the range of the data is adjusted before used for rendering. To do a fine-grained control over the color of each line that connects two countries, check []();
+Gio.js拥有多种设置数据的方式。最基本的方式是使用 addData API。如果需要异步加载数据，可以使用 addDataAsync API；如果需要周期性加载数据，可以使用 liveLoad API。 为了让数据更具有观赏性，Gio.js会对数据进行预处理。在添加数据时，你可以同时设置数据展示时的颜色。
 
-* [addData()](#adddata)
-* [addDataAsync()](#adddataasync)
-* [liveLoad()](#liveload)
-* [Set Color of Each Line]()
-* [Data Preprocessing]()
+* <a href="#addData">添加数据</a>
+* <a href="#addDataAsync">异步添加数据</a>
+* <a href="#liveLoad">实时加载</a>
+* <a href="#setSingleColor">设置单条线条颜色</a>
+* <a href="#dataPreprocessing">数据预处理</a>
 
 ---
 
-### addData()
+### <div id="addData">添加数据</div>
 
-Loads data to the controller of Gio and overrides previous data synchronously. The dataset used for visualization is in JSON format. Each element of the array has an import country (`i`), an export country (`e`) and a value (`v`).
+将数据加载到Gio的控制器并同步覆盖以前的数据。用于可视化的数据集采用JSON格式。数组中的每一个元素都包含一个输入国家(i)，一个输出国家(e)和一个数值(v)。
+
+参数：data -- JSON格式数据
 
 ```json
 [
@@ -585,23 +608,24 @@ Loads data to the controller of Gio and overrides previous data synchronously. T
 ]
 ```
 
-Explanation: The line has a direction and connection two country, the moving particle will animate in this direction, this direction is defined by "e" -> "i". "e" and "i" represent two country, "e" is the country where the line is out, "i" is the country where the line is in. The "v" is the value between these two country, there are particles moving on the line, if the value is small, the size and quantity of the particles will be small, and moving slowly, if the value is large, the size and quantity be large, and moving fast.
+说明：连接线连接两个国家并具有方向性，运动粒子将在该方向上生成动画，连线方向由“e” -> “i”定义。“e”和“i”分别表示两个国家， “e”表示连线输出的国家，“i”表示连线输入的国家。“v”表示这两个国家之间的数值，如果数值较小，则粒子的大小和数量会比较小， 并且在连线上的移动速度相对缓慢；如果数值较大，则粒子的大小和数量会比较大，并且在连线上的移动速度相对较快。
 
 ---
 
-### addDataAsync()
- *url* - In JSON format as speficied in [addData]()
- *asyncLoadCallback* - Callback function to be executed on completion of data loading
- 
-Loads data to the controller of Gio and overrides previous data asynchronously. Data source can be specified through an URL. Data must be in JSON format as specified in [addData](). The callback function will be executed when the data finishes loading. 
+### <div id="addDataAsync">异步添加数据</div>
 
-Usage:
+ *url* - 返回JSON格式数据，数据格式与[添加数据](#addData) 定义的data相同
+ *asyncLoadCallback* - 当加载完成时执行的回调函数
+ 
+从一个数据源异步加载数据。
+
+用法：
 
 ```javascript
     var url = "sampleData.json";
 
-    // Use addDataAsync() API to load the data from a URL asynchronously.
-    // The callback will be executed on completion of data loading.
+    // 使用addDataAsync() API异步加载URL中的数据。
+    // 回调将在完成数据加载后执行。
 
     controller.addDataAsync( url, asyncLoadCallback );
 
@@ -614,19 +638,20 @@ Usage:
  
 ---
 
-### liveLoad()
- *dataSource* - In JSON format as speficied in [addData]()
- *liveLoadCallback* - Callback function to be executed on completion of data loading
- *duration* - Minimum duration of data loading time in milliseconds
+### <div id="liveLoad">实时加载</div>
 
-Loads data to the controller dynamically. Usage:
+ *url* - 返回JSON格式数据，数据格式与[添加数据](#addData) 定义的data相同
+ *liveLoadCallback* - 当加载完成时执行的回调函数
+ *duration* - 周期性数据加载时间（以毫秒为单位）
+
+周期性地从一个数据源加载数据，用法：
 
 ```javascript
     var url = "dynamicallyAPI/data";
 
-    // Load data from the url with liveLoad() API.
-    // Set callback
-    // Specify loading time
+    // 使用liveLoad() API加载URL中的数据。
+    // 设置回调。
+    // 指定加载时间。
 
     controller.liveLoad( url, liveLoadCallback, 50000 );
 
@@ -639,8 +664,9 @@ Loads data to the controller dynamically. Usage:
 
 ---
 
-### Set Color of Each Line
-As mentioned in [line]() section, there are two types of lines: `in line` and `out line`. The colors associated with these two types of lines are called `inColor` and `outColor`. Each line can have a unique color specified through the input data as follows:
+### <div id="setSingleColor">设置单条线条颜色</div>
+
+正如 [连接线]() 章节所述，连接线分为两种类型：输入线和输出线。 与这两种类型的连接线相对应的颜色称为输入颜色和输出颜色。通过指定输入数据内容可以为这条数据指定一个唯一的颜色，如下所示：
 
 ```json
 [
@@ -661,51 +687,52 @@ As mentioned in [line]() section, there are two types of lines: `in line` and `o
 ]
 ```
 
-Note: `e`, `i`, and `v` have the same definition as in [addData](). 
+备注：e，i，v与 [添加数据]() 中的定义相同。
 
 ---
 
-### Data Preprocessing
+### <div id="dataPreprocessing">数据预处理</div>
 
-In the input JSON data, the higher the value of `v` gets, the brighter the particles are and the faster they travel from the country of origin to destination. (Check Michael Chang's [article](http://mflux.tumblr.com/post/28367579774/armstradeviz)  for how he comes up with this idea.) Gio.js library will automatically scale the range of the input data for better visualization. As a developer, you can also define your own way of preprocessing data.
-
----
-
-## Events
-
-So far there is only one event to customized. And we are working on it to provide more customized event to make developing with Gio.js easier.
-
-* [onCountryPicked()](#oncountrypicked)
+在输入的JSON数据中，v的值越高，粒子越亮，并且它们从出发国家到目的国家的运行越快。 （请查阅Michael Chang的 [文章](http://mflux.tumblr.com/post/28367579774/armstradeviz) 来了解他是如何提出这个想法的）。Gio.js库会自动缩放输入数据的范围以便于更好的数据可视化。作为开发人员，您还可以定义自己的预处理数据的方式。
 
 ---
 
-### onCountryPicked( callback )
-Fired when selected country changes. 
+## 回调函数
+
+目前Gio只有一个回调函数。不过我们正在努力开发更多的回调函数，希望可以使用这些回调函数来开发更具有交互性的应用。
+
+* <a href="onCountryPicked">当国家被选中时</a>
+
+---
+
+### <div id="onCountryPicked">当国家被选中时</div>
+
+当"被选中的国家"改变时被调用。
 
 **What if the same country if clicked???**
 
 ---
 
-## Advanced Features
+## 高级功能
 
-Advanced features aims to help developer implement interactive applications more effectively. 
+使用Gio高级功能，可以更容易地开发更具有交互性的应用。
 
-* [Method Chaining](#methodchaining)
-* [switchCountry()](switchcountry)
+* <a href="#methodChain">方法链</a>
+* <a href="#switchCountry">切换选中国家</a>
 
 ---
 
-### Method Chaining
+### <div id="methodChain">方法链</div>
 
-Method chaining is a common pattern in Javascript. Gio's API also provides method chaining in which could make your code cleaner and more readable. The example below shows how method chaining in Gio.js works.
+方法链是Javascript中常用的编程模式，Giojs也支持使用方法链对参数进行配置。使用方法链，参数的设置会更加清晰可读。 以下的例子展示了如何使用Giojs方法链。（你也可以点击在线演示，然后查看例子的源码来详细了解方法链是如何应用在实际场景中的）
 
-Without method chaining:
+不使用方法链的API调用:
 ```javascript
 controller.setSurfaceColor( "#00FF00" );
 controller.setSelectedColor( "#FF0000" );
 controller.disableUnmentioned( true );
 ```
-With method chaining:
+使用方法链的API调用:
 ```javascript
 controller.setSurfaceColor( "#00FF00" )
         .setSelectedColor( "#FF0000" )
@@ -714,25 +741,29 @@ controller.setSurfaceColor( "#00FF00" )
 
 ---
 
-### switchCountry()
-*countryCode* - Country/area codes that conforms to [ISO 3166](https://en.wikipedia.org/wiki/ISO_3166-1) standards
+### <div id="switchCountry">切换选中国家</div>
+
+除了通过用户点击地球表面的国家来进行切换以外，Giojs还支持使用 [switchCountry()]() API来直接切换 被选中的国家 ，开发者可以使用这个API来开发具有交互性的应用。 （您也可以点击在线演示，查看应用该API的示例）
+
+参数：countryCode - 在 [ISO 3166](https://en.wikipedia.org/wiki/ISO_3166-1) 标准中的国家代码
+
 Instead of mouse click, `swtichCountry()` API can be used to change currently selected country. This gives developer more flexibility.
 
 <p>
   <a href="http://giojs.org/examples/20_API_switchCountry.html">
-    <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton.png" height="30" width="100" />
+    <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton_zh.png" height="30" width="100" />
   </a>
 </p>  
 
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/adjustMentionedBrightness2.png" alt="brightness=0.8"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/adjustMentionedBrightness2_zh.jpg" alt="brightness=0.8"/></a>
 </p>   
 
 ```javascript
-    // switch selected country to "US"
+    // 切换选中国家到 "US"
     controller.switchCountry("US");
 ```
 
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/adjustMentionedBrightness2.png" alt="brightness=0.8"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/adjustMentionedBrightness2.jpg" alt="brightness=0.8"/></a>
 </p>   

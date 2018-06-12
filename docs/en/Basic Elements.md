@@ -61,7 +61,7 @@ Or it can be changed dynamically using [setSurfaceColor()](#setSurfaceColor).
 ### Country
 
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/elements/country.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/elements/country.jpg"/></a>
 </p>
 
 Each Country corresponds to a specific code in [CountryData](https://github.com/syt123450/Gio.js/blob/master/src/countryInfo/CountryData.js). Depending on data availability and user activity, a Country can be in the following states:
@@ -111,7 +111,7 @@ Each Country corresponds to a specific code in [CountryData](https://github.com/
 
 - `Unmentioned`
 
-    Countries in  [CountryData](https://github.com/syt123450/Gio.js/blob/master/src/countryInfo/CountryData.js) but not in the input data are called 'Unmentioned'.
+    Countries in [CountryData](https://github.com/syt123450/Gio.js/blob/master/src/countryInfo/CountryData.js) but not in the input data are called 'Unmentioned'.
 
 - `Unclickable`
 
@@ -125,7 +125,7 @@ Each Country corresponds to a specific code in [CountryData](https://github.com/
 ### Line
 
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/elements/line.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/elements/line.jpg"/></a>
 </p>
 
 Line is used to visualize the data flow between two countries. For [Selected](#country) country, the line with data flow into it is called `in line` and the line with data flow out of it is called `out line`. The default color of `in line` is ![in-line](https://placehold.it/15/154492/000000?text=+) `0x154492` and the default color of `out line` is ![out-line](https://placehold.it/15/dd380c/000000?text=+) `0xdd380c`.
@@ -161,7 +161,7 @@ However this needs to be done before `controller.init()` is called. See [working
 ### Background
 
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/elements/background.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/elements/background.jpg"/></a>
 </p>
 
 The background is the area "behind" the earth. The default color of the background is ![background](https://placehold.it/15/000000/000000?text=+) `0x000000`. 
@@ -183,7 +183,7 @@ Or it can be modified dynamically with [setBackgroundColor()](#setbackgroundcolo
 ### Halo
 
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/elements/halo.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/elements/halo.jpg"/></a>
 </p>
 
 Halo is the circle of light around the earth. The default color of halo is ![halo](https://placehold.it/15/ffffff/000000?text=+) `0xffffff`. 
@@ -203,7 +203,7 @@ Or it can be modified dynamically by [setHaloColor()](#sethalocolor).
 ### Ocean
 
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/elements/ocean.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/elements/ocean.jpg"/></a>
 </p>
 
 The ocean object is the ocean area on the earth, the ocean is the most dart area on the earth. The default brightness of the ocean is `0.5`. 

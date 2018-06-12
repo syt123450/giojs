@@ -1,4 +1,6 @@
-Gio.js provides some pre-defined color styles, you can set the color scheme of the 3D globe by name. For how to use the color style, please follow the steps in [setStyle](http://giojs.org/html/document.html) document in [Color and Style API](http://giojs.org/html/document.html).
+# Pre-defined Style
+
+Gio.js provides some pre-defined color styles, you can set the color scheme of the 3D globe by name. For how to use the color style, please follow the steps in [setStyle](http://giojs.org/html/docs/colorStyle.html) document in [Color and Style API](http://giojs.org/html/docs/colorIntro_zh.html).
 
 ## Quick Introduction
 

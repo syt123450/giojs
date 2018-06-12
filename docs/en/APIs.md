@@ -617,9 +617,9 @@ Usage:
 ### liveLoad()
  *dataSource* - In JSON format as speficied in [addData]()
  *liveLoadCallback* - Callback function to be executed on completion of data loading
- *duration* - Minimum duration of data loading time in milliseconds
+ *duration* - duration of data loading time in milliseconds
 
-Loads data to the controller dynamically. Usage:
+Loads data to the controller periodically. Usage:
 
 ```javascript
     var url = "dynamicallyAPI/data";
@@ -640,6 +640,7 @@ Loads data to the controller dynamically. Usage:
 ---
 
 ### Set Color of Each Line
+
 As mentioned in [line]() section, there are two types of lines: `in line` and `out line`. The colors associated with these two types of lines are called `inColor` and `outColor`. Each line can have a unique color specified through the input data as follows:
 
 ```json

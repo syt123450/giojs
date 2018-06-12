@@ -1,14 +1,16 @@
-Gio.js provides some pre-defined color styles, you can set the color scheme of the 3D globe by name. For how to use the color style, please follow the steps in [setStyle](http://giojs.org/html/document.html) document in [Color and Style API](http://giojs.org/html/document.html).
+# 预置样式
 
-## Quick Introduction
+Gio.js 提供了一些预定义的样式，开发者可以通过setStyle API来给Giojs地球设置样式，如果有兴趣了解如何使用setStyle API可以看看 [setStyle](http://giojs.org/html/docs/colorStyle_zh.html) 文档.
 
-Here are the previews of Gio.js pre-defined color styles, you can use all these styles with their names. For example: If you want to use a style named "magic", just use "magic" in the code below:
+## 简介
+
+Gio.js 提供了一些预定义的样式，你可以直接使用这些样式来创建出一个酷炫的3D地球。举个栗子，在Giojs中有一种样式叫做"magic"，正巧你又觉得它不错，想创建一个这种样式的地球，那么你可以使用以下的代码来为Giojs定义"magic"样式：
 
 ```javascript
 controller.setStyle("magic");
 ```
 
-## Pre-defined Styles Preview
+## 样式预览
 
 ```javascript
 controller.setStyle("magic");

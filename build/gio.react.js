@@ -1466,12 +1466,10 @@ function EarthSurfaceShader ( controller ) {
 
         vertexShader: [
 
-            "varying vec3 vNormal;",
             "varying vec2 vUv;",
 
             "void main() {",
                 "gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0);",
-                "vNormal = normalize( normalMatrix * normal );",
                 "vUv = uv;",
             "}"
 
@@ -1483,7 +1481,6 @@ function EarthSurfaceShader ( controller ) {
             "uniform sampler2D lookup;",
             "uniform sampler2D outline;",
             "uniform float outlineLevel;",
-            "varying vec3 vNormal;",
             "varying vec2 vUv;",
 
             "uniform vec3 surfaceColor;",

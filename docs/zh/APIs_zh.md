@@ -1,4 +1,3 @@
-
 # Gio.js API 文档
 
 ## 配置
@@ -756,7 +755,7 @@ Instead of mouse click, `swtichCountry()` API can be used to change currently se
 </p>  
 
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/adjustMentionedBrightness2_zh.jpg" alt="brightness=0.8"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/advanced/switchCountry1_zh.jpg" alt="brightness=0.8"/></a>
 </p>   
 
 ```javascript
@@ -765,5 +764,5 @@ Instead of mouse click, `swtichCountry()` API can be used to change currently se
 ```
 
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/adjustMentionedBrightness2.jpg" alt="brightness=0.8"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/advanced/switchCountry2.jpg" alt="brightness=0.8"/></a>
 </p>   

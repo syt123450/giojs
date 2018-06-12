@@ -40,7 +40,7 @@ In order to create your own Gio globe, let's learn some basic elements first. Be
 ### Surface
 
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/elements/surface.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/elements/surface.jpg"/></a>
 </p>
 
 The surface including [Country](#country) and [Ocean](#ocean). The default color scheme is `0xffffff`. The color scheme can be set through [configure()](#configure-api) as shown in the example below:

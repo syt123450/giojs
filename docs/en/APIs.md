@@ -122,7 +122,7 @@ Sets the [country](https://github.com/syt123450/Gio.js/wiki/2.-Basic-Elements#co
 </p>  
 Default:
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/design/setInitCountry_default.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/design/setInitCountry_default.jpg"/></a>
 </p>
 
 ```javascript
@@ -130,7 +130,7 @@ Default:
     controller.setInitCountry("US");
 ```
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/design/setInitCountry.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/design/setInitCountry.jpg"/></a>
 </p>
 
 ---
@@ -147,14 +147,14 @@ Makes the [mentioned country](https://github.com/syt123450/Gio.js/wiki/2.-Basic-
     controller.lightenMentioned(true);
 ```
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/design/lightenMentioned_true.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/design/lightenMentioned_true.jpg"/></a>
 </p>
 
 ```javascript
     controller.lightenMentioned(false);
  ```   
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/design/lightenMentioned_true.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/design/lightenMentioned_true.jpg"/></a>
 </p>
 
 ---
@@ -173,7 +173,7 @@ Disables an [unmentioned country]() and makes it unselectable. A disabled countr
 ```
 
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/design/disableUnmentioned.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/design/disableUnmentioned.jpg"/></a>
 </p>
 
 ```javascript
@@ -196,7 +196,7 @@ Displays only the line with data flowing into the [selected country]() or with d
 </p>  
 
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/design/showInOnly_true.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/design/showInOnly_true.jpg"/></a>
 </p>
 
 ```javascript
@@ -208,21 +208,21 @@ Displays only the line with data flowing into the [selected country]() or with d
   </a>
 </p>  
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/design/showInOnly_false.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/design/showInOnly_false.jpg"/></a>
 </p>
 
 ```javascript
     controller.showOutOnly(true);
 ```
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/design/showOutOnly_true.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/design/showOutOnly_true.jpg"/></a>
 </p>
 
 ```javascript
     controller.showOutOnly(false);
 ```
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/design/showOutOnly_false.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/design/showOutOnly_false.jpg"/></a>
 </p>
 
 ---
@@ -240,7 +240,7 @@ Enables/Disables the [halo]() around the earth. When enabling halo, the color of
 ```
 
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/design/addHalo.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/design/addHalo.jpg"/></a>
 </p>
 
 ```javascript
@@ -248,7 +248,7 @@ Enables/Disables the [halo]() around the earth. When enabling halo, the color of
 ```
 
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/design/removeHalo.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/design/removeHalo.jpg"/></a>
 </p>
 
 ---
@@ -272,7 +272,7 @@ Displays/hides [stats]() on the upper-left corner of the scene. To use this API,
 ```    
 
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/design/stats_enable.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/design/stats_enable.jpg"/></a>
 </p>
 
 ```javascript
@@ -280,7 +280,7 @@ Displays/hides [stats]() on the upper-left corner of the scene. To use this API,
 ```    
 
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/design/stats_disable.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/design/stats_disable.jpg"/></a>
 </p>
 
 ---
@@ -313,7 +313,7 @@ Sets the color scheme of the 3D globe by name. Check [here](https://github.com/s
 </p>  
 For example we want to change from default style
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/setStyle1.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/setStyle1.jpg"/></a>
 </p>
 
 to style called `magic`:
@@ -321,7 +321,7 @@ to style called `magic`:
     controller.setStyle("magic");
 ```
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/setStyle2.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/setStyle2.jpg"/></a>
 </p>
 
 ---
@@ -335,7 +335,7 @@ Sets the color of the [surface](#surface) the 3D globe. The default color is `#F
   </a>
 </p>  
 <p align="center">
-  <a><img src="hhttp://giojs.org/assets/images/color/setSurfaceColor1.png" />
+  <a><img src="hhttp://giojs.org/assets/images/color/setSurfaceColor1.jpg" />
   </a>
 </p>
 
@@ -347,7 +347,7 @@ Sets the color of the [surface](#surface) the 3D globe. The default color is `#F
 ```
 
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/setSurfaceColor2.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/setSurfaceColor2.jpg"/></a>
 </p>
 
 ---
@@ -362,7 +362,7 @@ Sets color of the [country](#country) in selected state. The default color of th
 </p>  
 Default:
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/setSelectedColor1.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/setSelectedColor1.jpg"/></a>
 </p>
 
 ```javascript
@@ -372,7 +372,7 @@ Default:
 ```
 
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/setSelectedColor2.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/setSelectedColor2.jpg"/></a>
 </p>
 
 ---
@@ -387,7 +387,7 @@ Sets the color of `out line`. Definition of [out line](#line).
 </p>  
 The default color of out line is `0xDD380C`:
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/setExportColor1.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/setExportColor1.jpg"/></a>
 </p>
 
 ```javascript
@@ -397,7 +397,7 @@ The default color of out line is `0xDD380C`:
 ```
 
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/setExportColor2.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/setExportColor2.jpg"/></a>
 </p>
 
 ---
@@ -413,7 +413,7 @@ Sets the color of `in line`. Definition of [in line]().
 The default color of out line is `0x154492`:
 
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/setImportColor1.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/setImportColor1.jpg"/></a>
 </p>
 
 ```javascript
@@ -423,7 +423,7 @@ The default color of out line is `0x154492`:
 ```
 
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/setImportColor2.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/setImportColor2.jpg"/></a>
 </p>
 
 ---
@@ -440,7 +440,7 @@ Sets the color of the [Halo](#halo).
 The default color of halo is `0xFFFFFF`:
 
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/setHaloColor1.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/setHaloColor1.jpg"/></a>
 </p>
 
 ```javascript
@@ -450,7 +450,7 @@ The default color of halo is `0xFFFFFF`:
 ```
 
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/setHaloColor2.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/setHaloColor2.jpg"/></a>
 </p>       
 
 ---
@@ -466,7 +466,7 @@ Sets the color of the [background](#background).
 The default is` 0x000000`:
 
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/setBackgroundColor1.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/setBackgroundColor1.jpg"/></a>
 </p>      
 
 ```javascript
@@ -476,7 +476,7 @@ The default is` 0x000000`:
 ```
 
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/setBackgroundColor2.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/setBackgroundColor2.jpg"/></a>
 </p>      
 
 ---
@@ -492,7 +492,7 @@ Sets the brightness of the [ocean](#ocean).
 The range of the brightness is [0, 1] and its default value is `0.5`:
 
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/adjustOceanBrightness1.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/adjustOceanBrightness1.jpg"/></a>
 </p>      
 
 ```javascript
@@ -500,7 +500,7 @@ The range of the brightness is [0, 1] and its default value is `0.5`:
 ```
 
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/adjustOceanBrightness2.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/adjustOceanBrightness2.jpg"/></a>
 </p>   
 
 ---
@@ -516,7 +516,7 @@ Sets the brightness of the [related country](#country).
 The range of the brightness is [0, 1] and its default value is `0.5`:
 
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/adjustRelatedBrightness1.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/adjustRelatedBrightness1.jpg"/></a>
 </p>   
 
 ```javascript
@@ -524,7 +524,7 @@ The range of the brightness is [0, 1] and its default value is `0.5`:
 ```
 
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/adjustRelatedBrightness2.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/adjustRelatedBrightness2.jpg"/></a>
 </p>   
 
 ---
@@ -539,7 +539,7 @@ Sets the brightness of the [mentioned country](#country).
 </p>  
 The range of the brightness is [0, 1] and its default value is `0.5`:
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/adjustMentionedBrightness1.png"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/adjustMentionedBrightness1.jpg"/></a>
 </p>   
 
 By default, mentioned country will not be highlighted. To adjust the brightness, [lightenMentioned(true)]()needs to be called first as follows:
@@ -549,7 +549,7 @@ By default, mentioned country will not be highlighted. To adjust the brightness,
     controller.adjustMentionedBrightness(0.8);
 ```
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/adjustMentionedBrightness2.png" alt="brightness=0.8"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/adjustMentionedBrightness2.jpg" alt="brightness=0.8"/></a>
 </p>   
 
 ---
@@ -725,7 +725,7 @@ Instead of mouse click, `swtichCountry()` API can be used to change currently se
 </p>  
 
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/adjustMentionedBrightness2.png" alt="brightness=0.8"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/adjustMentionedBrightness2.jpg" alt="brightness=0.8"/></a>
 </p>   
 
 ```javascript
@@ -734,5 +734,5 @@ Instead of mouse click, `swtichCountry()` API can be used to change currently se
 ```
 
 <p align="center">
-  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/adjustMentionedBrightness2.png" alt="brightness=0.8"/></a>
+  <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/adjustMentionedBrightness2.jpg" alt="brightness=0.8"/></a>
 </p>   

@@ -1,6 +1,6 @@
 ## Basic Elements
 
-In order to create your own Gio globe, let's learn some basic elements first. Below is an image describing the basic concepts in a globe.
+为了更好地创建Gio地球，让我们先来看看Gio地球中有什么。以下图片中标注了Gio地球中的重要元素，在本章中我们会对这些元素进行具体介绍。
 
 <p align="center">
   <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/elements/all.png"/></a>

@@ -307,16 +307,15 @@
 
     <main>
         <header>addDataAsync</header>
+        <br>
+        <div>Parameter:</div>
+        <div>url -- In JSON format as specified in <a href="dataAdd.html">addData</a></div>
+        <div>asyncLoadCallback -- Callback function to be executed on completion of data loading</div>
+        <br>
         <div>Loads data to the controller of Gio and overrides previous data asynchronously. The data source can be
             specified through an URL. Data must be in JSON format as specified in <a href="dataAdd.html">addData</a>. The callback
-            function
-            will be executed when the data finishes loading.
+            function will be executed when the data finishes loading. Usage:
         </div>
-        <div>
-            url - In JSON format as specified in addData asyncLoadCallback - Callback function to be executed on
-            completion of data loading
-        </div>
-        <div>Usage:</div>
         <div class="code">
             var url = "sampleData.json";<br><br>
 

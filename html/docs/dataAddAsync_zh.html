@@ -35,7 +35,7 @@
 
         <ul class="hidden-xs">
             <li class="now"><a href="index_zh.html">文档</a></li>
-            <li><a href="../playground_zh.html">游乐场</a></li>
+            <li><a href="../playground_zh.html">试一试</a></li>
             <li><a href="../../index_zh.html#download">下载</a></li>
             <li><a href="../developer_zh.html">参与开发</a></li>
             <!--<li><a href="about.html">About Us</a></li>-->
@@ -308,10 +308,12 @@
 
     <main>
         <header>异步添加数据</header>
-        <div>将数据加载到Gio的控制器并异步覆盖以前的数据。数据源可以通过URL指定。数据必须采用<a href="dataAdd_zh.html">添加数据</a>
-            中指定的JSON格式。回调函数将在数据加载完成时执行。</div>
-        <div>url - 在添加数据asyncLoadCallback中指定的JSON格式 - 完成数据加载时执行的回调函数。</div>
-        <div>用法：</div>
+        <br>
+        <div>参数：</div>
+        <div>url - 返回JSON格式数据，数据格式与<a href="dataAdd_zh.html">添加数据</a>定义的data相同</div>
+        <div>asyncLoadCallback - 当加载完成时执行的回调函数</div>
+        <br>
+        <div>从一个数据源异步加载数据。用法：</div>
         <div class="code">
             var url = "sampleData.json";<br><br>
 

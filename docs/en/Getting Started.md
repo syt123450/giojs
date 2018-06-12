@@ -23,7 +23,7 @@ Include local Gio.js library
 ```
 or through CDN
 ```html
-<script src="https://gio-js-cdn-link"></script>
+<script src="https://cdn.rawgit.com/syt123450/giojs/de5fd34a/build/gio.min.js"></script>
 ```
 - Option 2: npm
 ```bash
@@ -77,7 +77,7 @@ To initialize and render the 3D Gio globe:
 
 </script>
 ```
-If everything goes well, you should see [this](jsfiddle-link).
+If everything goes well, you should see [this](http://giojs.org/examples/00_hello_world(simplest).html).
 
 <!-- [END getstarted] -->
 
@@ -92,9 +92,3 @@ If everything goes well, you should see [this](jsfiddle-link).
 
 
 [screenshot-url]: http://via.placeholder.com/400x300
-[npm-badge]: https://img.shields.io/badge/npm-v0.0.5-orange.svg
-[npm-badge-url]: https://www.npmjs.com/package/giojs
-[license-badge]: https://img.shields.io/badge/license-MIT-brightgreen.svg
-[license-badge-url]: https://github.com/syt123450/Gio.js/blob/master/LICENSE
-[dependencies-badge]: https://img.shields.io/badge/dependencies-Three.js-brightgreen.svg
-[dependencies-badge-url]: https://github.com/mrdoob/three.js/

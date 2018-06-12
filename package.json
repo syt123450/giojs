@@ -1,14 +1,14 @@
 {
   "name": "giojs",
   "version": "0.0.17",
-  "description": "3D Globe Info Graphic Javascript Library",
+  "description": "3D Declarative Globe Info Graphic Javascript Library",
   "main": "build/gio.module.js",
   "directories": {
-    "assets": "static resource",
-    "doc": "document",
+    "assets": "static resource for github repo",
+    "doc": "document for users and contributors",
     "example": "examples showing how to use Gio.js",
     "test": "test scripts",
-    "build": "release files",
+    "build": "release files, build code for different environment",
     "src": "source code"
   },
   "dependencies": {

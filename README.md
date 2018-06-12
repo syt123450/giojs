@@ -11,13 +11,13 @@
   <a href="https://coveralls.io/github/syt123450/Gio.js?branch=master"><img src="https://coveralls.io/repos/github/syt123450/Gio.js/badge.svg" alt="coverage"></a>
 </p>
 
-**Gio.js** is an open source library for data visualization library based on a 3D globe. This library is inspired by the [Arms Trade Visualization](http://armsglobe.chromeexperiments.com/) project developed by Michael Chang and presented during Google Ideas INFO 2012. See [original post](http://mflux.tumblr.com/post/28367579774/armstradeviz). What makes Gio.js different is that it is fully customizable for users and friendly to future developers.
+**Gio.js** is an open source library for data visualization library based on a 3D globe. This library is inspired by the [Arms Trade Visualization](http://armsglobe.chromeexperiments.com/) project developed by Michael Chang and presented during Google Ideas INFO 2012. See [original post](http://mflux.tumblr.com/post/28367579774/armstradeviz). What makes Gio.js different is that it is fully customizable for users, friendly to future developers to use in a declarative way.
 
-
+There is a React version of giojs -- react-giojs, try it in another repo: https://github.com/syt123450/react-giojs
 
 <!-- [START screenshot] -->
 <p align="center">
-  <a href=""><img src="https://rawgit.com/syt123450/Gio.js/master/assets/readme/Gio.png"/></a>
+  <img src="https://rawgit.com/syt123450/Gio.js/master/assets/readme/Gio.png"/>
 </p>
 <!-- [END screenshot] -->
 
@@ -93,6 +93,8 @@ To initialize and render the 3D Gio globe:
 </script>
 ```
 If everything goes well, you should see [this](http://giojs.org/examples/00_hello_world(simplest).html).
+
+Click the codepen logo to try it in Codepen: &nbsp;&nbsp;<a target="_blank" href="https://codepen.io/syt123450/pen/VXNdgM"><img width=50 height=50 src="https://rawgit.com/syt123450/Gio.js/master/assets/readme/codepen.png"></a>
 
 <!-- [END getstarted] -->
 

@@ -718,9 +718,44 @@ data -- JSON格式数据
 
 ### <div id="onCountryPicked">当国家被选中时</div>
 
-当"被选中的国家"改变时被调用。
+当<a href="https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#country">被选中的国家</a>改变时被触发。
 
-**What if the same country if clicked???**
+会向回调函数传递两个参数：被选中的国家和相关国家列表。被选中的国家指的是一个<a href="#countryObject">CountryObject</a>对象，这个对象表示新的<a href="https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#country">被选中的国家</a>；相关国家列表是<a href="#countryObject">CountryObject</a>对象的列表，这个列表中储存了所有与新的被选中国家<a href="https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#country">相关的国家</a>。
+
+使用方法：
+
+        // 使用onCountryPicked() API来设置回调函数
+        controller.onCountryPicked( callback );
+    
+        // 定义一个回调函数，这个函数作为一个栗子，简单地在console里输出selectedCountry和relatedCountries这两个参数
+        function callback ( selectedCountry, relatedCountries ) {
+    
+        	console.log(selectedCountry);
+        	console.log(relatedCountries);
+    
+        }
+
+#### <div id="countryObject">CountryObject</div>
+
+CountryObject对象是一个JSON对象，具体定义如下所示（属性的值会随着不同的对象而改变）：
+
+    {
+        ISOCode: "AU"
+        center: THREE.vector
+        lat: -27
+        lon: 133
+        name: "AUSTRALIA"
+    }
+
+参数表：
+
+| 参数 | 描述 |
+|  ------------- |  ------------- | 
+|ISOCode|国家的ISO代码|
+|center|国家的中心，用THREE.vector对象来表示|
+|lat|国家的纬度|
+|lon|国家的经度|
+|name|国家的名称|
 
 ---
 

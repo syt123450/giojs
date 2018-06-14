@@ -1,5 +1,5 @@
 
-<p align="center"><a href="https://giojs.org" target="_blank"><img width="100" src="https://rawgit.com/syt123450/Gio.js/master/assets/readme/logo.png" alt="Gio logo"></a></p>
+<p align="center"><a href="https://giojs.org" target="_blank"><img width="100" src="https://github.com/syt123450/giojs/blob/master/assets/readme/logo.png" alt="Gio logo"></a></p>
 
 <h1 align="center">Gio.js</h1>
 
@@ -17,9 +17,16 @@ There is a React version of giojs -- react-giojs, try it in another repo: https:
 
 <!-- [START screenshot] -->
 <p align="center">
-  <img src="https://rawgit.com/syt123450/Gio.js/master/assets/readme/Gio.png"/>
+  <img src="https://github.com/syt123450/giojs/blob/master/assets/readme/Gio.png"/>
 </p>
 <!-- [END screenshot] -->
+
+## Content
+
+* [Getting Started](#getting-started)
+* [Examples](#examples)
+* [Documents](#documents)
+* [中文文档](#chinese)
 
 <!-- [START getstarted] -->
 ## Getting Started
@@ -100,15 +107,19 @@ Click the codepen logo to try it in Codepen: &nbsp;&nbsp;<a target="_blank" href
 
 <!-- [START documentation] -->
 
-## Example
+## Examples
 
-We provides many representative demos to show how to work with Gio.js, there are mainly two example resources:
+We provides many representative demos to show how to work with Gio.js, there are mainly three example resources:
 
-- Resource 1: Github "examples" folder
+- Resource 1: Gio.js Playground
+
+We provide a <a href="http://giojs.org/html/playground.html">playground</a> for developers to play with Gio.js and export Gio.js parameter.
+
+- Resource 2: Github "examples" folder
 
 We write many API demos and gather them in examples folder, clone the Gio.js repo, try them in your own environment ~
 
-- Resource 2: Live demos on Codepen
+- Resource 3: Live demos on Codepen
 
 We create a Codepen collection which contains many live demos about Gio.js, click the codepen logo and try to edit them!
 <a target="_blank" href="https://codepen.io/collection/DkBobG/"><img width=50 height=50 src="https://rawgit.com/syt123450/Gio.js/master/assets/readme/codepen.png"></a>
@@ -122,7 +133,7 @@ We create a Codepen collection which contains many live demos about Gio.js, clic
 - See Gio's official website [giojs.org](http://giojs.org) for everything above and plus lots of live examples
 <!-- [END documentation] -->
 
-## 中文文档
+## <div id="chinese">中文文档</div>
 
 **Gio.js** 是一个用来做3D地球数据可视化的开源组件库，这个库是受到Google 2012 Info大会上的项目[武器贩卖可视化](http://armsglobe.chromeexperiments.com/)启发，原项目开发者是Google员工Michael Chang。Gio.js的不同之处在于开发者可以以一种以声明的方式来使用，简洁地创建3D地球可视化模型，通过丰富的Gio.js API方便地定制模型并整合到自己的Web应用中。
 

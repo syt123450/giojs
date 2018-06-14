@@ -686,9 +686,45 @@ So far there is only one event to customized. And we are working on it to provid
 
 ### onCountryPicked
 
-Fired when selected country changes. 
+Fired when <a href="https://github.com/syt123450/giojs/blob/master/docs/en/Basic_Elements.md#country">selected country</a> changes. 
 
-**What if the same country if clicked???**
+Pass two objects: selectedCountry and relatedCountries. Selected country is an <a href="#countryObject">country object</a> for new <a href="https://github.com/syt123450/giojs/blob/master/docs/en/Basic_Elements.md#country">selected country</a>, relatedCountries are <a href="#countryObject">country objects</a> for <a href="https://github.com/syt123450/giojs/blob/master/docs/en/Basic_Elements.md#country">countries related</a> to new selected country. 
+
+ Usage:
+
+        // use the onCountryPicked() to set callback when clicked country changed
+        controller.onCountryPicked( callback );
+    
+        // defined a callback function, as a demo, this function simply output selectedCountry, relatedCountries which are passed parameters into console 
+        function callback ( selectedCountry, relatedCountries ) {
+    
+        	console.log(selectedCountry);
+        	console.log(relatedCountries);
+    
+        }
+
+#### <div id="countryObject">CountryObject</div>
+
+CountryObject is a JSON object as defined below (the values of attribute varies):
+
+    {
+        ISOCode: "AU"
+        center: THREE.vector
+        lat: -27
+        lon: 133
+        name: "AUSTRALIA"
+    }
+    
+
+Table of CountryObject parameters:
+
+| Parameter | Description |
+|  ------------- |  ------------- | 
+|ISOCode|ISO code of country|
+|center|THREE.vector object in the scene of country|
+|lat|latitude of country|
+|lon|longitude of country|
+|name|country name|
 
 ---
 

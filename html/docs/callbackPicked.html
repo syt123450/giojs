@@ -307,14 +307,67 @@
 
     <main>
         <header>onCountryPicked</header>
-        <div>Fired when selected country changes.</div>
+        <div>Fired when <a href="basicCountry.html">selected country</a> changes.</div>
         <div>
             <a href="../../examples/19_API_onCountryPicked.html" target="_blank">
                 <img class="live-demo" src="../../assets/images/liveDemoButton.png">
             </a>
         </div>
-        <div style="text-align: center;margin-bottom: 20px;">We are working hard to write it ~~~</div>
-        <img class="working" src="../../assets/images/working.jpg">
+        <div>Pass two objects: selectedCountry and relatedCountries. Selected country is an <a href="#countryObject">country object</a> for new <a href="basicCountry.html">selected country</a>, relatedCountries are <a href="#countryObject">country objects</a> for <a href="basicCountry.html">countries related</a> to new selected country.</div>
+        <div>Usage:</div>
+        <div class="code">
+            // use the onCountryPicked() to set callback when clicked country changed<br>
+            controller.onCountryPicked( callback );<br><br>
+
+            // defined a callback function, as a demo, this function simply output selectedCountry, relatedCountries which are passed parameters into console<br>
+            function callback ( selectedCountry, relatedCountries ) {<br><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(selectedCountry);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(relatedCountries);<br><br>
+            }
+        </div>
+        <br>
+        <div id="countryObject" class="sub-title">CountryObject</div>
+        <div>CountryObject is a JSON object as defined below (the values of attribute varies):</div>
+        <div class="code">
+            {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ISOCode: "AU"<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;center: THREE.vector<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lat: -27<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lon: 133<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name: "AUSTRALIA"<br>
+            }
+        </div>
+        <table class="table table-bordered">
+            <caption>Table of CountryObject parameters:</caption>
+            <thead>
+            <tr>
+                <th>Parameter</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>ISOCode</td>
+                <td>ISO code of country</td>
+            </tr>
+            <tr>
+                <td>center</td>
+                <td>THREE.vector object in the scene of country</td>
+            </tr>
+            <tr>
+                <td>lat</td>
+                <td>latitude of country</td>
+            </tr>
+            <tr>
+                <td>lon</td>
+                <td>longitude of country</td>
+            </tr>
+            <tr>
+                <td>name</td>
+                <td>country name</td>
+            </tr>
+            </tbody>
+        </table>
     </main>
 </div>
 

@@ -4,7 +4,7 @@
 
 <!-- [START screenshot] -->
 <p>
-  <a href="https://github.com/syt123450/Gio.js/blob/master/assets/readme/Gio.png"><img src="https://github.com/syt123450/Gio.js/blob/master/assets/readme/Gio.png"/></a>
+  <a href="https://github.com/syt123450/Gio.js/blob/master/assets/readme/Gio.png"><img src="https://github.com/syt123450/Gio.js/blob/master/assets/readme/Gio.gif"/></a>
 </p>
 <!-- [END screenshot] -->
 

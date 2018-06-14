@@ -43,10 +43,10 @@ After including "three.min.js" and "gio.min.hs" in your html, create a `div` to 
 <html>
 <head>
 
-  <!-- must include three.min.js library-->
+  <!-- include three.min.js library-->
   <script src="three.min.js"></script>
 
-  <!-- must include Gio.min.js library-->
+  <!-- include Gio.min.js library-->
   <script src="gio.min.js"></script>
 
 </head>

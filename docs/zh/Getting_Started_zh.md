@@ -38,7 +38,7 @@ npm install giojs --save
 ```bash
 yarn add giojs
 ```
-### Usage
+### 使用
 
 在HTML页面中添加了Threejs和Giojs依赖之后，您就可以基于Giojs开发您的应用了。我们将展示如何创建一个具有基础样式的Gio地球。
 
@@ -49,16 +49,16 @@ yarn add giojs
 <html>
 <head>
 
-  <!-- must include three.min.js library-->
+  <!-- 引入three.js -->
   <script src="three.min.js"></script>
 
-  <!-- must include Gio.min.js library-->
+  <!-- 引入Gio.js -->
   <script src="gio.min.js"></script>
 
 </head>
 <body>
 
-  <!-- container to draw 3D Gio globe-->
+  <!-- 创建一个div座位Gio的绘制容器 -->
   <div id="globalArea"></div>
 
 </body>

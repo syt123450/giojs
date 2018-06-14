@@ -4,6 +4,10 @@
 <h1 align="center">Gio.js</h1>
 
 <p align="center">
+<strong>English</strong> | <a href="https://github.com/syt123450/giojs/blob/master/README_zh.md"><strong>中文</strong></a>
+</p>
+
+<p align="center">
   <a href="https://www.npmjs.com/package/giojs"><img src="https://img.shields.io/npm/v/giojs.svg" alt="npm version" height="18"></a>
   <a href="https://github.com/syt123450/Gio.js/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-green.svg" alt="license badge"></a>
   <a href="https://github.com/mrdoob/three.js/"><img src="https://img.shields.io/badge/dependencies-Three.js-brightgreen.svg" alt="dependencies badge"></a>
@@ -25,8 +29,7 @@ There is a React version of giojs -- react-giojs, try it in another repo: https:
 
 * [Getting Started](#getting-started)
 * [Examples](#examples)
-* [Documents](#documents)
-* [中文文档](#chinese)
+* [Documentation](#documentation)
 
 <!-- [START getstarted] -->
 ## Getting Started
@@ -44,6 +47,7 @@ Include local Gio.js library
 ```
 or through CDN
 ```html
+<script src="https://threejs.org/build/three.min.js"></script>
 <script src="https://rawgit.com/syt123450/Gio.js/master/build/gio.min.js"></script>
 ```
 - Option 2: npm
@@ -63,10 +67,10 @@ After including "three.min.js" and "gio.min.js" in your html, create a `div` to 
 <html>
 <head>
 
-  <!-- must include three.min.js library-->
+  <!-- include three.min.js library-->
   <script src="three.min.js"></script>
 
-  <!-- must include gio.min.js library-->
+  <!-- include gio.min.js library-->
   <script src="gio.min.js"></script>
 
 </head>
@@ -109,19 +113,19 @@ Click the codepen logo to try it in Codepen: &nbsp;&nbsp;<a target="_blank" href
 
 ## Examples
 
-We provides many representative demos to show how to work with Gio.js, there are mainly three example resources:
+Gio.js has many representative demos to show how to work with Gio.js, there are mainly three example resources:
 
 - Resource 1: Gio.js Playground
 
-We provide a <a href="http://giojs.org/html/playground.html">playground</a> for developers to play with Gio.js and export Gio.js parameter.
+There is a Playground(<a href="http://giojs.org/html/playground.html">playground link</a>) for developers to play with Gio.js and export Gio.js parameter.
 
 - Resource 2: Github "examples" folder
 
-We write many API demos and gather them in examples folder, clone the Gio.js repo, try them in your own environment ~
+Gio.js has many API demos, and these demos are gathered in examples folder. clone the Gio.js repo, try them in your own environment ~
 
 - Resource 3: Live demos on Codepen
 
-We create a Codepen collection which contains many live demos about Gio.js, click the codepen logo and try to edit them!
+Gio.js has a Codepen collection which contains many live demos about Gio.js, click the codepen logo and try to edit them!
 <a target="_blank" href="https://codepen.io/collection/DkBobG/"><img width=50 height=50 src="https://rawgit.com/syt123450/Gio.js/master/assets/readme/codepen.png"></a>
 
 ## Documentation
@@ -132,16 +136,6 @@ We create a Codepen collection which contains many live demos about Gio.js, clic
 - To contribute to Gio.js's code base, read [Developer Guide](https://github.com/syt123450/Gio.js/blob/master/docs/en/Developer_Guide.md)
 - See Gio's official website [giojs.org](http://giojs.org) for everything above and plus lots of live examples
 <!-- [END documentation] -->
-
-## <div id="chinese">中文文档</div>
-
-**Gio.js** 是一个用来做3D地球数据可视化的开源组件库，这个库是受到Google 2012 Info大会上的项目[武器贩卖可视化](http://armsglobe.chromeexperiments.com/)启发，原项目开发者是Google员工Michael Chang。Gio.js的不同之处在于开发者可以以一种以声明的方式来使用，简洁地创建3D地球可视化模型，通过丰富的Gio.js API方便地定制模型并整合到自己的Web应用中。
-
-- 如果想要快速了解如何使用Giojs的话，看看 [开始使用](https://github.com/syt123450/giojs/blob/master/docs/zh/Getting_Started_zh.md) 呐~
-- 如果想要了解Giojs的基本组件，看看 [基础组件](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md) 哈~
-- 如果你有丰富的第三方组件的使用经验，不妨直接研究一下 [Giojs API 文档](https://github.com/syt123450/giojs/blob/master/docs/zh/APIs_zh.md) 啦~
-- 如果想要加入我们Giojs的开发，来看看 [开发者文档](https://github.com/syt123450/giojs/blob/master/docs/zh/Developer_Guide_zh.md) 吧~
-- 当然如果看不惯Markdown格式的文档，我们也准备了中文版的网站 [官网](http://giojs.org/index_zh.html)
 
 
 [screenshot-url]: http://via.placeholder.com/400x300

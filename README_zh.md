@@ -21,7 +21,7 @@ Gio.js有一个React版本——react-giojs，有兴趣的话去这个仓库看�
 
 <!-- [START screenshot] -->
 <p align="center">
-  <img src="https://github.com/syt123450/giojs/blob/master/assets/readme/Gio.png"/>
+  <img src="https://github.com/syt123450/giojs/blob/master/assets/readme/Gio.gif"/>
 </p>
 <!-- [END screenshot] -->
 

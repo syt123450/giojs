@@ -21,7 +21,7 @@ There is a React version of giojs -- react-giojs, try it in another repo: https:
 
 <!-- [START screenshot] -->
 <p align="center">
-  <img src="https://github.com/syt123450/giojs/blob/master/assets/readme/Gio.png"/>
+  <img src="https://github.com/syt123450/giojs/blob/master/assets/readme/Gio.gif"/>
 </p>
 <!-- [END screenshot] -->
 

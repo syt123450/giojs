@@ -1,6 +1,6 @@
 # 开始使用Gio.js
 
-**Gio.js** 是一个用来做3D地球数据可视化的开源组件库，这个库是受到Google 2012 Info大会上的项目[武器贩卖可视化](http://armsglobe.chromeexperiments.com/)启发，原开发者是Michael Chang。Gio.js的不同之处在于开发者可以以一种以声明的方式来使用，简洁地创建3D地球可视化模型，通过丰富的Gio.js API方便地定制模型并整合到自己的Web应用中。
+**Gio.js** 是一个用来做3D地球数据可视化的开源组件库，这个库是受到Google 2012 Info大会上的项目[武器贩卖可视化](https://github.com/dataarts/armsglobe)启发，原开发者是Michael Chang。Gio.js的不同之处在于开发者可以以一种以声明的方式来使用，简洁地创建3D地球可视化模型，通过丰富的Gio.js API方便地定制模型并整合到自己的Web应用中。
 
 <!-- [START screenshot] -->
 <p>
@@ -26,7 +26,7 @@
 或者通过CDN引入依赖：
 ```html
 <script src="https://threejs.org/build/three.min.js"></script>
-<script src="https://cdn.rawgit.com/syt123450/giojs/de5fd34a/build/gio.min.js"></script>
+<script src="https://raw.githack.com/syt123450/giojs/master/build/gio.min.js"></script>
 ```
 
 - 途径2: JavaScript包管理工具NPM

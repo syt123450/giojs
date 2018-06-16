@@ -7,6 +7,9 @@
 <a href="https://github.com/syt123450/giojs/blob/master/README.md"><strong>English</strong></a> | <strong>中文</strong>
 </p>
 
+<p align="center">React版本: <a href="https://github.com/syt123450/react-giojs">react-giojs</a></p>
+
+
 <p align="center">
   <a href="https://www.npmjs.com/package/giojs"><img src="https://img.shields.io/npm/v/giojs.svg" alt="npm version" height="18"></a>
   <a href="https://github.com/syt123450/Gio.js/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-green.svg" alt="license badge"></a>
@@ -15,9 +18,7 @@
   <a href="https://coveralls.io/github/syt123450/Gio.js?branch=master"><img src="https://coveralls.io/repos/github/syt123450/Gio.js/badge.svg" alt="coverage"></a>
 </p>
 
-**Gio.js** 是一个用来做3D地球数据可视化的开源组件库，这个库是受到Google 2012 Info大会上的项目[武器贩卖可视化](http://armsglobe.chromeexperiments.com/)启发，原项目开发者是Google员工Michael Chang。Gio.js的不同之处在于开发者可以以一种以声明的方式来使用，简洁地创建3D地球可视化模型，通过丰富的Gio.js API方便地定制模型并整合到自己的Web应用中。
-
-Gio.js有一个React版本——react-giojs，有兴趣的话去这个仓库看看吧：https://github.com/syt123450/react-giojs
+**Gio.js** 是一个基于Three.js的web 3D地球数据可视化的开源组件库。使用Gio.js的网页应用开发者，可以快速地以申明的方式创建自定义的Web3D数据可视化模型，并且将其作为一个组件整合到自己的应用中。
 
 <!-- [START screenshot] -->
 <p align="center">
@@ -27,9 +28,24 @@ Gio.js有一个React版本——react-giojs，有兴趣的话去这个仓库看�
 
 ## 目录
 
+* [为什么要使用Gio.js](#motivation)
 * [开始使用](#getting-started)
 * [例子](#examples)
 * [文档](#documentation)
+
+<!-- [START motivation] -->
+
+## <div id="motivation">为什么要使用Gio.js</div>
+
+**Gio.js** 是一个基于Three.js的web 3D地球数据可视化的开源组件库。使用Gio.js的网页应用开发者，可以快速地以申明的方式创建自定义的Web3D数据可视化模型，并且将其作为一个组件整合到自己的应用中。
+
+这个库的开发是受到Google 2012 Info大会上的项目[世界武器贩卖可视化](https://github.com/dataarts/armsglobe)的启发，该项目开发者是Google员工Michael Chang。使用Gio.js就可以快速构建这种炫酷的3D模型，并以此为基础进行深入地开发。
+
+* **易用性** -- 仅使用4行Javascript即可创建3D地球数据可视化模型
+* **定制化** -- 使用Gio.js提供的丰富的API来创建自定义样式的3D地球
+* **现代化** -- 基于Gio.js构建高交互、自适应的现代化3D前端应用
+
+<!-- [END motivation] -->
 
 <!-- [START getstarted] -->
 ## <div id="getting-started">开始使用</div>
@@ -48,7 +64,7 @@ Gio.js有一个React版本——react-giojs，有兴趣的话去这个仓库看�
 或者通过CDN引入依赖：
 ```html
 <script src="https://threejs.org/build/three.min.js"></script>
-<script src="https://rawgit.com/syt123450/Gio.js/master/build/gio.min.js"></script>
+<script src="https://raw.githack.com/syt123450/giojs/master/build/gio.min.js"></script>
 ```
 - 途径2: JavaScript包管理工具NPM
 ```bash
@@ -103,7 +119,7 @@ yarn add giojs
 
 </script>
 ```
-如果一切顺利，在浏览器中打开您的HTML页面你将会看到以下3D地球： [用力点我](http://giojs.org/examples/00_hello_world(simplest).html).
+如果一切顺利，在浏览器中打开您的HTML页面你将会看到以下3D地球： [用力点我](http://giojs.org/examples/00_hello_world(simplest).html). 如果有兴趣了解更多Gio.js有趣的用法，我们强烈推荐Gio.js的<a href="http://giojs.org/html/docs/index.html">文档</a>
 
 点击后面这个Codepen logo来在Codepen中试一下这个例子吧 ~ &nbsp;&nbsp;<a target="_blank" href="https://codepen.io/syt123450/pen/VXNdgM"><img width=50 height=50 src="https://rawgit.com/syt123450/Gio.js/master/assets/readme/codepen.png"></a>
 
@@ -127,11 +143,11 @@ Gio.js有很多codepen的例子，你可以在codepen中编辑修改它们。点
 
 ## <div id="documentation">文档</div>
 
-- 如果想要快速了解如何使用Giojs的话，看看 [开始使用](https://github.com/syt123450/giojs/blob/master/docs/zh/Getting_Started_zh.md) 呐~
-- 如果想要了解Giojs的基本组件，看看 [基础组件](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md) 哈~
-- 如果你有丰富的第三方组件的使用经验，不妨直接研究一下 [Giojs API 文档](https://github.com/syt123450/giojs/blob/master/docs/zh/APIs_zh.md) 啦~
-- 如果想要加入我们Giojs的开发，来看看 [开发者文档](https://github.com/syt123450/giojs/blob/master/docs/zh/Developer_Guide_zh.md) 吧~
-- 当然如果看不惯Markdown格式的文档，我们也准备了中文版的网站 [官网](http://giojs.org/index_zh.html)
+- 如果想要快速了解如何使用Giojs的话， [开始使用](https://github.com/syt123450/giojs/blob/master/docs/zh/Getting_Started_zh.md) 是一个好的开始
+- 如果想要了解Giojs的基本组件， [基础组件](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md) 会帮助你缕清Gio.js中的基本概念
+- 如果你有丰富的第三方组件的使用经验， [Giojs API 文档](https://github.com/syt123450/giojs/blob/master/docs/zh/APIs_zh.md)
+- 如果想要加入我们Giojs的开发，不妨先了解一下 [开发者文档](https://github.com/syt123450/giojs/blob/master/docs/zh/Developer_Guide_zh.md) 可以帮助你快速上手开发
+- 在我们的Gio.js中文版官网中，有对Gio.js最为详细的介绍 [官网](http://giojs.org/index_zh.html)
 
 [screenshot-url]: http://via.placeholder.com/400x300
 [npm-badge]: https://img.shields.io/badge/npm-v0.0.5-orange.svg

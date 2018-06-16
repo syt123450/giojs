@@ -7,6 +7,8 @@
 <strong>English</strong> | <a href="https://github.com/syt123450/giojs/blob/master/README_zh.md"><strong>中文</strong></a>
 </p>
 
+<p align="center">React Version: <a href="https://github.com/syt123450/react-giojs">react-giojs</a></p>
+
 <p align="center">
   <a href="https://www.npmjs.com/package/giojs"><img src="https://img.shields.io/npm/v/giojs.svg" alt="npm version" height="18"></a>
   <a href="https://github.com/syt123450/Gio.js/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-green.svg" alt="license badge"></a>
@@ -15,9 +17,7 @@
   <a href="https://coveralls.io/github/syt123450/Gio.js?branch=master"><img src="https://coveralls.io/repos/github/syt123450/Gio.js/badge.svg" alt="coverage"></a>
 </p>
 
-**Gio.js** is an open source library for data visualization library based on a 3D globe. This library is inspired by the [Arms Trade Visualization](http://armsglobe.chromeexperiments.com/) project developed by Michael Chang and presented during Google Ideas INFO 2012. See [original post](http://mflux.tumblr.com/post/28367579774/armstradeviz). What makes Gio.js different is that it is fully customizable for users, friendly to future developers to use in a declarative way.
-
-There is a React version of giojs -- react-giojs, try it in another repo: https://github.com/syt123450/react-giojs
+**Gio.js** is an open source library for web 3D globe data visualization based on Three.js. What makes Gio.js different is that it is **simple** to use Gio.js to **customize** a 3D data visualization model in a declarative way and integrate it into your own **modern** web application.
 
 <!-- [START screenshot] -->
 <p align="center">
@@ -27,9 +27,24 @@ There is a React version of giojs -- react-giojs, try it in another repo: https:
 
 ## Content
 
+* [Motivation](#motivation)
 * [Getting Started](#getting-started)
 * [Examples](#examples)
 * [Documentation](#documentation)
+
+<!-- [START motivation] -->
+
+## Motivation
+
+**Gio.js** is an open source library for web 3D globe data visualization based on Three.js. What makes Gio.js different is that it is **simple** to use Gio.js to **customize** a 3D data visualization model in a declarative way and integrate it into your own **modern** web application.
+
+This library is inspired by the <a href="https://github.com/dataarts/armsglobe">Arms Trade Visualization project</a> developed by Michael Chang and presented during Google Ideas INFO 2012. See <a href="http://mflux.tumblr.com/post/28367579774/armstradeviz">original post</a>. With Gio.js, it is easy to reproduce this fantastic data visualization model, and integrate it into web application.
+
+* **Simplicity** -- Create a 3D global data visualization model with your own data in just four lines of javascript code
+* **Customization** -- Design your own globe style with easy to use APIs in Gio.js
+* **Modernization** -- Build a responsible, fully interactive, rich 3D frontend application using Gio.js
+
+<!-- [END motivation] -->
 
 <!-- [START getstarted] -->
 ## Getting Started
@@ -48,7 +63,7 @@ Include local Gio.js library
 or through CDN
 ```html
 <script src="https://threejs.org/build/three.min.js"></script>
-<script src="https://rawgit.com/syt123450/Gio.js/master/build/gio.min.js"></script>
+<script src="https://raw.githack.com/syt123450/giojs/master/build/gio.min.js"></script>
 ```
 - Option 2: npm
 ```bash
@@ -103,7 +118,7 @@ To initialize and render the 3D Gio globe:
 
 </script>
 ```
-If everything goes well, you should see [this](http://giojs.org/examples/00_hello_world(simplest).html).
+If everything goes well, you shall see [this](http://giojs.org/examples/00_hello_world(simplest).html). For more fancier usage of Gio.js, check out <a href="http://giojs.org/html/docs/index.html">Gio.js API document</a>
 
 Click the codepen logo to try it in Codepen: &nbsp;&nbsp;<a target="_blank" href="https://codepen.io/syt123450/pen/VXNdgM"><img width=50 height=50 src="https://rawgit.com/syt123450/Gio.js/master/assets/readme/codepen.png"></a>
 
@@ -117,7 +132,7 @@ Gio.js has many representative demos to show how to work with Gio.js, there are 
 
 - Resource 1: Gio.js Playground
 
-There is a Playground(<a href="http://giojs.org/html/playground.html">playground link</a>) for developers to play with Gio.js and export Gio.js parameter.
+There is a Playground ( <a href="http://giojs.org/html/playground.html">playground link</a> ) for developers to play with Gio.js and export Gio.js parameter.
 
 - Resource 2: Github "examples" folder
 

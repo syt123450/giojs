@@ -1,6 +1,6 @@
 # Gio.js Hello World
 
-**Gio.js** is an open source library for data visualization on a 3D globe. This library is inspired by the [Arms Trade Visualization](http://armsglobe.chromeexperiments.com/) project developed by Michael Chang and presented during Google Ideas INFO 2012. What makes Gio.js different is that it is fully customizable for user and friendly to future developers.
+**Gio.js** is an open source library for data visualization on a 3D globe. This library is inspired by the [Arms Trade Visualization](https://github.com/dataarts/armsglobe) project developed by Michael Chang and presented during Google Ideas INFO 2012. What makes Gio.js different is that it is fully customizable for user and friendly to future developers.
 
 <!-- [START screenshot] -->
 <p>
@@ -24,7 +24,7 @@ Include local Gio.js library
 ```
 or through CDN
 ```html
-<script src="https://cdn.rawgit.com/syt123450/giojs/de5fd34a/build/gio.min.js"></script>
+<script src="https://raw.githack.com/syt123450/giojs/master/build/gio.min.js"></script>
 ```
 - Option 2: npm
 ```bash

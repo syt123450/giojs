@@ -502,7 +502,7 @@ Default:
 
 ### <div id="adjustOceanBrightness">设置海洋亮度</div>
 
-通过RGB值设置 [海洋](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#ocean) 的亮度。
+可以设置 [海洋](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#ocean) 的亮度。
 <p>
   <a href="http://giojs.org/examples/07_API_adjustOceanBrightness.html">
     <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton_zh.png" height="30" width="100" />
@@ -527,7 +527,7 @@ Default:
 
 ### <div id="adjustRelatedBrightness">设置相关国家亮度</div>
 
-通过RGB值设置 [相关国家](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#country) 的亮度。
+可以设置 [相关国家](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#country) 的亮度。
 
 <p>
   <a href="http://giojs.org/examples/08_API_adjustRelatedBrightness.html">
@@ -553,7 +553,7 @@ Default:
 
 ### <div id="adjustMentionedBrightness">设置被提到国家亮度</div>
 
-通过RGB值设置 [被提到国家](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#country) 的亮度。
+可以设置 [被提到国家](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#country) 的亮度。
 
 <p>
   <a href="http://giojs.org/examples/09_API_adjustMentionedBrightness.html">

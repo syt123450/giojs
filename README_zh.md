@@ -18,7 +18,7 @@
   <a href="https://coveralls.io/github/syt123450/Gio.js?branch=master"><img src="https://coveralls.io/repos/github/syt123450/Gio.js/badge.svg" alt="coverage"></a>
 </p>
 
-**Gio.js** 是一个基于Three.js的web 3D地球数据可视化的开源组件库。使用Gio.js的网页应用开发者，可以快速地以申明的方式创建自定义的Web3D数据可视化模型，并且将其作为一个组件整合到自己的应用中。
+**Gio.js** 是一个基于Three.js的web 3D地球数据可视化的开源组件库。使用Gio.js的网页应用开发者，可以快速地以申明的方式创建自定义的Web3D数据可视化模型，添加数据，并且将其作为一个组件整合到自己的应用中。
 
 <!-- [START screenshot] -->
 <p align="center">
@@ -37,7 +37,7 @@
 
 ## <div id="motivation">为什么要使用Gio.js</div>
 
-**Gio.js** 是一个基于Three.js的web 3D地球数据可视化的开源组件库。使用Gio.js的网页应用开发者，可以快速地以申明的方式创建自定义的Web3D数据可视化模型，并且将其作为一个组件整合到自己的应用中。
+**Gio.js** 是一个基于Three.js的web 3D地球数据可视化的开源组件库。使用Gio.js的网页应用开发者，可以快速地以申明的方式创建自定义的Web3D数据可视化模型，添加数据，并且将其作为一个组件整合到自己的应用中。
 
 这个库的开发是受到Google 2012 Info大会上的项目[世界武器贩卖可视化](https://github.com/dataarts/armsglobe)的启发，该项目开发者是Google员工Michael Chang。使用Gio.js就可以快速构建这种炫酷的3D模型，并以此为基础进行深入地开发。
 
@@ -111,7 +111,7 @@ yarn add giojs
     // 创建Gio控制器
     var controller = new GIO.Controller( container );
 
-    // 添加数据
+    // 添加数据，了解更多有关Gio.js数据格式，查看文档：http://giojs.org/html/docs/dataIntro_zh.html
     controller.addData( data );
 
     // 初始化并渲染地球
@@ -129,15 +129,15 @@ yarn add giojs
 
 Gio.js有很多代表性的例子，这些例子可以作为小帮手，辅助你成为一个Gio.js的专家！大致可以将这些小帮手分成三类：
 
-- 小帮手1号: Gio.js Playground
+- **小帮手1号**: Gio.js Playground
 
 Gio.js有一个Playground插件（<a href="http://giojs.org/html/playground.html">Playground链接</a>），在这个Playground中，你可以试试Gio.js的部分功能并且导出配置参数。
 
-- 小帮手2号: Github仓库"examples"文件夹下的例子
+- **小帮手2号**: Github仓库"examples"文件夹下的例子
 
 Gio.js的仓库中有很多API例子，这些例子都被归集在"examples"文件夹下。Clone Gio.js仓库，然后在本地环境中看看它们把~
 
-- 小帮手3号: Codepen在线可编辑的例子
+- **小帮手3号**: Codepen在线可编辑的例子
 
 Gio.js有很多codepen的例子，你可以在codepen中编辑修改它们。点击后面这个Codepen logo，可以直接进入Gio.js Codepen的编辑界面。<a target="_blank" href="https://codepen.io/collection/DkBobG/"><img width=50 height=50 src="https://rawgit.com/syt123450/Gio.js/master/assets/readme/codepen.png"></a>
 

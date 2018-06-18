@@ -17,7 +17,7 @@
   <a href="https://coveralls.io/github/syt123450/Gio.js?branch=master"><img src="https://coveralls.io/repos/github/syt123450/Gio.js/badge.svg" alt="coverage"></a>
 </p>
 
-**Gio.js** is an open source library for web 3D globe data visualization based on Three.js. What makes Gio.js different is that it is **simple** to use Gio.js to **customize** a 3D data visualization model in a declarative way and integrate it into your own **modern** web application.
+**Gio.js** is an open source library for web 3D globe data visualization based on Three.js. What makes Gio.js different is that it is **simple** to use Gio.js to **customize** a 3D data visualization model in a declarative way, add your own data, and integrate it into your own **modern** web application.
 
 <!-- [START screenshot] -->
 <p align="center">
@@ -36,7 +36,7 @@
 
 ## Motivation
 
-**Gio.js** is an open source library for web 3D globe data visualization based on Three.js. What makes Gio.js different is that it is **simple** to use Gio.js to **customize** a 3D data visualization model in a declarative way and integrate it into your own **modern** web application.
+**Gio.js** is an open source library for web 3D globe data visualization based on Three.js. What makes Gio.js different is that it is **simple** to use Gio.js to **customize** a 3D data visualization model in a declarative way, add your own data, and integrate it into your own **modern** web application.
 
 This library is inspired by the <a href="https://github.com/dataarts/armsglobe">Arms Trade Visualization project</a> developed by Michael Chang and presented during Google Ideas INFO 2012. See <a href="http://mflux.tumblr.com/post/28367579774/armstradeviz">original post</a>. With Gio.js, it is easy to reproduce this fantastic data visualization model, and integrate it into web application.
 
@@ -110,7 +110,7 @@ To initialize and render the 3D Gio globe:
     // create controller for the IO globe, input the container as the parameter
     var controller = new GIO.Controller( container );
 
-    // use addData() API to add the the data to the controller
+    // use addData() API to add the the data to the controller, know more about data format check out documentation about data: http://giojs.org/html/docs/dataIntro.html
     controller.addData( data );
 
     // call the init() API to show the IO globe in the browser
@@ -130,15 +130,15 @@ Click the codepen logo to try it in Codepen: &nbsp;&nbsp;<a target="_blank" href
 
 Gio.js has many representative demos to show how to work with Gio.js, there are mainly three example resources:
 
-- Resource 1: Gio.js Playground
+- **Resource 1**: Gio.js Playground
 
 There is a Playground ( <a href="http://giojs.org/html/playground.html">playground link</a> ) for developers to play with Gio.js and export Gio.js parameter.
 
-- Resource 2: Github "examples" folder
+- **Resource 2**: Github "examples" folder
 
 Gio.js has many API demos, and these demos are gathered in examples folder. clone the Gio.js repo, try them in your own environment ~
 
-- Resource 3: Live demos on Codepen
+- **Resource 3**: Live demos on Codepen
 
 Gio.js has a Codepen collection which contains many live demos about Gio.js, click the codepen logo and try to edit them!
 <a target="_blank" href="https://codepen.io/collection/DkBobG/"><img width=50 height=50 src="https://rawgit.com/syt123450/Gio.js/master/assets/readme/codepen.png"></a>

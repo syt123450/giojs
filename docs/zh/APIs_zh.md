@@ -2,17 +2,17 @@
 
 ## 配置
 
-Gio.js拥有丰富的API，您可以使用这些API来构建和定制3D数据可视化模型。了解如何配置参数会对之后的开发有很大的帮助。 Gio.js有两种基本的配置参数方式：构造函数配置和配置API。点击以下文档链接了解详细信息：
+Gio.js拥有丰富的API，您可以使用这些API来构建和定制3D数据可视化模型。了解如何配置参数会对之后的开发有很大的帮助。 Gio.js有两种基本的配置参数方式：通过构造函数配置和通过API配置。点击以下文档链接了解详细信息：
 
-* <a href="#through_constructor">构造函数配置</a>
-* <a href="#configure_API">配置API</a>
+* <a href="#through_constructor">通过构造函数配置</a>
+* <a href="#configure_API">通过API配置</a>
 * <a href="#parameter_list">配置参数表</a>
 
 ---
 
-### <div id="through_constructor">构造函数配置</div>
+### <div id="through_constructor">通过构造函数配置</div>
 
-当你创建Gio controller对象的时候，你可以将配置参数传递给controller，具体传递方式如下所示：
+当创建Gio controller对象时，可以将配置参数传递给controller，具体传递方式如下所示：
 
 ```javascript
     var configs = {
@@ -25,24 +25,24 @@ Gio.js拥有丰富的API，您可以使用这些API来构建和定制3D数据可
 
 ---
 
-### <div id="configure_API">配置API</div>
+### <div id="configure_API">通过API配置</div>
 
-你可以在controller创建之后，使用configure API来配置controller，具体使用方式如下所示：
+或者可以在controller创建之后，使用configure API来配置controller，具体使用方式如下所示：
 
 ```javascript
     controller.configure(configs)
 ```
-    
-configure API接受的参数和<a href="#through_constructor">构造函数配置</a>一样，可以查看 <a href="#parameter_list">配置参数</a> 了解各个配置参数的详细解释。
+
+configure API接受的参数和<a href="#through_constructor">通过构造函数配置</a>一样，可以查看 <a href="#parameter_list">配置参数表</a> 了解各个配置参数的详细解释。
 
 ---
 ### <div id="parameter_list">配置参数表</div>
 
 ```javascript
     var configs = {
-    
+
         control: {
-    
+
             stats: false,
             disableUnmentioned: false,
             lightenMentioned: false,
@@ -50,41 +50,41 @@ configure API接受的参数和<a href="#through_constructor">构造函数配置
             outOnly: false,
             initCountry: "CN",
             halo: true
-            
+
         },
-    
+
         color: {
-    
+
             surface: 0xFFFFFF,
             selected: null,
             in: 0x154492,
             out: 0xDD380C,
             halo: 0xFFFFFF,
             background: null
-    
+
         },
-    
+
         brightness: {
-        
+
             ocean: 0.5,
             mentioned: 0.5,
             related: 0.5
-    
+
         },
-    
+
         resource: {
-        
+
             loading: null
-    
+
         }
-        
+
     }
 ```
 参数表:
 
 | 参数名 | 默认值/范围 | 描述 |
-|  ------------- | ------------- |  ------------- | 
-| control.stats | false  | True表示开启性能监控 | 
+|  ------------- | ------------- |  ------------- |
+| control.stats | false  | True表示开启性能监控 |
 | control.disableUnmentioned  | false  | True表示设置"未提到的国家"不可点击 |
 | control.lightenMentioned | false | True表示设置地球表面"提到的国家"比"未提到的国家"更亮 |
 | control.inOnly | false | True表示只显示"输入线条"|
@@ -98,7 +98,7 @@ configure API接受的参数和<a href="#through_constructor">构造函数配置
 | color.halo | 0xFFFFFF or "#FFFFFF" | 光晕颜色 |
 | color.background | null | 背景颜色 |
 | brightness.ocean | <p>0.5</p> <p>[0.0, 1.0]| 海洋亮度</p> |
-| brightness.mentioned | <p>0.5</p> <p>[0.0, 1.0]| 被提到国家亮度</p> | 
+| brightness.mentioned | <p>0.5</p> <p>[0.0, 1.0]| 被提到国家亮度</p> |
 | brightness.related | <p>0.5</p> <p>[0.0, 1.0]| 有关国家亮度</p> |
 | resource.loading | null | loading图片相对路径 |
 
@@ -109,9 +109,9 @@ configure API接受的参数和<a href="#through_constructor">构造函数配置
 功能设计型API是一组可以控制Gio元素（呈现或隐藏）的API。除文档外，我们还提供在线演示来帮助您更好地理解这些API。 点击以下链接来查看各个API详细的解释。
 
 * <a href="#setInitCountry">设置初始国家</a>
-* <a href="#lightenMentioned">点亮提及国家</a>
-* <a href="#disableUnmentioned">禁用点击未提及国家</a>
-* <a href="#showOnly">只显示输入线/输出线</a>
+* <a href="#lightenMentioned">高亮被提及国家</a>
+* <a href="#disableUnmentioned">禁用未提及国家</a>
+* <a href="#showOnly">显示(隐藏)输入线(输出线)</a>
 * <a href="#controlHalo">添加/删除光晕</a>
 * <a href="#controlStats">启动/禁用性能监控</a>
 
@@ -141,7 +141,7 @@ configure API接受的参数和<a href="#through_constructor">构造函数配置
 
 ---
 
-### <div id="lightenMentioned">点亮提及国家</div>
+### <div id="lightenMentioned">高亮被提及国家</div>
 
 使Gio地球表面上 [提及国家](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#country) 比 [未提及的国家](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#country) 更亮。 在默认情况下，提及国家和未提及国家的亮度是一样的。
 
@@ -167,9 +167,9 @@ configure API接受的参数和<a href="#through_constructor">构造函数配置
 
 ---
 
-### <div id="disableUnmentioned">禁用点击未提及国家</div>
+### <div id="disableUnmentioned">禁用未提及国家</div>
 
-禁用 [未提及的国家](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#country) ，这个操作会使在数据集中未提到过的国家在3D地球上不可选。默认设置下此功能不开启。
+禁止点击 [未提及的国家](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#country) ，这个操作会使在数据集中未提到过的国家在3D地球上不可选。默认设置下此功能不开启。
 
 <p>
   <a href="http://giojs.org/examples/12_API_disableUnmentioned.html">
@@ -191,7 +191,7 @@ configure API接受的参数和<a href="#through_constructor">构造函数配置
 
 ---
 
-###  <div id="showOnly">只显示输入线/输出线</div>
+###  <div id="showOnly">显示(隐藏)输入线(输出线)</div>
 
 对于 [被选中的国家](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#country) ，只显示 [输入线](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#line) 或者 [输出线](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#line)。
 
@@ -298,7 +298,7 @@ configure API接受的参数和<a href="#through_constructor">构造函数配置
 
 ---
 
-## Color and Style APIs
+## 颜色风格型APIs
 
 颜色风格类API用于设置Gio地球的风格（颜色和亮度）。您可以自定义几乎所有Gio地球的参数，例如 [表面](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#surface)， [国家](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#country)， [连接线](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#line)， [光晕](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#halo)， [背景](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#background)， [海洋](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#ocean) 等等。 我们同时在文档中提供在线演示和codepen在线编辑器用于帮助您理解和测试每一个API。 您可以点击以下链接来了解每一个API的定义和使用详情。
 
@@ -311,7 +311,7 @@ configure API接受的参数和<a href="#through_constructor">构造函数配置
 * <a href="#setBackgroundColor">设置背景颜色</a>
 * <a href="#adjustOceanBrightness">设置海洋亮度</a>
 * <a href="#adjustRelatedBrightness">设置相关国家亮度</a>
-* <a href="#adjustMentionedBrightness">设置提到国家亮度</a>
+* <a href="#adjustMentionedBrightness">设置被提到国家亮度</a>
 
 ---
 
@@ -324,7 +324,7 @@ configure API接受的参数和<a href="#through_constructor">构造函数配置
     <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton_zh.png" height="30" width="100" />
   </a>
 </p>  
-例如：想将默认风格更改为“magic”风格：
+例如：将默认风格更改为“magic”风格：
 <p align="center">
   <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/setStyle1_zh.jpg"/></a>
 </p>
@@ -340,7 +340,7 @@ configure API接受的参数和<a href="#through_constructor">构造函数配置
 
 ### <div id="setSurfaceColor">设置表面颜色</div>
 
-您可以设置3D地球的 [表面](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#surface) 颜色。默认颜色是 #FFFFFF：
+通过RGB值设置3D地球的 [表面](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#surface) 颜色。默认颜色是 #FFFFFF：
 
 <p>
   <a href="http://giojs.org/examples/01_API_setSurfaceColor.html">
@@ -367,7 +367,7 @@ configure API接受的参数和<a href="#through_constructor">构造函数配置
 
 ### <div id="setSelectedColor">设置选中国家颜色</div>
 
-您可以设置 [选中国家](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#country) 颜色。默认的选中国家颜色和表面颜色相同，但亮度稍高一些。
+通过RGB值设置 [选中国家](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#country) 颜色。默认的选中国家颜色和表面颜色相同，但亮度稍高。
 
 <p>
   <a href="http://giojs.org/examples/02_API_setSelectedColor.html">
@@ -393,7 +393,7 @@ Default:
 
 ### <div id="setExportColor">设置输出颜色</div>
 
-您可以设置输出线的颜色。关于连接线定义，请参考这里: [连接线](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#line)。
+通过RGB值设置输出线的颜色。关于连接线定义，请参考这里: [连接线](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#line)。
 
 <p>
   <a href="http://giojs.org/examples/04_API_setExportColor.html">
@@ -419,7 +419,7 @@ Default:
 
 ### <div id="setImportColor">设置输入颜色</div>
 
-您可以设置输入线的颜色。关于连接线定义，请参考这里: [连接线](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#line)。
+通过RGB值设置输入线的颜色。关于连接线定义，请参考这里: [连接线](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#line)。
 
 <p>
   <a href="http://giojs.org/examples/05_API_setImportColor.html">
@@ -447,7 +447,7 @@ Default:
 
 ### <div id="setHaloColor">设置光晕颜色</div>
 
-您可以设置 [光晕](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#halo) 的颜色。 
+通过RGB值设置 [光晕](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#halo) 的颜色。
 
 <p>
   <a href="http://giojs.org/examples/24_API_setHaloColor.html">
@@ -475,7 +475,7 @@ Default:
 
 ### <div id="setBackgroundColor">设置背景颜色</div>
 
-您可以更改 [背景](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#background) 的颜色
+通过RGB值设置 [背景](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#background) 的颜色
 <p>
   <a href="http://giojs.org/examples/26_API_setBackgroundColor.html">
     <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton_zh.png" height="30" width="100" />
@@ -502,7 +502,7 @@ Default:
 
 ### <div id="adjustOceanBrightness">设置海洋亮度</div>
 
-您可以设置 [海洋](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#ocean) 的亮度。
+通过RGB值设置 [海洋](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#ocean) 的亮度。
 <p>
   <a href="http://giojs.org/examples/07_API_adjustOceanBrightness.html">
     <img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/icon/liveDemoButton_zh.png" height="30" width="100" />
@@ -527,7 +527,7 @@ Default:
 
 ### <div id="adjustRelatedBrightness">设置相关国家亮度</div>
 
-您可以设置 [相关国家](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#country) 的亮度。
+通过RGB值设置 [相关国家](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#country) 的亮度。
 
 <p>
   <a href="http://giojs.org/examples/08_API_adjustRelatedBrightness.html">
@@ -551,9 +551,9 @@ Default:
 
 ---
 
-### <div id="adjustMentionedBrightness">设置提到国家亮度</div>
+### <div id="adjustMentionedBrightness">设置被提到国家亮度</div>
 
-您可以设置 [提到国家](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#country) 的亮度。
+通过RGB值设置 [被提到国家](https://github.com/syt123450/giojs/blob/master/docs/zh/Basic_Elements_zh.md#country) 的亮度。
 
 <p>
   <a href="http://giojs.org/examples/09_API_adjustMentionedBrightness.html">
@@ -565,7 +565,7 @@ The range of the brightness is [0, 1] and its default value is `0.5`:
   <a><img src="https://github.com/syt123450/Gio.js/blob/master/assets/images/document/color/adjustMentionedBrightness1_zh.jpg"/></a>
 </p>   
 
-默认设置中，提到国家并不会被高亮。要更改提到国家的亮度，首先需要按如下方法调用[lightenMentioned(true)](#lightenMentioned)：
+默认设置中，被提到国家并不会被高亮。要更改被提到国家的亮度，首先需要按如下方法启用该功能[lightenMentioned(true)](#lightenMentioned)：
 
 ```javascript
     controller.lightenMentioned(true);
@@ -581,9 +581,9 @@ The range of the brightness is [0, 1] and its default value is `0.5`:
 
 Gio.js拥有多种设置数据的方式。最基本的方式是使用 addData API。如果需要异步加载数据，可以使用 addDataAsync API；如果需要周期性加载数据，可以使用 liveLoad API。 为了让数据更具有观赏性，Gio.js会对数据进行预处理。在添加数据时，你可以同时设置数据展示时的颜色。
 
-* <a href="#addData">添加数据</a>
+* <a href="#addData">添加（更新）数据</a>
 * <a href="#addDataAsync">异步添加数据</a>
-* <a href="#liveLoad">实时加载</a>
+* <a href="#liveLoad">周期性加载</a>
 * <a href="#setSingleColor">设置单条线条颜色</a>
 * <a href="#dataPreprocessing">数据预处理</a>
 
@@ -618,12 +618,12 @@ data -- JSON格式数据
 
 ### <div id="addDataAsync">异步添加数据</div>
 
- 参数： 
- 
- *url* - 返回JSON格式数据，数据格式与[添加数据](#addData) 定义的data相同
- 
+ 参数：
+
+ *url* - 返回JSON格式数据，数据格式与[添加（更新）数据](#addData) 定义的data相同
+
  *asyncLoadCallback* - 当加载完成时执行的回调函数
- 
+
 从一个数据源异步加载数据。
 
 用法：
@@ -642,17 +642,17 @@ data -- JSON格式数据
 
     }
 ```
- 
+
 ---
 
-### <div id="liveLoad">实时加载</div>
+### <div id="liveLoad">周期性加载数据</div>
 
 参数：
 
- *url* - 返回JSON格式数据，数据格式与[添加数据](#addData) 定义的data相同
- 
+ *url* - 返回JSON格式数据，数据格式与[添加（更新）数据](#addData) 定义的data相同
+
  *liveLoadCallback* - 当加载完成时执行的回调函数
- 
+
  *duration* - 周期性数据加载时间（以毫秒为单位）
 
 周期性地从一个数据源加载数据，用法：
@@ -726,13 +726,13 @@ data -- JSON格式数据
 
         // 使用onCountryPicked() API来设置回调函数
         controller.onCountryPicked( callback );
-    
-        // 定义一个回调函数，这个函数作为一个栗子，简单地在console里输出selectedCountry和relatedCountries这两个参数
+
+        // 定义一个回调函数，这个函数作为一个例子，简单地在console里输出selectedCountry和relatedCountries这两个参数
         function callback ( selectedCountry, relatedCountries ) {
-    
+
         	console.log(selectedCountry);
         	console.log(relatedCountries);
-    
+
         }
 
 #### <div id="countryObject">CountryObject</div>
@@ -750,7 +750,7 @@ CountryObject对象是一个JSON对象，具体定义如下所示（属性的值
 参数表：
 
 | 参数 | 描述 |
-|  ------------- |  ------------- | 
+|  ------------- |  ------------- |
 |ISOCode|国家的ISO代码|
 |center|国家的中心，用THREE.vector对象来表示|
 |lat|国家的纬度|

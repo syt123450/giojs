@@ -14,8 +14,8 @@
   <a href="https://www.npmjs.com/package/giojs"><img src="https://img.shields.io/npm/v/giojs.svg" alt="npm version" height="18"></a>
   <a href="https://github.com/syt123450/Gio.js/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-green.svg" alt="license badge"></a>
   <a href="https://github.com/mrdoob/three.js/"><img src="https://img.shields.io/badge/dependencies-Three.js-brightgreen.svg" alt="dependencies badge"></a>
-  <a href="https://travis-ci.org/syt123450/Gio.js"><img src="https://travis-ci.org/syt123450/Gio.js.svg" alt="build"></a>
-  <a href="https://coveralls.io/github/syt123450/Gio.js?branch=master"><img src="https://coveralls.io/repos/github/syt123450/Gio.js/badge.svg" alt="coverage"></a>
+  <a href="https://travis-ci.org/syt123450/giojs"><img src="https://travis-ci.org/syt123450/giojs.svg" alt="build"></a>
+  <a href="https://coveralls.io/github/syt123450/giojs?branch=master"><img src="https://coveralls.io/repos/github/syt123450/giojs/badge.svg" alt="coverage"></a>
 </p>
 
 **Gio.js** 是一个基于Three.js的web 3D地球数据可视化的开源组件库。使用Gio.js的网页应用开发者，可以快速地以申明的方式创建自定义的Web3D数据可视化模型，添加数据，并且将其作为一个组件整合到自己的应用中。
@@ -32,6 +32,7 @@
 * [开始使用](#getting-started)
 * [例子](#examples)
 * [文档](#documentation)
+* [开发人员](#contributors)
 
 <!-- [START motivation] -->
 
@@ -149,9 +150,6 @@ Gio.js有很多codepen的例子，你可以在codepen中编辑修改它们。点
 - 如果想要加入我们Giojs的开发，不妨先了解一下 [开发者文档](https://github.com/syt123450/giojs/blob/master/docs/zh/Developer_Guide_zh.md) 可以帮助你快速上手开发
 - 在我们的Gio.js中文版官网中，有对Gio.js最为详细的介绍 [官网](http://giojs.org/index_zh.html)
 
-<!-- ALL-CONTRIBUTORS-LIST: START - Do not remove or modify this section -->
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-
 [screenshot-url]: http://via.placeholder.com/400x300
 [npm-badge]: https://img.shields.io/badge/npm-v0.0.5-orange.svg
 [npm-badge-url]: https://www.npmjs.com/package/giojs
@@ -159,3 +157,14 @@ Gio.js有很多codepen的例子，你可以在codepen中编辑修改它们。点
 [license-badge-url]: https://github.com/syt123450/Gio.js/blob/master/LICENSE
 [dependencies-badge]: https://img.shields.io/badge/dependencies-Three.js-brightgreen.svg
 [dependencies-badge-url]: https://github.com/mrdoob/three.js/
+
+## <div id="contributors">开发人员</div>
+
+感谢所有Gio.js的开发人员 ([emoji key](https://github.com/kentcdodds/all-contributors#emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore -->
+| [<img src="https://avatars2.githubusercontent.com/u/7977100?v=4" width="100px;"/><br /><sub><b>syt123450</b></sub>](https://github.com/syt123450)<br />[💻](https://github.com/syt123450/giojs/commits?author=syt123450 "Code") [📖](https://github.com/syt123450/giojs/commits?author=syt123450 "Documentation") [💡](#example-syt123450 "Examples") [⚠️](https://github.com/syt123450/giojs/commits?author=syt123450 "Tests") | [<img src="https://avatars3.githubusercontent.com/u/25629006?v=4" width="100px;"/><br /><sub><b>Botime</b></sub>](https://github.com/BoTime)<br />[💻](https://github.com/syt123450/giojs/commits?author=BoTime "Code") [📖](https://github.com/syt123450/giojs/commits?author=BoTime "Documentation") [⚠️](https://github.com/syt123450/giojs/commits?author=BoTime "Tests") [🚇](#infra-BoTime "Infrastructure (Hosting, Build-Tools, etc)") | [<img src="https://avatars3.githubusercontent.com/u/5203735?v=4" width="100px;"/><br /><sub><b>Mutian Wang</b></sub>](https://github.com/manymeeting)<br />[💻](https://github.com/syt123450/giojs/commits?author=manymeeting "Code") [📦](#platform-manymeeting "Packaging/porting to new platform") [🎨](#design-manymeeting "Design") [👀](#review-manymeeting "Reviewed Pull Requests") | [<img src="https://avatars3.githubusercontent.com/u/4524339?v=4" width="100px;"/><br /><sub><b>Chenhua Zhu</b></sub>](https://github.com/zchholmes)<br />[💻](https://github.com/syt123450/giojs/commits?author=zchholmes "Code") [🚇](#infra-zchholmes "Infrastructure (Hosting, Build-Tools, etc)") [🤔](#ideas-zchholmes "Ideas, Planning, & Feedback") [👀](#review-zchholmes "Reviewed Pull Requests") | [<img src="https://avatars2.githubusercontent.com/u/19629037?v=4" width="100px;"/><br /><sub><b>Qi(Nora)</b></sub>](https://github.com/lq3297401)<br />[💻](https://github.com/syt123450/giojs/commits?author=lq3297401 "Code") [🎨](#design-lq3297401 "Design") [📖](https://github.com/syt123450/giojs/commits?author=lq3297401 "Documentation") [✅](#tutorial-lq3297401 "Tutorials") | [<img src="https://avatars2.githubusercontent.com/u/9123588?v=4" width="100px;"/><br /><sub><b>bouyuc</b></sub>](http://www.bouyuc.com)<br />[📖](https://github.com/syt123450/giojs/commits?author=bouyuc "Documentation") [✅](#tutorial-bouyuc "Tutorials") | [<img src="https://avatars0.githubusercontent.com/u/24384948?v=4" width="100px;"/><br /><sub><b>Xiaoran Lin</b></sub>](https://www.linkedin.com/in/xiaoran-lin-3529726a/)<br />[💻](https://github.com/syt123450/giojs/commits?author=siriustom "Code") [🎨](#design-siriustom "Design") [💡](#example-siriustom "Examples") [👀](#review-siriustom "Reviewed Pull Requests") |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| [<img src="https://avatars1.githubusercontent.com/u/11318667?v=4" width="100px;"/><br /><sub><b>Leon</b></sub>](https://github.com/leonsaber)<br />[💻](https://github.com/syt123450/giojs/commits?author=leonsaber "Code") [🎨](#design-leonsaber "Design") [💡](#example-leonsaber "Examples") |
+<!-- ALL-CONTRIBUTORS-LIST:END -->

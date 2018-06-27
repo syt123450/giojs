@@ -4,7 +4,8 @@
   "repoType": "github",
   "repoHost": "https://github.com",
   "files": [
-    "README.md"
+    "README.md",
+    "README_zh.md"
   ],
   "imageSize": 100,
   "commit": false,
@@ -19,6 +20,87 @@
         "doc",
         "example",
         "test"
+      ]
+    },
+    {
+      "login": "BoTime",
+      "name": "Botime",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/25629006?v=4",
+      "profile": "https://github.com/BoTime",
+      "contributions": [
+        "code",
+        "doc",
+        "test",
+        "infra"
+      ]
+    },
+    {
+      "login": "manymeeting",
+      "name": "Mutian Wang",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/5203735?v=4",
+      "profile": "https://github.com/manymeeting",
+      "contributions": [
+        "code",
+        "platform",
+        "design",
+        "review"
+      ]
+    },
+    {
+      "login": "zchholmes",
+      "name": "Chenhua Zhu",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/4524339?v=4",
+      "profile": "https://github.com/zchholmes",
+      "contributions": [
+        "code",
+        "infra",
+        "ideas",
+        "review"
+      ]
+    },
+    {
+      "login": "lq3297401",
+      "name": "Qi(Nora)",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/19629037?v=4",
+      "profile": "https://github.com/lq3297401",
+      "contributions": [
+        "code",
+        "design",
+        "doc",
+        "tutorial"
+      ]
+    },
+    {
+      "login": "bouyuc",
+      "name": "bouyuc",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/9123588?v=4",
+      "profile": "http://www.bouyuc.com",
+      "contributions": [
+        "doc",
+        "tutorial"
+      ]
+    },
+    {
+      "login": "siriustom",
+      "name": "Xiaoran Lin",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/24384948?v=4",
+      "profile": "https://www.linkedin.com/in/xiaoran-lin-3529726a/",
+      "contributions": [
+        "code",
+        "design",
+        "example",
+        "review"
+      ]
+    },
+    {
+      "login": "leonsaber",
+      "name": "Leon",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/11318667?v=4",
+      "profile": "https://github.com/leonsaber",
+      "contributions": [
+        "code",
+        "design",
+        "example"
       ]
     }
   ]

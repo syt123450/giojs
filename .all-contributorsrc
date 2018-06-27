@@ -1,0 +1,25 @@
+{
+  "projectName": "giojs",
+  "projectOwner": "syt123450",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "syt123450",
+      "name": "syt123450",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/7977100?v=4",
+      "profile": "https://github.com/syt123450",
+      "contributions": [
+        "code",
+        "doc",
+        "example",
+        "test"
+      ]
+    }
+  ]
+}

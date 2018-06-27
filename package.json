@@ -16,6 +16,7 @@
     "stats.js": "^0.17.0"
   },
   "devDependencies": {
+    "all-contributors-cli": "^5.2.1",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
@@ -32,7 +33,9 @@
     "cover": "babel-node ./node_modules/.bin/isparta cover _mocha",
     "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls",
     "build-beautify": "rollup -c",
-    "build-uglify": "rollup -c && uglifyjs build/gio.js -cm --preamble \"// https://github.com/syt123450/Gio.js/blob/master/LICENSE\" --output build/gio.min.js"
+    "build-uglify": "rollup -c && uglifyjs build/gio.js -cm --preamble \"// https://github.com/syt123450/Gio.js/blob/master/LICENSE\" --output build/gio.min.js",
+    "contributors:add": "all-contributors add",
+    "contributors:generate": "all-contributors generate"
   },
   "repository": {
     "type": "git",

@@ -149,6 +149,9 @@ Gio.js有很多codepen的例子，你可以在codepen中编辑修改它们。点
 - 如果想要加入我们Giojs的开发，不妨先了解一下 [开发者文档](https://github.com/syt123450/giojs/blob/master/docs/zh/Developer_Guide_zh.md) 可以帮助你快速上手开发
 - 在我们的Gio.js中文版官网中，有对Gio.js最为详细的介绍 [官网](http://giojs.org/index_zh.html)
 
+<!-- ALL-CONTRIBUTORS-LIST: START - Do not remove or modify this section -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
 [screenshot-url]: http://via.placeholder.com/400x300
 [npm-badge]: https://img.shields.io/badge/npm-v0.0.5-orange.svg
 [npm-badge-url]: https://www.npmjs.com/package/giojs

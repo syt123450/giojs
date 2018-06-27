@@ -1,4 +1,5 @@
 
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
 <p align="center"><a href="https://giojs.org" target="_blank"><img width="100" src="https://github.com/syt123450/giojs/blob/master/assets/readme/logo.png" alt="Gio logo"></a></p>
 
 <h1 align="center">Gio.js</h1>
@@ -152,6 +153,8 @@ Gio.js has a Codepen collection which contains many live demos about Gio.js, cli
 - See Gio's official website [giojs.org](http://giojs.org) for everything above and plus lots of live examples
 <!-- [END documentation] -->
 
+<!-- ALL-CONTRIBUTORS-LIST: START - Do not remove or modify this section -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 
 [screenshot-url]: http://via.placeholder.com/400x300
 [npm-badge]: https://img.shields.io/badge/npm-v0.0.5-orange.svg
@@ -160,3 +163,15 @@ Gio.js has a Codepen collection which contains many live demos about Gio.js, cli
 [license-badge-url]: https://github.com/syt123450/Gio.js/blob/master/LICENSE
 [dependencies-badge]: https://img.shields.io/badge/dependencies-Three.js-brightgreen.svg
 [dependencies-badge-url]: https://github.com/mrdoob/three.js/
+
+## Contributors
+
+Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds/all-contributors#emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore -->
+| [<img src="https://avatars2.githubusercontent.com/u/7977100?v=4" width="100px;"/><br /><sub><b>syt123450</b></sub>](https://github.com/syt123450)<br />[💻](https://github.com/syt123450/giojs/commits?author=syt123450 "Code") [📖](https://github.com/syt123450/giojs/commits?author=syt123450 "Documentation") [💡](#example-syt123450 "Examples") [⚠️](https://github.com/syt123450/giojs/commits?author=syt123450 "Tests") |
+| :---: |
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification. Contributions of any kind welcome!

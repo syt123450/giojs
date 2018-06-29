@@ -31,6 +31,7 @@
 * [Examples](#examples)
 * [Documentation](#documentation)
 * [Contributors](#contributors)
+* [License](#license)
 
 <!-- [START motivation] -->
 
@@ -172,3 +173,7 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification. Contributions of any kind welcome!
+
+## License
+
+[Apache-2.0](https://github.com/syt123450/giojs/blob/master/LICENSE)

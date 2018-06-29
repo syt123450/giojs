@@ -33,6 +33,7 @@
 * [例子](#examples)
 * [文档](#documentation)
 * [开发人员](#contributors)
+* [许可证](#license)
 
 <!-- [START motivation] -->
 
@@ -168,3 +169,7 @@ Gio.js有很多codepen的例子，你可以在codepen中编辑修改它们。点
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | [<img src="https://avatars1.githubusercontent.com/u/11318667?v=4" width="100px;"/><br /><sub><b>Leon</b></sub>](https://github.com/leonsaber)<br />[💻](https://github.com/syt123450/giojs/commits?author=leonsaber "Code") [🎨](#design-leonsaber "Design") [💡](#example-leonsaber "Examples") | [<img src="https://avatars0.githubusercontent.com/u/11615615?v=4" width="100px;"/><br /><sub><b>Alexis</b></sub>](https://github.com/AlexisAnzieu)<br />[💻](https://github.com/syt123450/giojs/commits?author=AlexisAnzieu "Code") [🐛](https://github.com/syt123450/giojs/issues?q=author%3AAlexisAnzieu "Bug reports") |
 <!-- ALL-CONTRIBUTORS-LIST:END -->
+
+## <div id="license">许可证</div>
+
+[Apache-2.0](https://github.com/syt123450/giojs/blob/master/LICENSE)

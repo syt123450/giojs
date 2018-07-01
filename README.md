@@ -29,6 +29,7 @@
 * [Motivation](#motivation)
 * [Getting Started](#getting-started)
 * [Examples](#examples)
+* [API List](#api-list)
 * [Documentation](#documentation)
 * [Contributors](#contributors)
 * [License](#license)
@@ -143,6 +144,108 @@ Gio.js has many API demos, and these demos are gathered in examples folder. clon
 
 Gio.js has a Codepen collection which contains many live demos about Gio.js, click the codepen logo and try to edit them!
 <a target="_blank" href="https://codepen.io/collection/DkBobG/"><img width=50 height=50 src="https://rawgit.com/syt123450/Gio.js/master/assets/readme/codepen.png"></a>
+
+## API List
+
+**[➡ `configure`(json)](http://giojs.org/html/docs/configureAPI.html)** 
+
+Configure the controller.
+
+**[➡ `setInitCountry(ISOCode, default: 'CN')`](http://giojs.org/html/docs/designInitCountry.html)**
+
+Set the country initially selected.
+
+**[➡ `lightenMentioned(boolean, default: 'false')`](http://giojs.org/html/docs/designLightenMen.html)**
+
+Makes the mentioned country brighter than those not mentioned in the input dataset.
+
+**[➡ `disableUnmentioned(boolean, default: 'false')`](http://giojs.org/html/docs/designDisableUnmen.html)**
+
+Disables an unmentioned country and makes it unselectable.
+
+**[➡ `showInOnly(boolean, default: 'false')`](http://giojs.org/html/docs/designShowOnly.html)**
+
+Displays only the line with data flowing into the selected country.
+
+**[➡ `showOutOnly(boolean, default: 'false')`](http://giojs.org/html/docs/designShowOnly.html)**
+
+Displays only the line with data flowing out of the selected country.
+
+**[➡ `addHalo(string)`](http://giojs.org/html/docs/designHalo.html)**
+
+Enables the halo around the earth. When enabling halo, the color of halo also can be specified.
+
+**[➡ `removeHalo()`](http://giojs.org/html/docs/designHalo.html)**
+
+Disables the halo around the earth.
+
+**[➡ `enableStats()`](http://giojs.org/html/docs/designStats.html)**
+
+Displays stats on the upper-left corner of the scene.
+
+**[➡ `disableStats()`](http://giojs.org/html/docs/designStats.html)**
+
+Hides stats on the upper-left corner of the scene.
+
+**[➡ `setStyle(string)`](http://giojs.org/html/docs/colorStyle.html)**
+
+Sets the color scheme of the 3D globe by name.
+
+**[➡ `setSurfaceColor(string, default: '#ffffff')`](http://giojs.org/html/docs/colorSurface.html)**
+
+Sets the color of the surface the 3D globe.
+
+**[➡ `setSelectedColor(string, default: '#ffffff')`](http://giojs.org/html/docs/colorSelected.html)**
+
+Sets color of the country in selected state.
+
+**[➡ `setExportColor(string, default: '#DD380C')`](http://giojs.org/html/docs/colorExport.html)**
+
+Sets the color of out line.
+
+**[➡ `setImportColor(string, default: '#154492')`](http://giojs.org/html/docs/colorImport.html)**
+
+Sets the color of in line.
+
+**[➡ `setHaloColor(string, default: '#ffffff')`](http://giojs.org/html/docs/colorHalo.html)**
+
+Sets the color of the Halo.
+
+**[➡ `setBackgroundColor(string, default: '#000000')`](http://giojs.org/html/docs/colorBackground.html)**
+
+Sets the color of the background.
+
+**[➡ `adjustOceanBrightness(float, default: 0.5)`](http://giojs.org/html/docs/colorOceanBr.html)**
+
+Sets the brightness of the ocean.
+
+**[➡ `adjustRelatedBrightness(float, default: 0.5)`](http://giojs.org/html/docs/colorRelatedBr.html)**
+
+Sets the brightness of the related country.
+
+**[➡ `adjustMentionedBrightness(float, default: 0.5)`](http://giojs.org/html/docs/colorMenBr.html)**
+
+Sets the brightness of the mentioned country.
+
+**[➡ `addData(json)`](http://giojs.org/html/docs/dataAdd.html)**
+
+Loads data to the controller of Gio and overrides previous data synchronously.
+
+**[➡ `addDataAsync(url, callback)`](http://giojs.org/html/docs/dataAddAsync.html)**
+
+Loads data to the controller of Gio and overrides previous data asynchronously.
+
+**[➡ `liveLoad(url, callback, duration)`](http://giojs.org/html/docs/dataLiveLoad.html)**
+
+Loads data to the controller periodically.
+
+**[➡ `onCountryPicked(callback)`](http://giojs.org/html/docs/callbackPicked.html)**
+
+Fired when selected country changes.
+
+**[➡ `switchCountry(IsoCode)`](http://giojs.org/html/docs/advancedSwitch.html)**
+
+Change currently selected country.
 
 ## Documentation
 

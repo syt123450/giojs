@@ -31,6 +31,7 @@
 * [为什么要使用Gio.js](#motivation)
 * [开始使用](#getting-started)
 * [例子](#examples)
+* [API列表](#apiList)
 * [文档](#documentation)
 * [开发人员](#contributors)
 * [许可证](#license)
@@ -142,6 +143,108 @@ Gio.js的仓库中有很多API例子，这些例子都被归集在"examples"文�
 - **小帮手3号**: Codepen在线可编辑的例子
 
 Gio.js有很多codepen的例子，你可以在codepen中编辑修改它们。点击后面这个Codepen logo，可以直接进入Gio.js Codepen的编辑界面。<a target="_blank" href="https://codepen.io/collection/DkBobG/"><img width=50 height=50 src="https://rawgit.com/syt123450/Gio.js/master/assets/readme/codepen.png"></a>
+
+## <div id="apiList">API列表</div>
+
+**[➡ `configure`(json)](http://giojs.org/html/docs/configureAPI_zh.html)** 
+
+配置controller。
+
+**[➡ `setInitCountry(ISOCode, default: 'CN')`](http://giojs.org/html/docs/designInitCountry_zh.html)**
+
+设置初始"被选中国家"。
+
+**[➡ `lightenMentioned(boolean, default: 'false')`](http://giojs.org/html/docs/designLightenMen_zh.html)**
+
+使Gio地球表面上"提及国家"比"未提及的国家"更亮。
+
+**[➡ `disableUnmentioned(boolean, default: 'false')`](http://giojs.org/html/docs/designDisableUnmen_zh.html)**
+
+禁止点击"未提及的国家"。
+
+**[➡ `showInOnly(boolean, default: 'false')`](http://giojs.org/html/docs/designShowOnly_zh.html)**
+
+对于"被选中的国家"，只显示"输入线"。
+
+**[➡ `showOutOnly(boolean, default: 'false')`](http://giojs.org/html/docs/designShowOnly_zh.html)**
+
+对于"被选中的国家"，只显示"输出线"。
+
+**[➡ `addHalo(string)`](http://giojs.org/html/docs/designHalo_zh.html)**
+
+添加地球光晕，可以指定光晕颜色。
+
+**[➡ `removeHalo()`](http://giojs.org/html/docs/designHalo_zh.html)**
+
+删除地球光晕。
+
+**[➡ `enableStats()`](http://giojs.org/html/docs/designStats_zh.html)**
+
+显示左上角的"性能监控"组件。
+
+**[➡ `disableStats()`](http://giojs.org/html/docs/designStats_zh.html)**
+
+隐藏左上角的"性能监控"组件。
+
+**[➡ `setStyle(string)`](http://giojs.org/html/docs/colorStyle_zh.html)**
+
+通过设置风格名称来更改3D地球的颜色风格。
+
+**[➡ `setSurfaceColor(string, default: '#ffffff')`](http://giojs.org/html/docs/colorSurface_zh.html)**
+
+通过RGB值设置3D地球的表面颜色。
+
+**[➡ `setSelectedColor(string, default: '#ffffff')`](http://giojs.org/html/docs/colorSelected_zh.html)**
+
+通过RGB值设置"在选中状态"下的国家颜色。
+
+**[➡ `setExportColor(string, default: '#DD380C')`](http://giojs.org/html/docs/colorExport_zh.html)**
+
+通过RGB值设置输出线的颜色。
+
+**[➡ `setImportColor(string, default: '#154492')`](http://giojs.org/html/docs/colorImport_zh.html)**
+
+通过RGB值设置输入线的颜色。
+
+**[➡ `setHaloColor(string, default: '#ffffff')`](http://giojs.org/html/docs/colorHalo_zh.html)**
+
+通过RGB值设置光晕的颜色。
+
+**[➡ `setBackgroundColor(string, default: '#000000')`](http://giojs.org/html/docs/colorBackground_zh.html)**
+
+通过RGB值设置背景的颜色。
+
+**[➡ `adjustOceanBrightness(float, default: 0.5)`](http://giojs.org/html/docs/colorOceanBr_zh.html)**
+
+设置海洋的亮度。
+
+**[➡ `adjustRelatedBrightness(float, default: 0.5)`](http://giojs.org/html/docs/colorRelatedBr_zh.html)**
+
+设置相关国家的亮度。
+
+**[➡ `adjustMentionedBrightness(float, default: 0.5)`](http://giojs.org/html/docs/colorMenBr_zh.html)**
+
+设置提到国家的亮度。
+
+**[➡ `addData(json)`](http://giojs.org/html/docs/dataAdd_zh.html)**
+
+将数据加载到Gio的控制器并同步覆盖以前的数据。
+
+**[➡ `addDataAsync(url, callback)`](http://giojs.org/html/docs/dataAddAsync_zh.html)**
+
+从一个数据源异步加载数据。
+
+**[➡ `liveLoad(url, callback, duration)`](http://giojs.org/html/docs/dataLiveLoad_zh.html)**
+
+周期性地从一个数据源加载数据。
+
+**[➡ `onCountryPicked(callback)`](http://giojs.org/html/docs/callbackPicked_zh.html)**
+
+当"被选中的国家"改变时被调用。
+
+**[➡ `switchCountry(IsoCode)`](http://giojs.org/html/docs/advancedSwitch_zh.html)**
+
+切换"被选中的国家"。 
 
 ## <div id="documentation">文档</div>
 

@@ -1,4 +1,4 @@
-<p align="center"><a href="https://giojs.org" target="_blank"><img width="100" src="https://github.com/syt123450/giojs/blob/master/assets/readme/logo.png" alt="Gio logo"></a></p>
+<p align="center"><a href="https://giojs.org" target="_blank"><img width="100" src="https://raw.githack.com/syt123450/giojs/master/assets/readme/logo.png" alt="Gio logo"></a></p>
 
 <h1 align="center">Gio.js</h1>
 
@@ -20,7 +20,7 @@
 
 <!-- [START screenshot] -->
 <p align="center">
-  <img src="https://github.com/syt123450/giojs/blob/master/assets/readme/Gio.gif"/>
+  <img src="https://raw.githack.com/syt123450/giojs/master/assets/readme/Gio.gif"/>
 </p>
 <!-- [END screenshot] -->
 
@@ -122,7 +122,7 @@ To initialize and render the 3D Gio globe:
 ```
 If everything goes well, you shall see [this](http://giojs.org/examples/00_hello_world(simplest).html). For more fancier usage of Gio.js, check out <a href="http://giojs.org/html/docs/index.html">Gio.js API document</a>
 
-Click the codepen logo to try it in Codepen: &nbsp;&nbsp;<a target="_blank" href="https://codepen.io/syt123450/pen/VXNdgM"><img width=50 height=50 src="https://rawgit.com/syt123450/Gio.js/master/assets/readme/codepen.png"></a>
+Click the codepen logo to try it in Codepen: &nbsp;&nbsp;<a target="_blank" href="https://codepen.io/syt123450/pen/VXNdgM"><img width=50 height=50 src="https://raw.githack.com/syt123450/giojs/master/assets/readme/codepen.png"></a>
 
 <!-- [END getstarted] -->
 
@@ -143,7 +143,7 @@ Gio.js has many API demos, and these demos are gathered in examples folder. clon
 - **Resource 3**: Live demos on Codepen
 
 Gio.js has a Codepen collection which contains many live demos about Gio.js, click the codepen logo and try to edit them!
-<a target="_blank" href="https://codepen.io/collection/DkBobG/"><img width=50 height=50 src="https://rawgit.com/syt123450/Gio.js/master/assets/readme/codepen.png"></a>
+<a target="_blank" href="https://codepen.io/collection/DkBobG/"><img width=50 height=50 src="https://raw.githack.com/syt123450/giojs/master/assets/readme/codepen.png"></a>
 
 ## API List
 

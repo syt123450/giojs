@@ -1,5 +1,5 @@
 
-<p align="center"><a href="https://giojs.org" target="_blank"><img width="100" src="https://github.com/syt123450/giojs/blob/master/assets/readme/logo.png" alt="Gio logo"></a></p>
+<p align="center"><a href="https://giojs.org" target="_blank"><img width="100" src="https://raw.githack.com/syt123450/giojs/master/assets/readme/logo.png" alt="Gio logo"></a></p>
 
 <h1 align="center">Gio.js</h1>
 
@@ -22,7 +22,7 @@
 
 <!-- [START screenshot] -->
 <p align="center">
-  <img src="https://github.com/syt123450/giojs/blob/master/assets/readme/Gio.gif"/>
+  <img src="https://raw.githack.com/syt123450/giojs/master/assets/readme/Gio.gif"/>
 </p>
 <!-- [END screenshot] -->
 
@@ -124,7 +124,7 @@ yarn add giojs
 ```
 如果一切顺利，在浏览器中打开您的HTML页面你将会看到以下3D地球： [用力点我](http://giojs.org/examples/00_hello_world(simplest).html). 如果有兴趣了解更多Gio.js有趣的用法，我们强烈推荐Gio.js的<a href="http://giojs.org/html/docs/index.html">文档</a>
 
-点击后面这个Codepen logo来在Codepen中试一下这个例子吧 ~ &nbsp;&nbsp;<a target="_blank" href="https://codepen.io/syt123450/pen/VXNdgM"><img width=50 height=50 src="https://rawgit.com/syt123450/Gio.js/master/assets/readme/codepen.png"></a>
+点击后面这个Codepen logo来在Codepen中试一下这个例子吧 ~ &nbsp;&nbsp;<a target="_blank" href="https://codepen.io/syt123450/pen/VXNdgM"><img width=50 height=50 src="https://raw.githack.com/syt123450/giojs/master/assets/readme/codepen.png"></a>
 
 <!-- [END getstarted] -->
 
@@ -142,7 +142,7 @@ Gio.js的仓库中有很多API例子，这些例子都被归集在"examples"文�
 
 - **小帮手3号**: Codepen在线可编辑的例子
 
-Gio.js有很多codepen的例子，你可以在codepen中编辑修改它们。点击后面这个Codepen logo，可以直接进入Gio.js Codepen的编辑界面。<a target="_blank" href="https://codepen.io/collection/DkBobG/"><img width=50 height=50 src="https://rawgit.com/syt123450/Gio.js/master/assets/readme/codepen.png"></a>
+Gio.js有很多codepen的例子，你可以在codepen中编辑修改它们。点击后面这个Codepen logo，可以直接进入Gio.js Codepen的编辑界面。<a target="_blank" href="https://codepen.io/collection/DkBobG/"><img width=50 height=50 src="https://raw.githack.com/syt123450/giojs/master/assets/readme/codepen.png"></a>
 
 ## <div id="apiList">API列表</div>
 

@@ -1698,6 +1698,7 @@ var CountryData = ( function () {
         GL: { colorCode: 55, name: 'GREENLAND', lat: 72, lon: -40 },
         GM: { colorCode: 164, name: 'GAMBIA', lat: 13.4667, lon: -16.5667 },
         GN: { colorCode: 80, name: 'GUINEA', lat: 11, lon: -10 },
+		GP: { colorCode: 3, name: 'FRANCE', lat: 46, lon: 2 },
         GQ: { colorCode: 101, name: 'EQUATORIAL GUINEA', lat: 2, lon: 10 },
         GR: { colorCode: 140, name: 'GREECE', lat: 39, lon: 22 },
         GT: { colorCode: 64, name: 'GUATEMALA', lat: 15.5, lon: -90.25 },
@@ -1790,6 +1791,7 @@ var CountryData = ( function () {
         PW: { colorCode: 188, name: 'PALAU', lat: 7.5, lon: 134.5 },
         PY: { colorCode: 79, name: 'PARAGUAY', lat: -23, lon: -58 },
         QA: { colorCode: 165, name: 'QATAR', lat: 25.5, lon: 51.25 },
+		RE: { colorCode: 3, name: 'FRANCE', lat: 46, lon: 2 },
         RO: { colorCode: 59, name: 'ROMANIA', lat: 46, lon: 25 },
         RS: { colorCode: 111, name: 'SERBIA', lat: 44, lon: 21 },
         RU: { colorCode: 92, name: 'RUSSIAN FEDERATION', lat: 60, lon: 100 },
@@ -2914,9 +2916,12 @@ GeometryDataProcessor.prototype.processDetail = function ( controller ) {
 
         var exporterName = set.e.toUpperCase();
         var importerName = set.i.toUpperCase();
-
+   
         var exporter = CountryData[ exporterName ];
         var importer = CountryData[ importerName ];
+        
+        if (exporter==null) throw exporterName+" is not referenced as a country code! See the full list there : https://github.com/syt123450/giojs/blob/master/src/countryInfo/CountryData.js";
+        if (importer==null) throw importerName+" is not referenced as a country code! See the full list there : https://github.com/syt123450/giojs/blob/master/src/countryInfo/CountryData.js";
 
         set.lineGeometry = makeConnectionLineGeometry( exporter, importer, set.fakeData );
 

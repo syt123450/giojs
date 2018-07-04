@@ -1701,6 +1701,7 @@ var CountryData = ( function () {
         GU: { colorCode: 227, name: 'GUAM', lat: 13.4667, lon: 144.7833 },
         GW: { colorCode: 33, name: 'GUINEA-BISSAU', lat: 12, lon: -15 },
         GY: { colorCode: 99, name: 'GUYANA', lat: 5, lon: -59 },
+        HK: { colorCode: 96, name: 'CHINA', lat: 35, lon: 105 },
         HN: { colorCode: 125, name: 'HONDURAS', lat: 15, lon: -86.5 },
         HR: { colorCode: 54, name: 'CROATIA', lat: 45.1667, lon: 15.5 },
         HT: { colorCode: 93, name: 'HAITI', lat: 19, lon: -72.4167 },

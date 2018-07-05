@@ -34,10 +34,21 @@ GeometryDataProcessor.prototype.processDetail = function ( controller ) {
 
         var exporterName = set.e.toUpperCase();
         var importerName = set.i.toUpperCase();
+
+	if (exporterName == "ZZ" || importerName == "ZZ") {
+		console.group("ZZ unknown country")
+		console.log("ZZ country code detected for current countries this will not be print on the globe");
+		console.log({exporterName,importerName})
+		console.groupEnd();
+
+		delete controller.inputData[s];
+
+		continue;
+	}
    
         var exporter = CountryData[ exporterName ];
         var importer = CountryData[ importerName ];
-        
+
         if (exporter==null) throw exporterName+" is not referenced as a country code! See the full list there : https://github.com/syt123450/giojs/blob/master/src/countryInfo/CountryData.js";
         if (importer==null) throw importerName+" is not referenced as a country code! See the full list there : https://github.com/syt123450/giojs/blob/master/src/countryInfo/CountryData.js";
 

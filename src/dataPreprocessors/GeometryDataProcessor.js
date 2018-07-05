@@ -35,7 +35,16 @@ GeometryDataProcessor.prototype.processDetail = function ( controller ) {
         var exporterName = set.e.toUpperCase();
         var importerName = set.i.toUpperCase();
 
-		// check ZZ here, if exporterName or importerName is "zz", continue
+	if (exporterName == "ZZ" || importerName == "ZZ") {
+		console.group("ZZ unknown country")
+		console.log("ZZ country code detected for current countries this will not be print on the globe");
+		console.log({exporterName,importerName})
+		console.groupEnd();
+
+		delete controller.inputData[s];
+
+		continue;
+	}
    
         var exporter = CountryData[ exporterName ];
         var importer = CountryData[ importerName ];

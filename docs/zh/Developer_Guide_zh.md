@@ -6,7 +6,7 @@
 - [项目结构简介](#project-structure)
 - [开发环境构建](#development-setup)
 
-## 关于Pull Request
+## <div id="pull-request-guidelines">关于Pull Request</div>
 推荐的方式:
 1. 对于一个独立的新功能，从现有的master分支上开一个新的分支来实现该功
 2. 运行 `npm test` ， 确保提交的PR已经通过了所有的测试用例
@@ -43,7 +43,7 @@
   - 添加相关的单元测试
   - 提交PR
 
-## 项目结构简介
+## <div id="project-structure">项目结构简介</div>
 - **`assets`**: 
 
 静态资源(截图)和依赖库 (stat.min.js & three.min.js)
@@ -65,7 +65,7 @@
 在src文件夹中代码的单元测试
 
 
-## Development Setup
+## <div id="development-setup">开发环境构建</div>
 1. `Fork` 仓库
 
 2. 复制Github仓库到本地

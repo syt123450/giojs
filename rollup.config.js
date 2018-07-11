@@ -12,7 +12,7 @@ export default [
             {
 
                 format: 'umd',
-                file: 'build/gioWX.js',
+                file: 'build/gio.wx.js',
                 name: "GIO"
 
             }
@@ -28,7 +28,7 @@ export default [
 			{
 
 				format: 'umd',
-				file: 'build/gioWX.prod.js',
+				file: 'build/gio.wx.prod.js',
 				name: "GIO"
 
 			}

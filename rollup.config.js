@@ -33,7 +33,7 @@ export default [
             }
 
         ],
-        intro: 'global.THREE = require("three");'
+        intro: 'GameGlobal.THREE = require("three");'
         
     }, {
         

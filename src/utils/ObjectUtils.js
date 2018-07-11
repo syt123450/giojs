@@ -32,7 +32,7 @@ var ObjectUtils = ( function () {
 
     function createCamera ( container ) {
 
-        var camera = new THREE.PerspectiveCamera( 12, container.clientWidth / container.clientHeight, 1, 20000 );
+        var camera = new THREE.PerspectiveCamera( 12, container.width / container.height, 1, 20000 );
         camera.position.z = 1400;
         camera.position.y = 0;
         camera.lookAt( 0, 0, 0 );
@@ -74,24 +74,8 @@ var ObjectUtils = ( function () {
 
         container.style.backgroundColor = "#ffffff";
 
-        var sceneArea = document.createElement( "canvas" );
-
-        // the scene's height and width only fit the div's actual height and width
-
-        var cs = getComputedStyle( container );
-
-        var paddingX = parseFloat( cs.paddingLeft ) + parseFloat( cs.paddingRight );
-        var paddingY = parseFloat( cs.paddingTop ) + parseFloat( cs.paddingBottom );
-
-        var borderX = parseFloat( cs.borderLeftWidth ) + parseFloat( cs.borderRightWidth );
-        var borderY = parseFloat( cs.borderTopWidth ) + parseFloat( cs.borderBottomWidth );
-
-        sceneArea.width = container.clientWidth - paddingX - borderX;
-        sceneArea.height = container.clientHeight - paddingY - borderY;
-        sceneArea.style.backgroundColor = "#ffffff";
-
-        var renderer = new THREE.WebGLRenderer( { canvas: sceneArea, antialias: false } );
-        renderer.setSize( sceneArea.width, sceneArea.height );
+        var renderer = new THREE.WebGLRenderer( { canvas: container, antialias: false } );
+        renderer.setSize( container.width, container.height );
         renderer.autoClear = false;
         renderer.sortObjects = false;
         renderer.generateMipmaps = false;
@@ -281,7 +265,7 @@ var ObjectUtils = ( function () {
                 var points = set.lineGeometry.vertices;
                 var particleCount = Math.floor( set.v / 8000 / set.lineGeometry.vertices.length ) + 1;
                 particleCount = Utils.constrain( particleCount, 1, 100 );
-                var particleSize = set.lineGeometry.size * controller.container.clientHeight / 750;
+                var particleSize = set.lineGeometry.size * controller.container.height / 750;
 
                 for ( s = 0; s < particleCount; s++ ) {
 

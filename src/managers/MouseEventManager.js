@@ -118,8 +118,8 @@ function SceneEventManager () {
 
         // let the mouse and raycaster to judge whether the click is on the earth, if not do noting
 
-        mouse.x = ( ( event.clientX - Utils.getElementViewLeft( controller.container ) ) / controller.container.clientWidth ) * 2 - 1;
-        mouse.y = -( ( event.clientY - Utils.getElementViewTop( controller.container ) ) / controller.container.clientHeight ) * 2 + 1;
+        mouse.x = ( event.clientX / controller.container.width ) * 2 - 1;
+        mouse.y = -( event.clientY / controller.container.height ) * 2 + 1;
 
         raycaster.setFromCamera( mouse, controller.camera );
 
@@ -163,6 +163,50 @@ function SceneEventManager () {
 
     function onTouchStart ( event ) {
 
+		mouseX = event.touches[0].clientX - controller.container.width * 0.5;
+		mouseY = event.touches[0].clientY - controller.container.height * 0.5;
+
+		mouse.x = ( event.touches[0].clientX / controller.container.width ) * 2 - 1;
+		mouse.y = -( event.touches[0].clientY / controller.container.height ) * 2 + 1;
+
+		raycaster.setFromCamera( mouse, controller.camera );
+
+		var intersects = raycaster.intersectObjects( controller.scene.children, true );
+
+		// intersects.length === 0 means that the mouse click is not on the globe
+
+		if ( intersects.length === 0 ) {
+
+			return;
+
+		}
+
+		// to get the color of clicked area on the globe's surface
+
+		var pickColorIndex = controller.surfaceHandler.getPickColor( mouseX, mouseY );
+
+		// for debug
+
+		// console.log( pickColorIndex );
+
+		/**
+		 * on a specific condition will let the SwitchCountryHandler to execute switch
+		 * condition:
+		 * 1. the picked color is actually a color to represent a country
+		 * 2. the picked color is not 0 (0 represents ocean)
+		 * 3. if the user want only the mentioned countries can be clicked, it will judge whether the picked country is mentioned
+		 */
+
+		if ( CountryColorMap[ pickColorIndex ] !== undefined &&
+			pickColorIndex !== 0 &&
+			( ( controller.configure.control.disableUnmentioned &&
+				controller.mentionedCountryCodes.indexOf( pickColorIndex ) !== -1 ) ||
+				!controller.configure.control.disableUnmentioned ) ) {
+
+			controller.switchCountryHandler.executeSwitch( pickColorIndex )
+
+		}
+
 		if ( event.target.className.indexOf( 'noMapDrag' ) !== -1 ) {
 
 			return;
@@ -193,8 +237,8 @@ function SceneEventManager () {
 
 		// get clientX and clientY from "event.touches[0]", different with onmousemove event
 
-		mouseX = event.touches[0].clientX - controller.container.clientWidth * 0.5 - Utils.getElementViewLeft( controller.container );
-		mouseY = event.touches[0].clientY - controller.container.clientHeight * 0.5 - Utils.getElementViewTop( controller.container );
+		mouseX = event.touches[0].clientX - controller.container.width * 0.5;
+		mouseY = event.touches[0].clientY - controller.container.height * 0.5;
 
 		// if it is in a dragging state, let the RotationHandler to handlers the rotation of the globe
 
@@ -216,18 +260,22 @@ function SceneEventManager () {
 
         controller = controllerPara;
 
-        controller.renderer.domElement.addEventListener( 'mousemove', onDocumentMouseMove, true );
-        controller.renderer.domElement.addEventListener( 'mousedown', onDocumentMouseDown, true );
-        controller.renderer.domElement.addEventListener( 'mouseup', onDocumentMouseUp, false );
-        controller.renderer.domElement.addEventListener( 'click', onClick, true );
-        controller.renderer.domElement.addEventListener( 'mousewheel', onMouseWheel, false );
-        controller.renderer.domElement.addEventListener( 'DOMMouseScroll', onMouseWheel, false );
+        // controller.renderer.domElement.addEventListener( 'mousemove', onDocumentMouseMove, true );
+        // controller.renderer.domElement.addEventListener( 'mousedown', onDocumentMouseDown, true );
+        // controller.renderer.domElement.addEventListener( 'mouseup', onDocumentMouseUp, false );
+        // controller.renderer.domElement.addEventListener( 'click', onClick, true );
+        // controller.renderer.domElement.addEventListener( 'mousewheel', onMouseWheel, false );
+        // controller.renderer.domElement.addEventListener( 'DOMMouseScroll', onMouseWheel, false );
 
-		controller.renderer.domElement.ontouchstart = onTouchStart;
-		controller.renderer.domElement.ontouchend = onTouchEnd;
-		controller.renderer.domElement.ontouchmove = onTouchMove;
+		// controller.renderer.domElement.ontouchstart = onTouchStart;
+		// controller.renderer.domElement.ontouchend = onTouchEnd;
+		// controller.renderer.domElement.ontouchmove = onTouchMove;
 
-        window.addEventListener( 'resize', onResize, false );
+		wx.onTouchStart(onTouchStart);
+		wx.onTouchEnd(onTouchEnd);
+		wx.onTouchMove(onTouchMove);
+
+        // window.addEventListener( 'resize', onResize, false );
 
     }
 

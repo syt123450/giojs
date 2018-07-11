@@ -230,6 +230,10 @@ Gio.js有很多codepen的例子，你可以在codepen中编辑修改它们。点
 
 将数据加载到Gio的控制器并同步覆盖以前的数据。
 
+**[➡ `clearData()`](http://giojs.org/html/docs/dataClear_zh.html)**
+
+清除地球上添加的数据，同时有将数据线和数据点清除的效果。
+
 **[➡ `addDataAsync(url, callback)`](http://giojs.org/html/docs/dataAddAsync_zh.html)**
 
 从一个数据源异步加载数据。

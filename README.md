@@ -232,6 +232,10 @@ Sets the brightness of the mentioned country.
 
 Loads data to the controller of Gio and overrides previous data synchronously.
 
+**[➡ `clearData()`](http://giojs.org/html/docs/dataClear.html)**
+
+Clear data in the globe, and remove spline system and moving particle.
+
 **[➡ `addDataAsync(url, callback)`](http://giojs.org/html/docs/dataAddAsync.html)**
 
 Loads data to the controller of Gio and overrides previous data asynchronously.

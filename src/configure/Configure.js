@@ -86,13 +86,6 @@ function Configure () {
 
     };
 
-    this.resource = {
-
-        // resource of the loading icon
-
-        loading: null
-
-    };
 
     return this;
 

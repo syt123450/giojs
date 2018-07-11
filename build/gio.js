@@ -1988,21 +1988,6 @@ var ObjectUtils = ( function () {
 
     }
 
-    //create loading object
-
-    function createLoading ( controller ) {
-
-        var loadingIcon = document.createElement( "img" );
-        loadingIcon.src = controller.configure.resource.loading;
-        loadingIcon.style.position = "absolute";
-        loadingIcon.style.left = "47%";
-        loadingIcon.style.top = "40%";
-        loadingIcon.style.width = "5%";
-
-        return loadingIcon;
-
-    }
-
     // The Sphere object is the earth object (without spineline visual system)
 
     function createSphere ( controller ) {
@@ -2319,8 +2304,6 @@ var ObjectUtils = ( function () {
         createRenderer: createRenderer,
 
         createStats: createStats,
-
-        createLoading: createLoading,
 
         createSphere: createSphere,
 
@@ -3065,8 +3048,6 @@ var ProcessorManager = ( function () {
 
 function InitHandler ( controller ) {
 
-    var loadingIcon;
-
     function init () {
 
         initScene();
@@ -3077,10 +3058,6 @@ function InitHandler ( controller ) {
     // this function is used to initialize the data, object and status of the controller
 
     function initScene () {
-
-        // init loading icon if the configure is set
-
-        initLoading();
 
         // init all scene objects
 
@@ -3097,10 +3074,6 @@ function InitHandler ( controller ) {
         // now the creation is finished, append the 3D object to the dom
 
         controller.container.appendChild( controller.renderer.domElement );
-
-        // remove loading icon if initialized
-
-        closeLoading();
 
         // init object and action related to selected country
 
@@ -3145,18 +3118,6 @@ function InitHandler ( controller ) {
 
         requestAnimationFrame( animate );
 
-    }
-
-    function initLoading () {
-
-        // if the loading image's src is configured, create it and append it to the dom
-
-        if ( controller.configure.resource.loading !== null ) {
-
-            loadingIcon = ObjectUtils.createLoading( controller );
-            controller.container.appendChild( loadingIcon );
-
-        }
     }
 
     // create objects and add them to the scene
@@ -3219,17 +3180,6 @@ function InitHandler ( controller ) {
         // pre-processor the user's input data
 
         controller.dataProcessor.process(controller);
-    }
-
-    function closeLoading () {
-
-        // remove loading, as the 3D object has shown in the browser
-
-        if ( controller.configure.resource.loading !== null ) {
-
-            controller.container.removeChild( loadingIcon );
-
-        }
     }
 
     // init object and action related to selected country
@@ -3346,13 +3296,6 @@ function Configure () {
 
     };
 
-    this.resource = {
-
-        // resource of the loading icon
-
-        loading: null
-
-    };
 
     return this;
 
@@ -4029,14 +3972,6 @@ function Controller ( container, configureObject ) {
                 controller.surfaceHandler.update();
 
             }
-
-            return this;
-
-        },
-
-        setLoadingSrc: function ( src ) {
-
-            controller.configure.resource.loading = src;
 
             return this;
 

@@ -112,21 +112,6 @@ var ObjectUtils = ( function () {
 
     }
 
-    //create loading object
-
-    function createLoading ( controller ) {
-
-        var loadingIcon = document.createElement( "img" );
-        loadingIcon.src = controller.configure.resource.loading;
-        loadingIcon.style.position = "absolute";
-        loadingIcon.style.left = "47%";
-        loadingIcon.style.top = "40%";
-        loadingIcon.style.width = "5%";
-
-        return loadingIcon;
-
-    }
-
     // The Sphere object is the earth object (without spineline visual system)
 
     function createSphere ( controller ) {
@@ -443,8 +428,6 @@ var ObjectUtils = ( function () {
         createRenderer: createRenderer,
 
         createStats: createStats,
-
-        createLoading: createLoading,
 
         createSphere: createSphere,
 

@@ -339,14 +339,6 @@ function Controller ( container, configureObject ) {
 
         },
 
-        setLoadingSrc: function ( src ) {
-
-            controller.configure.resource.loading = src;
-
-            return this;
-
-        },
-
         setStyle: function ( style ) {
 
             controller.configureHandler.configureStyle( style );

@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">React Version: <a href="https://github.com/syt123450/react-giojs">react-giojs</a></p>
-<p align="center">Wechat minigame(微信小游戏): <a href="https://github.com/syt123450/giojs-wechat-minigame-demo">wechat usage</a></p>
+<p align="center">Wechat minigame: <a href="https://github.com/syt123450/giojs-wechat-minigame-demo">wechat usage</a></p>
 
 <p align="center">
   <a href="https://www.npmjs.com/package/giojs"><img src="https://img.shields.io/npm/v/giojs.svg" alt="npm version" height="18"></a>

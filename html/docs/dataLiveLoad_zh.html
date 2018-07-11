@@ -309,7 +309,7 @@
     </aside>
 
     <main>
-        <header>周期性加载数据</header>
+        <header>周期性加载数据/关闭周期性加载</header>
         <br>
         <div>参数：</div>
         <div>url - 返回JSON格式数据，数据格式与<a href="dataAdd_zh.html">添加（更新）数据</a>定义的data相同</div>
@@ -330,7 +330,10 @@
 
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log("Load data event happens.");<br><br>
 
-            }
+            }<br><br>
+
+            // 使用 closeLiveLoader API 来关闭周期性加载功能<br>
+            // controller.closeLiveLoader();
         </div>
     </main>
 </div>

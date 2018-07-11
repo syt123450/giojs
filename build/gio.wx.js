@@ -4,7 +4,7 @@
 	(factory((global.GIO = {})));
 }(this, (function (exports) { 'use strict';
 
-GameGlobal.THREE = require("three");
+GameGlobal.THREE = require("three.wx");
 
 /**
  * @author syt123450 / https://github.com/syt123450

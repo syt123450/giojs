@@ -67,7 +67,7 @@ function Controller ( container, configureObject ) {
     this.earthSurfaceShader = null;
     this.halo = null;
     this.haloShader = null;
-    this.inputData = null;
+    this.inputData = [];
     // this.inputValueKey = "v";
 
     this.mentionedCountryCodes = [];

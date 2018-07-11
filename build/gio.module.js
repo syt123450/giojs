@@ -2921,7 +2921,7 @@ GeometryDataProcessor.prototype.processDetail = function ( controller ) {
 	if (exporterName == "ZZ" || importerName == "ZZ") {
 		console.group("ZZ unknown country");
 		console.log("ZZ country code detected for current ;countries this will not be print on the globe");
-		console.log(exporterName + ", " + "importerName");
+		console.log(exporterName + ", " + importerName);
 		console.groupEnd();
 
 		delete controller.inputData[s];
@@ -3767,7 +3767,7 @@ function Controller ( container, configureObject ) {
     this.earthSurfaceShader = null;
     this.halo = null;
     this.haloShader = null;
-    this.inputData = null;
+    this.inputData = [];
     // this.inputValueKey = "v";
 
     this.mentionedCountryCodes = [];

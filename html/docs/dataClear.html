@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-
     <meta name="description" content="Document page of Gio.js">
     <meta name="author" content="syt123450 / https://github.com/syt123450">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -17,12 +16,9 @@
 
     <link rel="stylesheet" href="../../css/common.css">
     <link rel="stylesheet" href="../../css/commonDoc.css">
-
 </head>
 <body>
-
 <nav>
-
     <div class="container">
 
         <div id="logo">
@@ -73,7 +69,7 @@
             <div>EN</div>
         </div>
         <div>
-            <div><a href="colorMenBr_zh.html">中</a></div>
+            <div><a href="dataClear_zh.html">中</a></div>
         </div>
     </div>
 
@@ -141,7 +137,7 @@
             <li><a href="designStats.html">enableStats / disableStats</a></li>
         </ul>
     </div>
-    <div class="open initLabel">
+    <div>
         <div id="colorLabelS">
             Color and Style API<img src="../../assets/images/document_arrow.png">
         </div>
@@ -156,17 +152,17 @@
             <li><a href="colorBackground.html">setBackgroundColor</a></li>
             <li><a href="colorOceanBr.html">adjustOceanBrightness</a></li>
             <li><a href="colorRelatedBr.html">adjustRelatedBrightness</a></li>
-            <li class="nowLabel">adjustMentionedBrightness</li>
+            <li><a href="colorMenBr.html">adjustMentionedBrightness</a></li>
         </ul>
     </div>
-    <div>
+    <div class="open initLabel">
         <div id="dataLabelS">
             Working with Data<img src="../../assets/images/document_arrow.png">
         </div>
         <ul id="dataS">
             <li><a href="dataIntro.html">Introduce</a></li>
             <li><a href="dataAdd.html">addData</a></li>
-            <li><a href="dataClear.html">clearData</a></li>
+            <li class="nowLabel">clearData</li>
             <li><a href="dataAddAsync.html">addDataAsync</a></li>
             <li><a href="dataLiveLoad.html">liveLoad</a></li>
             <li><a href="dataSetLines.html">set line color from data</a></li>
@@ -254,7 +250,7 @@
                 <li><a href="designStats.html">enableStats / disableStats</a></li>
             </ul>
         </div>
-        <div class="open initLabel">
+        <div>
             <div id="colorLabel">
                 Color and Style API<img src="../../assets/images/document_arrow.png">
             </div>
@@ -269,17 +265,17 @@
                 <li><a href="colorBackground.html">setBackgroundColor</a></li>
                 <li><a href="colorOceanBr.html">adjustOceanBrightness</a></li>
                 <li><a href="colorRelatedBr.html">adjustRelatedBrightness</a></li>
-                <li class="nowLabel">adjustMentionedBrightness</li>
+                <li><a href="colorMenBr.html">adjustMentionedBrightness</a></li>
             </ul>
         </div>
-        <div>
+        <div class="open initLabel">
             <div id="dataLabel">
                 Working with Data<img src="../../assets/images/document_arrow.png">
             </div>
             <ul id="data">
                 <li><a href="dataIntro.html">Introduce</a></li>
                 <li><a href="dataAdd.html">addData</a></li>
-                <li><a href="dataClear.html">clearData</a></li>
+                <li class="nowLabel">clearData</li>
                 <li><a href="dataAddAsync.html">addDataAsync</a></li>
                 <li><a href="dataLiveLoad.html">liveLoad</a></li>
                 <li><a href="dataSetLines.html">set line color from data</a></li>
@@ -308,24 +304,19 @@
     </aside>
 
     <main>
-        <header>adjustMentionedBrightness</header>
-        <div>Sets the brightness of the <a href="basicCountry.html">mentioned country</a>. The range of the brightness is [0, 1] and its
-            default value is 0.5:
-        </div>
+        <header>clearData</header>
+        <div>Clear data in the globe, and remove spline system and moving particle.</div>
         <div>
-            <a href="../../examples/09_API_adjustMentionedBrightness.html" target="_blank">
+            <a href="../../examples/23_API_addData(clearData).html" target="_blank">
                 <img class="live-demo" src="../../assets/images/liveDemoButton.png">
             </a>
         </div>
-        <img class="tag-img" src="../../assets/images/color/adjustMentionedBrightness1.jpg">
-        <div>By default, mentioned country will not be highlighted. To adjust the brightness,
-            <a href="designLightenMen.html">lightenMentioned(true)</a> needs to be called first as follows:
-        </div>
+        <img class="tag-img" src="../../assets/images/addData.jpg">
         <div class="code">
-            controller.lightenMentioned(true);<br>
-            controller.adjustMentionedBrightness(0.8);
+            // use clearData API to clear data in globe<br>
+            controller.clearData();
         </div>
-        <img class="tag-img" src="../../assets/images/color/adjustMentionedBrightness2.jpg">
+        <img class="tag-img" src="../../assets/images/clearData.jpg">
     </main>
 </div>
 
@@ -335,4 +326,5 @@
 
 </body>
 
+</body>
 </html>

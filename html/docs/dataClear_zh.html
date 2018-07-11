@@ -14,11 +14,10 @@
     <link rel="stylesheet" href="../../assets/cssLib/bootstrap.min.css">
     <script src="../../assets/jsLib/bootstrap.min.js"></script>
     <script src="../../js/websiteUtil.js"></script>
-    <script src="../../js/commonDoc_zh.js"></script>
+    <script src="../../js/commonDoc.js"></script>
 
     <link rel="stylesheet" href="../../css/common.css">
     <link rel="stylesheet" href="../../css/commonDoc.css">
-
 </head>
 <body>
 
@@ -71,7 +70,7 @@
 
     <div class="language">
         <div>
-            <div><a href="colorExport.html">EN</a></div>
+            <div><a href="dataClear.html">EN</a></div>
         </div>
         <div class="selected">
             <div>中</div>
@@ -142,7 +141,7 @@
             <li><a href="designStats_zh.html">启动/禁用性能监控</a></li>
         </ul>
     </div>
-    <div class="open initLabel">
+    <div>
         <div id="colorLabelS">
             颜色风格类API<img src="../../assets/images/document_arrow.png">
         </div>
@@ -151,7 +150,7 @@
             <li><a href="colorStyle_zh.html">设置风格</a></li>
             <li><a href="colorSurface_zh.html">设置表面颜色</a></li>
             <li><a href="colorSelected_zh.html">设置选中国家颜色</a></li>
-            <li class="nowLabel">设置输出颜色</li>
+            <li><a href="colorExport_zh.html">设置输出颜色</a></li>
             <li><a href="colorImport_zh.html">设置输入颜色</a></li>
             <li><a href="colorHalo_zh.html">设置光晕颜色</a></li>
             <li><a href="colorBackground_zh.html">设置背景颜色</a></li>
@@ -160,14 +159,14 @@
             <li><a href="colorMenBr_zh.html">设置提到国家亮度</a></li>
         </ul>
     </div>
-    <div>
+    <div class="open initLabel">
         <div id="dataLabelS">
             数据<img src="../../assets/images/document_arrow.png">
         </div>
         <ul id="dataS">
             <li><a href="dataIntro_zh.html">简介</a></li>
             <li><a href="dataAdd_zh.html">添加（更新）数据</a></li>
-            <li><a href="dataClear_zh.html">清除数据</a></li>
+            <li class="nowLabel">清除数据</li>
             <li><a href="dataAddAsync_zh.html">异步添加数据</a></li>
             <li><a href="dataLiveLoad_zh.html">周期性加载</a></li>
             <li><a href="dataSetLines_zh.html">设置单条线条颜色</a></li>
@@ -255,7 +254,7 @@
                 <li><a href="designStats_zh.html">启动/禁用性能监控</a></li>
             </ul>
         </div>
-        <div class="open initLabel">
+        <div>
             <div id="colorLabel">
                 颜色风格类API<img src="../../assets/images/document_arrow.png">
             </div>
@@ -264,7 +263,7 @@
                 <li><a href="colorStyle_zh.html">设置风格</a></li>
                 <li><a href="colorSurface_zh.html">设置表面颜色</a></li>
                 <li><a href="colorSelected_zh.html">设置选中国家颜色</a></li>
-                <li class="nowLabel">设置输出颜色</li>
+                <li><a href="colorExport_zh.html">设置输出颜色</a></li>
                 <li><a href="colorImport_zh.html">设置输入颜色</a></li>
                 <li><a href="colorHalo_zh.html">设置光晕颜色</a></li>
                 <li><a href="colorBackground_zh.html">设置背景颜色</a></li>
@@ -273,14 +272,14 @@
                 <li><a href="colorMenBr_zh.html">设置提到国家亮度</a></li>
             </ul>
         </div>
-        <div>
+        <div class="open initLabel">
             <div id="dataLabel">
                 数据<img src="../../assets/images/document_arrow.png">
             </div>
             <ul id="data">
                 <li><a href="dataIntro_zh.html">简介</a></li>
                 <li><a href="dataAdd_zh.html">添加（更新）数据</a></li>
-                <li><a href="dataClear_zh.html">清除数据</a></li>
+                <li class="nowLabel">清除数据</li>
                 <li><a href="dataAddAsync_zh.html">异步添加数据</a></li>
                 <li><a href="dataLiveLoad_zh.html">周期性加载</a></li>
                 <li><a href="dataSetLines_zh.html">设置单条线条颜色</a></li>
@@ -309,21 +308,19 @@
     </aside>
 
     <main>
-        <header>设置输出颜色</header>
-        <div>通过RGB值设置输出线的颜色。 关于连接线定义，请参考这里: <a href="basicLine_zh.html">连接线</a>。</div>
+        <header>清除数据</header>
+        <div>清除地球上添加的数据，同时有将数据线和数据点清除的效果。</div>
         <div>
-            <a href="../../examples/04_API_setExportColor.html" target="_blank">
-                <img class="live-demo" src="../../assets/images/liveDemoButton_zh.png">
+            <a href="../../examples/23_API_addData(clearData).html" target="_blank">
+                <img class="live-demo" src="../../assets/images/liveDemoButton.png">
             </a>
         </div>
-        <div>默认的输出线颜色是 0xDD380C：</div>
-        <img class="tag-img" src="../../assets/images/color/setExportColor1_zh.jpg">
+        <img class="tag-img" src="../../assets/images/addData.jpg">
         <div class="code">
-            // 颜色的参数可以是字符串 "#FEF504" 或者是十六进制数值 0xFEF504<br>
-            controller.setExportColor("#FEF504");<br>
-            //controller.setExportColor(0xFEF504);
+            // 使用 clearData API 来清除数据<br>
+            controller.clearData();
         </div>
-        <img class="tag-img" src="../../assets/images/color/setExportColor2.jpg">
+        <img class="tag-img" src="../../assets/images/clearData.jpg">
     </main>
 </div>
 
@@ -333,4 +330,5 @@
 
 </body>
 
+</body>
 </html>

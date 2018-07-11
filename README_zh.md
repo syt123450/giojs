@@ -242,6 +242,10 @@ Gio.js有很多codepen的例子，你可以在codepen中编辑修改它们。点
 
 周期性地从一个数据源加载数据。
 
+**[➡ `closeLiveLoader()`](http://giojs.org/html/docs/dataLiveLoad_zh.html)**
+
+关闭周期性加载功能。
+
 **[➡ `onCountryPicked(callback)`](http://giojs.org/html/docs/callbackPicked_zh.html)**
 
 当"被选中的国家"改变时被调用。

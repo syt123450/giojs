@@ -244,6 +244,10 @@ Loads data to the controller of Gio and overrides previous data asynchronously.
 
 Loads data to the controller periodically.
 
+**[➡ `closeLiveLoader()`](http://giojs.org/html/docs/dataLiveLoad.html)**
+
+Close live load function.
+
 **[➡ `onCountryPicked(callback)`](http://giojs.org/html/docs/callbackPicked.html)**
 
 Fired when selected country changes.

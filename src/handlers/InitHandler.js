@@ -42,10 +42,6 @@ function InitHandler ( controller ) {
 
         ( new SceneEventManager() ).bindEvent( controller );
 
-        // now the creation is finished, append the 3D object to the dom
-
-        //controller.container.appendChild( controller.renderer.domElement );
-
         // remove loading icon if initialized
 
         closeLoading();

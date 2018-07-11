@@ -1,6 +1,10 @@
-import * as THREE from "three";
- import Stats from "stats.js";
- window.THREE = THREE;
+(function (global, factory) {
+	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
+	typeof define === 'function' && define.amd ? define(['exports'], factory) :
+	(factory((global.GIO = {})));
+}(this, (function (exports) { 'use strict';
+
+GameGlobal.THREE = require("three");
 
 /**
  * @author syt123450 / https://github.com/syt123450
@@ -2615,24 +2619,11 @@ function SceneEventManager () {
 
     function bindEvent ( controllerPara ) {
 
-        controller = controllerPara;
-
-        // controller.renderer.domElement.addEventListener( 'mousemove', onDocumentMouseMove, true );
-        // controller.renderer.domElement.addEventListener( 'mousedown', onDocumentMouseDown, true );
-        // controller.renderer.domElement.addEventListener( 'mouseup', onDocumentMouseUp, false );
-        // controller.renderer.domElement.addEventListener( 'click', onClick, true );
-        // controller.renderer.domElement.addEventListener( 'mousewheel', onMouseWheel, false );
-        // controller.renderer.domElement.addEventListener( 'DOMMouseScroll', onMouseWheel, false );
-
-		// controller.renderer.domElement.ontouchstart = onTouchStart;
-		// controller.renderer.domElement.ontouchend = onTouchEnd;
-		// controller.renderer.domElement.ontouchmove = onTouchMove;
+    	controller = controllerPara;
 
 		wx.onTouchStart(onTouchStart);
 		wx.onTouchEnd(onTouchEnd);
 		wx.onTouchMove(onTouchMove);
-
-        // window.addEventListener( 'resize', onResize, false );
 
     }
 
@@ -2983,10 +2974,6 @@ function InitHandler ( controller ) {
         // bind events to the dom
 
         ( new SceneEventManager() ).bindEvent( controller );
-
-        // now the creation is finished, append the 3D object to the dom
-
-        //controller.container.appendChild( controller.renderer.domElement );
 
         // remove loading icon if initialized
 
@@ -4115,4 +4102,8 @@ function Controller ( container, configureObject ) {
 
 }
 
-export { Controller };
+exports.Controller = Controller;
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+})));

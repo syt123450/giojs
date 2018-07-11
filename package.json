@@ -33,7 +33,8 @@
     "cover": "babel-node ./node_modules/.bin/isparta cover _mocha",
     "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls",
     "build-beautify": "rollup -c",
-    "build-uglify": "rollup -c && uglifyjs build/gioWX.js -cm --preamble \"// https://github.com/syt123450/Gio.js/blob/master/LICENSE\" --output build/gioWX.min.js",
+    "build-uglify": "rollup -c && uglifyjs build/gioWX.prod.js -cm --preamble \"// https://github.com/syt123450/Gio.js/blob/master/LICENSE\" --output build/gioWX.min.js",
+    "build-three": "uglifyjs build/three.js -cm --output build/three.min.js",
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate"
   },

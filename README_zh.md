@@ -8,7 +8,7 @@
 </p>
 
 <p align="center">React版本: <a href="https://github.com/syt123450/react-giojs">react-giojs</a></p>
-
+<p align="center">微信小游戏: <a href="https://github.com/syt123450/giojs-wechat-minigame-demo">微信小游戏中使用方法介绍</a></p>
 
 <p align="center">
   <a href="https://www.npmjs.com/package/giojs"><img src="https://img.shields.io/npm/v/giojs.svg" alt="npm version" height="18"></a>
@@ -79,7 +79,7 @@ yarn add giojs
 ```
 ### 使用
 
-在HTML页面中添加了Threejs和Giojs依赖之后，您就可以基于Giojs开发您的应用了。我们将展示如何创建一个具有基础样式的Gio地球。
+在HTML页面中添加了Threejs和Giojs依赖之后，您就可以基于Giojs开发您的应用了。我们将展示如何创建一个具有基础样式的Gio地球。（在微信小游戏中Gio.js的使用略有不同，查看这个[栗子](https://github.com/syt123450/giojs-wechat-minigame-demo)，了解如何在微信小游戏中使用Gio.js）
 
 ```html
 <!DOCTYPE HTML>

@@ -7,6 +7,7 @@
 </p>
 
 <p align="center">React Version: <a href="https://github.com/syt123450/react-giojs">react-giojs</a></p>
+<p align="center">Wechat minigame(微信小游戏): <a href="https://github.com/syt123450/giojs-wechat-minigame-demo">wechat usage</a></p>
 
 <p align="center">
   <a href="https://www.npmjs.com/package/giojs"><img src="https://img.shields.io/npm/v/giojs.svg" alt="npm version" height="18"></a>
@@ -77,7 +78,7 @@ yarn add giojs
 ```
 ### Usage
 
-After including "three.min.js" and "gio.min.js" in your html, create a `div` to render the 3D Gio globe:
+After including "three.min.js" and "gio.min.js" in your html, create a `div` to render the 3D Gio globe: (the usage of Gio.js is a little bit different in WeChat mini game, checkout this [demo](https://github.com/syt123450/giojs-wechat-minigame-demo) to know more about it)
 
 ```html
 <!DOCTYPE HTML>

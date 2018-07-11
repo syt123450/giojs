@@ -18,7 +18,7 @@ export default [
             }
 
         ],
-        intro: 'GameGlobal.THREE = require("three");'
+        intro: 'GameGlobal.THREE = require("three.wx");'
         
     }, {
 
@@ -34,7 +34,7 @@ export default [
 			}
 
 		],
-		intro: 'GameGlobal.THREE = require("three.min");'
+		intro: 'GameGlobal.THREE = require("three.wx.min");'
 
 	}
 

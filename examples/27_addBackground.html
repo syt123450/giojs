@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Three.js Interface Demo / Gio.js</title>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/three.min.js"></script>
+    <script src="../build/gio.min.js"></script>
+    <link rel="stylesheet" href="css/common.css">
+
+    <style>
+
+        #globalArea {
+
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+
+        }
+
+    </style>
+
+</head>
+<body>
+
+<header>A demo shows how to use Three.js interface to customize background</header>
+
+<div id="globalArea"></div>
+
+<div class="view_source">
+    <a href="https://github.com/syt123450/Gio.js/blob/master/examples/27_addBackground.html">View Source</a>
+</div>
+
+<script>
+
+	var container = document.getElementById( "globalArea" );
+	var controller = new GIO.Controller( container );
+
+	$.ajax( {
+
+		url: "data/sampleData.json",
+		type: "GET",
+		contentType: "application/json; charset=utf-8",
+		async: true,
+		dataType: "json",
+		success: function ( inputData ) {
+
+			controller.addData( inputData );
+			controller.init();
+
+			// get scene after controller initialized, as scene object will be created when init() is called
+
+			var scene = controller.getScene();
+
+			// create a universe background which is an Three.js object
+
+			var universe = createUniverse();
+
+			// add universe to the scene
+
+			scene.add(universe);
+
+		}
+
+	} );
+
+	// this function create a universe object (a three.js object)
+    // checkout Three.js documentation (https://threejs.org/docs/index.html) for more information
+
+	function createUniverse() {
+
+		var universeMesh = new THREE.Mesh();
+		universeMesh.geometry = new THREE.SphereGeometry(500, 128, 128);
+		universeMesh.material = new THREE.MeshBasicMaterial({
+			map: new THREE.TextureLoader().load(
+				'images/galaxy.png'
+			),
+			side: THREE.BackSide
+		});
+
+		return universeMesh;
+	}
+
+</script>
+
+</body>
+</html>

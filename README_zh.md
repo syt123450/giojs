@@ -35,6 +35,7 @@
 * [文档](#documentation)
 * [开发人员](#contributors)
 * [许可证](#license)
+* [码云链接](#gitee)
 
 <!-- [START motivation] -->
 
@@ -284,3 +285,7 @@ Gio.js有很多codepen的例子，你可以在codepen中编辑修改它们。点
 ## <div id="license">许可证</div>
 
 [Apache-2.0](https://github.com/syt123450/giojs/blob/master/LICENSE)
+
+## <div id="gitee">码云链接</div>
+
+Gio.js项目同时部署在码云上，并且与github同步，对国内有更快的访问和下载速度，欢迎通过以下链接访问 [➡ 用力戳我](https://gitee.com/syt123450/giojs)

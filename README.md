@@ -248,6 +248,14 @@ Loads data to the controller periodically.
 
 Close live load function.
 
+**[➡ `getScene()`](http://giojs.org/html/docs/interfaceThree.html)**
+
+Get the reference of three.js scene object.
+
+**[➡ `getStatsObject()`](http://giojs.org/html/docs/interfaceStats.html)**
+
+Get the reference of Stats.js panel object.
+
 **[➡ `onCountryPicked(callback)`](http://giojs.org/html/docs/callbackPicked.html)**
 
 Fired when selected country changes.

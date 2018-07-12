@@ -247,6 +247,14 @@ Gio.js有很多codepen的例子，你可以在codepen中编辑修改它们。点
 
 关闭周期性加载功能。
 
+**[➡ `getScene()`](http://giojs.org/html/docs/interfaceThree_zh.html)**
+
+获得three.js中scene对象的引用。
+
+**[➡ `getStatsObject()`](http://giojs.org/html/docs/interfaceStats_zh.html)**
+
+获得Stats面板对象的引用。
+
 **[➡ `onCountryPicked(callback)`](http://giojs.org/html/docs/callbackPicked_zh.html)**
 
 当"被选中的国家"改变时被调用。

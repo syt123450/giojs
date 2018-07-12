@@ -13,6 +13,8 @@ var chapterLookUp = {
 	"#dataLabelS": "#dataS",
 	"#callbackLabel": "#callback",
 	"#callbackLabelS": "#callbackS",
+	"#interfaceLabel": "#interface",
+	"#interfaceLabelS": "#interfaceS",
 	"#advancedLabel": "#advanced",
 	"#advancedLabelS": "#advancedS",
 };

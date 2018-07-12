@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manipulate Stats example - Change Position / Gio.js</title>
+
+    <script src="js/three.min.js"></script>
+
+    <!-- the stats.js library must be included first-->
+
+    <script src="js/stats.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+
+    <script src="js/gio.min.js"></script>
+
+    <link rel="stylesheet" href="css/common.css">
+
+    <style>
+
+        #globalArea {
+
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+
+            /* if you want to add a stats, you need to set the position of the area of the globe */
+
+            position: relative;
+
+        }
+
+        #topLeft, #topRight, #bottomLeft, #bottomRight {
+
+            position: absolute;
+            left: 100px;
+            width: 150px;
+            height: 40px;
+            color: #cbcbcb;
+            text-align: center;
+            line-height: 40px;
+            cursor: pointer;
+            user-select: none;
+            box-sizing: border-box;
+            transition: 1s;
+            border-radius: 5px;
+            background-color: rgba(110, 110, 110, 0.8);
+
+        }
+
+        #topLeft:hover, #topRight:hover, #bottomLeft:hover, #bottomRight:hover {
+
+            color: #fff;
+            background-color: #929292;
+
+        }
+
+        #topLeft {
+
+            top: 200px;
+
+        }
+
+        #topRight {
+
+            top: 300px;
+
+        }
+
+        #bottomLeft {
+
+            top: 400px;
+
+        }
+
+        #bottomRight {
+
+            top: 500px;
+
+        }
+
+    </style>
+
+</head>
+<body>
+
+<header>Manipulate stats object demo - change position of Stats</header>
+
+<div id="globalArea"></div>
+
+<div id="topLeft">Top Left</div>
+<div id="topRight">Top Right</div>
+<div id="bottomLeft">Bottom Left</div>
+<div id="bottomRight">Bottom Right</div>
+
+<div class="view_source">
+    <a href="https://github.com/syt123450/Gio.js/blob/master/examples/28_manipulateStats">View Source</a>
+</div>
+
+<script>
+
+	var container = document.getElementById( "globalArea" );
+	var controller = new GIO.Controller( container );
+
+	// use the enableStats() API to show stats panel
+
+	controller.enableStats();
+
+	// define an attribute to store the Stats Object reference
+
+	var statsObject = null;
+
+	$.ajax( {
+
+		url: "data/sampleData.json",
+		type: "GET",
+		contentType: "application/json; charset=utf-8",
+		async: true,
+		dataType: "json",
+		success: function ( inputData ) {
+
+			controller.addData( inputData );
+			controller.init();
+
+			// use getStatsObject API to get the reference
+
+			statsObject = controller.getStatsObject();
+
+		}
+
+	} );
+
+	// set the css of Stats object to manipulate its position
+
+	$( "#topLeft" ).click( function () {
+
+		clearPos();
+        statsObject.dom.style.top = 0;
+		statsObject.dom.style.left = 0;
+
+	} );
+
+	$( "#topRight" ).click( function () {
+
+		clearPos();
+		statsObject.dom.style.top = 0;
+		statsObject.dom.style.right = 0;
+
+	} );
+
+	$( "#bottomLeft" ).click( function () {
+
+		clearPos();
+		statsObject.dom.style.bottom = 0;
+		statsObject.dom.style.left = 0;
+
+	} );
+
+	$( "#bottomRight" ).click( function () {
+
+		clearPos();
+		statsObject.dom.style.bottom = 0;
+		statsObject.dom.style.right = 0;
+
+	} );
+
+	function clearPos() {
+
+		statsObject.dom.style.top = null;
+		statsObject.dom.style.bottom = null;
+		statsObject.dom.style.left = null;
+		statsObject.dom.style.right = null;
+
+    }
+
+</script>
+
+</body>
+</html>

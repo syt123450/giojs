@@ -75,7 +75,6 @@ function Controller ( container, configureObject ) {
 	this.inputData = [];
 	this.globalData = [];
 
-    this.groupID = undefined;
     this.dataGroup = false;
     // this.inputValueKey = "v";
 
@@ -527,13 +526,11 @@ function Controller ( container, configureObject ) {
 
         },
 
-        changeDataSet: function ( dataSetName ) {
+        switchDataSet: function ( dataSetName ) {
 
-            if ( controller.dataGroup && controller.inputData.dataSetKeys.contains( dataSetName ) ) {
+            if ( controller.dataGroup ) {
 
-                controller.globalData = controller.inputData[ dataSetName ];
-				controller.visSystemHandler.update();
-				controller.surfaceHandler.update();
+                controller.dataGroupHandler.switchDataSet( dataSetName );
 
             }
 

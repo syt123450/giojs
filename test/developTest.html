@@ -49,17 +49,17 @@
 
 <script>
 
-    var inputData = [
-        {e: "CN", i: "US", v: 1000},
-        {e: "CN", i: "RU", v: 3000000}
-    ];
+//    var inputData = [
+//        {e: "CN", i: "US", v: 1000},
+//        {e: "CN", i: "RU", v: 3000000}
+//    ];
 
-//    var inputData = {
-//    	"dataSetKeys": ["test1", "test2"],
-//        "initDataSet": "test1",
-//        "test1": [{e: "CN", i: "US", v: 1000}],
-//        "test2": [{e: "CN", i: "RU", v: 3000000}]
-//    };
+    var inputData = {
+    	"dataSetKeys": ["test1", "test2"],
+        "initDataSet": "test1",
+        "test1": [{e: "CN", i: "US", v: 1000}],
+        "test2": [{e: "CN", i: "RU", v: 3000000}]
+    };
 
     var container = document.getElementById("globalArea");
 
@@ -67,6 +67,10 @@
     controller.addData(inputData);
 
     controller.init();
+
+    setTimeout(function() {
+    	controller.switchDataSet("test2");
+    }, 3000)
 
 </script>
 

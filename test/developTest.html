@@ -5,6 +5,7 @@
     <title>Development Test</title>
     <script src="../assets/dependence/three.min.js"></script>
     <script src="../assets/dependence/stats.min.js"></script>
+    <script src="../examples/js/jquery.min.js"></script>
     <script src="../build/gio.js"></script>
     <style>
 
@@ -54,23 +55,53 @@
 //        {e: "CN", i: "RU", v: 3000000}
 //    ];
 
-    var inputData = {
-    	"dataSetKeys": ["test1", "test2"],
-        "initDataSet": "test1",
-        "test1": [{e: "CN", i: "US", v: 1000}],
-        "test2": [{e: "CN", i: "RU", v: 3000000}]
-    };
+//    var inputData = {
+//    	"dataSetKeys": ["test1", "test2"],
+//        "initDataSet": "test1",
+//        "test1": [{e: "CN", i: "US", v: 1000}],
+//        "test2": [{e: "CN", i: "RU", v: 3000000}]
+//    };
 
     var container = document.getElementById("globalArea");
 
     var controller = new GIO.Controller(container);
-    controller.addData(inputData);
+//    controller.addData(inputData);
+//
+//    controller.init();
+//
+//    setTimeout(function() {
+//    	controller.switchDataSet("test2");
+//    }, 3000)
 
-    controller.init();
+$.ajax( {
 
-    setTimeout(function() {
-    	controller.switchDataSet("test2");
-    }, 3000)
+	url: "../examples/data/combo.json",
+	type: "GET",
+	contentType: "application/json; charset=utf-8",
+	async: true,
+	dataType: "json",
+	success: function ( inputData ) {
+
+		console.log(inputData);
+
+		controller.addData( inputData );
+		controller.init();
+
+	}
+
+} );
+
+setTimeout(function() {
+	controller.switchDataSet("mini");
+}, 5000);
+
+setTimeout(function() {
+	controller.switchDataSet("small");
+}, 10000);
+
+setTimeout(function() {
+	controller.switchDataSet("color");
+}, 15000);
 
 </script>
 

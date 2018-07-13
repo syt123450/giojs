@@ -3816,14 +3816,14 @@ function DataGroupHandler ( controller ) {
 
 	function dumpData () {
 
-		var initDataSet = inputData.initDataSet;
+		var initDataSet = controller.inputData.initDataSet;
 		controller.globalData = controller.inputData[ initDataSet ];
 
 	}
 
 	function switchDataSet ( dataSetName ) {
 
-		var dataSetKeys = inputData.dataSetKeys;
+		var dataSetKeys = controller.inputData.dataSetKeys;
 
 		if ( dataSetKeys.indexOf( dataSetName ) !== - 1 ) {
 

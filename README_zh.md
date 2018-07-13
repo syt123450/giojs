@@ -235,6 +235,10 @@ Gio.js有很多codepen的例子，你可以在codepen中编辑修改它们。点
 
 清除地球上添加的数据，同时有将数据线和数据点清除的效果。
 
+**[➡ `switchDataSet()`](http://giojs.org/html/docs/dataSwitchSet_zh.html)**
+
+切换地球表面呈现的数据集。
+
 **[➡ `addDataAsync(url, callback)`](http://giojs.org/html/docs/dataAddAsync_zh.html)**
 
 从一个数据源异步加载数据。

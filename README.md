@@ -236,6 +236,10 @@ Loads data to the controller of Gio and overrides previous data synchronously.
 
 Clear data in the globe, and remove spline system and moving particle.
 
+**[➡ `switchDataSet()`](http://giojs.org/html/docs/dataSwitchSet.html)**
+
+switch data set when a data group is added.
+
 **[➡ `addDataAsync(url, callback)`](http://giojs.org/html/docs/dataAddAsync.html)**
 
 Loads data to the controller of Gio and overrides previous data asynchronously.

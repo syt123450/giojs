@@ -3,8 +3,7 @@
  * @author syt123450 / https://github.com/syt123450
  */
 
-import { CountryData } from "../countryInfo/CountryData.js";
-import { AbstractDataProcessor } from ".//AbstractDataProcessor.js";
+import { AbstractDataProcessor } from "./AbstractDataProcessor.js";
 
 
 /**
@@ -20,36 +19,13 @@ DefaultDataPreprocessor.prototype.constructor = DefaultDataPreprocessor;
 
 DefaultDataPreprocessor.prototype.processDetail = function ( controller ) {
 
-    var inputData = controller.inputData;
+    if ( controller.dataGroup ) {
 
-    for ( var i in inputData ) {
+        controller.dataGroupHandler.createMentionedCountries();
 
-        var dataSet = inputData[ i ];
+    } else {
 
-        if (CountryData[ dataSet.i ] === undefined) {
-            return;
-        }
-
-        if (CountryData[ dataSet.e ] === undefined) {
-            return;
-        }
-
-        var importCountryCode = CountryData[ dataSet.i ].colorCode;
-        var exportCountryCode = CountryData[ dataSet.e ].colorCode;
-
-        // add mentioned color to controller's mentionedCountryCodes ( an array to store the code )
-
-        if ( controller.mentionedCountryCodes.indexOf( importCountryCode ) === - 1 ) {
-
-            controller.mentionedCountryCodes.push( importCountryCode );
-
-        }
-
-        if ( controller.mentionedCountryCodes.indexOf( exportCountryCode ) === - 1 ) {
-
-            controller.mentionedCountryCodes.push( exportCountryCode );
-
-        }
+		controller.singleDataHandler.createMentionedCountries();
 
     }
 

@@ -190,7 +190,7 @@ var ObjectUtils = ( function () {
 
     function createGeometries ( controller ) {
 
-        var inputData = controller.inputData;
+        var inputData = controller.globalData;
         controller.relatedCountries = [];
         var selectedCountry = controller.selectedCountry;
 

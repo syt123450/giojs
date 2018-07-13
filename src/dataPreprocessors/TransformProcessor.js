@@ -17,18 +17,15 @@ TransformProcessor.prototype.constructor = TransformProcessor;
 
 TransformProcessor.prototype.processDetail = function ( controller ) {
 
-    var inputData = controller.inputData;
+    if ( controller.dataGroup ) {
 
-    for ( var i in inputData ) {
+        controller.dataGroupHandler.createFakeData();
 
-        var set = inputData[ i ];
-        set.fakeData = set.v;
+    } else {
+
+		controller.singleDataHandler.createFakeData();
 
     }
-
-    // update input value key
-
-    controller.inputValueKey = "fakeData";
 
 };
 

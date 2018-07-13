@@ -114,6 +114,12 @@ var Utils = ( function () {
 
     }
 
+    function isArray( value ) {
+
+        return Array.isArray( value );
+
+    }
+
 
     return {
 
@@ -249,7 +255,9 @@ var Utils = ( function () {
 
         getElementViewTop: getElementViewTop,
 
-        getElementViewLeft: getElementViewLeft
+        getElementViewLeft: getElementViewLeft,
+
+		isArray: isArray
 
     };
 

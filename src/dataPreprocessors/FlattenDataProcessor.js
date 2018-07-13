@@ -2,8 +2,7 @@
  * @author mokuteno / https://github.com/manymeeting
  */
 
-import { AbstractDataProcessor } from ".//AbstractDataProcessor.js";
-import { Utils } from "../utils/Utils.js";
+import { AbstractDataProcessor } from "./AbstractDataProcessor.js";
 
 /**
  * This data processor flattens input data so that even a small number can be properly displayed on the screen.
@@ -17,11 +16,15 @@ FlattenDataProcessor.prototype.constructor = FlattenDataProcessor;
 
 FlattenDataProcessor.prototype.processDetail = function ( controller ) {
 
-    var minDataValue = 800000, maxDataValue = 5000000;
+    if ( controller.dataGroup ) {
 
-    var inputData = controller.inputData;
+        controller.dataGroupHandler.flattenData();
 
-    Utils.flattenCountryData(inputData, controller.inputValueKey, minDataValue, maxDataValue);
+    } else {
+
+        controller.singleDataHandler.flattenData();
+
+    }
     
 };
 

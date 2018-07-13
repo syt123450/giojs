@@ -15,6 +15,8 @@ import { ConfigureHandler } from "./handlers/ConfigureHandler.js";
 import { DataHandler } from "./handlers/DataHandler.js";
 import { ObjectUtils } from "./utils/ObjectUtils.js";
 import { HaloHandler } from "./handlers/HaloHandler.js";
+import {DataGroupHandler} from "./handlers/DataGroupHandler";
+import {SingleDataHandler} from "./handlers/SingleDataHandler";
 
 /**
  * This is the controller object when IO Globe is running,
@@ -35,6 +37,8 @@ function Controller ( container, configureObject ) {
 
     // handlers used to handle tasks in controller
 
+    this.dataGroupHandler = new DataGroupHandler( this );
+    this.singleDataHandler = new SingleDataHandler( this );
     this.configureHandler = new ConfigureHandler( this );
     this.rotationHandler = new RotationHandler( this );
     this.surfaceHandler = new SurfaceHandler( this );
@@ -67,7 +71,12 @@ function Controller ( container, configureObject ) {
     this.earthSurfaceShader = null;
     this.halo = null;
     this.haloShader = null;
-    this.inputData = [];
+
+	this.inputData = [];
+	this.globalData = [];
+
+    this.groupID = undefined;
+    this.dataGroup = false;
     // this.inputValueKey = "v";
 
     this.mentionedCountryCodes = [];
@@ -513,6 +522,20 @@ function Controller ( container, configureObject ) {
         resizeUpdate: function () {
 
             controller.resizeHandler.resizeScene();
+
+            return this;
+
+        },
+
+        changeDataSet: function ( dataSetName ) {
+
+            if ( controller.dataGroup && controller.inputData.dataSetKeys.contains( dataSetName ) ) {
+
+                controller.globalData = controller.inputData[ dataSetName ];
+				controller.visSystemHandler.update();
+				controller.surfaceHandler.update();
+
+            }
 
             return this;
 

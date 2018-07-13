@@ -6,6 +6,7 @@
 
     <meta name="description" content="Document page of Gio.js">
     <meta name="author" content="syt123450 / https://github.com/syt123450">
+    <meta name="author" content="lq3297401 / https://github.com/lq3297401">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel='icon' href='../../assets/images/logoTitle.ico' type=‘image/x-ico’>
 
@@ -70,7 +71,7 @@
 
     <div class="language">
         <div>
-            <div><a href="designStats.html">EN</a></div>
+            <div><a href="dataSwitchSet.html">EN</a></div>
         </div>
         <div class="selected">
             <div>中</div>
@@ -127,7 +128,7 @@
             <li><a href="configureParams_zh.html">配置参数表</a></li>
         </ul>
     </div>
-    <div class="open initLabel">
+    <div>
         <div id="designLabelS">
             功能设计型API<img src="../../assets/images/document_arrow.png">
         </div>
@@ -138,7 +139,7 @@
             <li><a href="designDisableUnmen_zh.html">禁用未提及国家</a></li>
             <li><a href="designShowOnly_zh.html">显示(隐藏)输入线(输出线)</a></li>
             <li><a href="designHalo_zh.html">添加/删除光晕</a></li>
-            <li class="nowLabel">启动/禁用性能监控</li>
+            <li><a href="designStats_zh.html">启动/禁用性能监控</a></li>
         </ul>
     </div>
     <div>
@@ -159,7 +160,7 @@
             <li><a href="colorMenBr_zh.html">设置提到国家亮度</a></li>
         </ul>
     </div>
-    <div>
+    <div class="open initLabel">
         <div id="dataLabelS">
             数据<img src="../../assets/images/document_arrow.png">
         </div>
@@ -167,7 +168,7 @@
             <li><a href="dataIntro_zh.html">简介</a></li>
             <li><a href="dataAdd_zh.html">添加（更新）数据</a></li>
             <li><a href="dataClear_zh.html">清除数据</a></li>
-            <li><a href="dataSwitchSet_zh.html">切换数据集</a></li>
+            <li class="nowLabel">切换数据集</li>
             <li><a href="dataAddAsync_zh.html">异步添加数据</a></li>
             <li><a href="dataLiveLoad_zh.html">周期性加载</a></li>
             <li><a href="dataSetLines_zh.html">设置单条线条颜色</a></li>
@@ -251,7 +252,7 @@
                 <li><a href="configureParams_zh.html">配置参数表</a></li>
             </ul>
         </div>
-        <div class="open initLabel">
+        <div>
             <div id="designLabel">
                 功能设计型API<img src="../../assets/images/document_arrow.png">
             </div>
@@ -262,7 +263,7 @@
                 <li><a href="designDisableUnmen_zh.html">禁用未提及国家</a></li>
                 <li><a href="designShowOnly_zh.html">显示(隐藏)输入线(输出线)</a></li>
                 <li><a href="designHalo_zh.html">添加/删除光晕</a></li>
-                <li class="nowLabel">启动/禁用性能监控</li>
+                <li><a href="designStats_zh.html">启动/禁用性能监控</a></li>
             </ul>
         </div>
         <div>
@@ -283,7 +284,7 @@
                 <li><a href="colorMenBr_zh.html">设置提到国家亮度</a></li>
             </ul>
         </div>
-        <div>
+        <div class="open initLabel">
             <div id="dataLabel">
                 数据<img src="../../assets/images/document_arrow.png">
             </div>
@@ -291,7 +292,7 @@
                 <li><a href="dataIntro_zh.html">简介</a></li>
                 <li><a href="dataAdd_zh.html">添加（更新）数据</a></li>
                 <li><a href="dataClear_zh.html">清除数据</a></li>
-                <li><a href="dataSwitchSet_zh.html">切换数据集</a></li>
+                <li class="nowLabel">切换数据集</li>
                 <li><a href="dataAddAsync_zh.html">异步添加数据</a></li>
                 <li><a href="dataLiveLoad_zh.html">周期性加载</a></li>
                 <li><a href="dataSetLines_zh.html">设置单条线条颜色</a></li>
@@ -330,27 +331,24 @@
     </aside>
 
     <main>
-        <header>启动/禁用性能监控</header>
-        <div>显示或隐藏左上角的 <a href="basicStats_zh.html">性能监控</a> 组件。在使用这个API之前，需要先在HTML页面的
-            <span class="span_code">&lt;header&gt;</span> 部分引入stats.min.js</div>
+        <header>切换数据集</header>
+        <br>
+        <div>参数:</div>
+        <div>dataSet key -- string</div>
+        <br>
+        <div>switchDataSet API可以切换地球表面呈现的数据集，该API只有通过<a href="dataAdd.html#group">addData API</a>添加了一个data group之后才能生效。
+        </div>
+        <br>
         <div>
-            <a href="../../examples/18_API_enableStats(disableStats).html" target="_blank">
+            <a href="../../examples/29_dataGroup.html" target="_blank">
                 <img class="live-demo" src="../../assets/images/liveDemoButton_zh.png">
             </a>
         </div>
+        <br>
         <div class="code">
-            &lt;header&gt;<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;script src="stats.min.js"&gt;&lt;/script&gt;<br>
-            &lt;/header&gt;
+            // "large" 是一个数据集的"key"<br>
+            controller.switchDataSet("large");
         </div>
-        <div class="code">
-            controller.enableStats();
-        </div>
-        <img class="tag-img" src="../../assets/images/design/stats_enable.jpg">
-        <div class="code">
-            controller.disableStats();
-        </div>
-        <img class="tag-img" src="../../assets/images/design/stats_disable.jpg">
     </main>
 </div>
 

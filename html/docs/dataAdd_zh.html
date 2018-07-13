@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="../../assets/cssLib/bootstrap.min.css">
     <script src="../../assets/jsLib/bootstrap.min.js"></script>
     <script src="../../js/websiteUtil.js"></script>
-    <script src="../../js/commonDoc.js"></script>
+    <script src="../../js/commonDoc_zh.js"></script>
 
     <link rel="stylesheet" href="../../css/common.css">
     <link rel="stylesheet" href="../../css/commonDoc.css">
@@ -168,6 +168,7 @@
             <li><a href="dataIntro_zh.html">简介</a></li>
             <li class="nowLabel">添加（更新）数据</li>
             <li><a href="dataClear_zh.html">清除数据</a></li>
+            <li><a href="dataSwitchSet_zh.html">切换数据集</a></li>
             <li><a href="dataAddAsync_zh.html">异步添加数据</a></li>
             <li><a href="dataLiveLoad_zh.html">周期性加载</a></li>
             <li><a href="dataSetLines_zh.html">设置单条线条颜色</a></li>
@@ -291,6 +292,7 @@
                 <li><a href="dataIntro_zh.html">简介</a></li>
                 <li class="nowLabel">添加（更新）数据</li>
                 <li><a href="dataClear_zh.html">清除数据</a></li>
+                <li><a href="dataSwitchSet_zh.html">切换数据集</a></li>
                 <li><a href="dataAddAsync_zh.html">异步添加数据</a></li>
                 <li><a href="dataLiveLoad_zh.html">周期性加载</a></li>
                 <li><a href="dataSetLines_zh.html">设置单条线条颜色</a></li>
@@ -332,9 +334,15 @@
         <header>添加数据</header>
         <br>
         <div>参数：</div>
-        <div>data -- JSON格式数据</div>
+        <div><a href="#single">data（一个数据集）</a> 或者 <a href="#group">data group（多个数据集）</a> -- JSON格式数据</div>
         <br>
+        <div id="single" class="sub-title">1. 载入一个数据集</div>
         <div>将数据加载到Gio的控制器并同步覆盖以前的数据。用于可视化的数据集采用JSON格式。数组中的每一个元素都包含一个输入国家(i)，一个输出国家(e)和一个数值(v)。</div>
+        <div>
+            <a href="../../examples/23_API_addData(clearData).html" target="_blank">
+                <img class="live-demo" src="../../assets/images/liveDemoButton_zh.png">
+            </a>
+        </div>
         <div class="code">
             [<br>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
@@ -357,7 +365,31 @@
         </div>
         <div>说明：连接线连接两个国家并具有方向性，运动粒子将在该方向上生成动画，连线方向由“e” -> “i”定义。“e”和“i”分别表示两个国家，
             “e”表示连线输出的国家，“i”表示连线输入的国家。“v”表示这两个国家之间的数值，如果数值较小，则粒子的大小和数量会比较小，
-            并且在连线上的移动速度相对缓慢；如果数值较大，则粒子的大小和数量会比较大，并且在连线上的移动速度相对较快。</div>
+            并且在连线上的移动速度相对缓慢；如果数值较大，则粒子的大小和数量会比较大，并且在连线上的移动速度相对较快。
+        </div>
+
+        <div id="group" class="sub-title">2. 载入多个数据集</div>
+        <div>将多个数据集加载到Gio的控制器并同步覆盖以前的数据。所有的数据集一次载入控制器，并且可以通过 <a href="dataSwitchSet.html">switchDataSet()</a>
+            API来控制将哪个数据集的数据呈现出来。具体的数据格式定义如下所示：
+        </div>
+        <div>
+            <a href="../../examples/29_dataGroup.html" target="_blank">
+                <img class="live-demo" src="../../assets/images/liveDemoButton_zh.png">
+            </a>
+        </div>
+        <div class="code">
+            {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dataSetKeys: [key1, key2, ......],<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;initDataSet: key1,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;key1: dataSet,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;key2: dataSet,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+            }
+        </div>
+        <div>
+            说明：每个数据集都有一个唯一的"key"，所有使用到的"key"都要在"dataSetKeys"属性中申明，"initDataSet"属性指定哪个数据集作为初始的数据集呈现在地球上。"dataSet"的数据格式和<a
+                href="#single">载入一个数据集</a>中定义的相同。
+        </div>
     </main>
 </div>
 

@@ -73,7 +73,7 @@
             <div>EN</div>
         </div>
         <div>
-            <div><a href="designInitCountry_zh.html">中</a></div>
+            <div><a href="dataSwitchSet_zh.html">中</a></div>
         </div>
     </div>
 
@@ -127,13 +127,13 @@
             <li><a href="configureParams.html">Full Parameter List</a></li>
         </ul>
     </div>
-    <div class="open initLabel">
+    <div>
         <div id="designLabelS">
             Object Design API<img src="../../assets/images/document_arrow.png">
         </div>
         <ul id="designS">
             <li><a href="designIntro.html">Introduce</a></li>
-            <li class="nowLabel">setInitCountry</li>
+            <li><a href="designInitCountry.html">setInitCountry</a></li>
             <li><a href="designLightenMen.html">lightenMentioned</a></li>
             <li><a href="designDisableUnmen.html">disableUnmentioned</a></li>
             <li><a href="designShowOnly.html">showInOnly / showOutOnly</a></li>
@@ -159,7 +159,7 @@
             <li><a href="colorMenBr.html">adjustMentionedBrightness</a></li>
         </ul>
     </div>
-    <div>
+    <div class="open initLabel">
         <div id="dataLabelS">
             Working with Data<img src="../../assets/images/document_arrow.png">
         </div>
@@ -167,7 +167,7 @@
             <li><a href="dataIntro.html">Introduce</a></li>
             <li><a href="dataAdd.html">addData</a></li>
             <li><a href="dataClear.html">clearData</a></li>
-            <li><a href="dataSwitchSet.html">switchDataSet</a></li>
+            <li class="nowLabel">switchDataSet</li>
             <li><a href="dataAddAsync.html">addDataAsync</a></li>
             <li><a href="dataLiveLoad.html">liveLoad</a></li>
             <li><a href="dataSetLines.html">set line color from data</a></li>
@@ -251,13 +251,13 @@
                 <li><a href="configureParams.html">Full Parameter List</a></li>
             </ul>
         </div>
-        <div class="open initLabel">
+        <div>
             <div id="designLabel">
                 Object Design API<img src="../../assets/images/document_arrow.png">
             </div>
             <ul id="design">
                 <li><a href="designIntro.html">Introduce</a></li>
-                <li class="nowLabel">setInitCountry</li>
+                <li><a href="designInitCountry.html">setInitCountry</a></li>
                 <li><a href="designLightenMen.html">lightenMentioned</a></li>
                 <li><a href="designDisableUnmen.html">disableUnmentioned</a></li>
                 <li><a href="designShowOnly.html">showInOnly / showOutOnly</a></li>
@@ -283,7 +283,7 @@
                 <li><a href="colorMenBr.html">adjustMentionedBrightness</a></li>
             </ul>
         </div>
-        <div>
+        <div class="open initLabel">
             <div id="dataLabel">
                 Working with Data<img src="../../assets/images/document_arrow.png">
             </div>
@@ -291,7 +291,7 @@
                 <li><a href="dataIntro.html">Introduce</a></li>
                 <li><a href="dataAdd.html">addData</a></li>
                 <li><a href="dataClear.html">clearData</a></li>
-                <li><a href="dataSwitchSet.html">switchDataSet</a></li>
+                <li class="nowLabel">switchDataSet</li>
                 <li><a href="dataAddAsync.html">addDataAsync</a></li>
                 <li><a href="dataLiveLoad.html">liveLoad</a></li>
                 <li><a href="dataSetLines.html">set line color from data</a></li>
@@ -330,23 +330,24 @@
     </aside>
 
     <main>
-        <header>setInitCountry</header>
-        <div>Sets the <a href="basicCountry.html">country</a> initially selected. Once the 3D globe finishes
-            initialization, it will rotate and
-            bring this country to the front. The default value is "CN" (China).
+        <header>switchDataSet</header>
+        <br>
+        <div>Parameter:</div>
+        <div>dataSet key -- string</div>
+        <br>
+        <div>switchDataSet API can be used to switch data set when a data group is added to controller through <a
+                href="dataAdd.html#group">addData API</a>. Use the data set key to set which data set to be displayed
+            onto the globe. Only after a data group being added to the controller can this API takes effect.
         </div>
         <div>
-            <a href="../../examples/03_API_setInitCountry.html" target="_blank">
+            <a href="../../examples/29_dataGroup.html" target="_blank">
                 <img class="live-demo" src="../../assets/images/liveDemoButton.png">
             </a>
         </div>
-        <div>Default:</div>
-        <img class="tag-img" src="../../assets/images/design/setInitCountry_default.jpg">
         <div class="code">
-            // change the init country to the United States<br>
-            controller.setInitCountry("US");
+            // "large" is the key of a data set<br>
+            controller.switchDataSet("large");
         </div>
-        <img class="tag-img" src="../../assets/images/design/setInitCountry.jpg">
     </main>
 </div>
 

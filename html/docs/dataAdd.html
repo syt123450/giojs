@@ -167,6 +167,7 @@
             <li><a href="dataIntro.html">Introduce</a></li>
             <li class="nowLabel">addData</li>
             <li><a href="dataClear.html">clearData</a></li>
+            <li><a href="dataSwitchSet.html">switchDataSet</a></li>
             <li><a href="dataAddAsync.html">addDataAsync</a></li>
             <li><a href="dataLiveLoad.html">liveLoad</a></li>
             <li><a href="dataSetLines.html">set line color from data</a></li>
@@ -290,6 +291,7 @@
                 <li><a href="dataIntro.html">Introduce</a></li>
                 <li class="nowLabel">addData</li>
                 <li><a href="dataClear.html">clearData</a></li>
+                <li><a href="dataSwitchSet.html">switchDataSet</a></li>
                 <li><a href="dataAddAsync.html">addDataAsync</a></li>
                 <li><a href="dataLiveLoad.html">liveLoad</a></li>
                 <li><a href="dataSetLines.html">set line color from data</a></li>
@@ -331,11 +333,17 @@
         <header>addData</header>
         <br>
         <div>Parameter:</div>
-        <div>data -- In JSON format</div>
+        <div><a href="#single">data</a> or <a href="#group">data group</a> -- In JSON format</div>
         <br>
+        <div id="single" class="sub-title">1. Load a single data set</div>
         <div>Loads data to the controller of Gio and overrides previous data synchronously. The dataset used for
             visualization is in JSON format. Each element of the array has an import country (i), an export country
             (e) and a value (v).
+        </div>
+        <div>
+            <a href="../../examples/23_API_addData(clearData).html" target="_blank">
+                <img class="live-demo" src="../../assets/images/liveDemoButton.png">
+            </a>
         </div>
         <div class="code">
             [<br>
@@ -364,6 +372,32 @@
             these two country, there are particles moving on the line, if the value is small, the size and quantity
             of the particles will be small, and moving slowly, if the value is large, the size and quantity be
             large, and moving fast.
+        </div>
+
+        <div id="group" class="sub-title">2. Load a data group (multiple data sets)</div>
+        <div>Loads a data group (multiple data sets) to the controller of Gio synchronously. All data sets defined in
+            data group can be loaded in to Gio.js Controller in one time, and use <a href="dataSwitchSet.html">switchDataSet()</a>
+            API to control which
+            data set to be displayed onto the 3D globe. The format of data group is as defined below:
+        </div>
+        <div>
+            <a href="../../examples/29_dataGroup.html" target="_blank">
+                <img class="live-demo" src="../../assets/images/liveDemoButton.png">
+            </a>
+        </div>
+        <div class="code">
+            {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dataSetKeys: [key1, key2, ......],<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;initDataSet: key1,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;key1: dataSet,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;key2: dataSet,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+            }
+        </div>
+        <div>
+            Explanation: Each data set has a specific "key", the attribute "dataSetKeys" stores all keys, the attribute
+            "initDataSet" stores the key of the data set which will be initially displayed onto the globe. The data
+            structure of "dataSet" is the same as <a href="#single">Load a single data set</a>.
         </div>
     </main>
 </div>

@@ -2,9 +2,141 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Use data group to switch data set in globe / Gio.js</title>
+
+    <script src="js/three.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+
+    <script src="../build/gio.min.js"></script>
+
+    <link rel="stylesheet" href="css/common.css">
+
+    <style>
+
+        #globalArea {
+
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+
+        }
+
+        #mini, #small, #large, #color {
+
+            position: absolute;
+            left: 100px;
+            width: 150px;
+            height: 40px;
+            color: #cbcbcb;
+            text-align: center;
+            line-height: 40px;
+            cursor: pointer;
+            user-select: none;
+            box-sizing: border-box;
+            transition: 1s;
+            border-radius: 5px;
+            background-color: rgba(110, 110, 110, 0.8);
+
+        }
+
+        #mini:hover, #small:hover, #large:hover, #color:hover {
+
+            color: #fff;
+            background-color: #929292;
+
+        }
+
+        #mini {
+
+            top: 200px;
+
+        }
+
+        #small {
+
+            top: 300px;
+
+        }
+
+        #large {
+
+            top: 400px;
+
+        }
+
+        #color {
+
+            top: 500px;
+
+        }
+
+    </style>
+
 </head>
 <body>
+
+<header>Use data group to add multiple data sets to globe and switch data set presented on globe</header>
+
+<div id="globalArea"></div>
+
+<div id="mini">Mini Set</div>
+<div id="small">Small Set</div>
+<div id="large">Large Set</div>
+<div id="color">Color Set</div>
+
+<div class="view_source">
+    <a href="https://github.com/syt123450/Gio.js/blob/master/examples/29_dataGroup.html">View Source</a>
+</div>
+
+<script>
+
+	var container = document.getElementById( "globalArea" );
+	var controller = new GIO.Controller( container );
+
+	$.ajax( {
+
+		url: "data/groupData.json",
+		type: "GET",
+		contentType: "application/json; charset=utf-8",
+		async: true,
+		dataType: "json",
+		success: function ( inputData ) {
+
+			controller.addData( inputData );
+			controller.init();
+
+		}
+
+	} );
+
+	// Use switchDataSet API to switch data set presented on globe
+
+	$( "#mini" ).click( function () {
+
+		controller.switchDataSet("mini");
+
+	} );
+
+	$( "#small" ).click( function () {
+
+		controller.switchDataSet("small");
+
+	} );
+
+	$( "#large" ).click( function () {
+
+		controller.switchDataSet("large");
+
+	} );
+
+	$( "#color" ).click( function () {
+
+		controller.switchDataSet("color");
+
+	} );
+
+</script>
 
 </body>
 </html>

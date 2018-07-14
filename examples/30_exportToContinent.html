@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Export data from country to continent / Gio.js</title>
+
+    <script src="js/three.min.js"></script>
+
+    <script src="js/jquery.min.js"></script>
+
+    <script src="../build/gio.min.js"></script>
+
+    <link rel="stylesheet" href="css/common.css">
+
+    <style>
+
+        #globalArea {
+
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+
+        }
+
+        #oceania, #northAmerica, #southAmerica, #europe, #asia, #africa {
+
+            position: absolute;
+            left: 100px;
+            width: 150px;
+            height: 40px;
+            color: #cbcbcb;
+            text-align: center;
+            line-height: 40px;
+            cursor: pointer;
+            user-select: none;
+            box-sizing: border-box;
+            transition: 1s;
+            border-radius: 5px;
+            background-color: rgba(110, 110, 110, 0.8);
+
+        }
+
+        #oceania:hover,
+        #northAmerica:hover,
+        #southAmerica:hover,
+        #europe:hover,
+        #asia:hover,
+        #africa:hover {
+
+            color: #fff;
+            background-color: #929292;
+
+        }
+
+        #oceania {
+
+            top: 100px;
+
+        }
+
+        #northAmerica {
+
+            top: 160px;
+
+        }
+
+        #southAmerica {
+
+            top: 220px;
+
+        }
+
+        #europe {
+
+            top: 280px;
+
+        }
+
+        #asia {
+
+            top: 340px;
+
+        }
+
+        #africa {
+
+            top: 400px;
+
+        }
+
+    </style>
+
+</head>
+<body>
+
+<header>Export data from country to continent</header>
+
+<div id="globalArea"></div>
+
+<div id="oceania">Oceania</div>
+<div id="northAmerica">North America</div>
+<div id="southAmerica">South America</div>
+<div id="europe">Europe</div>
+<div id="asia">Asia</div>
+<div id="africa">Africa</div>
+
+<div class="view_source">
+    <a href="https://github.com/syt123450/Gio.js/blob/master/examples/30_exportToContinent.html">View Source</a>
+</div>
+
+<script>
+
+    var oceaniaData = [{e: "CN", i: "Oceania", v: 5000000}];
+    var northAmericaData = [{e: "CN", i: "North America", v: 5000000}];
+    var southAmericaData = [{e: "CN", i: "South America", v: 5000000}];
+    var europeData = [{e: "CN", i: "Europe", v: 5000000}];
+    var asiaData = [{e: "US", i: "Asia", v: 5000000}];
+    var africaData = [{e: "CN", i: "Africa", v: 5000000}];
+
+	var container = document.getElementById( "globalArea" );
+	var controller = new GIO.Controller( container );
+
+	controller.addData(europeData);
+	controller.init();
+
+	$( "#oceania" ).click( function () {
+
+		controller.addData(oceaniaData);
+		controller.switchCountry("CN");
+
+	} );
+
+	$( "#northAmerica" ).click( function () {
+
+		controller.addData(northAmericaData);
+		controller.switchCountry("CN");
+
+	} );
+
+	$( "#southAmerica" ).click( function () {
+
+		controller.addData(southAmericaData);
+		controller.switchCountry("CN");
+
+	} );
+
+	$( "#europe" ).click( function () {
+
+		controller.addData(europeData);
+		controller.switchCountry("CN");
+
+	} );
+
+	$( "#asia" ).click( function () {
+
+		controller.addData(asiaData);
+		controller.switchCountry("US");
+
+	} );
+
+	$( "#africa" ).click( function () {
+
+		controller.addData(africaData);
+		controller.switchCountry("CN");
+
+	} );
+
+</script>
+
+</body>
+</html>

@@ -139,8 +139,8 @@ function DataGroupHandler ( controller ) {
 				var exporter = CountryData[ exporterName ];
 				var importer = CountryData[ importerName ];
 
-				if (exporter==null) throw exporterName+" is not referenced as a country code! See the full list there : https://github.com/syt123450/giojs/blob/master/src/countryInfo/CountryData.js";
-				if (importer==null) throw importerName+" is not referenced as a country code! See the full list there : https://github.com/syt123450/giojs/blob/master/src/countryInfo/CountryData.js";
+				if (exporter==null) throw exporterName+" is not referenced as a country code! See the full list there : https://github.com/syt123450/giojs/blob/master/docs/en/Country_Code.md";
+				if (importer==null) throw importerName+" is not referenced as a country code! See the full list there : https://github.com/syt123450/giojs/blob/master/docs/en/Country_Code.md";
 
 				set.lineGeometry = makeConnectionLineGeometry( exporter, importer, set.fakeData );
 

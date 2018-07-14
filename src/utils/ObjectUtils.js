@@ -9,6 +9,7 @@ import { Utils } from "../utils/Utils.js";
 import { MovingSpriteShader } from "../shaders/MovingSpriteShader.js";
 import { CountryData } from "../countryInfo/CountryData.js";
 import { CountryColorMap } from "../countryInfo/CountryColorMap.js";
+import {Continent} from "../countryInfo/Continent";
 
 /**
  * This utils create objects in for the scene
@@ -223,17 +224,37 @@ var ObjectUtils = ( function () {
 
                 if ( set.e === CountryColorMap[ selectedCountry.colorCode ] ) {
 
-                    controller.relatedCountries.push(CountryData[set.i]);
+                    if ( Continent.names.indexOf( set.i.toUpperCase() ) !== -1 ) {
 
-                    if ( set.outColor === undefined ) {
+                        var continentCountries = Continent[ set.i.toUpperCase() ].countries;
 
-                        lineColor = new THREE.Color( controller.configure.color.out );
+                        for ( var j = 0; j < continentCountries.length; j++ ) {
+
+                            var countryCode = continentCountries[ j ];
+
+                            if ( CountryData[ countryCode ] !== undefined ) {
+
+								controller.relatedCountries.push(CountryData[continentCountries[j]]);
+
+                            }
+
+                        }
 
                     } else {
 
-                        lineColor = new THREE.Color( set.outColor );
+						controller.relatedCountries.push( CountryData[ set.i ] );
 
                     }
+
+					if ( set.outColor === undefined ) {
+
+						lineColor = new THREE.Color( controller.configure.color.out );
+
+					} else {
+
+						lineColor = new THREE.Color( set.outColor );
+
+					}
 
                 } else {
 

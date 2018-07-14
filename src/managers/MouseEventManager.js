@@ -139,7 +139,7 @@ function SceneEventManager () {
 
         // for debug
 
-        // console.log( pickColorIndex );
+        console.log( pickColorIndex );
 
         /**
          * on a specific condition will let the SwitchCountryHandler to execute switch

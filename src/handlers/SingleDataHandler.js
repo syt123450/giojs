@@ -1,5 +1,6 @@
 import { CountryData } from "../countryInfo/CountryData.js";
 import { Utils } from "../utils/Utils.js";
+import { Continent } from "../countryInfo/Continent";
 
 function SingleDataHandler(controller) {
 
@@ -11,33 +12,86 @@ function SingleDataHandler(controller) {
 
 			var dataSet = inputData[ i ];
 
-			if (CountryData[ dataSet.i ] === undefined) {
-				return;
-			}
-
 			if (CountryData[ dataSet.e ] === undefined) {
 				return;
 			}
 
-			var importCountryCode = CountryData[ dataSet.i ].colorCode;
-			var exportCountryCode = CountryData[ dataSet.e ].colorCode;
+			var importerName = dataSet.i.toUpperCase();
 
-			// add mentioned color to controller's mentionedCountryCodes ( an array to store the code )
+			if ( Continent.names.indexOf( importerName ) !== -1 ) {
 
-			if ( controller.mentionedCountryCodes.indexOf( importCountryCode ) === - 1 ) {
+				addMentionedContinent( dataSet );
 
-				controller.mentionedCountryCodes.push( importCountryCode );
+				return;
 
 			}
 
-			if ( controller.mentionedCountryCodes.indexOf( exportCountryCode ) === - 1 ) {
+			if (CountryData[ dataSet.i ] === undefined) {
+				return;
+			}
 
-				controller.mentionedCountryCodes.push( exportCountryCode );
+			addMentionedCountryPair( dataSet );
+
+		}
+
+
+	}
+
+	function addMentionedContinent( dataSet ) {
+
+		var exportCountryCode = CountryData[ dataSet.e ].colorCode;
+
+		if ( controller.mentionedCountryCodes.indexOf( exportCountryCode ) === - 1 ) {
+
+			controller.mentionedCountryCodes.push( exportCountryCode );
+
+		}
+
+		var importerName = dataSet.i.toUpperCase();
+
+		var continentCountries = Continent[ importerName ].countries;
+
+		for ( var i = 0; i < continentCountries.length; i++ ) {
+
+			var tempImportCountry = continentCountries[ i ];
+			var tempCountryData = CountryData[ tempImportCountry ];
+
+			if ( tempCountryData === undefined ) {
+
+				continue;
+
+			}
+
+			var tempImportCountryCode = tempCountryData.colorCode;
+
+			if ( controller.mentionedCountryCodes.indexOf( tempImportCountryCode ) === - 1 ) {
+
+				controller.mentionedCountryCodes.push( tempImportCountryCode );
 
 			}
 
 		}
 
+	}
+
+	function addMentionedCountryPair(dataSet) {
+
+		var importCountryCode = CountryData[ dataSet.i ].colorCode;
+		var exportCountryCode = CountryData[ dataSet.e ].colorCode;
+
+		// add mentioned color to controller's mentionedCountryCodes ( an array to store the code )
+
+		if ( controller.mentionedCountryCodes.indexOf( importCountryCode ) === - 1 ) {
+
+			controller.mentionedCountryCodes.push( importCountryCode );
+
+		}
+
+		if ( controller.mentionedCountryCodes.indexOf( exportCountryCode ) === - 1 ) {
+
+			controller.mentionedCountryCodes.push( exportCountryCode );
+
+		}
 
 	}
 
@@ -82,8 +136,24 @@ function SingleDataHandler(controller) {
 
 			var set = controller.inputData[ s ];
 
-			var exporterName = set.e.toUpperCase();
 			var importerName = set.i.toUpperCase();
+
+			if ( Continent.names.indexOf( importerName ) !== -1 ) {
+
+				makeContinentConnection( set );
+
+				continue;
+
+			}
+
+			makeCountriesConnection( set );
+
+		}
+
+		function makeCountriesConnection(dataSet) {
+
+			var exporterName = dataSet.e.toUpperCase();
+			var importerName = dataSet.i.toUpperCase();
 
 			if (exporterName == "ZZ" || importerName == "ZZ") {
 				console.group("ZZ unknown country");
@@ -93,7 +163,7 @@ function SingleDataHandler(controller) {
 
 				delete controller.inputData[s];
 
-				continue;
+				return;
 			}
 
 			var exporter = CountryData[ exporterName ];
@@ -102,7 +172,19 @@ function SingleDataHandler(controller) {
 			if (exporter==null) throw exporterName+" is not referenced as a country code! See the full list there : https://github.com/syt123450/giojs/blob/master/src/countryInfo/CountryData.js";
 			if (importer==null) throw importerName+" is not referenced as a country code! See the full list there : https://github.com/syt123450/giojs/blob/master/src/countryInfo/CountryData.js";
 
-			set.lineGeometry = makeConnectionLineGeometry( exporter, importer, set.fakeData );
+			dataSet.lineGeometry = makeConnectionLineGeometry( exporter, importer, dataSet.fakeData );
+
+		}
+
+		function makeContinentConnection( dataSet ) {
+
+			var exporterName = dataSet.e.toUpperCase();
+			var importerName = dataSet.i.toUpperCase();
+
+			var exporter = CountryData[ exporterName ];
+			var importer = Continent[ importerName ];
+
+			dataSet.lineGeometry = makeConnectionLineGeometry( exporter, importer, dataSet.fakeData );
 
 		}
 

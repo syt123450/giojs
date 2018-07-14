@@ -3715,41 +3715,94 @@ function DataGroupHandler ( controller ) {
 
 				var set = data[ j ];
 
-				if ( CountryData[ set.i ] === undefined ) {
-
-					return;
-
-				}
-
 				if ( CountryData[ set.e ] === undefined ) {
 
-					return;
+					continue;
 
 				}
 
-				var importCountryCode = CountryData[ set.i ].colorCode;
-				var exportCountryCode = CountryData[ set.e ].colorCode;
+				var importerName = set.i.toUpperCase();
 
-				// add mentioned color to controller's mentionedCountryCodes ( an array to store the code )
+				if ( Continent.names.indexOf( importerName ) !== -1 ) {
 
-				if ( mentionedCache[key].indexOf( importCountryCode ) === - 1 ) {
+					addMentionedContinent( set, key );
 
-					mentionedCache[key].push( importCountryCode );
+					continue;
+
+				}
+
+				if ( CountryData[ set.i ] === undefined ) {
+
+					continue;
 
 				}
 
-				if ( mentionedCache[key].indexOf( exportCountryCode ) === - 1 ) {
-
-					mentionedCache[key].push( exportCountryCode );
-
-				}
+				addMentionedCountryPair( set, key );
 
 			}
 
 
 		}
 
-		controller.mentionedCountryCodes = mentionedCache[initDataSet];
+		controller.mentionedCountryCodes = mentionedCache[ initDataSet ];
+
+	}
+
+	function addMentionedContinent( set, key ) {
+
+		var exportCountryCode = CountryData[ set.e ].colorCode;
+
+		if ( mentionedCache[key].indexOf( exportCountryCode ) === - 1 ) {
+
+			mentionedCache[key].push( exportCountryCode );
+
+		}
+
+		var importerName = set.i.toUpperCase();
+
+		var continentCountries = Continent[ importerName ].countries;
+
+		for ( var i = 0; i < continentCountries.length; i++ ) {
+
+			var tempImportCountry = continentCountries[ i ];
+			var tempCountryData = CountryData[ tempImportCountry ];
+
+			if ( tempCountryData === undefined ) {
+
+				continue;
+
+			}
+
+			var tempImportCountryCode = tempCountryData.colorCode;
+
+			if ( mentionedCache[key].indexOf( tempImportCountryCode ) === - 1 ) {
+
+				mentionedCache[key].push( tempImportCountryCode );
+
+			}
+
+		}
+
+	}
+
+	function addMentionedCountryPair( set, key ) {
+
+		var importCountryCode = CountryData[ set.i.toUpperCase() ].colorCode;
+		var exportCountryCode = CountryData[ set.e.toUpperCase() ].colorCode;
+
+		// add mentioned color to controller's mentionedCountryCodes ( an array to store the code )
+
+		if ( mentionedCache[key].indexOf( importCountryCode ) === - 1 ) {
+
+			mentionedCache[key].push( importCountryCode );
+
+		}
+
+		if ( mentionedCache[key].indexOf( exportCountryCode ) === - 1 ) {
+
+			mentionedCache[key].push( exportCountryCode );
+
+		}
 
 	}
 
@@ -3816,6 +3869,22 @@ function DataGroupHandler ( controller ) {
 
 				var set = data[ s ];
 
+				var importerName = set.i.toUpperCase();
+
+				if ( Continent.names.indexOf( importerName ) !== -1 ) {
+
+					makeContinentConnection( set );
+
+					continue;
+
+				}
+
+				makeCountriesConnection( set, data, s );
+
+			}
+
+			function makeCountriesConnection( set, data, s ) {
+
 				var exporterName = set.e.toUpperCase();
 				var importerName = set.i.toUpperCase();
 
@@ -3827,16 +3896,28 @@ function DataGroupHandler ( controller ) {
 
 					delete data[s];
 
-					continue;
+					return;
 				}
 
 				var exporter = CountryData[ exporterName ];
 				var importer = CountryData[ importerName ];
 
-				if (exporter==null) throw exporterName+" is not referenced as a country code! See the full list there : https://github.com/syt123450/giojs/blob/master/src/countryInfo/CountryData.js";
-				if (importer==null) throw importerName+" is not referenced as a country code! See the full list there : https://github.com/syt123450/giojs/blob/master/src/countryInfo/CountryData.js";
+				if (exporter==null) throw exporterName+" is not referenced as a country code! See the full list there : https://github.com/syt123450/giojs/blob/master/docs/en/Country_Code.md";
+				if (importer==null) throw importerName+" is not referenced as a country code! See the full list there : https://github.com/syt123450/giojs/blob/master/docs/en/Country_Code.md";
 
 				set.lineGeometry = makeConnectionLineGeometry( exporter, importer, set.fakeData );
+
+			}
+
+			function makeContinentConnection( dataSet ) {
+
+				var exporterName = dataSet.e.toUpperCase();
+				var importerName = dataSet.i.toUpperCase();
+
+				var exporter = CountryData[ exporterName ];
+				var importer = Continent[ importerName ];
+
+				dataSet.lineGeometry = makeConnectionLineGeometry( exporter, importer, dataSet.fakeData );
 
 			}
 
@@ -3953,7 +4034,7 @@ function SingleDataHandler(controller) {
 			var dataSet = inputData[ i ];
 
 			if (CountryData[ dataSet.e ] === undefined) {
-				return;
+				continue;
 			}
 
 			var importerName = dataSet.i.toUpperCase();
@@ -3962,12 +4043,12 @@ function SingleDataHandler(controller) {
 
 				addMentionedContinent( dataSet );
 
-				return;
+				continue;
 
 			}
 
 			if (CountryData[ dataSet.i ] === undefined) {
-				return;
+				continue;
 			}
 
 			addMentionedCountryPair( dataSet );
@@ -4090,7 +4171,7 @@ function SingleDataHandler(controller) {
 
 		}
 
-		function makeCountriesConnection(dataSet) {
+		function makeCountriesConnection( dataSet ) {
 
 			var exporterName = dataSet.e.toUpperCase();
 			var importerName = dataSet.i.toUpperCase();
@@ -4109,8 +4190,8 @@ function SingleDataHandler(controller) {
 			var exporter = CountryData[ exporterName ];
 			var importer = CountryData[ importerName ];
 
-			if (exporter==null) throw exporterName+" is not referenced as a country code! See the full list there : https://github.com/syt123450/giojs/blob/master/src/countryInfo/CountryData.js";
-			if (importer==null) throw importerName+" is not referenced as a country code! See the full list there : https://github.com/syt123450/giojs/blob/master/src/countryInfo/CountryData.js";
+			if (exporter==null) throw exporterName+" is not referenced as a country code! See the full list there : https://github.com/syt123450/giojs/blob/master/docs/en/Country_Code.md";
+			if (importer==null) throw importerName+" is not referenced as a country code! See the full list there : https://github.com/syt123450/giojs/blob/master/docs/en/Country_Code.md";
 
 			dataSet.lineGeometry = makeConnectionLineGeometry( exporter, importer, dataSet.fakeData );
 

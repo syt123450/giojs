@@ -13,7 +13,7 @@ function SingleDataHandler(controller) {
 			var dataSet = inputData[ i ];
 
 			if (CountryData[ dataSet.e ] === undefined) {
-				return;
+				continue;
 			}
 
 			var importerName = dataSet.i.toUpperCase();
@@ -22,12 +22,12 @@ function SingleDataHandler(controller) {
 
 				addMentionedContinent( dataSet );
 
-				return;
+				continue;
 
 			}
 
 			if (CountryData[ dataSet.i ] === undefined) {
-				return;
+				continue;
 			}
 
 			addMentionedCountryPair( dataSet );
@@ -150,7 +150,7 @@ function SingleDataHandler(controller) {
 
 		}
 
-		function makeCountriesConnection(dataSet) {
+		function makeCountriesConnection( dataSet ) {
 
 			var exporterName = dataSet.e.toUpperCase();
 			var importerName = dataSet.i.toUpperCase();

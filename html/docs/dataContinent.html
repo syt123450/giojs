@@ -73,7 +73,7 @@
             <div>EN</div>
         </div>
         <div>
-            <div><a href="designIntro_zh.html">中</a></div>
+            <div><a href="dataContinent_zh.html">中</a></div>
         </div>
     </div>
 
@@ -127,12 +127,12 @@
             <li><a href="configureParams.html">Full Parameter List</a></li>
         </ul>
     </div>
-    <div class="open initLabel">
+    <div>
         <div id="designLabelS">
             Object Design API<img src="../../assets/images/document_arrow.png">
         </div>
         <ul id="designS">
-            <li class="nowLabel">Introduce</li>
+            <li><a href="designIntro.html">Introduce</a></li>
             <li><a href="designInitCountry.html">setInitCountry</a></li>
             <li><a href="designLightenMen.html">lightenMentioned</a></li>
             <li><a href="designDisableUnmen.html">disableUnmentioned</a></li>
@@ -159,7 +159,7 @@
             <li><a href="colorMenBr.html">adjustMentionedBrightness</a></li>
         </ul>
     </div>
-    <div>
+    <div class="open initLabel">
         <div id="dataLabelS">
             Working with Data<img src="../../assets/images/document_arrow.png">
         </div>
@@ -168,7 +168,7 @@
             <li><a href="dataAdd.html">addData</a></li>
             <li><a href="dataClear.html">clearData</a></li>
             <li><a href="dataSwitchSet.html">switchDataSet</a></li>
-            <li><a href="dataContinent.html">Continent</a></li>
+            <li class="nowLabel">Continent</li>
             <li><a href="dataAddAsync.html">addDataAsync</a></li>
             <li><a href="dataLiveLoad.html">liveLoad</a></li>
             <li><a href="dataSetLines.html">set line color from data</a></li>
@@ -252,12 +252,12 @@
                 <li><a href="configureParams.html">Full Parameter List</a></li>
             </ul>
         </div>
-        <div class="open initLabel">
+        <div>
             <div id="designLabel">
                 Object Design API<img src="../../assets/images/document_arrow.png">
             </div>
             <ul id="design">
-                <li class="nowLabel">Introduce</li>
+                <li><a href="designIntro.html">Introduce</a></li>
                 <li><a href="designInitCountry.html">setInitCountry</a></li>
                 <li><a href="designLightenMen.html">lightenMentioned</a></li>
                 <li><a href="designDisableUnmen.html">disableUnmentioned</a></li>
@@ -284,7 +284,7 @@
                 <li><a href="colorMenBr.html">adjustMentionedBrightness</a></li>
             </ul>
         </div>
-        <div>
+        <div class="open initLabel">
             <div id="dataLabel">
                 Working with Data<img src="../../assets/images/document_arrow.png">
             </div>
@@ -293,7 +293,7 @@
                 <li><a href="dataAdd.html">addData</a></li>
                 <li><a href="dataClear.html">clearData</a></li>
                 <li><a href="dataSwitchSet.html">switchDataSet</a></li>
-                <li><a href="dataContinent.html">Continent</a></li>
+                <li class="nowLabel">Continent</li>
                 <li><a href="dataAddAsync.html">addDataAsync</a></li>
                 <li><a href="dataLiveLoad.html">liveLoad</a></li>
                 <li><a href="dataSetLines.html">set line color from data</a></li>
@@ -332,21 +332,70 @@
     </aside>
 
     <main>
-        <header>Object Design API</header>
-        <div>The Object Design APIs are a group of APIs used to control the object (show or hide). Together with the
-            documentation, we provide live demos for you to understand each API.
-            Click the link below to see the detailed explanation of each API.
+        <header>import into continent</header>
+        <div>The "i" in input data can be defined as continent name, which means that export from a country and import
+            into a continent. In this case, when exported country is selected, all imported continent will be highlighted. The
+            acceptable continent names are listed in <a href="#nameTable">Accepted Continent Parameter</a> Table.
         </div>
         <div>
-            <ul>
-                <li><a href="designInitCountry.html">setInitCountry</a></li>
-                <li><a href="designLightenMen.html">lightenMentioned</a></li>
-                <li><a href="designDisableUnmen.html">disableUnmentioned</a></li>
-                <li><a href="designShowOnly.html">showInOnly / showOutOnly</a></li>
-                <li><a href="designHalo.html">addHalo / removeHalo</a></li>
-                <li><a href="designStats.html">enableStats / disableStats</a></li>
-            </ul>
+            <a href="../../examples/30_exportToContinent.html" target="_blank">
+                <img class="live-demo" src="../../assets/images/liveDemoButton.png">
+            </a>
         </div>
+        <div>Usage:</div>
+        <div class="code">
+            [<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// can not
+            set continent name to "e"<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e: "CN",<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// set
+            continent name to "i"<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i:
+            "Oceania",<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v:
+            5000000<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+            ]
+        </div>
+        <div>Effect:(export from China, import into Europe)</div>
+        <img class="tag-img" src="../../assets/images/exportToEurope.jpg">
+        <table id="nameTable" class="table table-bordered">
+            <caption>Accepted Continent Parameter</caption>
+            <thead>
+            <tr>
+                <th>Continent Parameter (ignore the case)</th>
+                <th>Wikipedia Explanation</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>"Oceania"</td>
+                <td><a href="https://en.wikipedia.org/wiki/Oceania">Link</a></td>
+            </tr>
+            <tr>
+                <td>"North America"</td>
+                <td><a href="https://en.wikipedia.org/wiki/North_America">Link</a></td>
+            </tr>
+            <tr>
+                <td>"South America"</td>
+                <td><a href="https://en.wikipedia.org/wiki/South_America">Link</a></td>
+            </tr>
+            <tr>
+                <td>"Europe"</td>
+                <td><a href="https://en.wikipedia.org/wiki/Europe">Link</a></td>
+            </tr>
+            <tr>
+                <td>"Asia"</td>
+                <td><a href="https://en.wikipedia.org/wiki/Asia">Link</a></td>
+            </tr>
+            <tr>
+                <td>"Africa"</td>
+                <td><a href="https://en.wikipedia.org/wiki/Africa">Link</a></td>
+            </tr>
+            </tbody>
+        </table>
+
     </main>
 </div>
 

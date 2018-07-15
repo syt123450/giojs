@@ -6,6 +6,7 @@
 
     <meta name="description" content="Document page of Gio.js">
     <meta name="author" content="syt123450 / https://github.com/syt123450">
+    <meta name="author" content="lq3297401 / https://github.com/lq3297401">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel='icon' href='../../assets/images/logoTitle.ico' type=‘image/x-ico’>
 
@@ -70,7 +71,7 @@
 
     <div class="language">
         <div>
-            <div><a href="callbackPicked.html">EN</a></div>
+            <div><a href="dataContinent.html">EN</a></div>
         </div>
         <div class="selected">
             <div>中</div>
@@ -159,7 +160,7 @@
             <li><a href="colorMenBr_zh.html">设置提到国家亮度</a></li>
         </ul>
     </div>
-    <div>
+    <div class="open initLabel">
         <div id="dataLabelS">
             数据<img src="../../assets/images/document_arrow.png">
         </div>
@@ -168,20 +169,20 @@
             <li><a href="dataAdd_zh.html">添加（更新）数据</a></li>
             <li><a href="dataClear_zh.html">清除数据</a></li>
             <li><a href="dataSwitchSet_zh.html">切换数据集</a></li>
-            <li><a href="dataContinent_zh.html">输入数据到洲</a></li>
+            <li class="nowLabel">输入数据到洲</li>
             <li><a href="dataAddAsync_zh.html">异步添加数据</a></li>
             <li><a href="dataLiveLoad_zh.html">周期性加载</a></li>
             <li><a href="dataSetLines_zh.html">设置单条线条颜色</a></li>
             <li><a href="dataPre_zh.html">数据预处理</a></li>
         </ul>
     </div>
-    <div class="open initLabel">
+    <div>
         <div id="callbackLabelS">
             回调函数<img src="../../assets/images/document_arrow.png">
         </div>
         <ul id="callbackS">
             <li><a href="callbackIntro_zh.html">简介</a></li>
-            <li class="nowLabel">当国家被选中时</li>
+            <li><a href="callbackPicked_zh.html">当国家被选中时</a></li>
         </ul>
     </div>
     <div>
@@ -284,7 +285,7 @@
                 <li><a href="colorMenBr_zh.html">设置提到国家亮度</a></li>
             </ul>
         </div>
-        <div>
+        <div class="open initLabel">
             <div id="dataLabel">
                 数据<img src="../../assets/images/document_arrow.png">
             </div>
@@ -293,20 +294,20 @@
                 <li><a href="dataAdd_zh.html">添加（更新）数据</a></li>
                 <li><a href="dataClear_zh.html">清除数据</a></li>
                 <li><a href="dataSwitchSet_zh.html">切换数据集</a></li>
-                <li><a href="dataContinent_zh.html">输入数据到洲</a></li>
+                <li class="nowLabel">输入数据到洲</li>
                 <li><a href="dataAddAsync_zh.html">异步添加数据</a></li>
                 <li><a href="dataLiveLoad_zh.html">周期性加载</a></li>
                 <li><a href="dataSetLines_zh.html">设置单条线条颜色</a></li>
                 <li><a href="dataPre_zh.html">数据预处理</a></li>
             </ul>
         </div>
-        <div class="open initLabel">
+        <div>
             <div id="callbackLabel">
                 回调函数<img src="../../assets/images/document_arrow.png">
             </div>
             <ul id="callback">
                 <li><a href="callbackIntro_zh.html">简介</a></li>
-                <li class="nowLabel">当国家被选中时</li>
+                <li><a href="callbackPicked_zh.html">当国家被选中时</a></li>
             </ul>
         </div>
         <div>
@@ -332,70 +333,75 @@
     </aside>
 
     <main>
-        <header>当国家被选中时</header>
-        <div>当<a href="basicCountry_zh.html">被选中的国家</a>改变时被调用。</div>
+        <header>输入数据到洲</header>
         <div>
-            <a href="../../examples/19_API_onCountryPicked.html" target="_blank">
+            在输入数据中，"i"可以被定义成"洲"（比如输入"Asia"，代表亚洲），这样定义代表着从一个国家输出到一个"洲"。当"i"被设置成一个"洲"时，当相应的输出国家（即相对应的"e"中的国家）被选中时，整一个洲都会被点亮。洲名的输入参数如<a href="#nameTable">洲 - 参数表</a>中所示。
+        </div>
+        <div>
+            <a href="../../examples/30_exportToContinent.html" target="_blank">
                 <img class="live-demo" src="../../assets/images/liveDemoButton_zh.png">
             </a>
         </div>
-        <div>会向回调函数传递两个参数：被选中的国家和相关国家列表。被选中的国家指的是一个<a href="#countryObject">CountryObject</a>对象，这个对象表示新的<a href="basicCountry_zh.html">被选中的国家</a>；相关国家列表是<a href="#countryObject">CountryObject</a>对象的列表，这个列表中储存了所有与新的被选中国家<a href="basicCountry_zh.html">相关的国家</a>。</div>
         <div>使用方法：</div>
         <div class="code">
-            // 使用onCountryPicked() API来设置回调函数<br>
-            controller.onCountryPicked( callback );<br><br>
-
-            // 定义一个回调函数，这个函数作为一个例子，简单地在console里输出selectedCountry和relatedCountries这两个参数<br>
-            function callback ( selectedCountry, relatedCountries ) {<br><br>
-
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(selectedCountry);<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(relatedCountries);<br><br>
-
-            }
+            [<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//
+            "e"不能设置成洲，输出必须是国家<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e: "CN",<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//
+            可以将"i"设置成欧洲，"Europe"为输入参数<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i:
+            "Europe",<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v:
+            5000000<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+            ]
         </div>
-        <br>
-        <div id="countryObject" class="sub-title">CountryObject</div>
-        <div class="code">
-            {<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ISOCode: "AU"<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;center: THREE.vector<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lat: -27<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lon: 133<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name: "AUSTRALIA"<br>
-            }
-        </div>
-        <table class="table table-bordered">
-            <caption>参数表：</caption>
+        <div>效果：（从中国输出到欧洲）</div>
+        <img class="tag-img" src="../../assets/images/exportToEurope.jpg">
+        <table id="nameTable" class="table table-bordered">
+            <caption>洲 - 参数表</caption>
             <thead>
             <tr>
-                <th>参数</th>
-                <th>描述</th>
+                <th>洲 - 参数（无视大小写）</th>
+                <th>洲 - 中文名</th>
+                <th>百度百科解释</th>
             </tr>
             </thead>
             <tbody>
             <tr>
-                <td>ISOCode</td>
-                <td>国家的ISO代码</td>
+                <td>"Oceania"</td>
+                <td>大洋洲</td>
+                <td><a href="https://baike.baidu.com/item/%E5%A4%A7%E6%B4%8B%E6%B4%B2">戳我</a></td>
             </tr>
             <tr>
-                <td>center</td>
-                <td>国家的中心，用THREE.vector对象来表示</td>
+                <td>"North America"</td>
+                <td>北美洲</td>
+                <td><a href="https://baike.baidu.com/item/%E5%8C%97%E7%BE%8E%E6%B4%B2">戳我</a></td>
             </tr>
             <tr>
-                <td>lat</td>
-                <td>国家的纬度</td>
+                <td>"South America"</td>
+                <td>南美洲</td>
+                <td><a href="https://baike.baidu.com/item/%E5%8D%97%E7%BE%8E%E6%B4%B2">戳我</a></td>
             </tr>
             <tr>
-                <td>lon</td>
-                <td>国家的经度</td>
+                <td>"Europe"</td>
+                <td>欧洲</td>
+                <td><a href="https://baike.baidu.com/item/%E6%AC%A7%E6%B4%B2/145550">戳我</a></td>
             </tr>
             <tr>
-                <td>name</td>
-                <td>国家的名称</td>
+                <td>"Asia"</td>
+                <td>亚洲</td>
+                <td><a href="https://baike.baidu.com/item/%E4%BA%9A%E6%B4%B2">戳我</a></td>
+            </tr>
+            <tr>
+                <td>"Africa"</td>
+                <td>非洲</td>
+                <td><a href="https://baike.baidu.com/item/%E9%9D%9E%E6%B4%B2/81619">戳我</a></td>
             </tr>
             </tbody>
         </table>
-
     </main>
 </div>
 

@@ -11,5 +11,3 @@ src
 .babelrc
 .travis.yml
 rollup.config.js
-react-giojs
-

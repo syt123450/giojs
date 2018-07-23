@@ -25,7 +25,7 @@
 </p>
 <!-- [END screenshot] -->
 
-## Content
+## Table of Content
 
 * [Motivation](#motivation)
 * [Getting Started](#getting-started)
@@ -270,11 +270,11 @@ Change currently selected country.
 
 ## Documentation
 
-- For quick start, see [Getting Started](https://github.com/syt123450/Gio.js/blob/master/docs/en/Getting_Started.md)
+- For quick start, checkout [Getting Started](https://github.com/syt123450/Gio.js/blob/master/docs/en/Getting_Started.md)
 - To learn more about the [Basic Elements](https://github.com/syt123450/Gio.js/blob/master/docs/en/Basic_Elements.md)
-- To see the full API document in Markdown format, see [APIs](https://github.com/syt123450/Gio.js/blob/master/docs/en/APIs.md)
+- To see the full API document in Markdown format, checkout [APIs](https://github.com/syt123450/Gio.js/blob/master/docs/en/APIs.md)
 - To contribute to Gio.js's code base, read [Developer Guide](https://github.com/syt123450/Gio.js/blob/master/docs/en/Developer_Guide.md)
-- See Gio's official website [giojs.org](http://giojs.org) for everything above and plus lots of live examples
+- Checkout Gio's official website [giojs.org](http://giojs.org) for everything above and plus lots of live examples
 <!-- [END documentation] -->
 
 [screenshot-url]: http://via.placeholder.com/400x300

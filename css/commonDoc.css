@@ -42,6 +42,20 @@ aside > div > div {
     transition-duration: 0.3s;
 }
 
+aside > div > div > a {
+
+    color: #fff;
+    display: block;
+    width: 100%;
+
+}
+
+aside > div > div > a:hover {
+
+    color: #000;
+
+}
+
 aside > div > div:hover {
 
     color: #4d4d4d;
@@ -342,6 +356,20 @@ footer {
     position: relative;
     -webkit-transition-duration: 0.3s;
     transition-duration: 0.3s;
+}
+
+#hideNav > div > div > a {
+
+    color: #fff;
+    display: block;
+    width: 100%;
+
+}
+
+#hideNav > div > div > a:hover {
+
+    color: #000;
+
 }
 
 #startLabelS {

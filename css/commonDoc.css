@@ -50,6 +50,12 @@ aside > div > div > a {
 
 }
 
+aside > div.initLabel > div > a:hover {
+
+    color: #fff;
+
+}
+
 aside > div > div > a:hover {
 
     color: #000;
@@ -363,6 +369,12 @@ footer {
     color: #fff;
     display: block;
     width: 100%;
+
+}
+
+#hideNav > div.initLabel > div > a:hover {
+
+    color: #fff;
 
 }
 

@@ -183,6 +183,12 @@ main > div > ul > li {
     box-sizing: border-box;
 }
 
+main > div > ul > li > span {
+
+    color: #000;
+
+}
+
 main > div > ul > li > a {
     color: #29abe2;
 }

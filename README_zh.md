@@ -1,5 +1,5 @@
 
-<p align="center"><a href="https://giojs.org" target="_blank"><img src="https://raw.githack.com/syt123450/giojs/master/assets/readme/logo2.jpg" alt="Gio logo"></a></p>
+<p align="center"><a href="https://giojs.org" target="_blank"><img width="700" src="https://raw.githack.com/syt123450/giojs/master/assets/readme/logo2.jpg" alt="Gio logo"></a></p>
 
 <h1 align="center">Gio.js</h1>
 

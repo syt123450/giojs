@@ -6,7 +6,6 @@
 
     <meta name="description" content="Document page of Gio.js">
     <meta name="author" content="syt123450 / https://github.com/syt123450">
-    <meta name="author" content="lq3297401 / https://github.com/lq3297401">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel='icon' href='../../assets/images/logoTitle.ico' type=‘image/x-ico’>
 
@@ -71,7 +70,7 @@
 
     <div class="language">
         <div>
-            <div><a href="basicLine.html">EN</a></div>
+            <div><a href="introduce2.html">EN</a></div>
         </div>
         <div class="selected">
             <div>中</div>
@@ -102,10 +101,10 @@
             <li><a href="startOther_zh.html">其他文档资源</a></li>
         </ul>
     </div>
-    <div>
+    <div class="open initLabel">
         <div><a href="introduce2_zh.html">Gio.js 2.0</a></div>
     </div>
-    <div class="open initLabel">
+    <div>
         <div id="basicLabelS">
             基础元素<img src="../../assets/images/document_arrow.png">
         </div>
@@ -113,7 +112,7 @@
             <li><a href="basicIntro_zh.html">简介</a></li>
             <li><a href="basicSurface_zh.html">表面</a></li>
             <li><a href="basicCountry_zh.html">国家</a></li>
-            <li class="nowLabel">连接线</li>
+            <li><a href="basicLine_zh.html">连接线</a></li>
             <li><a href="basicBackground_zh.html">背景</a></li>
             <li><a href="basicHalo_zh.html">光晕</a></li>
             <li><a href="basicOcean_zh.html">海洋</a></li>
@@ -230,10 +229,10 @@
                 <li><a href="startOther_zh.html">其他文档资源</a></li>
             </ul>
         </div>
-        <div>
+        <div class="open initLabel">
             <div><a href="introduce2_zh.html">Gio.js 2.0</a></div>
         </div>
-        <div class="open initLabel">
+        <div>
             <div id="basicLabel">
                 基础元素<img src="../../assets/images/document_arrow.png">
             </div>
@@ -241,7 +240,7 @@
                 <li><a href="basicIntro_zh.html">简介</a></li>
                 <li><a href="basicSurface_zh.html">表面</a></li>
                 <li><a href="basicCountry_zh.html">国家</a></li>
-                <li class="nowLabel">连接线</li>
+                <li><a href="basicLine_zh.html">连接线</a></li>
                 <li><a href="basicBackground_zh.html">背景</a></li>
                 <li><a href="basicHalo_zh.html">光晕</a></li>
                 <li><a href="basicOcean_zh.html">海洋</a></li>
@@ -339,35 +338,24 @@
     </aside>
 
     <main>
-        <header>连接线</header>
-        <img class="tag-img" src="../../assets/images/elements/line_zh.jpg">
-        <div>连接线是Gio地球数据可视化的重要部分，两个国家之间的数据会通过数据线以流动的方式按照一定的方向移动。对于
-             <a href="basicCountry_zh.html">被选中的国家</a> ，表示流入数据的线条称为"输入线"，表示流出数据的线条称为"输出线"。
-            "输入线"的默认颜色是0x154492，"输出线"的默认颜色是0xdd380c。
+        <header>Gio.js 2.0</header>
+        <img class="tag-img" src="../../assets/images/logo_2.0.jpg">
+        <div>在Gio.js
+            1.0发布之后，开发者们提出了很多很酷的、很有建设性的建议，比如微信应用开发者希望Gio.js支持微信小程序，有经验的Three.js开发者希望Gio.js提供Three.js编程接口等。在经过仔细研究、综合设计之后，Gio.js
+            2.0实现了大部分功能，并且添加了有关文档说明。以下列出了主要的2.0新增特性：
         </div>
-        <div>可以通过 <a href="configureAPI_zh.html">configure</a> API来设置连接线的颜色，具体设置方法如下所示：</div>
-        <div class="code">
-            controller.configure({<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: {<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in:0xff0000,<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;out:0x00ff00<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-            });
+        <div>
+            <ul>
+                <li><span>提供微信小程序支持</span> <a href="https://github.com/syt123450/giojs-wechat-minigame-demo">demo</a></li>
+                <li><span>支持同时加载多数据集（data group）并提供数据集切换</span> <a href="dataAdd_zh.html#group">介绍</a></li>
+                <li><span>提供Three.js编程接口</span> <a href="interfaceThree_zh.html">介绍</a></li>
+                <li><span>提供Stats.js编程接口</span> <a href="interfaceStats_zh.html">介绍</a></li>
+                <li><span>支持输出数据到大洲</span> <a href="dataContinent_zh.html">介绍</a></li>
+                <li><span>提供输入数据检测</span> <a href="https://github.com/syt123450/giojs/issues/86">issue</a></li>
+                <li><span>新增数据清除</span> <a href="dataClear_zh.html">介绍</a></li>
+                <li><span>新增关闭实时加载</span> <a href="dataLiveLoad_zh.html">介绍</a></li>
+            </ul>
         </div>
-        <div>也可以通过 <a href="colorImport_zh.html">setInLineColor()</a> API和 <a
-                href="colorExport_zh.html">setOutLineColor()</a> API来动态改变"输入线"和"输出线"的颜色。</div>
-        <div>那可不可以设置特定某条连接线的颜色呢？当然是可以的。可以直接修改输入json数据来设置，具体设置方法如下所示：</div>
-        <div class="code">
-            {<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"e": "CN",<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"i": "US",<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"v": 100000,<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"inColor": "#0000ff",<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"outColor": "#00ff00"<br>
-            }
-        </div>
-        <div>动态设置连接线的颜色需要在调用controller.init()之后才会生效。想要了解更多相关数据设置的细节，
-            可以查看本文档的 <a href="dataSetLines_zh.html">数据</a> 部分。</div>
     </main>
 </div>
 

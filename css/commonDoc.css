@@ -42,6 +42,26 @@ aside > div > div {
     transition-duration: 0.3s;
 }
 
+aside > div > div > a {
+
+    color: #fff;
+    display: block;
+    width: 100%;
+
+}
+
+aside > div.initLabel > div > a:hover {
+
+    color: #fff;
+
+}
+
+aside > div > div > a:hover {
+
+    color: #000;
+
+}
+
 aside > div > div:hover {
 
     color: #4d4d4d;
@@ -161,6 +181,12 @@ main > div > ul > li {
     min-height: 30px;
     line-height: 30px;
     box-sizing: border-box;
+}
+
+main > div > ul > li > span {
+
+    color: #000;
+
 }
 
 main > div > ul > li > a {
@@ -342,6 +368,26 @@ footer {
     position: relative;
     -webkit-transition-duration: 0.3s;
     transition-duration: 0.3s;
+}
+
+#hideNav > div > div > a {
+
+    color: #fff;
+    display: block;
+    width: 100%;
+
+}
+
+#hideNav > div.initLabel > div > a:hover {
+
+    color: #fff;
+
+}
+
+#hideNav > div > div > a:hover {
+
+    color: #000;
+
 }
 
 #startLabelS {

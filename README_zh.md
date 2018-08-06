@@ -30,6 +30,7 @@
 
 * [为什么要使用Gio.js](#motivation)
 * [开始使用](#getting-started)
+* [Gio.js 2.0 介绍](#intro2)
 * [例子](#examples)
 * [API列表](#apiList)
 * [文档](#documentation)
@@ -128,6 +129,26 @@ yarn add giojs
 点击后面这个Codepen logo来在Codepen中试一下这个例子吧 ~ &nbsp;&nbsp;<a target="_blank" href="https://codepen.io/syt123450/pen/VXNdgM"><img width=50 height=50 src="https://raw.githack.com/syt123450/giojs/master/assets/readme/codepen.png"></a>
 
 <!-- [END getstarted] -->
+
+## <div id="intro2">Gio.js 2.0 介绍</div>
+
+在Gio.js 1.0发布之后，开发者们提出了很多很酷的、很有建设性的建议，比如微信应用开发者希望Gio.js支持微信小程序，有经验的Three.js开发者希望Gio.js提供Three.js编程接口等。在经过仔细研究、综合设计之后，Gio.js 2.0实现了大部分功能，并且添加了有关文档说明。以下列出了主要的2.0新增特性：
+
+* 提供微信小程序支持 <a href="https://github.com/syt123450/giojs-wechat-minigame-demo">demo</a>
+
+* 支持同时加载多数据集（data group）并提供数据集切换 <a href="http://giojs.org/html/docs/dataAdd_zh.html#group">介绍</a>
+
+* 提供Three.js编程接口 <a href="http://giojs.org/html/docs/interfaceThree_zh.html">介绍</a>
+
+* 提供Stats.js编程接口 <a href="http://giojs.org/html/docs/interfaceStats_zh.html">介绍</a>
+
+* 支持输出数据到大洲 <a href="http://giojs.org/html/docs/dataContinent_zh.html">介绍</a>
+
+* 提供输入数据检测 <a href="https://github.com/syt123450/giojs/issues/86">issue</a>
+
+* 新增数据清除 <a href="http://giojs.org/html/docs/dataClear_zh.html">介绍</a>
+
+* 新增关闭实时加载 <a href="http://giojs.org/html/docs/dataLiveLoad_zh.html">介绍</a>
 
 ## <div id="examples">例子</div>
 

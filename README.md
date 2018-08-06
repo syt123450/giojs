@@ -29,6 +29,7 @@
 
 * [Motivation](#motivation)
 * [Getting Started](#getting-started)
+* [Gio.js 2.0 Introduction](#intro2)
 * [Examples](#examples)
 * [API List](#api-list)
 * [Documentation](#documentation)
@@ -128,6 +129,26 @@ Click the codepen logo to try it in Codepen: &nbsp;&nbsp;<a target="_blank" href
 <!-- [END getstarted] -->
 
 <!-- [START documentation] -->
+
+## <div id="intro2">Gio.js 2.0 Introduction</div>
+
+After Gio.js 1.0 released, developers propose much cool and constructive advise. Gio.js implements most of these suggestions. Gio.js 2.0 comes with many big features such as:
+
+* Data group and switchDataSets API to switch between different data sets <a href="http://giojs.org/html/docs/dataAdd.html#group">introduction</a>
+
+* Provide Three.js programming interface <a href="http://giojs.org/html/docs/interfaceThree.html">introduction</a>
+
+* Provide Stats.js programming interface <a href="http://giojs.org/html/docs/interfaceStats.html">introduction</a>
+
+* Support export data to continent <a href="http://giojs.org/html/docs/dataContinent.html"></a>
+
+* Provide input data check <a href="https://github.com/syt123450/giojs/issues/86">issue</a>
+
+* Support WeChat mini program <a href="https://github.com/syt123450/giojs-wechat-minigame-demo">demo</a>
+
+* New clearData <a href="http://giojs.org/html/docs/dataClear.html">introduction</a>
+
+* New closeLiveLoader <a href="http://giojs.org/html/docs/dataLiveLoad.html">introduction</a>
 
 ## Examples
 

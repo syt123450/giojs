@@ -121,7 +121,8 @@ function Controller ( container, configureObject ) {
 
         clearData: function () {
 
-            controller.inputData = null;
+            controller.inputData = [];
+            controller.globalData = [];
 
             if ( controller.initialized === true ) {
 

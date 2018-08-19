@@ -1,6 +1,6 @@
 {
   "name": "giojs",
-  "version": "1.4.0",
+  "version": "2.0.0",
   "description": "3D Declarative Globe Info Graphic Javascript Library",
   "main": "build/gio.module.js",
   "directories": {

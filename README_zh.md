@@ -116,7 +116,11 @@ yarn add giojs
     // 创建Gio控制器
     var controller = new GIO.Controller( container );
 
-    // 添加数据，了解更多有关Gio.js数据格式，查看文档：http://giojs.org/html/docs/dataIntro_zh.html
+    /**
+    * 添加数据
+    * 了解更多有关Gio.js数据格式，查看文档：http://giojs.org/html/docs/dataIntro_zh.html
+    * 我们提供了测试数据以供快速上手Gio.js，从该链接中获取测试数据: https://github.com/syt123450/giojs/blob/master/examples/data/sampleData.json
+    */
     controller.addData( data );
 
     // 初始化并渲染地球

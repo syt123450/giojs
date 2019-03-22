@@ -73,8 +73,6 @@ var ObjectUtils = ( function () {
 
     function createRenderer ( container ) {
 
-        container.style.backgroundColor = "#ffffff";
-
         var sceneArea = document.createElement( "canvas" );
 
         // the scene's height and width only fit the div's actual height and width
@@ -89,7 +87,6 @@ var ObjectUtils = ( function () {
 
         sceneArea.width = container.clientWidth - paddingX - borderX;
         sceneArea.height = container.clientHeight - paddingY - borderY;
-        sceneArea.style.backgroundColor = "#ffffff";
 
         var renderer = new THREE.WebGLRenderer( { canvas: sceneArea, antialias: false } );
         renderer.setSize( sceneArea.width, sceneArea.height );

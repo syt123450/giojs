@@ -143,6 +143,7 @@
             <li><a href="designShowOnly_zh.html">显示(隐藏)输入线(输出线)</a></li>
             <li><a href="designHalo_zh.html">添加/删除光晕</a></li>
             <li><a href="designStats_zh.html">启动/禁用性能监控</a></li>
+            <li><a href="designTransparent_zh.html">透明背景</a></li>
         </ul>
     </div>
     <div>
@@ -271,6 +272,7 @@
                 <li><a href="designShowOnly_zh.html">显示(隐藏)输入线(输出线)</a></li>
                 <li><a href="designHalo_zh.html">添加/删除光晕</a></li>
                 <li><a href="designStats_zh.html">启动/禁用性能监控</a></li>
+                <li><a href="designTransparent_zh.html">透明背景</a></li>
             </ul>
         </div>
         <div>
@@ -342,7 +344,7 @@
         <header>连接线</header>
         <img class="tag-img" src="../../assets/images/elements/line_zh.jpg">
         <div>连接线是Gio地球数据可视化的重要部分，两个国家之间的数据会通过数据线以流动的方式按照一定的方向移动。对于
-             <a href="basicCountry_zh.html">被选中的国家</a> ，表示流入数据的线条称为"输入线"，表示流出数据的线条称为"输出线"。
+            <a href="basicCountry_zh.html">被选中的国家</a> ，表示流入数据的线条称为"输入线"，表示流出数据的线条称为"输出线"。
             "输入线"的默认颜色是0x154492，"输出线"的默认颜色是0xdd380c。
         </div>
         <div>可以通过 <a href="configureAPI_zh.html">configure</a> API来设置连接线的颜色，具体设置方法如下所示：</div>
@@ -355,7 +357,8 @@
             });
         </div>
         <div>也可以通过 <a href="colorImport_zh.html">setInLineColor()</a> API和 <a
-                href="colorExport_zh.html">setOutLineColor()</a> API来动态改变"输入线"和"输出线"的颜色。</div>
+                href="colorExport_zh.html">setOutLineColor()</a> API来动态改变"输入线"和"输出线"的颜色。
+        </div>
         <div>那可不可以设置特定某条连接线的颜色呢？当然是可以的。可以直接修改输入json数据来设置，具体设置方法如下所示：</div>
         <div class="code">
             {<br>
@@ -367,7 +370,8 @@
             }
         </div>
         <div>动态设置连接线的颜色需要在调用controller.init()之后才会生效。想要了解更多相关数据设置的细节，
-            可以查看本文档的 <a href="dataSetLines_zh.html">数据</a> 部分。</div>
+            可以查看本文档的 <a href="dataSetLines_zh.html">数据</a> 部分。
+        </div>
     </main>
 </div>
 

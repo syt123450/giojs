@@ -73,7 +73,7 @@
             <div>EN</div>
         </div>
         <div>
-            <div><a href="interfaceThree_zh.html">中</a></div>
+            <div><a href="designTransparent_zh.html">中</a></div>
         </div>
     </div>
 
@@ -130,7 +130,7 @@
             <li><a href="configureParams.html">Full Parameter List</a></li>
         </ul>
     </div>
-    <div>
+    <div class="open initLabel">
         <div id="designLabelS">
             Object Design API<img src="../../assets/images/document_arrow.png">
         </div>
@@ -142,7 +142,7 @@
             <li><a href="designShowOnly.html">showInOnly / showOutOnly</a></li>
             <li><a href="designHalo.html">addHalo / removeHalo</a></li>
             <li><a href="designStats.html">enableStats / disableStats</a></li>
-            <li><a href="designTransparent.html">Transparent Background</a></li>
+            <li class="nowLabel">Transparent Background</li>
         </ul>
     </div>
     <div>
@@ -188,13 +188,13 @@
             <li><a href="callbackPicked.html">onCountryPicked</a></li>
         </ul>
     </div>
-    <div class="open initLabel">
+    <div>
         <div id="interfaceLabelS">
             Dependence Interface<img src="../../assets/images/document_arrow.png">
         </div>
         <ul id="interfaceS">
             <li><a href="interfaceIntro.html">Introduce</a></li>
-            <li class="nowLabel">Three.js Interface</li>
+            <li><a href="interfaceThree.html">Three.js Interface</a></li>
             <li><a href="interfaceStats.html">Stats.js Interface</a></li>
         </ul>
     </div>
@@ -259,7 +259,7 @@
                 <li><a href="configureParams.html">Full Parameter List</a></li>
             </ul>
         </div>
-        <div>
+        <div class="open initLabel">
             <div id="designLabel">
                 Object Design API<img src="../../assets/images/document_arrow.png">
             </div>
@@ -271,7 +271,7 @@
                 <li><a href="designShowOnly.html">showInOnly / showOutOnly</a></li>
                 <li><a href="designHalo.html">addHalo / removeHalo</a></li>
                 <li><a href="designStats.html">enableStats / disableStats</a></li>
-                <li><a href="designTransparent.html">Transparent Background</a></li>
+                <li class="nowLabel">Transparent Background</li>
             </ul>
         </div>
         <div>
@@ -317,13 +317,13 @@
                 <li><a href="callbackPicked.html">onCountryPicked</a></li>
             </ul>
         </div>
-        <div class="open initLabel">
+        <div>
             <div id="interfaceLabel">
                 Dependence Interface<img src="../../assets/images/document_arrow.png">
             </div>
             <ul id="interface">
                 <li><a href="interfaceIntro.html">Introduce</a></li>
-                <li class="nowLabel">Three.js Interface</li>
+                <li><a href="interfaceThree.html">Three.js Interface</a></li>
                 <li><a href="interfaceStats.html">Stats.js Interface</a></li>
             </ul>
         </div>
@@ -340,59 +340,18 @@
     </aside>
 
     <main>
-        <header>Three.js Interface - getScene()</header>
-        <div>Get the reference of three.js scene object, after getting this object, it is possible to add your own
-            three.js object to the scene (for example, add universe background for earth). Checkout <a
-                    href="https://threejs.org/docs/index.html">Three.js documentation</a> for more information about
-            Scene.
+        <header>Transparent Background</header>
+        <div>Set Gio.js's background to be transparent, you can use a customized image as globe's background.
         </div>
-        <br>
         <div>
-            <a href="../../examples/27_addBackground.html" target="_blank">
-                <img class="live-demo" src="../../assets/images/liveDemoButton.png"> for Adding universe background
+            <a href="../../examples/31_transparent_background.html" target="_blank">
+                <img class="live-demo" src="../../assets/images/liveDemoButton.png">
             </a>
         </div>
-        <br>
-
-        <div>Code Example: (add background through scene object)</div>
         <div class="code">
-            controller.addData( inputData );<br>
-            controller.init();<br><br>
-
-            // get scene after controller initialized<br>
-            var scene = controller.getScene();<br><br>
-
-            // create a universe background which is an Three.js object<br>
-            var universe = createUniverse();<br><br>
-
-            // add universe to the scene<br>
-            scene.add(universe);<br><br>
-
-            // this function create a universe object (a three.js object)<br>
-            function createUniverse() {<br>
-
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var universeMesh = new THREE.Mesh();<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;universeMesh.geometry = new THREE.SphereGeometry(500, 128,
-            128);<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;universeMesh.material = new THREE.MeshBasicMaterial({<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;map: new
-            THREE.TextureLoader().load(<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'images/galaxy.png'<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;side:
-            THREE.BackSide<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});<br><br>
-
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return universeMesh;<br>
-            }<br>
+            controller.setTransparentBackground( true );
         </div>
-
-        <div>Gio.js with Background Effect:</div>
-        <img class="tag-img" src="../../assets/images/withBackground.jpg">
-
-        <div>Gio.js without Background:</div>
-        <img class="tag-img" src="../../assets/images/withoutBackground.jpg">
-
+        <img class="tag-img" src="../../assets/images/design/custom_background.png">
     </main>
 </div>
 

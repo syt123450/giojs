@@ -142,6 +142,7 @@
             <li><a href="designShowOnly.html">showInOnly / showOutOnly</a></li>
             <li><a href="designHalo.html">addHalo / removeHalo</a></li>
             <li><a href="designStats.html">enableStats / disableStats</a></li>
+            <li><a href="designTransparent.html">Transparent Background</a></li>
         </ul>
     </div>
     <div>
@@ -270,6 +271,7 @@
                 <li><a href="designShowOnly.html">showInOnly / showOutOnly</a></li>
                 <li><a href="designHalo.html">addHalo / removeHalo</a></li>
                 <li><a href="designStats.html">enableStats / disableStats</a></li>
+                <li><a href="designTransparent.html">Transparent Background</a></li>
             </ul>
         </div>
         <div>
@@ -345,13 +347,18 @@
                 <img class="live-demo" src="../../assets/images/liveDemoButton.png">
             </a>
         </div>
-        <div>Pass two objects: selectedCountry and relatedCountries. Selected country is an <a href="#countryObject">country object</a> for new <a href="basicCountry.html">selected country</a>, relatedCountries are <a href="#countryObject">country objects</a> for <a href="basicCountry.html">countries related</a> to new selected country.</div>
+        <div>Pass two objects: selectedCountry and relatedCountries. Selected country is an <a href="#countryObject">country
+            object</a> for new <a href="basicCountry.html">selected country</a>, relatedCountries are <a
+                href="#countryObject">country objects</a> for <a href="basicCountry.html">countries related</a> to new
+            selected country.
+        </div>
         <div>Usage:</div>
         <div class="code">
             // use the onCountryPicked() to set callback when clicked country changed<br>
             controller.onCountryPicked( callback );<br><br>
 
-            // defined a callback function, as a demo, this function simply output selectedCountry, relatedCountries which are passed parameters into console<br>
+            // defined a callback function, as a demo, this function simply output selectedCountry, relatedCountries
+            which are passed parameters into console<br>
             function callback ( selectedCountry, relatedCountries ) {<br><br>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(selectedCountry);<br>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(relatedCountries);<br><br>

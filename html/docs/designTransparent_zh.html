@@ -6,7 +6,6 @@
 
     <meta name="description" content="Document page of Gio.js">
     <meta name="author" content="syt123450 / https://github.com/syt123450">
-    <meta name="author" content="lq3297401 / https://github.com/lq3297401">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel='icon' href='../../assets/images/logoTitle.ico' type=‘image/x-ico’>
 
@@ -14,7 +13,7 @@
     <link rel="stylesheet" href="../../assets/cssLib/bootstrap.min.css">
     <script src="../../assets/jsLib/bootstrap.min.js"></script>
     <script src="../../js/websiteUtil.js"></script>
-    <script src="../../js/commonDoc.js"></script>
+    <script src="../../js/commonDoc_zh.js"></script>
 
     <link rel="stylesheet" href="../../css/common.css">
     <link rel="stylesheet" href="../../css/commonDoc.css">
@@ -71,7 +70,7 @@
 
     <div class="language">
         <div>
-            <div><a href="basicCountry.html">EN</a></div>
+            <div><a href="designTransparent.html">EN</a></div>
         </div>
         <div class="selected">
             <div>中</div>
@@ -105,14 +104,14 @@
     <div>
         <div><a href="introduce2_zh.html">Gio.js 2.0</a></div>
     </div>
-    <div class="open initLabel">
+    <div>
         <div id="basicLabelS">
             基础元素<img src="../../assets/images/document_arrow.png">
         </div>
         <ul id="basicS">
             <li><a href="basicIntro_zh.html">简介</a></li>
             <li><a href="basicSurface_zh.html">表面</a></li>
-            <li class="nowLabel">国家</li>
+            <li><a href="basicCountry_zh.html">国家</a></li>
             <li><a href="basicLine_zh.html">连接线</a></li>
             <li><a href="basicBackground_zh.html">背景</a></li>
             <li><a href="basicHalo_zh.html">光晕</a></li>
@@ -131,7 +130,7 @@
             <li><a href="configureParams_zh.html">配置参数表</a></li>
         </ul>
     </div>
-    <div>
+    <div class="open initLabel">
         <div id="designLabelS">
             功能设计型API<img src="../../assets/images/document_arrow.png">
         </div>
@@ -143,7 +142,7 @@
             <li><a href="designShowOnly_zh.html">显示(隐藏)输入线(输出线)</a></li>
             <li><a href="designHalo_zh.html">添加/删除光晕</a></li>
             <li><a href="designStats_zh.html">启动/禁用性能监控</a></li>
-            <li><a href="designTransparent_zh.html">透明背景</a></li>
+            <li class="nowLabel">透明背景</li>
         </ul>
     </div>
     <div>
@@ -234,14 +233,14 @@
         <div>
             <div><a href="introduce2_zh.html">Gio.js 2.0</a></div>
         </div>
-        <div class="open initLabel">
+        <div>
             <div id="basicLabel">
                 基础元素<img src="../../assets/images/document_arrow.png">
             </div>
             <ul id="basic">
                 <li><a href="basicIntro_zh.html">简介</a></li>
                 <li><a href="basicSurface_zh.html">表面</a></li>
-                <li class="nowLabel">国家</li>
+                <li><a href="basicCountry_zh.html">国家</a></li>
                 <li><a href="basicLine_zh.html">连接线</a></li>
                 <li><a href="basicBackground_zh.html">背景</a></li>
                 <li><a href="basicHalo_zh.html">光晕</a></li>
@@ -260,7 +259,7 @@
                 <li><a href="configureParams_zh.html">配置参数表</a></li>
             </ul>
         </div>
-        <div>
+        <div class="open initLabel">
             <div id="designLabel">
                 功能设计型API<img src="../../assets/images/document_arrow.png">
             </div>
@@ -272,7 +271,7 @@
                 <li><a href="designShowOnly_zh.html">显示(隐藏)输入线(输出线)</a></li>
                 <li><a href="designHalo_zh.html">添加/删除光晕</a></li>
                 <li><a href="designStats_zh.html">启动/禁用性能监控</a></li>
-                <li><a href="designTransparent_zh.html">透明背景</a></li>
+                <li class="nowLabel">透明背景</li>
             </ul>
         </div>
         <div>
@@ -341,57 +340,18 @@
     </aside>
 
     <main>
-        <header>国家</header>
-        <img class="tag-img" src="../../assets/images/elements/country_zh.jpg">
-        <div>每个国家都有一个特定的 <a href="https://en.wikipedia.org/wiki/ISO_3166-1">ISO 3166代码</a> 。</div>
-        根据输入数据和用户的交互行为，在Gio地球表面的国家可以有以下几种状态：
-        <div class="sub-title">1. 被选中的国家</div>
-        <div>当用户点击Gio地球表面某个国家的区域时，这个国家会以“被选中”的状态点亮。此时这个国家被称为"被选中的国家"。</div>
-        <div>可以通过 <a href="configureAPI_zh.html">configure()</a> API来设置被选中国家的颜色，具体设置方法如下所示：</div>
+        <header>透明背景</header>
+        <div>通过使用启用透明背景功能，可以使用自定义图片作为背景。
+        </div>
+        <div>
+            <a href="../../examples/31_transparent_background.html" target="_blank">
+                <img class="live-demo" src="../../assets/images/liveDemoButton_zh.png">
+            </a>
+        </div>
         <div class="code">
-            controller.configure({<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: {<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;selected:0xff0000<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-            });
+            controller.setTransparentBackground( true );
         </div>
-        <div>也可以通过 <a href="colorSelected_zh.html">setSelectedColor()</a> 来动态改变被选中国家的颜色。</div>
-        <div class="sub-title">2. 有关的国家</div>
-        <div>当一个国家被选中时，Gio地球会显示该国家的数据，这些数据会以"连接线"的形式呈现，被连接线连接的国家被称为"有关的国家"（不包括"选中的国家"）。</div>
-        <div>可以通过 <a href="configureAPI_zh.html">configure()</a> API来设置"有关的国家"的亮度，默认的亮度是0.5，具体设置方法如下所示：</div>
-        <div class="code">
-            controller.configure({<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;brightness: {<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;related:0.8<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-            });
-        </div>
-        <div>或者可以通过 <a href="colorRelatedBr_zh.html">adjustRelatedBrightness()</a> 来动态改变有关的国家的亮度。</div>
-        <div class="sub-title">3. 被提到的国家</div>
-        <div>除了"被选中的国家"和"有关的国家"之外，其余所有在数据集中提到的国家被定义为"提到过的国家"。</div>
-        <div>可以通过 <a href="designLightenMen_zh.html">ligtenMentioned(true)</a> 设置"被提到的国家"的亮度，使其比地球表面的亮度略高，
-            可以使用 <a href="designLightenMen_zh.html">ligtenMentioned(false)</a> 来关闭该功能，默认设置下该功能不开启。
-        </div>
-        <div>可以通过 <a href="configureAPI_zh.html">configure()</a> API来设置"被提到国家"的亮度，默认的亮度是0.5，具体设置方法如下所示：</div>
-        <div class="code">
-            controller.configure({<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: {<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mentioned:0.8<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-            });
-        </div>
-        <div>也可以通过 <a href="colorMenBr_zh.html">adjustMentionedBrightness()</a> 来动态设置"被提到国家"的亮度。
-            需要注意的是只有使用 <a href="designLightenMen_zh.html">ligtenMentioned(true)</a> 后才可以设置"被提到国家"的亮度。
-        </div>
-        <div class="sub-title">4. 未被提到的国家</div>
-        <div>那些在数据集中未被提到的国家被称为"未被提到的国家"。</div>
-        <div class="sub-title">5. 不可点击的国家</div>
-        <div>可以设置一个国家成为"不可点击的"状态，当用户点击"不可点击的国家"时，这个国家不会被点亮，同时也不会造成地球旋转。
-            （在默认情况下，当一个国家被点击时，Gio地球会旋转，使该国家朝向正前方）
-        </div>
-        <div>可以通过 <a href="designDisableUnmen_zh.html">disableUnmentioned(true)</a> API来将未在数据集中提到的数据设置为"不可点击的"，
-            也可以通过调用 <a href="designDisableUnmen_zh.html">disableUnmentioned(false)</a> API来关闭该设置。
-        </div>
+        <img class="tag-img" src="../../assets/images/design/custom_background.png">
     </main>
 </div>
 

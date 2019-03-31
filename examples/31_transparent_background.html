@@ -14,7 +14,7 @@
 
     <!-- must include the Gio.js library-->
 
-    <script src="js/gio.transparent.min.js"></script>
+    <script src="js/gio.min.js"></script>
 
     <link rel="stylesheet" href="css/common.css">
 
@@ -40,13 +40,13 @@
 </head>
 <body>
 
-<header>A demo showing the transparent background</header>
+<!--<header>A demo showing the transparent background</header>-->
 
 <div id="globalArea"></div>
 
-<div class="view_source">
-    <a href="https://github.com/syt123450/Gio.js/blob/master/examples/31_transparent_background.html">View Source</a>
-</div>
+<!--<div class="view_source">-->
+    <!--<a href="https://github.com/syt123450/Gio.js/blob/master/examples/31_transparent_background.html">View Source</a>-->
+<!--</div>-->
 
 <script>
 
@@ -59,6 +59,8 @@
 	var controller = new GIO.Controller( container );
 
 	controller.setSurfaceColor( "#0008ff" );
+
+	controller.setTransparentBackground( true );
 
 	// ask a file for the JSON data, using AJAX to load the data
 

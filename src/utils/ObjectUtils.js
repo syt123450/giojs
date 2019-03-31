@@ -71,7 +71,7 @@ var ObjectUtils = ( function () {
 
     //create Three.js renderer, using webgl renderer to render canvas
 
-    function createRenderer ( container ) {
+    function createRenderer ( container, alpha ) {
 
         var sceneArea = document.createElement( "canvas" );
 
@@ -88,12 +88,12 @@ var ObjectUtils = ( function () {
         sceneArea.width = container.clientWidth - paddingX - borderX;
         sceneArea.height = container.clientHeight - paddingY - borderY;
 
-        var renderer = new THREE.WebGLRenderer( { canvas: sceneArea, antialias: false } );
+        var renderer = new THREE.WebGLRenderer( { canvas: sceneArea, antialias: false, alpha: alpha } );
         renderer.setSize( sceneArea.width, sceneArea.height );
         renderer.autoClear = false;
         renderer.sortObjects = false;
         renderer.generateMipmaps = false;
-
+        
         return renderer;
 
     }

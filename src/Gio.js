@@ -537,6 +537,14 @@ function Controller ( container, configureObject ) {
 
             return this;
 
+        },
+        
+        setTransparentBackground: function( isTransparent ) {
+	
+	        controller.configure.control.transparentBackground = isTransparent;
+	        
+	        return this;
+         
         }
 
     }

@@ -38,7 +38,11 @@ function Configure () {
 
         // control whether show halo
 
-        halo: true
+        halo: true,
+        
+        // Control whether to have a transparent background.
+        
+        transparentBackground: false
 
     };
 

@@ -14,7 +14,7 @@
 
     <!-- must include the Gio.js library-->
 
-    <script src="../build/gio.transparent.min.js"></script>
+    <script src="../build/gio.min.js"></script>
 
     <link rel="stylesheet" href="css/common.css">
 
@@ -59,6 +59,10 @@
 	var controller = new GIO.Controller( container );
 
 	controller.setSurfaceColor( "#0008ff" );
+
+	// Use setTransparentBackground API to set transparent background. 'true' means enable transparent background.
+
+    controller.setTransparentBackground( true );
 
 	// ask a file for the JSON data, using AJAX to load the data
 

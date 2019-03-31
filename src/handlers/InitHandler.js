@@ -93,7 +93,7 @@ function InitHandler ( controller ) {
 
         // create all the objects for the scene
 
-        controller.renderer = ObjectUtils.createRenderer( controller.container );
+        controller.renderer = ObjectUtils.createRenderer( controller.container, controller.configure.control.transparentBackground );
         controller.camera = ObjectUtils.createCamera( controller.container );
         controller.lights = ObjectUtils.createLights();
 

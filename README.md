@@ -154,6 +154,8 @@ After Gio.js 1.0 released, developers propose many cool and constructive advise.
 
 * New closeLiveLoader [<a href="http://giojs.org/html/docs/dataLiveLoad.html">introduction</a>]
 
+* Transparent Background [<a href="http://giojs.org/html/docs/designTransparent.html">introduction</a>]
+
 ## Examples
 
 Gio.js has many representative demos to show how to work with Gio.js, there are mainly three example resources:
@@ -212,6 +214,10 @@ Displays stats on the upper-left corner of the scene.
 **[➡ `disableStats()`](http://giojs.org/html/docs/designStats.html)**
 
 Hides stats on the upper-left corner of the scene.
+
+**[➡ `setTransparentBackground()`](http://giojs.org/html/docs/designTransparent.html)**
+
+Make default background transparent.
 
 **[➡ `setStyle(string)`](http://giojs.org/html/docs/colorStyle.html)**
 

@@ -154,6 +154,8 @@ yarn add giojs
 
 * 新增关闭实时加载 [<a href="http://giojs.org/html/docs/dataLiveLoad_zh.html">介绍</a>]
 
+* 透明背景 [<a href="http://giojs.org/html/docs/designTransparent_zh.html">介绍</a>]
+
 ## <div id="examples">例子</div>
 
 Gio.js有很多代表性的例子，这些例子可以作为小帮手，辅助你成为一个Gio.js的专家！大致可以将这些小帮手分成三类：
@@ -211,6 +213,10 @@ Gio.js有很多codepen的例子，你可以在codepen中编辑修改它们。点
 **[➡ `disableStats()`](http://giojs.org/html/docs/designStats_zh.html)**
 
 隐藏左上角的"性能监控"组件。
+
+**[➡ `setTransparentBackground()`](http://giojs.org/html/docs/designTransparent_zh.html)**
+
+将默认背景设置为透明。
 
 **[➡ `setStyle(string)`](http://giojs.org/html/docs/colorStyle_zh.html)**
 

@@ -2027,7 +2027,7 @@ var ObjectUtils = ( function () {
 
     //create Three.js renderer, using webgl renderer to render canvas
 
-    function createRenderer ( container ) {
+    function createRenderer ( container, alpha ) {
 
         var sceneArea = document.createElement( "canvas" );
 
@@ -2044,12 +2044,12 @@ var ObjectUtils = ( function () {
         sceneArea.width = container.clientWidth - paddingX - borderX;
         sceneArea.height = container.clientHeight - paddingY - borderY;
 
-        var renderer = new THREE.WebGLRenderer( { canvas: sceneArea, antialias: false } );
+        var renderer = new THREE.WebGLRenderer( { canvas: sceneArea, antialias: false, alpha: alpha } );
         renderer.setSize( sceneArea.width, sceneArea.height );
         renderer.autoClear = false;
         renderer.sortObjects = false;
         renderer.generateMipmaps = false;
-
+        
         return renderer;
 
     }
@@ -3172,7 +3172,7 @@ function InitHandler ( controller ) {
 
         // create all the objects for the scene
 
-        controller.renderer = ObjectUtils.createRenderer( controller.container );
+        controller.renderer = ObjectUtils.createRenderer( controller.container, controller.configure.control.transparentBackground );
         controller.camera = ObjectUtils.createCamera( controller.container );
         controller.lights = ObjectUtils.createLights();
 
@@ -3294,7 +3294,11 @@ function Configure () {
 
         // control whether show halo
 
-        halo: true
+        halo: true,
+        
+        // Control whether to have a transparent background.
+        
+        transparentBackground: false
 
     };
 
@@ -4816,6 +4820,14 @@ function Controller ( container, configureObject ) {
 
             return this;
 
+        },
+        
+        setTransparentBackground: function( isTransparent ) {
+	
+	        controller.configure.control.transparentBackground = isTransparent;
+	        
+	        return this;
+         
         }
 
     }

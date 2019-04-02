@@ -56,11 +56,15 @@
 
 	// create controller for the IO globe, input the container as the parameter
 
-	var controller = new GIO.Controller( container );
+    var controller = new GIO.Controller( container );
 
-	controller.setSurfaceColor( "#0008ff" );
+    controller.setSurfaceColor( "#81F5FD" );
+    controller.setSelectedColor("#81F5FD");
+    controller.setExportColor("#0A8DFF");
+    controller.setImportColor("#9D12E2");
+    controller.setHaloColor("#81F5FD");
 
-	// Use setTransparentBackground API to set transparent background. 'true' means enable transparent background.
+    // Use setTransparentBackground API to set transparent background. 'true' means enable transparent background.
 
     controller.setTransparentBackground( true );
 

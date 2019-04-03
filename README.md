@@ -21,7 +21,7 @@
 
 <!-- [START screenshot] -->
 <p align="center">
-  <img src="https://raw.githack.com/syt123450/giojs/master/assets/readme/Gio.gif"/>
+  <img src="https://raw.githack.com/syt123450/giojs/master/assets/readme/Gio2.gif"/>
 </p>
 <!-- [END screenshot] -->
 
@@ -67,7 +67,7 @@ Include local Gio.js library
 or through CDN
 ```html
 <script src="https://threejs.org/build/three.min.js"></script>
-<script src="https://raw.githack.com/syt123450/giojs/master/build/gio.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/giojs@2.2.0/build/gio.min.js"></script>
 ```
 - Option 2: npm
 ```bash

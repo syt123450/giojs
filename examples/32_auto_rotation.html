@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Auto Rotation / Gio.js</title>
+
+    <script src="js/three.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+
+    <script src="js/gio.min.js"></script>
+
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/compare.css">
+
+</head>
+<body>
+
+<div class="originalTitle">The Basic Globe</div>
+<div id="originalArea"></div>
+
+<div class="changedTitle">Auto Rotation, speed 0.5</div>
+<div id="changedArea"></div>
+
+<div class="view_source">
+    <a href="https://github.com/syt123450/Gio.js/blob/master/examples/32_auto_rotation.html">View Source</a>
+</div>
+
+<script>
+
+	var containerOriginal = document.getElementById( "originalArea" );
+	var containerRotation = document.getElementById( "changedArea" );
+
+	var controllerOriginal = new GIO.Controller( containerOriginal );
+	var controllerRotation = new GIO.Controller( containerRotation );
+
+	// use the setAutoRotation() API to enable auto-rotation, default to `false`, set speed to be 0.5, rotation speed default to 1.
+
+	controllerRotation.setAutoRotation( true, 0.5 );
+
+	$.ajax( {
+
+		url: "data/sampleData.json",
+		type: "GET",
+		contentType: "application/json; charset=utf-8",
+		async: true,
+		dataType: "json",
+		success: function ( inputData ) {
+
+			controllerOriginal.addData( inputData );
+			controllerOriginal.init();
+			controllerRotation.addData( inputData );
+			controllerRotation.init();
+
+		}
+
+	} );
+
+</script>
+
+</body>
+</html>

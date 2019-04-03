@@ -16,7 +16,7 @@ var EarlySpringStyle = ( function () {
 
             out: 0x7CEEB1,
 
-            halo: 0x7CEEBQ,
+            halo: 0x7CEEB1,
 
             background: 0x000000
         },

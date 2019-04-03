@@ -41,6 +41,222 @@ var StyleFactory = ( function () {
 }() );
 
 /**
+ * @author Qi Liu / https://github.com/lq3297401
+ */
+
+var BlueInkStyle = ( function () {
+
+    return {
+
+        color: {
+
+            surface: 0x008DD4,
+
+            selected: 0x608BF0,
+
+            in: 0xFFFFFF,
+
+            out: 0x0202EE,
+
+            halo: 0x0E6FEE,
+
+            background: 0x000000
+        },
+
+        brightness: {
+
+            ocean: 0.5,
+
+            mentioned: 0.5,
+
+            related: 0.5
+        }
+
+    }
+
+}() );
+
+/**
+ * @author Qi Liu / https://github.com/lq3297401
+ */
+
+var EarlySpringStyle = ( function () {
+
+    return {
+
+        color: {
+
+            surface: 0xB04ED4,
+
+            selected: 0xF082EC,
+
+            in: 0xFBC2EB,
+
+            out: 0x7CEEB1,
+
+            halo: 0x7CEEB1,
+
+            background: 0x000000
+        },
+
+        brightness: {
+
+            ocean: 0.5,
+
+            mentioned: 0.5,
+
+            related: 0.5
+        }
+
+    }
+
+}() );
+
+/**
+ * @author Qi Liu / https://github.com/lq3297401
+ */
+
+var FrozenBerryStyle = ( function () {
+
+    return {
+
+        color: {
+
+            surface: 0xE8198B,
+
+            selected: 0x81F5FD,
+
+            in: 0xE8198B,
+
+            out: 0x81F5FD,
+
+            halo: 0x81F5FD,
+
+            background: 0x000000
+        },
+
+        brightness: {
+
+            ocean: 0.5,
+
+            mentioned: 0.5,
+
+            related: 0.5
+        }
+
+    }
+
+}() );
+
+/**
+ * @author Qi Liu / https://github.com/lq3297401
+ */
+
+var GorgeousDreamStyle = ( function () {
+
+    return {
+
+        color: {
+
+            surface: 0x7828D4,
+
+            selected: 0x527CF0,
+
+            in: 0xCC208E,
+
+            out: 0x3126D2,
+
+            halo: 0x7A6BFF,
+
+            background: 0x000000
+        },
+
+        brightness: {
+
+            ocean: 0.5,
+
+            mentioned: 0.5,
+
+            related: 0.5
+        }
+
+    }
+
+}() );
+
+/**
+ * @author Qi Liu / https://github.com/lq3297401
+ */
+
+var JuicyCakeStyle = ( function () {
+
+    return {
+
+        color: {
+
+            surface: 0xCE26D4,
+
+            selected: 0xE8F000,
+
+            in: 0xF7BB2F,
+
+            out: 0xE155AB,
+
+            halo: 0xF9A6FF,
+
+            background: 0x000000
+        },
+
+        brightness: {
+
+            ocean: 0.5,
+
+            mentioned: 0.5,
+
+            related: 0.5
+        }
+
+    }
+
+}() );
+
+/**
+ * @author Qi Liu / https://github.com/lq3297401
+ */
+
+var LemonGateStyle = ( function () {
+
+    return {
+
+        color: {
+
+            surface: 0x9C63D4,
+
+            selected: 0x913DFF,
+
+            in: 0x8A6AD4,
+
+            out: 0x3486E4,
+
+            halo: 0x3BCBFF,
+
+            background: 0x000000
+        },
+
+        brightness: {
+
+            ocean: 0.5,
+
+            mentioned: 0.5,
+
+            related: 0.5
+        }
+
+    }
+
+}() );
+
+/**
  * @author syt123450 / https://github.com/syt123450
  */
 
@@ -97,6 +313,78 @@ var MintStyle = ( function () {
             out: 0x2E92AB,
 
             halo: 0xBDFFC8,
+
+            background: 0x000000
+        },
+
+        brightness: {
+
+            ocean: 0.5,
+
+            mentioned: 0.5,
+
+            related: 0.5
+        }
+
+    }
+
+}() );
+
+/**
+ * @author Qi Liu / https://github.com/lq3297401
+ */
+
+var NearMoonStyle = ( function () {
+
+    return {
+
+        color: {
+
+            surface: 0x9C63D4,
+
+            selected: 0x913DFF,
+
+            in: 0x8A6AD4,
+
+            out: 0x3486E4,
+
+            halo: 0x3BCBFF,
+
+            background: 0x000000
+        },
+
+        brightness: {
+
+            ocean: 0.5,
+
+            mentioned: 0.5,
+
+            related: 0.5
+        }
+
+    }
+
+}() );
+
+/**
+ * @author Qi Liu / https://github.com/lq3297401
+ */
+
+var OctoberPartyStyle = ( function () {
+
+    return {
+
+        color: {
+
+            surface: 0x1724D4,
+
+            selected: 0x8D4AF0,
+
+            in: 0xDCE31E,
+
+            out: 0x3B1BDE,
+
+            halo: 0xEEEE7E,
 
             background: 0x000000
         },
@@ -223,172 +511,36 @@ var SunsetStyle = ( function () {
 }() );
 
 /**
- * @author Qi Liu / https://github.com/lq3297401
- */
-
-var NearMoonStyle = ( function () {
-
-    return {
-
-        color: {
-
-            surface: 0x9C63D4,
-
-            selected: 0x913DFF,
-
-            in: 0x8A6AD4,
-
-            out: 0x3486E4,
-
-            halo: 0x3BCBFF,
-
-            background: 0x000000
-        },
-
-        brightness: {
-
-            ocean: 0.5,
-
-            mentioned: 0.5,
-
-            related: 0.5
-        }
-
-    }
-
-}() );
-
-/**
- * @author Qi Liu / https://github.com/lq3297401
- */
-
-var LemonGateStyle = ( function () {
-
-    return {
-
-        color: {
-
-            surface: 0x9C63D4,
-
-            selected: 0x913DFF,
-
-            in: 0x8A6AD4,
-
-            out: 0x3486E4,
-
-            halo: 0x3BCBFF,
-
-            background: 0x000000
-        },
-
-        brightness: {
-
-            ocean: 0.5,
-
-            mentioned: 0.5,
-
-            related: 0.5
-        }
-
-    }
-
-}() );
-
-/**
- * @author Qi Liu / https://github.com/lq3297401
- */
-
-var JuicyCakeStyle = ( function () {
-
-    return {
-
-        color: {
-
-            surface: 0xCE26D4,
-
-            selected: 0xE8F000,
-
-            in: 0xF7BB2F,
-
-            out: 0xE155AB,
-
-            halo: 0xF9A6FF,
-
-            background: 0x000000
-        },
-
-        brightness: {
-
-            ocean: 0.5,
-
-            mentioned: 0.5,
-
-            related: 0.5
-        }
-
-    }
-
-}() );
-
-/**
- * @author Qi Liu / https://github.com/lq3297401
- */
-
-var GorgeousDreamStyle = ( function () {
-
-    return {
-
-        color: {
-
-            surface: 0x7828D4,
-
-            selected: 0x527CF0,
-
-            in: 0xCC208E,
-
-            out: 0x3126D2,
-
-            halo: 0x7A6BFF,
-
-            background: 0x000000
-        },
-
-        brightness: {
-
-            ocean: 0.5,
-
-            mentioned: 0.5,
-
-            related: 0.5
-        }
-
-    }
-
-}() );
-
-/**
  * @author syt123450 / https://github.com/syt123450
  */
 
 // developer need to register their new style to StyleFactory here
 
+StyleFactory.register( "blueInk", BlueInkStyle );
+
+StyleFactory.register( "earlySpring", EarlySpringStyle );
+
+StyleFactory.register( "frozenBerry", FrozenBerryStyle );
+
+StyleFactory.register( "gorgeousDream", GorgeousDreamStyle );
+
+StyleFactory.register( "juicyCake", JuicyCakeStyle );
+
+StyleFactory.register( "lemonGate", LemonGateStyle );
+
 StyleFactory.register( "magic", MagicStyle );
 
 StyleFactory.register( "mint", MintStyle );
+
+StyleFactory.register( "nearMoon", NearMoonStyle );
+
+StyleFactory.register( "octoberParty", OctoberPartyStyle );
 
 StyleFactory.register( "redBlue", RedBlueStyle );
 
 StyleFactory.register( "strawberry", StrawberryStyle );
 
 StyleFactory.register( "sunset", SunsetStyle );
-
-StyleFactory.register( "nearMoon", NearMoonStyle );
-
-StyleFactory.register( "lemonGate", LemonGateStyle );
-
-StyleFactory.register( "juicyCake", JuicyCakeStyle );
-
-StyleFactory.register( "gorgeousDream", GorgeousDreamStyle );
 
 /**
  * @author syt123450 / https://github.com/syt123450

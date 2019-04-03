@@ -42,7 +42,15 @@ function Configure () {
         
         // Control whether to have a transparent background.
         
-        transparentBackground: false
+        transparentBackground: false,
+	
+	    // Control whether globe will rotate automatically.
+        
+        autoRotation: false,
+        
+        // Control globe auto-rotation speed, for example, 2 means two time of normal speed.
+        
+        rotationRatio: 1
 
     };
 

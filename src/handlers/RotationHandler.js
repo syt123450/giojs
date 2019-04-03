@@ -17,7 +17,12 @@ function RotationHandler ( controller ) {
     var rotateXMax = 90 * Math.PI / 180;
 
     var dragging = false;
-
+    
+    var basicRotationSpeed = 0.005;
+    
+    var autoRotation = undefined;
+    var rotationRatio = undefined;
+	
     function update () {
 
         if ( rotateTargetX !== undefined && rotateTargetY !== undefined ) {
@@ -32,6 +37,14 @@ function RotationHandler ( controller ) {
 
             }
 
+        } else {
+	
+            if ( autoRotation ) {
+             
+	            rotateVY = basicRotationSpeed * rotationRatio;
+             
+            }
+         
         }
 
         rotateX += rotateVX;
@@ -100,12 +113,21 @@ function RotationHandler ( controller ) {
         rotateVY *= 0.6;
 
     }
+    
+    function updateRotationConfig() {
+        
+	    autoRotation = controller.configure.control.autoRotation;
+	    rotationRatio = controller.configure.control.rotationRatio;
+	    
+    }
 
     return {
 
         rotateToTargetCountry: rotateToTargetCountry,
 
         update: update,
+	
+	    updateRotationConfig: updateRotationConfig,
 
         addRotateVY: function ( VYValue ) {
 

@@ -45,6 +45,10 @@ function InitHandler ( controller ) {
         // init object and action related to selected country
 
         initSelected();
+        
+        // init rotationHandler parameters
+        
+	    controller.rotationHandler.updateRotationConfig();
 
         // set finishing initialization sign
 

@@ -545,6 +545,24 @@ function Controller ( container, configureObject ) {
 	        
 	        return this;
          
+        },
+        
+        setAutoRotation: function( isAutoRotation, rotationRatio ) {
+        
+            controller.configure.control.autoRotation = isAutoRotation;
+            
+            if ( rotationRatio !== undefined && rotationRatio >= 0 ) {
+	
+	            controller.configure.control.rotationRatio = rotationRatio;
+             
+            }
+            
+            if ( controller.initialized ) {
+                
+                controller.rotationHandler.updateRotationConfig();
+                
+            }
+            
         }
 
     }

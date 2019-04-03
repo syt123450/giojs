@@ -21,7 +21,7 @@
 
 <!-- [START screenshot] -->
 <p align="center">
-  <img src="https://raw.githack.com/syt123450/giojs/master/assets/readme/Gio2.gif"/>
+  <img src="https://raw.githack.com/syt123450/giojs/master/assets/readme/Gio.gif"/>
 </p>
 <!-- [END screenshot] -->
 
@@ -156,6 +156,8 @@ After Gio.js 1.0 released, developers propose many cool and constructive advise.
 
 * Transparent Background [<a href="http://giojs.org/html/docs/designTransparent.html">introduction</a>]
 
+* Auto Rotation [<a href="https://giojs.org/html/docs/designRotation.html">introduction</a>]
+
 ## Examples
 
 Gio.js has many representative demos to show how to work with Gio.js, there are mainly three example resources:
@@ -218,6 +220,10 @@ Hides stats on the upper-left corner of the scene.
 **[➡ `setTransparentBackground()`](http://giojs.org/html/docs/designTransparent.html)**
 
 Make default background transparent.
+
+**[➡ `setAutoRotation()`](https://giojs.org/html/docs/designRotation.html)**
+
+Make globe rotate automatically.
 
 **[➡ `setStyle(string)`](http://giojs.org/html/docs/colorStyle.html)**
 

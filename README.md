@@ -67,7 +67,7 @@ Include local Gio.js library
 or through CDN
 ```html
 <script src="https://threejs.org/build/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/giojs@2.2.0/build/gio.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/giojs@2.2.1/build/gio.min.js"></script>
 ```
 - Option 2: npm
 ```bash

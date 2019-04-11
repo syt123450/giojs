@@ -88,7 +88,7 @@ var ObjectUtils = ( function () {
         sceneArea.width = container.clientWidth - paddingX - borderX;
         sceneArea.height = container.clientHeight - paddingY - borderY;
 
-        var renderer = new THREE.WebGLRenderer( { canvas: sceneArea, antialias: false, alpha: alpha } );
+        var renderer = new THREE.WebGLRenderer( { canvas: sceneArea, antialias: true, alpha: alpha } );
         renderer.setSize( sceneArea.width, sceneArea.height );
         renderer.autoClear = false;
         renderer.sortObjects = false;
